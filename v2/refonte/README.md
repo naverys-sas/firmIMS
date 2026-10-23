@@ -38,6 +38,7 @@ Ce qui ne peut se faire qu'avec IQANdesign (essais, saisie, export) est listé d
 | [09_faisceaux.md](09_faisceaux.md) | Brochage v2 de chaque connecteur (MC42, MD4-5, MD4-10, MD3, MC2), ID-tags, questions de câblage |
 | [10_besoins_iqandesign.md](10_besoins_iqandesign.md) | Essais, mesures et saisies à faire sur le PC |
 | [11_plan_de_construction.md](11_plan_de_construction.md) | Étapes de construction, chacune livrable et contrôlée |
+| [12_estimation.md](12_estimation.md) | Temps, consommation et modèle Claude conseillé pour la construction |
 | [annexes/ecarts_E_T.md](annexes/ecarts_E_T.md) | Les écarts entre copies E et T de la logique chenilles, canal par canal, à trancher |
 | [spec/](spec/) | Conception détaillée en tableaux (un CSV par groupe) : la source de vérité |
 | [iqan/](iqan/) | Les mêmes tableaux traduits au format texte IQANdesign, à saisir dans l'IDE |
