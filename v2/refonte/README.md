@@ -60,4 +60,6 @@ python -I outils_pilotage/conception/ecarts_e_t.py exports/TESTIA_108.3.1.txt > 
 | Q5 | #001 (Kohler) et #010 (one-off V10.8.12) : à couvrir ? | #001 non (D20) ; #010 à vérifier sur place |
 | Q6 | Valider l'architecture (D23), les conventions (D26) et la grille de journaux (D34) | — |
 
+Objectif permanent ajouté le 23/10/2026 : proposer un matériel et des faisceaux simplifiés et standardisés pour les bateaux futurs, le code restant compatible avec tous les câblages existants (D37, [09_faisceaux.md](09_faisceaux.md) §9.8).
+
 Questions de câblage F1 à F5 : [09_faisceaux.md](09_faisceaux.md) §9.7.

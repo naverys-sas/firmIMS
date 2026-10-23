@@ -121,3 +121,15 @@ MD3 du projet MC2 : comme §9.4, plus accéléromètre X / Y / Z sur C2:9 / C2:1
 | F3 | C1:38 : capteur de tension du gonflage 24 V ou capteur de courant (plan IND N) ? | même broche, deux usages |
 | F4 | Commuter : le tendeur est-il en PWM (V25) sur tous les Commuter, ou seulement les premiers ? | valeur par défaut de `Cab track tension` à la migration |
 | F5 | Écran des Kreisel Original #020, #024, #032 : MD3 ou MD4-10 ? | configuration à la migration |
+
+## 9.8 Vers un matériel simplifié et standardisé (bateaux futurs, D37)
+
+Les §9.1 à 9.7 décrivent le câblage **existant**, que la v2 pilote et continuera de piloter. En parallèle, le projet proposera un câblage **neuf**, plus simple, pour les bateaux futurs (et éventuellement des refits volontaires). Un câblage neuf s'ajoute dans `10 IO` comme une configuration de plus ; il ne retire jamais le support d'un faisceau existant. Pistes à instruire, qui donneront des propositions de schémas :
+
+- **Un seul brochage MC42 pour tous les modèles** : aujourd'hui C1:24, 25, 26, 36, 44, 47/60, 52 changent de rôle entre X100 thermique, X100 électrique et Commuter.
+- **Moins de keyboxes et de fusebox** : les relais K1 à K13 de la keybox X100 changent de sens selon la propulsion ; les Commuter ont trois keyboxes (KTB, KBB, KTC) et plusieurs fusebox FBA selon le variateur. Étudier une distribution de puissance unique par modèle (module de puissance CAN à sorties protégées, ou sorties directes du MC42 et d'un module d'extension IQAN), identique en électrique et en thermique pour tout ce qui n'est pas la propulsion.
+- **Faisceaux modulaires** : un faisceau de base commun (MC42, écran, bloc hydraulique, CAN) et un faisceau par propulsion (moteur thermique, ou batterie et variateurs), avec des connecteurs identiques.
+- **Bus CAN normalisés** : un bus par usage (propulsion, énergie, confort, écrans), mêmes vitesses sur tous les modèles ; fin du port B partagé.
+- **Écran** : câblage prévu pour le MD5 (CAN, Ethernet), emplacement unique des joysticks.
+
+Chaque proposition sera chiffrée (nombre de boîtiers, de références de faisceau, de broches) et comparée à l'existant, puis notée dans `DECISIONS.md`.
