@@ -1,17 +1,17 @@
 # 11. Plan de construction
 
-La v2 MC42 se construit **dans une copie de la v2 en cours** (108.3.1 + étape A, D6), par étapes courtes. Chaque étape laisse un projet qui compile, qui passe les contrôles, et qui se comporte exactement comme avant sauf changements décidés. On ne construit pas la nouvelle arborescence d'un coup à côté de l'ancienne : on **migre bloc par bloc**, en supprimant l'ancien bloc dès que le nouveau est en place.
+Le socle se construit **dans la v2 MC42-MD4, copie de la v2 en cours** (108.3.1 + étape A, D6), par étapes courtes ; il est ensuite reporté dans la v2 MC42-MD3 (copie de la V69) et la v2 MC2 (copie de la V5.37), voir D38. Chaque étape laisse un projet qui compile, qui passe les contrôles, et qui se comporte exactement comme avant sauf changements décidés. On ne construit pas la nouvelle arborescence d'un coup à côté de l'ancienne : on **migre bloc par bloc**. Les nouveaux canaux sont créés dans les nouveaux groupes, les lecteurs sont rebranchés un par un, puis l'ancienne logique est supprimée. Les paramètres historiques ne sont jamais coupés / collés ni recréés : ils sont déplacés par glisser-déposer dans `CFG Settings (historical)`, ce qui garde leur identifiant et leurs références (B11, D40). Aucun canal lu par d'autres ne se déplace par couper / coller (ses lecteurs passeraient à « Undefined », B1).
 
 Chaque étape se termine par :
 1. enregistrement, export texte dans `exports/`, copie du `.idax` dans `v2/projet/` ;
-2. `check_spec.py` (conformité à la conception), `compat_check.py` contre les cinq projets de référence, `anomalies.py`, `diff_versions.py` contre l'étape précédente ;
+2. `check_spec.py` (conformité à la conception), `compat_check.py` contre les projets de référence de la lignée (par identifiant interne et nombre d'états), `anomalies.py`, `diff_versions.py` contre l'étape précédente ;
 3. mise à jour de `DECISIONS.md` et commit.
 
 | Étape | Contenu | Spécification | Prérequis | Effet sur les bateaux |
 |---|---|---|---|---|
-| **0** | Essais B1, B2, B5 ; exports B4 | [10_besoins_iqandesign.md](10_besoins_iqandesign.md) | — | aucun |
-| **1** | Outils : `check_conventions.py`, extension d'`anomalies.py` (fonctions vides des interfaces, grille de journaux), feuilles de migration par lignée | [02_conventions.md](02_conventions.md), [08_compatibilite_migration.md](08_compatibilite_migration.md) | — (cloud) | aucun |
-| **2** | `00 CFG` : déplacement des paramètres contrat, indicateurs `CFG Is_…`, nouveaux réglages ; tous les groupes lisent les `CFG Is_…` | [spec/00_CFG.csv](spec/00_CFG.csv) | B1 | aucun (défauts = 108.3.1) |
+| **0** | Essais B1, B2, B11 (faits), B12, B13, B5 ; exports B4 | [10_besoins_iqandesign.md](10_besoins_iqandesign.md) | — | aucun |
+| **1** | Outils : `check_conventions.py`, extension d'`anomalies.py` (fonctions vides des interfaces, grille de journaux), `compat_check.py` par identifiant interne et nombre d'états, comparaison du socle entre projets, feuilles de migration (V25, électrique V35) | [02_conventions.md](02_conventions.md), [08_compatibilite_migration.md](08_compatibilite_migration.md) | — (cloud) | aucun |
+| **2** | `00 CFG` : indicateurs `CFG Is_…`, nouveaux réglages, sélecteurs d'extension ; regroupement des paramètres historiques par glisser-déposer (créneaux PC libres) et renommage ; tous les groupes lisent les `CFG Is_…` | [spec/00_CFG.csv](spec/00_CFG.csv) | B12 | aucun (défauts = 108.3.1) |
 | **3** | `10 IO` : toutes les broches regroupées, renommées, choix par configuration | [09_faisceaux.md](09_faisceaux.md) | 2 | aucun |
 | **4** | `20 EQP` : interfaces BAT, CHG, DRV, PMP, ENG (pilote J1939 unique), KBX, KPD ; la logique lit les interfaces | [spec/21_BAT.csv](spec/21_BAT.csv) à [spec/25_ENG.csv](spec/25_ENG.csv), [04_equipements.md](04_equipements.md) | 2, B5 | corrections D29 (Brusa, Zapi M1) |
 | **5** | `80 HMI` : commandes arbitrées, mots d'état, messages regroupés ; adaptation des applications MD4-5 et MD4-10 au contrat | [spec/80_HMI.csv](spec/80_HMI.csv), [06_ihm.md](06_ihm.md) | 4 | correction bit super slow MD4-10 (D33), bascule Free unique |
@@ -20,8 +20,8 @@ Chaque étape se termine par :
 | **8** | `55 HYD`, `60 THM`, `70 CAB` (avec PWM tendeur, accéléromètre) | [05_logique_metier.md](05_logique_metier.md) §5.4-5.6 | 6 | fonctions V25 retrouvées (options désactivées par défaut) |
 | **9** | `85 LOG` : grille de journaux, tailles selon B6 | [spec/85_LOG.csv](spec/85_LOG.csv), [07_journalisation.md](07_journalisation.md) | 4 à 8, B6 | nouveaux journaux (les anciens restent) |
 | **10** | `90 MNT` : forçages sous `MNT Mode`, contrôle 10 h et maintenances finalisés, nettoyage final (canaux morts, `AND False`, WIP) | [02_conventions.md](02_conventions.md) | 9 | forçages inopérants hors maintenance |
-| **11** | `MD3 app` : module MD3 optionnel, pages thermiques (V69) et électriques (V35), radio, Proemion | [06_ihm.md](06_ihm.md) §6.4 | 5, B2 | ouverture aux bateaux lignée B |
-| **12** | Projet **v2 MC2** : copie des blocs validés, couche `10 IO` MC2 | [05_logique_metier.md](05_logique_metier.md) §5.7, [09_faisceaux.md](09_faisceaux.md) §9.5 | 11 | ouverture aux bateaux lignée C |
+| **11** | Projet **v2 MC42-MD3**, dans une copie de la V69.03.1 (comparée à la V65, B4) : renommage des paramètres V69 de même sens aux noms du socle, `CFG Variant flags` propre au projet (décodage des sélecteurs V69), report des groupes `10` à `90` du socle, création des paramètres électriques (absents de la V69), `MD3 app` existante adaptée au contrat (pages thermiques V69, pages électriques d'après la V35, radio, Proemion) | [01_architecture.md](01_architecture.md) §1.1, [06_ihm.md](06_ihm.md) §6.4 | 10, B13 | ouverture aux bateaux lignée B, réglages conservés |
+| **12** | Projet **v2 MC2**, dans une copie de la V5.37 : même méthode, sous-ensemble thermique, couche `10 IO` MC2 | [05_logique_metier.md](05_logique_metier.md) §5.7, [09_faisceaux.md](09_faisceaux.md) §9.5 | 11 | ouverture aux bateaux lignée C |
 | **13** | Validation : essais par ligne de la matrice (IQANsimulate si B10 concluant, puis banc), premier bateau pilote de chaque lignée avec l'accord de Nicolas | [08_compatibilite_migration.md](08_compatibilite_migration.md) | 12 | — |
 
-Les étapes 2 à 10 ne changent rien de visible sur un bateau 108.x (hors corrections décidées) : elles peuvent être livrées à la flotte A au fil de l'eau, ce qui étale le risque. Les lignées B et C ne reçoivent la v2 qu'après les étapes 11 et 12.
+Les étapes 2 à 10 ne changent rien de visible sur un bateau 108.x (hors corrections décidées) : elles peuvent être livrées à la flotte A au fil de l'eau, ce qui étale le risque. Les lignées B et C ne reçoivent la v2 qu'après les étapes 11 et 12. Ensuite, chaque correctif du socle est fait dans la v2 MC42-MD4 puis reporté dans les deux autres projets dans la même version (même numéro de version pour les trois projets, 02 §2.8).

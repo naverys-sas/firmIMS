@@ -163,7 +163,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (eb Battery Brand = 0)
+        Expression=CFG Is_Electric AND (eb Battery Brand ext = 0) AND (eb Battery Brand = 0)
         END 900021
 
         BEGIN 900022
@@ -194,7 +194,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (eb Battery Brand = 1)
+        Expression=CFG Is_Electric AND (eb Battery Brand ext = 0) AND (eb Battery Brand = 1)
         END 900025
 
         BEGIN 900026
@@ -225,7 +225,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (eb Battery Brand = 2)
+        Expression=CFG Is_Electric AND (eb Battery Brand ext = 0) AND (eb Battery Brand = 2)
         END 900029
 
         BEGIN 900030
@@ -256,7 +256,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (eb Battery Brand = 3)
+        Expression=CFG Is_Electric AND (eb Battery Brand ext = 0) AND (eb Battery Brand = 3)
         END 900033
 
         BEGIN 900034
@@ -349,7 +349,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (ec Charger Brand = 0)
+        Expression=CFG Is_Electric AND (ec Charger Brand ext = 0) AND (ec Charger Brand = 0)
         END 900045
 
         BEGIN 900046
@@ -380,7 +380,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (ec Charger Brand = 1)
+        Expression=CFG Is_Electric AND (ec Charger Brand ext = 0) AND (ec Charger Brand = 1)
         END 900049
 
         BEGIN 900050
@@ -411,7 +411,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (ec Charger Brand = 2)
+        Expression=CFG Is_Electric AND (ec Charger Brand ext = 0) AND (ec Charger Brand = 2)
         END 900053
 
         BEGIN 900054
@@ -442,7 +442,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (em1 M-Track - Brand = 0)
+        Expression=CFG Is_Electric AND (em1 M-Track - Brand ext = 0) AND (em1 M-Track - Brand = 0)
         END 900057
 
         BEGIN 900058
@@ -473,7 +473,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (em1 M-Track - Brand = 1)
+        Expression=CFG Is_Electric AND (em1 M-Track - Brand ext = 0) AND (em1 M-Track - Brand = 1)
         END 900061
 
         BEGIN 900062
@@ -504,7 +504,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (em M-Pump - Brand = 0)
+        Expression=CFG Is_Electric AND (em M-Pump - Brand ext = 0) AND (em M-Pump - Brand = 0)
         END 900065
 
         BEGIN 900066
@@ -535,7 +535,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Electric AND (em M-Pump - Brand = 1)
+        Expression=CFG Is_Electric AND (em M-Pump - Brand ext = 0) AND (em M-Pump - Brand = 1)
         END 900069
 
         BEGIN 900070
@@ -552,7 +552,7 @@ Enabled=Yes
     BEGIN 900071
     Internal digital channel (IDC)
     Name=CFG Is_ENG_J1939
-    Description=Thermal engine on J1939 (EB2, Ford, Kubota share one driver, D28).  [origin: Is_EB2 mc, Is_FORD mc, Is_Kubo mc]
+    Description=Thermal engine on J1939 (EB2, Ford, Kubota share one driver, D28). In v2 MC42-MD3 the same flag decodes the V69 T Engine type (0 EB2, 1 Ford).  [origin: Is_EB2 mc, Is_FORD mc, Is_Kubo mc]
     Function selector=Not used
 
       BEGIN 900072
@@ -566,7 +566,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=CFG Is_Thermic
+        Expression=CFG Is_Thermic AND (T Engine type ext = 0)
         END 900073
 
         BEGIN 900074
@@ -711,7 +711,7 @@ Enabled=Yes
     BEGIN 900091
     Internal digital channel (IDC)
     Name=CFG Has_MD3
-    Description=MD3 display answers on the Master bus (lineage B boats) (status value 0 = running, to confirm in IQANdesign, B8).  [origin: new]
+    Description=MD3 display answers on the Master bus. Only in v2 MC42-MD3 and v2 MC2, constant False in v2 MC42-MD4 (D38).  [origin: new]
     Delay on=2000
     Delay off=2000
     Function selector=Not used
@@ -862,7 +862,7 @@ Enabled=Yes
     BEGIN 900110
     State parameter channel (SP)
     Name=T Pump wiring
-    Description=Which pump output follows which joystick. Standard = 108.3.1 (lineage A), Swapped = V35/V69 (lineage B). Check at the quay that the right joystick drives the right track (D8, D18, D21).  [origin: already in v2 step A]
+    Description=Which pump output follows which joystick. Standard = 108.3.1 (lineage A), Swapped = V35/V69 (lineage B). Default per project: Standard in v2 MC42-MD4, Swapped in v2 MC42-MD3. Check at the quay that the right joystick drives the right track (D8, D18, D21).  [origin: already in v2 step A]
     Input channel=None
     Default state name=Standard
     States={Swapped}
@@ -872,9 +872,9 @@ Enabled=Yes
     BEGIN 900111
     Digital parameter channel (DP)
     Name=Joystick plugged md3
-    Description=Track joysticks wired to the MD3 display (lineage B boats).  [origin: new (D30)]
+    Description=Track joysticks wired to the MD3 display. Only in v2 MC42-MD3, default True there (D38).  [origin: new (D30)]
     Mode selector=Not used
-    Default mode={False}
+    Default mode={True}
     END 900111
 
     BEGIN 900112
@@ -915,7 +915,7 @@ Enabled=Yes
     BEGIN 900116
     Digital parameter channel (DP)
     Name=Radio remote
-    Description=Radio remote control fitted on the MD3 (lineage B boats).  [origin: new, V35/V69 Remote Control]
+    Description=Radio remote control fitted on the MD3. In v2 MC42-MD3 this is the existing V69 parameter Remote Control, renamed, never recreated (D40).  [origin: V35/V69 Remote Control]
     Mode selector=Not used
     Default mode={False}
     END 900116
@@ -927,5 +927,85 @@ Enabled=Yes
     Mode selector=Not used
     Default mode={False}
     END 900117
+
+    BEGIN 900118
+    State parameter channel (SP)
+    Name=eb Battery Brand ext
+    Description=Extension of eb Battery Brand for new battery brands. Legacy = use eb Battery Brand. A new brand renames the first free Spare state, states are never added or removed (D41, test B12).  [origin: new (D41)]
+    Input channel=None
+    Default state name=Legacy
+    States={Spare 1; Spare 2; Spare 3; Spare 4; Spare 5; Spare 6; Spare 7}
+      State 1=Spare 1
+      State 2=Spare 2
+      State 3=Spare 3
+      State 4=Spare 4
+      State 5=Spare 5
+      State 6=Spare 6
+      State 7=Spare 7
+    END 900118
+
+    BEGIN 900119
+    State parameter channel (SP)
+    Name=ec Charger Brand ext
+    Description=Extension of ec Charger Brand for new charger brands. Legacy = use ec Charger Brand. A new brand renames the first free Spare state, states are never added or removed (D41, test B12).  [origin: new (D41)]
+    Input channel=None
+    Default state name=Legacy
+    States={Spare 1; Spare 2; Spare 3; Spare 4; Spare 5; Spare 6; Spare 7}
+      State 1=Spare 1
+      State 2=Spare 2
+      State 3=Spare 3
+      State 4=Spare 4
+      State 5=Spare 5
+      State 6=Spare 6
+      State 7=Spare 7
+    END 900119
+
+    BEGIN 900120
+    State parameter channel (SP)
+    Name=em1 M-Track - Brand ext
+    Description=Extension of em1 M-Track - Brand for new track inverter brands. Legacy = use em1 M-Track - Brand. A new brand renames the first free Spare state, states are never added or removed (D41, test B12).  [origin: new (D41)]
+    Input channel=None
+    Default state name=Legacy
+    States={Spare 1; Spare 2; Spare 3; Spare 4; Spare 5; Spare 6; Spare 7}
+      State 1=Spare 1
+      State 2=Spare 2
+      State 3=Spare 3
+      State 4=Spare 4
+      State 5=Spare 5
+      State 6=Spare 6
+      State 7=Spare 7
+    END 900120
+
+    BEGIN 900121
+    State parameter channel (SP)
+    Name=em M-Pump - Brand ext
+    Description=Extension of em M-Pump - Brand for new pump inverter brands. Legacy = use em M-Pump - Brand. A new brand renames the first free Spare state, states are never added or removed (D41, test B12).  [origin: new (D41)]
+    Input channel=None
+    Default state name=Legacy
+    States={Spare 1; Spare 2; Spare 3; Spare 4; Spare 5; Spare 6; Spare 7}
+      State 1=Spare 1
+      State 2=Spare 2
+      State 3=Spare 3
+      State 4=Spare 4
+      State 5=Spare 5
+      State 6=Spare 6
+      State 7=Spare 7
+    END 900121
+
+    BEGIN 900122
+    State parameter channel (SP)
+    Name=T Engine type ext
+    Description=Extension of T Engine type for new thermal engine brands. Legacy = use T Engine type. A new brand renames the first free Spare state, states are never added or removed (D41, test B12).  [origin: new (D41)]
+    Input channel=None
+    Default state name=Legacy
+    States={Spare 1; Spare 2; Spare 3; Spare 4; Spare 5; Spare 6; Spare 7}
+      State 1=Spare 1
+      State 2=Spare 2
+      State 3=Spare 3
+      State 4=Spare 4
+      State 5=Spare 5
+      State 6=Spare 6
+      State 7=Spare 7
+    END 900122
   END 900109
 END 900108

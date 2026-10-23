@@ -2,21 +2,31 @@
 
 ## 3.1 Principe
 
-Un seul logiciel équipe toutes les coques MC42. Ce qui distingue un bateau d'un autre tient dans ses **réglages** (paramètres stockés dans le contrôleur), jamais dans une version de logiciel différente. La v2 range ces réglages en trois catégories :
+Un seul logiciel par projet équipe toutes les coques de sa lignée. Ce qui distingue un bateau d'un autre tient dans ses **réglages** (paramètres stockés dans le contrôleur), jamais dans une version de logiciel différente. La v2 range ces réglages en trois catégories :
 
 | Catégorie | Où | Règle |
 |---|---|---|
-| **Réglages contrat** (existants en 108.3.1) | `00 CFG / CFG Settings (contract)` | Nom, type, unité, ordre des états **et objet interne** conservés. On les déplace, on ne les recrée pas (§3.2). |
-| **Indicateurs de variante** (dérivés) | `00 CFG / CFG Variant flags` | Canaux `CFG Is_…` calculés à partir des réglages ; ce sont eux qui activent les groupes. Jamais réglables. |
-| **Réglages nouveaux v2** | `00 CFG / CFG Settings (v2)` | Valeur par défaut = comportement 108.3.1 exact (compatibilité §3.5). |
+| **Réglages historiques** (existants en 108.3.1, en V69 ou en V5.37 selon le projet) | `00 CFG / CFG Settings (historical)`, où ils sont amenés par glisser-déposer | Identifiant interne, nombre et ordre des états conservés ; renommage autorisé ; jamais de couper / coller (§3.2). |
+| **Indicateurs de variante** (dérivés) | `00 CFG / CFG Variant flags` | Canaux `CFG Is_…` calculés à partir des réglages ; ce sont eux qui activent les groupes. Jamais réglables. Seul groupe dont le contenu diffère d'un projet à l'autre. |
+| **Réglages nouveaux v2** | `00 CFG / CFG Settings (v2)` | Valeur par défaut = comportement actuel de la lignée du projet (§3.5) ; les sélecteurs naissent avec des états de réserve (02 §2.7). |
 
-## 3.2 Pourquoi on déplace les paramètres au lieu de les recréer
+## 3.2 Déplacer les paramètres par glisser-déposer, jamais par couper / coller
 
-Les exports montrent que la 108.3.1 a **recréé** ses paramètres de variante par rapport à la V25.74, alors que les deux projets ont le même identifiant : `Battery Brand` était l'objet 67686 en V25, `eb Battery Brand` est l'objet 128958 en 108.3.1 (même chose pour `Charger Brand`, `M-Track - Brand`). Si IQAN retrouve les valeurs enregistrées par objet interne, et c'est le plus probable, un paramètre recréé repart à sa valeur par défaut sur tous les bateaux mis à jour.
+Ce qu'ont montré les essais B1 et B11 ([../essais/B1_B2.md](../essais/B1_B2.md), manuel IQANdesign p. 314-315) : un contrôleur conserve un réglage lors d'une mise à jour si l'identifiant de projet, l'**identifiant interne du canal** et son **nombre d'états** sont les mêmes. Le nom ne compte pas.
 
-D'où la règle D25 : **la v2 MC42 est construite dans une copie de la 108.3.1, et les paramètres sont déplacés (couper/coller ou glisser) vers `CFG Settings (contract)`, jamais supprimés puis recréés.** Le comportement exact d'IQAN (valeurs retrouvées par objet ou par nom ; un couper/coller garde-t-il l'objet ?) est le premier essai à faire sur le PC ([10_besoins_iqandesign.md](10_besoins_iqandesign.md), B1). Si le déplacement perd les valeurs, les paramètres restent où ils sont et `CFG` ne contient que des alias.
+| Action dans IQANdesign | Identifiant interne | Références | Réglage sur les bateaux |
+|---|---|---|---|
+| Renommer | conservé | suivent le nouveau nom | conservé |
+| **Glisser-déposer** le bloc sur un autre groupe de l'arborescence | conservé | intactes | conservé |
+| **Couper / coller** | **nouveau** | cassées : les 17 canaux qui utilisaient `eb Battery Brand` comme sélecteur passent à « Undefined » et perdent leurs fonctions | **perdu** sur toute la flotte |
 
-Conséquence pour la flotte V25 : leurs réglages ne passeront de toute façon pas en v2 (objets différents, et ordre des états différent, voir §3.6). Leur migration inclut une ressaisie complète, comme pour les lignées B et C.
+D'où la règle D40, qui précise D25 :
+- chaque projet v2 est construit **dans une copie** du projet de sa lignée (108.3.1 + étape A, V69, V5.37) ;
+- les paramètres historiques sont regroupés dans `00 CFG / CFG Settings (historical)` **par glisser-déposer uniquement**, puis renommés si besoin (fautes, anglais) ; un bloc déplacé garde ses coordonnées d'origine et doit être rangé ensuite ; le glisser-déposer demande la vraie souris du PC (`outils_pilotage/gui/drag.ps1`), donc un créneau où Nicolas laisse le PC ;
+- un canal de logique se déplace de la même façon ; quand on le **réécrit**, on crée le nouveau, on rebranche les lecteurs un par un, puis on supprime l'ancien ;
+- après chaque lot de déplacements, l'export texte est comparé à l'export précédent : aucun numéro `BEGIN` de paramètre ne doit changer (`compat_check.py`).
+
+Conséquence pour la flotte V25 : leurs réglages ne passeront de toute façon pas en v2 (la 108.3.1 a recréé ses sélecteurs : `Battery Brand` était l'objet 67686 en V25, `eb Battery Brand` est l'objet 128958 en 108.3.1 ; et l'ordre des états diffère, §3.6). Leur migration inclut une ressaisie complète. Les bateaux lignée B, eux, gardent leurs réglages grâce au projet construit dans la V69, sauf les réglages électriques des V35 que la V69 avait supprimés (08 §8.2).
 
 ## 3.3 Indicateurs de variante
 
@@ -36,37 +46,40 @@ Tous dans `CFG Variant flags`, de type IDC, sans délai. Ils remplacent les cana
 | `CFG Is_Bender_gen1`, `…_gen2` | `Is_BAT_Tyva and Tyva gen bender = …` | `gen1`, `gen2` |
 | `CFG Is_KBX_X100` | `CFG Is_X100` | activation implicite de `E/T.KeyBox x100` |
 | `CFG Is_KBX_Cab` | `CFG Is_Cab` | `Keyboxs CAB` |
-| `CFG Has_MD45`, `CFG Has_MD410`, `CFG Has_MD3` | statut de diagnostic du module (MDGN) = présent, avec délai 2 s | aucun (aujourd'hui les écrans sont supposés présents) |
+| `CFG Has_MD45`, `CFG Has_MD410` (MC42-MD4), `CFG Has_MD3` (MC42-MD3, MC2) | statut de diagnostic du module (MDGN) = présent, avec délai 2 s ; dans un projet sans le module, constante faux | aucun (aujourd'hui les écrans sont supposés présents) |
 | `CFG Joystick source` | état : MC42, MD4-5, MD4-10, MD3, selon les réglages `joystick plugged …` | `joystick plugged mc42/md45/md10` lus partout |
+
+Dans la v2 MC42-MD3 et la v2 MC2, les mêmes indicateurs sont calculés à partir des paramètres de la V69 et de la V5.37 (`T Engine type` V69 : 0 EB2 · 1 Ford ; `Number of lockers` à deux états ; `Hydraulic Bloc` du MC2…, §3.6). Les sélecteurs d'extension (`… Brand ext`, 02 §2.7) entrent dans chaque `CFG Is_…` de marque : `ext = Legacy` et sélecteur historique = marque, ou `ext` = marque.
 
 Le sélecteur `em M-Pump - Brand` reste **automatique** (cabine → HVLP CANopen « gen », X100 → HVLP J1939), comme en 108.3.1 (compatibilite.md §3.2).
 
 ## 3.4 Réglages nouveaux de la v2
 
-Tous ajoutés dans le menu existant le plus logique, avec une valeur par défaut qui reproduit la 108.3.1.
+Tous ajoutés dans le menu existant le plus logique. Un réglage créé par la v2 a un **défaut par projet** qui reproduit le comportement actuel de la lignée : c'est ce défaut que prend chaque bateau à la mise à jour. Si la V69 a déjà un paramètre équivalent (`Remote Control`, Proemion), la v2 MC42-MD3 le garde, renommé, au lieu d'en créer un.
 
 | Réglage | Type, états | Défaut | Menu | Pourquoi |
 |---|---|---|---|---|
-| `T Pump wiring` | SP : Standard, Swapped | Standard | Master Config | D8, D18, D21 (déjà dans la v2 en cours) |
-| `Joystick plugged md3` | DP | False | Master Config | joysticks des bateaux lignée B, branchés sur le MD3 (D30) |
+| `T Pump wiring` | SP : Standard, Swapped | Standard (MC42-MD4), **Swapped** (MC42-MD3) | Master Config | D8, D18, D21 (déjà dans la v2 en cours) |
+| `Joystick plugged md3` | DP | **True** (MC42-MD3 uniquement) | Master Config | joysticks des bateaux lignée B, branchés sur le MD3 (D30) |
 | `Cab track tension` | SP : Valve (108), PWM (V25) | Valve | Master Tracks | commande PWM du tendeur des Commuter V25, perdue en 108 (D32) |
 | `Cab PWM tension max current` | IP, mA | 900 | Master Tracks | courant max de la valve EM21DEG12 du tendeur PWM (V25.74 : 0 à 900 mA, rampes 250 ms, consigne en % selon `Tension State`) |
 | `Accelerometer` | DP | False | Master Features | accéléromètre câblé sur les Commuter (C1:26/36/52) et sur le MD3 VW (D32) |
 | `Proemion gateway` | DP | False | Master Features | télémétrie des lignées A V25 et B (D32) |
-| `Radio remote` | DP | False | Master Features | radiocommande des bateaux MD3 (`Remote Control` en V35/V69) |
+| `Radio remote` | DP | False | Master Features | radiocommande des bateaux MD3 : dans la v2 MC42-MD3, c'est `Remote Control` de la V69, renommé |
+| `… Brand ext` (×5) | SP : Legacy, Spare 1 … Spare 7 | Legacy | menu de la famille | nouvelles marques sans toucher aux sélecteurs historiques (D41, 02 §2.7) |
 | `MNT Mode` | DP | False | Master System Debug | rend opérants les forçages et tests de `90 MNT` (D36) |
 
 ## 3.5 Valeurs par défaut et réglages d'usine
 
-- Tout réglage **ajouté** prend sa valeur par défaut sur un bateau 108.3.1 mis à jour : elle doit donc reproduire le comportement 108.3.1.
-- Les **valeurs par défaut des réglages contrat ne changent pas** (une remise aux valeurs d'usine sur un bateau livré doit donner le même résultat qu'avant).
+- Tout réglage **ajouté** prend sa valeur par défaut sur un bateau mis à jour : elle doit donc reproduire le comportement de la lignée du projet (108.3.1, V69 ou V5.37).
+- Les **valeurs par défaut des réglages historiques ne changent pas** (une remise aux valeurs d'usine sur un bateau livré doit donner le même résultat qu'avant).
 - Une valeur par défaut fausse connue est corrigée par une **décision explicite** et listée dans les notes de version.
 
 ## 3.6 Les sélecteurs n'ont pas le même ordre selon la lignée
 
-Le numéro d'état stocké dans un contrôleur n'a pas le même sens d'une lignée à l'autre. Aucun réglage d'une ancienne lignée ne doit donc être recopié par numéro : la migration se fait **par nom d'état** (feuille de migration, [08_compatibilite_migration.md](08_compatibilite_migration.md)).
+Le numéro d'état stocké dans un contrôleur n'a pas le même sens d'une lignée à l'autre. Aucun réglage d'une ancienne lignée ne doit donc être recopié par numéro : la migration se fait **par nom d'état** (feuille de migration, [08_compatibilite_migration.md](08_compatibilite_migration.md)). Depuis que chaque lignée a son projet (D38), seuls les Commuter V25 et les réglages électriques des V35 sont concernés ; ailleurs, chaque projet garde les sélecteurs de sa lignée tels quels, et c'est `CFG Variant flags` qui traduit leurs numéros en indicateurs communs.
 
-| Réglage | V25.74 (lignée A ancienne) | V35.42 / V69 (lignée B) | V5.37 (lignée C, MC2) | 108.3.1 et v2 |
+| Réglage | V25.74 (lignée A ancienne) | V35.42 / V69 (lignée B) = v2 MC42-MD3 | V5.37 (lignée C) = v2 MC2 | 108.3.1 = v2 MC42-MD4 |
 |---|---|---|---|---|
 | Batterie | 0 Kreisel · 1 BMW · 2 WattAlps | 0 BMW · 1 WattAlps | — | 0 BMW · 1 NovumTech · 2 Tyva · 3 Kreisel |
 | Chargeur | 0 Brusa · 1 Elcon · 2 BMW · 3 Valeo | 0 BMW · 1 Brusa · 2 Elcon | — | 0 BMW · 1 Brusa · 2 Elcon |
@@ -81,3 +94,5 @@ Les menus (noms, codes PIN, visibilité) sont conservés. Changements :
 - Tous les réglages `Debug…`, `Force…`, `Test…`, `Sim…`, `bypsass…` rejoignent **Master System Debug** (aujourd'hui visible seulement en électrique : il devient visible pour toutes les propulsions). Ils restent sans effet tant que `MNT Mode` est faux.
 - Les réglages en double (`Locking UP Track` ×2, `Tracks pressure Mode` ×2, `Stop Slope`/`Start Slope` ×2, `With tension` ×2…) n'apparaissent plus qu'une fois : l'entrée de menu affiche le paramètre E ou T selon `Drive Type mc` (deux entrées à visibilité exclusive), les deux objets paramètres restant en place (D27).
 - Le menu **Delivery date** perd le mot de passe écrit en clair dans une description.
+- Une entrée de menu (adjust item) ne fait que pointer vers un paramètre : la déplacer d'un menu à l'autre ne touche pas au réglage. Le rangement des menus est donc indépendant de celui des groupes.
+- Dans la v2 MC42-MD3, les menus de la V69 sont conservés (noms, codes PIN) et reçoivent les nouveaux réglages ; leurs libellés passent en anglais sur la même règle que les MD4.

@@ -2,7 +2,7 @@
 
 Ce document fixe, broche par broche, ce que la v2 attend sur chaque connecteur. Il sert à la fois de spécification pour la couche `10 IO` et de référence pour l'atelier. Sources : brochages relevés dans IQANdesign ([../../faisceaux/](../../faisceaux/)), plans RapidHarness de `docs/schemas/` (#22679 X100 thermique IND N, #28580 X100 électrique IND H, #24207 MC42 CAB IND L, #26062 MD4-10, #33530 MD4 X100), exports V25.74, V35.42, V69 et V5.37.
 
-**Aucun changement de câblage n'est demandé par la v2**, sauf l'ID-tag du MC42 sur les bateaux V25 et lignée B (§9.6). Les broches dont l'usage dépend de la configuration sont choisies dans `10 IO` par `CFG Is_Cab` / `CFG Is_Thermic`.
+**Aucun changement de câblage n'est demandé par la v2**, sauf l'ID-tag du MC42 et l'adresse du MD4-10 sur les Commuter V25 (§9.6). Les broches dont l'usage dépend de la configuration sont choisies dans `10 IO` par `CFG Is_Cab` / `CFG Is_Thermic`.
 
 ## 9.1 MC42, connecteur C1 (66 voies)
 
@@ -13,7 +13,7 @@ Colonnes : X100 thermique (T), X100 électrique (E), Commuter (Cab, toujours él
 | C1:2 / 18 | CAN-B | bus B | J1939 moteur 250 kb/s | J1939 HVLP 500 kb/s | keyboxes cabine 125 kb/s | `CAN Speed B mc` |
 | C1:3 / 19 | CAN-C | bus C | keybox X100, keypad | variateurs, batterie, chargeur, keybox X100, keypad | batterie HT, chargeur, variateurs, pompe HVLP « gen » | `CAN Speed C mc` |
 | C1:1 / 17 | CAN-A | bus Master + diagnostic | écrans, G1x | idem | idem | |
-| C1:4 / 20 | ADDR-L / ADDR-H | ID-tag | **0** | **0** | **0** | voir §9.6 |
+| C1:4 / 20 | ADDR-L / ADDR-H | ID-tag | **0** | **0** | **0** | v2 MC42-MD4 ; **1** dans la v2 MC42-MD3 (lignée B), voir §9.6 |
 | C1:7 | +VREF-A | alimentation capteurs | ✔ | ✔ | ✔ | |
 | C1:8 | VIN-A | `IO Oil level C1:8` | ✔ | ✔ | ✔ | |
 | C1:9 | VIN-B | `IO Lock pressure C1:9` | ✔ | ✔ | ✔ | |
@@ -106,7 +106,7 @@ MD3 du projet MC2 : comme §9.4, plus accéléromètre X / Y / Z sur C2:9 / C2:1
 
 | Module | v2 | Ancienne valeur à corriger à la migration |
 |---|---|---|
-| MC42 | ID-tag **0** | 1 sur V25 et lignée B (V35, V65, V69) |
+| MC42 | ID-tag **0** dans la v2 MC42-MD4, **1** dans la v2 MC42-MD3 | 1 sur les Commuter V25 seulement ; la lignée B (V35, V65, V69) garde 1 (D39) |
 | MD4-5 | adresse 1 | — |
 | MD4-10 | adresse 2 | 0 sur V25 |
 | MD3 | adresse 0 (type différent du MC42, pas de conflit) | — |

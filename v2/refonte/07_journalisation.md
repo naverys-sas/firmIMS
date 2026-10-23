@@ -1,6 +1,6 @@
 # 7. Journalisation unifiée
 
-Exigence (D7) : le maximum d'événements et de statistiques, **identiques sur toutes les variantes et les deux projets**. Ce document détaille la grille annoncée dans [../journalisation.md](../journalisation.md) : noms des journaux, entrées, déclencheurs et valeurs enregistrées.
+Exigence (D7) : le maximum d'événements et de statistiques, **identiques sur toutes les variantes et les trois projets**. Ce document détaille la grille annoncée dans [../journalisation.md](../journalisation.md) : noms des journaux, entrées, déclencheurs et valeurs enregistrées.
 
 ## 7.1 Constat 108.3.1
 
@@ -12,7 +12,7 @@ Exigence (D7) : le maximum d'événements et de statistiques, **identiques sur t
 
 1. **Une grille par catégorie, la même pour toutes les marques.** Les entrées lisent les interfaces normalisées (`BAT …`, `DRV …`) ; une marque qui ne fournit pas une donnée laisse son entrée inactive, mais l'entrée existe partout.
 2. **Chaque événement enregistre sa valeur utile** (code brut de l'équipement, mesure) : value log item plutôt qu'event log item seul.
-3. **Les anciens journaux sont gardés tels quels**, nom et entrées compris : sur un bateau 108.x mis à jour, l'historique reste lisible. Ils ne reçoivent plus de nouvelles entrées que si leur déclencheur existe encore. Les bateaux des lignées B et C changent de projet : leur historique doit être **relevé avant la mise à jour** (procédure de migration).
+3. **Les anciens journaux sont gardés tels quels**, nom et entrées compris : sur un bateau mis à jour, l'historique reste lisible. Ils ne reçoivent plus de nouvelles entrées que si leur déclencheur existe encore. Chaque projet étant construit dans une copie de celui de sa lignée (D38), cela vaut pour les journaux de la 108.3.1, de la V69 et de la V5.37 ; seuls les Commuter V25 perdent leur historique et doivent le **relever avant la mise à jour**. Le relevé reste recommandé partout (procédure de migration).
 4. **Ce qui arrive souvent devient une statistique**, pas un événement (ex. démarrage d'un ventilateur).
 5. Les déclencheurs sont des canaux `LOG …` rangés dans `85 LOG` : on voit au même endroit ce qui est journalisé et pourquoi.
 6. Tailles : **à fixer après mesure de la mémoire disponible** sur MC42 ([10_besoins_iqandesign.md](10_besoins_iqandesign.md), B6). Objectif : 100 entrées pour les journaux d'erreurs, 50 pour les autres. Le MC2 aura des tailles plus petites.
@@ -81,6 +81,6 @@ Exigence (D7) : le maximum d'événements et de statistiques, **identiques sur t
 ## 7.5 Contrôles automatiques
 
 `anomalies.py` est étendu pour vérifier sur chaque export v2 :
-- que chaque entrée de la grille existe dans les deux projets (MC42, MC2) quand la catégorie s'y applique ;
+- que chaque entrée de la grille existe dans les trois projets (MC42-MD4, MC42-MD3, MC2) quand la catégorie s'y applique ;
 - qu'aucune entrée ne lit un canal de pilote de marque (seulement `LOG …` ou une interface normalisée) ;
 - que les anciens journaux sont toujours présents, sous leur nom.

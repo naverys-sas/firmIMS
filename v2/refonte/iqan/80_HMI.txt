@@ -2,102 +2,102 @@
 // Not an importable file: IQANdesign has no text import. Enter in the IDE, then
 // compare the export of the project with check_spec.py.
 
-BEGIN 900775
+BEGIN 900780
 Function group
 Name=80 HMI Human-machine interface
 Description=
 Enabled=Yes
 
-  BEGIN 900776
+  BEGIN 900781
   Function group
   Name=HMI Inputs
   Description=
   Enabled=Yes
 
-    BEGIN 900777
+    BEGIN 900782
     Application input channel (APPIN)
     Name=HMI MD45 command word
     Description=Command word from the MD4-5 application (bits B1 to B18, see 80_HMI_bits.csv).  [origin: dtob APPIN 45 / dtob APPIN_1 c10 / new for MD3]
     Input channel=HMI MD45 command word APPOUT (MD4-5 app)
-    END 900777
+    END 900782
 
-    BEGIN 900778
+    BEGIN 900783
     Application input channel (APPIN)
     Name=HMI MD45 joystick left
     Description=Left joystick wired to the MD4-5.  [origin: Left Joy ET45 ... APPIN / Left Joystick C41 C2:1 APPIN / new]
     Unit=%
     Input channel=MD4-5 app joystick left APPOUT
-    END 900778
+    END 900783
 
-    BEGIN 900779
+    BEGIN 900784
     Application input channel (APPIN)
     Name=HMI MD45 joystick right
     Description=Right joystick wired to the MD4-5.  [origin: Right Joystick ... APPIN / new]
     Unit=%
     Input channel=MD4-5 app joystick right APPOUT
-    END 900779
+    END 900784
 
-    BEGIN 900780
+    BEGIN 900785
     Application input channel (APPIN)
     Name=HMI MD410 command word
     Description=Command word from the MD4-10 application (bits B1 to B18, see 80_HMI_bits.csv).  [origin: dtob APPIN 45 / dtob APPIN_1 c10 / new for MD3]
     Input channel=HMI MD410 command word APPOUT (MD4-10 app)
-    END 900780
+    END 900785
 
-    BEGIN 900781
+    BEGIN 900786
     Application input channel (APPIN)
     Name=HMI MD410 joystick left
     Description=Left joystick wired to the MD4-10.  [origin: Left Joy ET45 ... APPIN / Left Joystick C41 C2:1 APPIN / new]
     Unit=%
     Input channel=MD4-10 app joystick left APPOUT
-    END 900781
+    END 900786
 
-    BEGIN 900782
+    BEGIN 900787
     Application input channel (APPIN)
     Name=HMI MD410 joystick right
     Description=Right joystick wired to the MD4-10.  [origin: Right Joystick ... APPIN / new]
     Unit=%
     Input channel=MD4-10 app joystick right APPOUT
-    END 900782
+    END 900787
 
-    BEGIN 900783
+    BEGIN 900788
     Application input channel (APPIN)
     Name=HMI MD3 command word
     Description=Command word from the MD3 application (bits B1 to B18, see 80_HMI_bits.csv).  [origin: dtob APPIN 45 / dtob APPIN_1 c10 / new for MD3]
     Input channel=HMI MD3 command word APPOUT (MD3 app)
-    END 900783
+    END 900788
 
-    BEGIN 900784
+    BEGIN 900789
     Application input channel (APPIN)
     Name=HMI MD3 joystick left
     Description=Left joystick wired to the MD3.  [origin: Left Joy ET45 ... APPIN / Left Joystick C41 C2:1 APPIN / new]
     Unit=%
     Input channel=MD3 app joystick left APPOUT
-    END 900784
+    END 900789
 
-    BEGIN 900785
+    BEGIN 900790
     Application input channel (APPIN)
     Name=HMI MD3 joystick right
     Description=Right joystick wired to the MD3.  [origin: Right Joystick ... APPIN / new]
     Unit=%
     Input channel=MD3 app joystick right APPOUT
-    END 900785
-  END 900776
-END 900775
+    END 900790
+  END 900781
+END 900780
 
-BEGIN 900786
+BEGIN 900791
 Function group
 Name=80 HMI Human-machine interface
 Description=
 Enabled=Yes
 
-  BEGIN 900787
+  BEGIN 900792
   Function group
   Name=HMI Command arbitration
   Description=
   Enabled=Yes
 
-    BEGIN 900788
+    BEGIN 900793
     Internal digital channel (IDC)
     Name=CMD Up
     Description=Arbitrated command "Up": OR of all sources; toggles are made here only, once.  [origin: B1 UP * Sel channels]
@@ -105,32 +105,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900789
+      BEGIN 900794
       Function
       Name=Default function
       Description=
 
-        BEGIN 900790
+        BEGIN 900795
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 1 AND CFG Has_MD45) OR (HMI MD410 command word bit 1 AND CFG Has_MD410) OR (HMI MD3 command word bit 1 AND CFG Has_MD3) OR (KPD Key up AND Keypad 8 keys) OR (IO Remote up C1:29 AND CFG Is_Cab)
-        END 900790
+        END 900795
 
-        BEGIN 900791
+        BEGIN 900796
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900791
-      END 900789
-    END 900788
+        END 900796
+      END 900794
+    END 900793
 
-    BEGIN 900792
+    BEGIN 900797
     Internal digital channel (IDC)
     Name=CMD Down
     Description=Arbitrated command "Down": OR of all sources; toggles are made here only, once.  [origin: B2 DOWN * Sel channels]
@@ -138,32 +138,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900793
+      BEGIN 900798
       Function
       Name=Default function
       Description=
 
-        BEGIN 900794
+        BEGIN 900799
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 2 AND CFG Has_MD45) OR (HMI MD410 command word bit 2 AND CFG Has_MD410) OR (HMI MD3 command word bit 2 AND CFG Has_MD3) OR (KPD Key down AND Keypad 8 keys) OR (IO Remote down C1:28 AND CFG Is_Cab)
-        END 900794
+        END 900799
 
-        BEGIN 900795
+        BEGIN 900800
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900795
-      END 900793
-    END 900792
+        END 900800
+      END 900798
+    END 900797
 
-    BEGIN 900796
+    BEGIN 900801
     Internal digital channel (IDC)
     Name=CMD Cancel
     Description=Arbitrated command "Cancel": OR of all sources; toggles are made here only, once.  [origin: B3 CANCEL * Sel channels]
@@ -171,32 +171,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900797
+      BEGIN 900802
       Function
       Name=Default function
       Description=
 
-        BEGIN 900798
+        BEGIN 900803
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 3 AND CFG Has_MD45) OR (HMI MD410 command word bit 3 AND CFG Has_MD410) OR (HMI MD3 command word bit 3 AND CFG Has_MD3)
-        END 900798
+        END 900803
 
-        BEGIN 900799
+        BEGIN 900804
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900799
-      END 900797
-    END 900796
+        END 900804
+      END 900802
+    END 900801
 
-    BEGIN 900800
+    BEGIN 900805
     Internal digital channel (IDC)
     Name=CMD Slow
     Description=Arbitrated command "Slow": OR of all sources; toggles are made here only, once.  [origin: B4 SLOW * Sel channels]
@@ -204,32 +204,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900801
+      BEGIN 900806
       Function
       Name=Default function
       Description=
 
-        BEGIN 900802
+        BEGIN 900807
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 4 AND CFG Has_MD45) OR (HMI MD410 command word bit 4 AND CFG Has_MD410) OR (HMI MD3 command word bit 4 AND CFG Has_MD3) OR (KPD Key slow AND Keypad 8 keys)
-        END 900802
+        END 900807
 
-        BEGIN 900803
+        BEGIN 900808
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900803
-      END 900801
-    END 900800
+        END 900808
+      END 900806
+    END 900805
 
-    BEGIN 900804
+    BEGIN 900809
     Internal digital channel (IDC)
     Name=CMD Fast
     Description=Arbitrated command "Fast": OR of all sources; toggles are made here only, once.  [origin: B5 FAST * Sel channels]
@@ -237,32 +237,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900805
+      BEGIN 900810
       Function
       Name=Default function
       Description=
 
-        BEGIN 900806
+        BEGIN 900811
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 5 AND CFG Has_MD45) OR (HMI MD410 command word bit 5 AND CFG Has_MD410) OR (HMI MD3 command word bit 5 AND CFG Has_MD3) OR (KPD Key fast AND Keypad 8 keys)
-        END 900806
+        END 900811
 
-        BEGIN 900807
+        BEGIN 900812
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900807
-      END 900805
-    END 900804
+        END 900812
+      END 900810
+    END 900809
 
-    BEGIN 900808
+    BEGIN 900813
     Internal digital channel (IDC)
     Name=CMD Off
     Description=Arbitrated command "Off": OR of all sources; toggles are made here only, once.  [origin: B6 OFF * Sel channels]
@@ -270,32 +270,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900809
+      BEGIN 900814
       Function
       Name=Default function
       Description=
 
-        BEGIN 900810
+        BEGIN 900815
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 6 AND CFG Has_MD45) OR (HMI MD410 command word bit 6 AND CFG Has_MD410) OR (HMI MD3 command word bit 6 AND CFG Has_MD3)
-        END 900810
+        END 900815
 
-        BEGIN 900811
+        BEGIN 900816
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900811
-      END 900809
-    END 900808
+        END 900816
+      END 900814
+    END 900813
 
-    BEGIN 900812
+    BEGIN 900817
     Internal digital channel (IDC)
     Name=CMD Continue
     Description=Arbitrated command "Continue": OR of all sources; toggles are made here only, once.  [origin: B7 CONTINUE * Sel channels]
@@ -303,32 +303,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900813
+      BEGIN 900818
       Function
       Name=Default function
       Description=
 
-        BEGIN 900814
+        BEGIN 900819
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 7 AND CFG Has_MD45) OR (HMI MD410 command word bit 7 AND CFG Has_MD410) OR (HMI MD3 command word bit 7 AND CFG Has_MD3)
-        END 900814
+        END 900819
 
-        BEGIN 900815
+        BEGIN 900820
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900815
-      END 900813
-    END 900812
+        END 900820
+      END 900818
+    END 900817
 
-    BEGIN 900816
+    BEGIN 900821
     Internal digital channel (IDC)
     Name=CMD Free
     Description=Arbitrated command "Free": OR of all sources; toggles are made here only, once.  [origin: B8 FREE * Sel channels]
@@ -337,32 +337,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900817
+      BEGIN 900822
       Function
       Name=Default function
       Description=
 
-        BEGIN 900818
+        BEGIN 900823
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 8 AND CFG Has_MD45) OR (HMI MD410 command word bit 8 AND CFG Has_MD410) OR (HMI MD3 command word bit 8 AND CFG Has_MD3) OR (KPD Key free AND Keypad 8 keys)
-        END 900818
+        END 900823
 
-        BEGIN 900819
+        BEGIN 900824
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900819
-      END 900817
-    END 900816
+        END 900824
+      END 900822
+    END 900821
 
-    BEGIN 900820
+    BEGIN 900825
     Internal digital channel (IDC)
     Name=CMD Start stop
     Description=Arbitrated command "Start stop": OR of all sources; toggles are made here only, once.  [origin: B9 START * Sel channels]
@@ -370,32 +370,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900821
+      BEGIN 900826
       Function
       Name=Default function
       Description=
 
-        BEGIN 900822
+        BEGIN 900827
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 9 AND CFG Has_MD45) OR (HMI MD410 command word bit 9 AND CFG Has_MD410) OR (HMI MD3 command word bit 9 AND CFG Has_MD3) OR (KPD Key start stop AND Keypad 8 keys)
-        END 900822
+        END 900827
 
-        BEGIN 900823
+        BEGIN 900828
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900823
-      END 900821
-    END 900820
+        END 900828
+      END 900826
+    END 900825
 
-    BEGIN 900824
+    BEGIN 900829
     Internal digital channel (IDC)
     Name=CMD Safety off
     Description=Arbitrated command "Safety off": OR of all sources; toggles are made here only, once.  [origin: B10 SAFETY OFF * Sel channels]
@@ -403,32 +403,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900825
+      BEGIN 900830
       Function
       Name=Default function
       Description=
 
-        BEGIN 900826
+        BEGIN 900831
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 10 AND CFG Has_MD45) OR (HMI MD410 command word bit 10 AND CFG Has_MD410) OR (HMI MD3 command word bit 10 AND CFG Has_MD3)
-        END 900826
+        END 900831
 
-        BEGIN 900827
+        BEGIN 900832
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900827
-      END 900825
-    END 900824
+        END 900832
+      END 900830
+    END 900829
 
-    BEGIN 900828
+    BEGIN 900833
     Internal digital channel (IDC)
     Name=CMD Safety off reset
     Description=Arbitrated command "Safety off reset": OR of all sources; toggles are made here only, once.  [origin: B11 SAFETY OFF RESET * Sel channels]
@@ -436,32 +436,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900829
+      BEGIN 900834
       Function
       Name=Default function
       Description=
 
-        BEGIN 900830
+        BEGIN 900835
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 11 AND CFG Has_MD45) OR (HMI MD410 command word bit 11 AND CFG Has_MD410) OR (HMI MD3 command word bit 11 AND CFG Has_MD3)
-        END 900830
+        END 900835
 
-        BEGIN 900831
+        BEGIN 900836
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900831
-      END 900829
-    END 900828
+        END 900836
+      END 900834
+    END 900833
 
-    BEGIN 900832
+    BEGIN 900837
     Internal digital channel (IDC)
     Name=CMD Info page
     Description=Arbitrated command "Info page": OR of all sources; toggles are made here only, once.  [origin: B13 Info page * Sel channels]
@@ -469,32 +469,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900833
+      BEGIN 900838
       Function
       Name=Default function
       Description=
 
-        BEGIN 900834
+        BEGIN 900839
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 13 AND CFG Has_MD45) OR (HMI MD410 command word bit 13 AND CFG Has_MD410) OR (HMI MD3 command word bit 13 AND CFG Has_MD3)
-        END 900834
+        END 900839
 
-        BEGIN 900835
+        BEGIN 900840
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900835
-      END 900833
-    END 900832
+        END 900840
+      END 900838
+    END 900837
 
-    BEGIN 900836
+    BEGIN 900841
     Internal digital channel (IDC)
     Name=CMD 10h check certified
     Description=Arbitrated command "10h check certified": OR of all sources; toggles are made here only, once.  [origin: B14 10 hours * Sel channels]
@@ -502,32 +502,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900837
+      BEGIN 900842
       Function
       Name=Default function
       Description=
 
-        BEGIN 900838
+        BEGIN 900843
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 14 AND CFG Has_MD45) OR (HMI MD410 command word bit 14 AND CFG Has_MD410) OR (HMI MD3 command word bit 14 AND CFG Has_MD3)
-        END 900838
+        END 900843
 
-        BEGIN 900839
+        BEGIN 900844
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900839
-      END 900837
-    END 900836
+        END 900844
+      END 900842
+    END 900841
 
-    BEGIN 900840
+    BEGIN 900845
     Internal digital channel (IDC)
     Name=CMD Reset 1y maintenance
     Description=Arbitrated command "Reset 1y maintenance": OR of all sources; toggles are made here only, once.  [origin: B15 1yr * Sel channels]
@@ -535,32 +535,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900841
+      BEGIN 900846
       Function
       Name=Default function
       Description=
 
-        BEGIN 900842
+        BEGIN 900847
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 15 AND CFG Has_MD45) OR (HMI MD410 command word bit 15 AND CFG Has_MD410) OR (HMI MD3 command word bit 15 AND CFG Has_MD3)
-        END 900842
+        END 900847
 
-        BEGIN 900843
+        BEGIN 900848
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900843
-      END 900841
-    END 900840
+        END 900848
+      END 900846
+    END 900845
 
-    BEGIN 900844
+    BEGIN 900849
     Internal digital channel (IDC)
     Name=CMD Reset 2y maintenance
     Description=Arbitrated command "Reset 2y maintenance": OR of all sources; toggles are made here only, once.  [origin: B16 2yrs * Sel channels]
@@ -568,32 +568,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900845
+      BEGIN 900850
       Function
       Name=Default function
       Description=
 
-        BEGIN 900846
+        BEGIN 900851
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 16 AND CFG Has_MD45) OR (HMI MD410 command word bit 16 AND CFG Has_MD410) OR (HMI MD3 command word bit 16 AND CFG Has_MD3)
-        END 900846
+        END 900851
 
-        BEGIN 900847
+        BEGIN 900852
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900847
-      END 900845
-    END 900844
+        END 900852
+      END 900850
+    END 900849
 
-    BEGIN 900848
+    BEGIN 900853
     Internal digital channel (IDC)
     Name=CMD Reset 4y maintenance
     Description=Arbitrated command "Reset 4y maintenance": OR of all sources; toggles are made here only, once.  [origin: B17 4yrs * Sel channels]
@@ -601,32 +601,32 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900849
+      BEGIN 900854
       Function
       Name=Default function
       Description=
 
-        BEGIN 900850
+        BEGIN 900855
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 17 AND CFG Has_MD45) OR (HMI MD410 command word bit 17 AND CFG Has_MD410) OR (HMI MD3 command word bit 17 AND CFG Has_MD3)
-        END 900850
+        END 900855
 
-        BEGIN 900851
+        BEGIN 900856
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900851
-      END 900849
-    END 900848
+        END 900856
+      END 900854
+    END 900853
 
-    BEGIN 900852
+    BEGIN 900857
     Internal digital channel (IDC)
     Name=CMD Super slow
     Description=Arbitrated command "Super slow": OR of all sources; toggles are made here only, once.  [origin: B18 super slow * Sel channels]
@@ -634,109 +634,71 @@ Enabled=Yes
     Delay off=0
     Function selector=Not used
 
-      BEGIN 900853
+      BEGIN 900858
       Function
       Name=Default function
       Description=
 
-        BEGIN 900854
+        BEGIN 900859
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(HMI MD45 command word bit 18 AND CFG Has_MD45) OR (HMI MD410 command word bit 18 AND CFG Has_MD410) OR (HMI MD3 command word bit 18 AND CFG Has_MD3)
-        END 900854
+        END 900859
 
-        BEGIN 900855
+        BEGIN 900860
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900855
-      END 900853
-    END 900852
+        END 900860
+      END 900858
+    END 900857
 
-    BEGIN 900856
+    BEGIN 900861
     Math channel (MAC)
     Name=CMD Joystick left
     Description=Track joystick left, from the single source given by CFG Joystick source; 0 if that module is absent.  [origin: Math Gauche/Droit ... 45 (joystick selection logic)]
     Unit=%
     Function selector=CFG Joystick source
 
-      BEGIN 900857
+      BEGIN 900862
       Function
       Name=MC42
       Description=
 
-        BEGIN 900858
+        BEGIN 900863
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=IO Joystick left C1:36
-        END 900858
-      END 900857
+        END 900863
+      END 900862
 
-      BEGIN 900859
+      BEGIN 900864
       Function
       Name=MD4-5
       Description=
 
-        BEGIN 900860
+        BEGIN 900865
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=HMI MD45 joystick left
-        END 900860
-      END 900859
-
-      BEGIN 900861
-      Function
-      Name=MD4-10
-      Description=
-
-        BEGIN 900862
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=HMI MD410 joystick left
-        END 900862
-      END 900861
-
-      BEGIN 900863
-      Function
-      Name=MD3
-      Description=
-
-        BEGIN 900864
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=HMI MD3 joystick left
-        END 900864
-      END 900863
-    END 900856
-
-    BEGIN 900865
-    Math channel (MAC)
-    Name=CMD Joystick right
-    Description=Track joystick right, from the single source given by CFG Joystick source; 0 if that module is absent.  [origin: Math Gauche/Droit ... 45 (joystick selection logic)]
-    Unit=%
-    Function selector=CFG Joystick source
+        END 900865
+      END 900864
 
       BEGIN 900866
       Function
-      Name=MC42
+      Name=MD4-10
       Description=
 
         BEGIN 900867
@@ -745,13 +707,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=IO Joystick right C1:24
+        Expression=HMI MD410 joystick left
         END 900867
       END 900866
 
       BEGIN 900868
       Function
-      Name=MD4-5
+      Name=MD3
       Description=
 
         BEGIN 900869
@@ -760,50 +722,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=HMI MD45 joystick right
+        Expression=HMI MD3 joystick left
         END 900869
       END 900868
+    END 900861
 
-      BEGIN 900870
+    BEGIN 900870
+    Math channel (MAC)
+    Name=CMD Joystick right
+    Description=Track joystick right, from the single source given by CFG Joystick source; 0 if that module is absent.  [origin: Math Gauche/Droit ... 45 (joystick selection logic)]
+    Unit=%
+    Function selector=CFG Joystick source
+
+      BEGIN 900871
       Function
-      Name=MD4-10
+      Name=MC42
       Description=
 
-        BEGIN 900871
+        BEGIN 900872
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
-        Expression=HMI MD410 joystick right
-        END 900871
-      END 900870
+        Expression=IO Joystick right C1:24
+        END 900872
+      END 900871
 
-      BEGIN 900872
+      BEGIN 900873
       Function
-      Name=MD3
+      Name=MD4-5
       Description=
 
-        BEGIN 900873
+        BEGIN 900874
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
-        Expression=HMI MD3 joystick right
-        END 900873
-      END 900872
-    END 900865
-
-    BEGIN 900874
-    Integer math channel (IMAC)
-    Name=CMD Speed level
-    Description=Speed level requested: 0 idle, 1 super slow, 2 slow, 3 fast (same coding as E Speed Int / Screen_Speed Input mc).  [origin: Screen_Speed Input mc, 45 Speed state]
-    Function selector=Not used
+        Expression=HMI MD45 joystick right
+        END 900874
+      END 900873
 
       BEGIN 900875
       Function
-      Name=Default function
+      Name=MD4-10
       Description=
 
         BEGIN 900876
@@ -812,58 +775,95 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=state of 45 Speed state driven by CMD Slow, CMD Fast, CMD Super slow
+        Expression=HMI MD410 joystick right
         END 900876
       END 900875
-    END 900874
-  END 900787
-END 900786
 
-BEGIN 900877
+      BEGIN 900877
+      Function
+      Name=MD3
+      Description=
+
+        BEGIN 900878
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=HMI MD3 joystick right
+        END 900878
+      END 900877
+    END 900870
+
+    BEGIN 900879
+    Integer math channel (IMAC)
+    Name=CMD Speed level
+    Description=Speed level requested: 0 idle, 1 super slow, 2 slow, 3 fast (same coding as E Speed Int / Screen_Speed Input mc).  [origin: Screen_Speed Input mc, 45 Speed state]
+    Function selector=Not used
+
+      BEGIN 900880
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900881
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=state of 45 Speed state driven by CMD Slow, CMD Fast, CMD Super slow
+        END 900881
+      END 900880
+    END 900879
+  END 900792
+END 900791
+
+BEGIN 900882
 Function group
 Name=80 HMI Human-machine interface
 Description=
 Enabled=Yes
 
-  BEGIN 900878
+  BEGIN 900883
   Function group
   Name=HMI Outputs
   Description=
   Enabled=Yes
 
-    BEGIN 900879
+    BEGIN 900884
     Application output channel (APPOUT)
     Name=HMI Status word 1
     Description=Status word 1 published to every display (bit map in 80_HMI_bits.csv).  [origin: dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start]
     Input channel=HMI status word 1 packing (ARC)
-    END 900879
+    END 900884
 
-    BEGIN 900880
+    BEGIN 900885
     Application output channel (APPOUT)
     Name=HMI Status word 2
     Description=Status word 2 published to every display (bit map in 80_HMI_bits.csv).  [origin: dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start]
     Input channel=HMI status word 2 packing (ARC)
-    END 900880
+    END 900885
 
-    BEGIN 900881
+    BEGIN 900886
     Application output channel (APPOUT)
     Name=HMI Status word 3
     Description=Status word 3 published to every display (bit map in 80_HMI_bits.csv).  [origin: dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start]
     Input channel=HMI status word 3 packing (ARC)
-    END 900881
+    END 900886
 
-    BEGIN 900882
+    BEGIN 900887
     Application output channel (APPOUT)
     Name=HMI Status word 4
     Description=Status word 4 published to every display (bit map in 80_HMI_bits.csv).  [origin: dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start]
     Input channel=HMI status word 4 packing (ARC)
-    END 900882
+    END 900887
 
-    BEGIN 900883
+    BEGIN 900888
     Application output channel (APPOUT)
     Name=HMI Values
     Description=Analog values published to every display: BAT SOC, BAT Voltage, BAT Current, ENG Speed or DRV speed, temperatures, hours, up/down count.  [origin: various screen links]
     Input channel=HMI values array (ARC)
-    END 900883
-  END 900878
-END 900877
+    END 900888
+  END 900883
+END 900882

@@ -1,17 +1,30 @@
 # 1. Architecture cible
 
-Ce document décrit la structure du firmware v2 telle qu'elle doit apparaître dans IQANdesign : applications, groupes de fonctions, et règles de communication entre groupes. Il remplace la section 2 de [../proposition_v2.md](../proposition_v2.md), qui restait une esquisse. Les décisions correspondantes sont D22 à D36 dans [../DECISIONS.md](../DECISIONS.md).
+Ce document décrit la structure du firmware v2 telle qu'elle doit apparaître dans IQANdesign : applications, groupes de fonctions, et règles de communication entre groupes. Il remplace la section 2 de [../proposition_v2.md](../proposition_v2.md), qui restait une esquisse. Les décisions correspondantes sont D22 à D41 dans [../DECISIONS.md](../DECISIONS.md).
 
-## 1.1 Deux projets, un seul socle
+## 1.1 Trois projets, un seul socle
 
-| Projet | Contrôleur | Écrans | Bateaux | Identifiant de projet |
-|---|---|---|---|---|
-| **v2 MC42** | MC42, ID-tag **0** | MD4-5 (adresse 1), MD4-10 (adresse 2), MD3 (adresse 0), tous optionnels ; MD5 plus tard | lignée A (V25 → 108.3.1) et lignée B (V35 → V69) : tous les bateaux MC42, électriques et thermiques | celui de la 108.3.1 (`A9A417A5…`), voir D6 |
-| **v2 MC2** | MC2 | MD3 | lignée C (V5.x) : Original thermiques VW / Ford, #002 à #027 | celui de la V5.37 (`D2FDEFEA…`) |
+| Projet | Construit dans une copie de | Contrôleur | Écrans | Bateaux | Identifiant de projet |
+|---|---|---|---|---|---|
+| **v2 MC42-MD4** | la v2 en cours (108.3.1 + étape A, D6) | MC42, ID-tag **0** | MD4-5 (adresse 1), MD4-10 (adresse 2), optionnels ; MD5 plus tard | lignée A (V25 → 108.3.1) | celui de la 108.3.1 (`A9A417A5…`) |
+| **v2 MC42-MD3** | la **V69.03.1** | MC42, ID-tag **1** (inchangé) | MD3 (adresse 0) | lignée B (V35 → V69), thermiques et électriques | celui de la V69 (`EF4370B5…`) |
+| **v2 MC2** | la **V5.37** | MC2 | MD3 | lignée C (V5.x) : Original thermiques VW / Ford, #002 à #027 | celui de la V5.37 (`D2FDEFEA…`) |
 
-Le **socle** est la conception commune : mêmes couches, mêmes noms, mêmes interfaces, mêmes journaux. Le projet MC2 n'en reprend que la partie thermique, avec sa propre couche d'entrées/sorties (le câblage MC2 n'a rien à voir avec celui du MC42). Un correctif de logique se fait d'abord dans la v2 MC42, puis se reporte dans la v2 MC2 par copier-coller du groupe concerné, vérifié par `diff_versions.py`.
+Le **socle** est la conception commune : mêmes couches, mêmes noms, mêmes interfaces, mêmes journaux. Il est développé dans la v2 MC42-MD4, puis recopié groupe par groupe dans la v2 MC42-MD3 (identique, hors écran) et, pour sa partie thermique, dans la v2 MC2 (avec sa propre couche d'entrées/sorties, le câblage MC2 n'ayant rien à voir avec celui du MC42). Un correctif de logique se fait d'abord dans la v2 MC42-MD4, puis se reporte dans les deux autres ; `diff_versions.py` vérifie que les groupes du socle sont identiques d'un projet à l'autre (D38).
 
-Pourquoi pas un seul projet pour tout : un projet IQAN est lié à ses modules maîtres, et MC2 et MC42 n'ont ni les mêmes broches ni les mêmes ressources. Pourquoi pas trois projets comme aujourd'hui : les lignées A et B ont le même contrôleur et le même câblage hydraulique ; seuls l'écran et l'adresse du MC42 changent (voir §1.5).
+**Pourquoi trois projets.** Un seul projet MC42 pour les lignées A et B était la cible de départ (D23), mais IQANdesign 6.08 ne permet plus d'ajouter un module MD3 à un projet (essai B2, [../essais/B1_B2.md](../essais/B1_B2.md)) ; il sait seulement ouvrir et modifier un projet qui en contient déjà un. Le projet MD3 est donc construit dans une copie de la V69, ce qui a deux avantages : les bateaux lignée B **gardent leurs réglages** (même identifiant de projet, mêmes objets), et le MC42 garde son adresse 1, **sans changement d'ID-tag** (D39). Le MC2 suit la même logique dans une copie de la V5.37.
+
+**Ce qui diffère d'un projet à l'autre, et seulement cela** :
+
+| Partie | v2 MC42-MD4 | v2 MC42-MD3 | v2 MC2 |
+|---|---|---|---|
+| Modules maîtres et applications écran | MC42 + MD4-5 + MD4-10 | MC42 + MD3 | MC2 + MD3 |
+| Paramètres historiques (réglages stockés) | ceux de la 108.3.1, restés dans leurs groupes | ceux de la V69, restés dans leurs groupes | ceux de la V5.37 |
+| `00 CFG / CFG Variant flags` | décode les paramètres 108.3.1 | décode les paramètres V69 (nombre et ordre d'états différents, §3.6) | décode les paramètres V5.37 |
+| `10 IO` | MC42 | MC42 (identique, joysticks sur le MD3) | MC2 |
+| Groupes `20` à `90` | socle | socle, recopié | sous-ensemble thermique du socle |
+
+Les groupes du socle ne lisent jamais un paramètre historique dont le sens diffère selon le projet : ils lisent les indicateurs `CFG Is_…` et les paramètres de même sens, renommés au même nom dans chaque projet (le renommage conserve le réglage, essai B1).
 
 ## 1.2 Les couches
 
@@ -19,7 +32,7 @@ Le MC42 contient toute la logique. Il est découpé en couches qui ne communique
 
 ```
                 ┌──────────────────────────────────────────────────────────────┐
-  écrans        │ MD4-5 app · MD4-10 app · MD3 app · (MD5 app)                  │  pages, joysticks locaux,
+  écrans        │ MD4-5 app · MD4-10 app (MC42-MD4) · MD3 app (MC42-MD3, MC2) · (MD5)                  │  pages, joysticks locaux,
   (apps)        │   ne font que traduire : boutons → commandes, états → pages   │  buzzer, NMEA, A/C 24 V
                 └───────────────▲──────────────────────────────┬───────────────┘
                                 │ APPIN/APPOUT (contrat IHM, §6) │
@@ -62,8 +75,9 @@ Les numéros sont dans le nom du groupe : ils fixent l'ordre de lecture et de do
 ```
 MC42 app
 ├─ 00 CFG Configuration
-│   ├─ CFG Settings (contract)     tous les paramètres réglables existants, inchangés (voir 03_configuration.md)
-│   ├─ CFG Variant flags           Is_Electric, Is_Thermic, Is_Cab, Is_X100, Is_BAT_Novum… (IDC)
+│   ├─ CFG Settings (historical)   paramètres réglables existants, déplacés par glisser-déposer (jamais coupés / collés, 03 §3.2)
+│   ├─ CFG Settings (v2)           réglages créés par la v2
+│   ├─ CFG Variant flags           Is_Electric, Is_Thermic, Is_Cab, Is_X100, Is_BAT_Novum… (IDC) ; seul groupe propre à chaque projet
 │   └─ CFG Constants
 ├─ 10 IO MC42 pins
 │   ├─ IO Hydraulic block          EV tension/lock/up/down/by-pass/unlock, pressions, niveau, T° huile
@@ -109,7 +123,7 @@ Applications écran :
 ```
 MD4-5 app   (tableau de bord, toutes coques sauf cabine)  HMI link · pages · joystick local · buzzer · niveau d'eau V10
 MD4-10 app  (Commuter)                                     HMI link · pages · joystick local · buzzer · NMEA/hors-bords · GPS · A/C Tyva 24 V
-MD3 app     (bateaux lignée B)                              HMI link · pages · joysticks locaux · buzzer · radio
+MD3 app     (projets MC42-MD3 et MC2)                       HMI link · pages · joysticks locaux · buzzer · radio
 MD5 app     (futur)                                         HMI link · pages · …   (même contrat, voir 06_ihm.md)
 ```
 
@@ -126,14 +140,15 @@ MD5 app     (futur)                                         HMI link · pages ·
 
 **Adresses des modules maîtres.** IQAN identifie un module par son type **et** son adresse. Le MC42 reçoit son adresse par l'ID-tag câblé entre ADDR-H et ADDR-L ; s'il ne correspond pas au projet, le MC42 affiche « R3:2 IdTag error » et ne démarre pas l'application (notice MC4x, p. 60 et codes d'erreur).
 
-| Lignée | MC42 | MD4-10 | MD4-5 | MD3 |
+| Lignée / projet | MC42 | MD4-10 | MD4-5 | MD3 |
 |---|---|---|---|---|
 | A, V25.74 | **1** | **0** | — | — |
 | A, 108.3.1 | 0 | 2 | 1 | — |
-| B, V35 / V69 | **1** | — | — | 0 |
-| v2 MC42 | 0 | 2 | 1 | 0 |
+| B, V35 / V69 | 1 | — | — | 0 |
+| v2 MC42-MD4 | 0 | 2 | 1 | — |
+| v2 MC42-MD3 | 1 | — | — | 0 |
 
-MD3 et MC42 étant de types différents, ils peuvent tous deux avoir l'adresse 0. En revanche le MC42 ne peut avoir qu'une adresse dans un projet. La v2 garde celle de la 108.3.1 (0) : les bateaux les plus récents et les plus nombreux à mettre à jour ne changent rien. Pour un bateau V25 ou lignée B, la migration comprend **le remplacement de l'ID-tag du MC42 (1 → 0)** et, pour un Commuter V25, le passage de l'adresse du MD4-10 de 0 à 2 dans le menu système de l'écran. Décision D24 ; la façon dont les Commuter V25 ont été passés en V76 est à retrouver (voir [10_besoins_iqandesign.md](10_besoins_iqandesign.md), B3).
+Chaque projet garde l'adresse de sa lignée : les bateaux 108.x et lignée B ne changent rien. Seuls les **Commuter V25** demandent le remplacement de l'ID-tag du MC42 (1 → 0) et le passage de l'adresse du MD4-10 de 0 à 2 dans le menu système de l'écran (D39, qui remplace D24 pour la lignée B). La façon dont les Commuter V25 ont été passés en V76 est à retrouver ([10_besoins_iqandesign.md](10_besoins_iqandesign.md), B3).
 
 **Port CAN B partagé** (keyboxes cabine à 125 kb/s, moteurs J1939 à 250 kb/s, électrique à 500 kb/s) : limite conservée, sans conséquence puisque les Commuter sont tous électriques.
 

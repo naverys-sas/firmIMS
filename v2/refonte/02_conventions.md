@@ -17,7 +17,7 @@ Forme : `PFX Object quantity`, en minuscules après le premier mot, sans unité 
 
 | Préfixe | Couche / famille | Exemples |
 |---|---|---|
-| `CFG` | configuration dérivée (les paramètres contrat gardent leur nom, §2.6) | `CFG Is_Electric`, `CFG Is_X100` |
+| `CFG` | configuration dérivée (les paramètres historiques gardent leur identifiant et leur groupe, §2.6) | `CFG Is_Electric`, `CFG Is_X100` |
 | `IO` | broche physique ; le nom finit par la broche | `IO EV tension C1:58`, `IO Joystick left C1:36` |
 | `BAT` `CHG` `DRV` `PMP` `ENG` `KBX` `KPD` `TEL` | interface normalisée d'une famille d'équipement | `BAT SOC`, `DRV M1 speed`, `ENG Coolant temp` |
 | `TQD` `NOV` `TYV` `KRS` `BRU` `ELC` `SVC` `ZAP` `HVLP` `J19` | canal interne d'un pilote de marque | `TYV Cell V max`, `ZAP Heartbeat` |
@@ -45,30 +45,36 @@ Booléens : nom affirmatif (`BAT CAN ok`, pas `BAT CAN nok` ni `not …`). État
 - Un **Comment** IQAN en haut à gauche de chaque groupe : rôle du groupe, entrées, sorties, décisions liées (D…).
 - Qcode : seulement quand un objet IQAN ne suffit pas ; toujours une branche `else`/par défaut ; un commentaire par bloc `if`.
 
-## 2.6 Ce qui garde son nom historique (le contrat)
+## 2.6 Ce qui ne doit jamais changer (le contrat)
 
-Renommer ces objets casserait un bateau livré ou les habitudes du SAV ([../compatibilite.md](../compatibilite.md) §1). Ils gardent **nom, type, unité, ordre des états et identifiant interne** :
+L'essai B1 ([../essais/B1_B2.md](../essais/B1_B2.md)) a montré qu'un contrôleur retrouve un réglage par l'**identifiant interne** du canal (Component ID, le numéro `BEGIN` des exports) et par son **nombre d'états**, pas par son nom. D'où trois niveaux :
 
-- les paramètres réglables (SP, IP, FP, DP, TP, RP…) et leurs entrées de menu ;
-- les menus de réglage (Adjust groups) et leurs codes PIN ;
-- les trames CAN (identifiant, longueur, position des signaux) ;
-- les codes et textes de messages (`e1170 Battery Isolation`…) ;
-- les journaux existants et leurs entrées.
+| Ce qui est protégé | Pourquoi | Règle |
+|---|---|---|
+| Identifiant interne des paramètres réglables (SP, IP, FP, DP, TP, RP…) | un nouvel identifiant = réglage perdu sur toute la flotte, et toutes les fonctions qui en dépendent cassées | jamais de **couper / coller**, jamais de suppression puis recréation ; déplacement par **glisser-déposer** seulement (D40) |
+| Nombre d'états d'un paramètre d'état | un état ajouté ou retiré = retour au défaut sur toute la flotte | jamais d'état ajouté ou retiré (§2.7) |
+| Ordre des états | un réordonnancement n'est pas détecté : un Kreisel deviendrait Torqeedo | jamais d'insertion ni de réordonnancement |
+| Trames CAN, codes et textes de messages, journaux existants | équipements, SAV et historique | inchangés |
+| Noms des paramètres et des menus | **pas** protégés techniquement : le renommage garde le réglage et les références suivent | renommage autorisé (fautes, anglais) ; les libellés de menu vus par le SAV ne changent que par décision |
 
-Règle de lecture : un nom sans préfixe de couche est soit un objet du contrat, soit un canal interne à portée privée. Le préfixe `CFG Settings (contract)` du groupe rappelle que les paramètres qui y sont rangés ne se renomment pas.
+Un paramètre historique peut donc recevoir un nom correct (`Kresel …` → `Kreisel …`) et changer de groupe par **glisser-déposer** du bloc sur le groupe cible dans l'arborescence : l'essai B11 a montré que le canal garde son numéro et toutes ses références. Les outils (`check_spec.py`, `compat_check.py`) apparient les paramètres par identifiant interne, plus par nom.
 
-Un paramètre historique dont le nom est trompeur reçoit une **description** qui corrige, pas un nouveau nom. Exemple : `eb Battery Brand`, état `BMW` → description « BMW = Torqeedo pack (BMW i3 cells) ».
+Un paramètre dont le nom reste trompeur reçoit une **description** qui corrige. Exemple : `eb Battery Brand`, état `BMW` → description « BMW = Torqeedo pack (BMW i3 cells) ».
 
 ## 2.7 Ajouter une marque d'équipement
 
-1. Ajouter l'état **à la fin** du sélecteur de la famille (`eb Battery Brand` : … Kreisel, *NouvelleMarque*). Ne jamais insérer ni réordonner : un bateau livré stocke un numéro d'état.
-2. Créer le sous-groupe pilote `PFX Brand`, activé par `CFG Is_PFX_Brand`, qui ne lit que ses trames et ses FGI.
+Ajouter un état au sélecteur existant (`eb Battery Brand`) remettrait toute la flotte au défaut (B1). La v2 crée donc, une fois pour toutes, un **sélecteur d'extension** par famille (`eb Battery Brand ext`, `ec Charger Brand ext`, `em1 M-Track - Brand ext`, `em M-Pump - Brand ext`, `T Engine type ext`), avec 8 états : `Legacy` (défaut : la marque est celle du sélecteur historique), puis `Spare 1` à `Spare 7`. Un nouveau paramètre créé par la v2 part de son défaut, donc de `Legacy` : aucun bateau ne change (D41).
+
+1. Renommer le premier `Spare n` libre du sélecteur d'extension au nom de la marque (le nombre d'états ne change pas ; à confirmer par l'essai B12).
+2. Créer le sous-groupe pilote `PFX Brand`, activé par `CFG Is_PFX_Brand` = (`… ext` = *NouvelleMarque*), qui ne lit que ses trames et ses FGI.
 3. Remplir la fonction *NouvelleMarque* de **chaque** canal d'interface de la famille ([04_equipements.md](04_equipements.md)). Le contrôle automatique refuse un canal d'interface avec une fonction vide non commentée.
 4. Ajouter la marque aux journaux (codes d'erreur bruts dans `LOG … raw code`).
-5. Noter la décision dans `DECISIONS.md`, régénérer la base de connaissances.
+5. Faire de même dans la v2 MC42-MD3 (et la v2 MC2 si thermique), noter la décision dans `DECISIONS.md`, régénérer la base de connaissances.
+
+Tout **nouveau** paramètre d'état créé par la v2 suit la même règle : il naît avec des états de réserve.
 
 ## 2.8 Versions et traçabilité
 
-- `Version` du projet : `2.<étape>.<révision>` (ex. `2.3.0`), commentaire de version = liste des décisions D… intégrées.
+- `Version` du projet : `2.<étape>.<révision>` (ex. `2.3.0`), commentaire de version = liste des décisions D… intégrées. Les trois projets (MC42-MD4, MC42-MD3, MC2) portent le même numéro quand ils contiennent le même socle ; le nom du fichier dit le projet (`v2_MC42-MD4_2.3.0.idax`).
 - Chaque version enregistrée dans IQANdesign est exportée en texte (`exports/`) et commitée avec son `.idax` ; le message de commit cite les décisions.
 - Les champs *Last edited* d'IQAN donnent l'auteur ; le dépôt donne le pourquoi.

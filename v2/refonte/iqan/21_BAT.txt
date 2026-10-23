@@ -2,122 +2,122 @@
 // Not an importable file: IQANdesign has no text import. Enter in the IDE, then
 // compare the export of the project with check_spec.py.
 
-BEGIN 900118
+BEGIN 900123
 Function group
 Name=20 EQP Equipment drivers
 Description=
 Enabled=Yes
 
-  BEGIN 900119
+  BEGIN 900124
   Function group
   Name=21 BAT Battery
   Description=
   Enabled=Yes
 
-    BEGIN 900120
+    BEGIN 900125
     Internal digital channel (IDC)
     Name=BAT CAN ok
     Description=HV battery communication alive (all frames used by the logic received in time, D16).  [origin: Battery CAN OK]
     Function selector=eb Battery Brand
 
-      BEGIN 900121
+      BEGIN 900126
       Function
       Name=BMW
       Description=
 
-        BEGIN 900122
+        BEGIN 900127
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BMW CAN OK
-        END 900122
+        END 900127
 
-        BEGIN 900123
+        BEGIN 900128
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900123
-      END 900121
+        END 900128
+      END 900126
 
-      BEGIN 900124
+      BEGIN 900129
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900125
+        BEGIN 900130
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum - CAN OK
-        END 900125
+        END 900130
 
-        BEGIN 900126
+        BEGIN 900131
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900126
-      END 900124
+        END 900131
+      END 900129
 
-      BEGIN 900127
+      BEGIN 900132
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900128
+        BEGIN 900133
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=tyva batt can ok idc
-        END 900128
+        END 900133
 
-        BEGIN 900129
+        BEGIN 900134
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900129
-      END 900127
+        END 900134
+      END 900132
 
-      BEGIN 900130
+      BEGIN 900135
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900131
+        BEGIN 900136
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Kreisel - CAN OK
-        END 900131
+        END 900136
 
-        BEGIN 900132
+        BEGIN 900137
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900132
-      END 900130
-    END 900120
+        END 900137
+      END 900135
+    END 900125
 
-    BEGIN 900133
+    BEGIN 900138
     Internal digital channel (IDC)
     Name=BAT Standby
     Description=Battery reports standby (contactors open, ready to close).  [origin: Battery STANDBY]
@@ -125,104 +125,104 @@ Enabled=Yes
     Delay off=2000
     Function selector=eb Battery Brand
 
-      BEGIN 900134
+      BEGIN 900139
       Function
       Name=BMW
       Description=
 
-        BEGIN 900135
+        BEGIN 900140
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BMW CAN OK
-        END 900135
+        END 900140
 
-        BEGIN 900136
+        BEGIN 900141
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Discharge mode
-        END 900136
-      END 900134
+        END 900141
+      END 900139
 
-      BEGIN 900137
+      BEGIN 900142
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900138
+        BEGIN 900143
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum - STANDBY
-        END 900138
+        END 900143
 
-        BEGIN 900139
+        BEGIN 900144
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=not(BAT CAN ok)
-        END 900139
-      END 900137
+        END 900144
+      END 900142
 
-      BEGIN 900140
+      BEGIN 900145
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900141
+        BEGIN 900146
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BAT CAN ok
-        END 900141
+        END 900146
 
-        BEGIN 900142
+        BEGIN 900147
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Discharge mode
-        END 900142
-      END 900140
+        END 900147
+      END 900145
 
-      BEGIN 900143
+      BEGIN 900148
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900144
+        BEGIN 900149
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Kreisel - CAN OK
-        END 900144
+        END 900149
 
-        BEGIN 900145
+        BEGIN 900150
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Discharge mode
-        END 900145
-      END 900143
-    END 900133
+        END 900150
+      END 900148
+    END 900138
 
-    BEGIN 900146
+    BEGIN 900151
     Internal digital channel (IDC)
     Name=BAT Charge mode
     Description=Battery reports charge mode.  [origin: Battery CHARGE]
@@ -230,284 +230,246 @@ Enabled=Yes
     Delay off=2000
     Function selector=eb Battery Brand
 
-      BEGIN 900147
+      BEGIN 900152
       Function
       Name=BMW
       Description=
 
-        BEGIN 900148
+        BEGIN 900153
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BMW - CHARGE
-        END 900148
+        END 900153
 
-        BEGIN 900149
+        BEGIN 900154
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=not(BAT CAN ok)
-        END 900149
-      END 900147
+        END 900154
+      END 900152
 
-      BEGIN 900150
+      BEGIN 900155
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900151
+        BEGIN 900156
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum - CHARGE
-        END 900151
+        END 900156
 
-        BEGIN 900152
+        BEGIN 900157
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=not(BAT CAN ok)
-        END 900152
-      END 900150
+        END 900157
+      END 900155
 
-      BEGIN 900153
+      BEGIN 900158
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900154
+        BEGIN 900159
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=tyva - CHARGE
-        END 900154
+        END 900159
 
-        BEGIN 900155
+        BEGIN 900160
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=not(BAT CAN ok)
-        END 900155
-      END 900153
+        END 900160
+      END 900158
 
-      BEGIN 900156
+      BEGIN 900161
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900157
+        BEGIN 900162
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=kreisel - CHARGE
-        END 900157
+        END 900162
 
-        BEGIN 900158
+        BEGIN 900163
         Object group
         Name=Blocking
         Description=
         Method=Expression
         Valid=True
         Expression=not(BAT CAN ok)
-        END 900158
-      END 900156
-    END 900146
+        END 900163
+      END 900161
+    END 900151
 
-    BEGIN 900159
+    BEGIN 900164
     Internal digital channel (IDC)
     Name=BAT Discharge mode
     Description=Battery reports discharge (drive) mode.  [origin: Battery DRIVE MODE]
     Function selector=eb Battery Brand
 
-      BEGIN 900160
+      BEGIN 900165
       Function
       Name=BMW
       Description=
 
-        BEGIN 900161
+        BEGIN 900166
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(as Battery DRIVE MODE, BMW function)
-        END 900161
+        END 900166
 
-        BEGIN 900162
+        BEGIN 900167
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900162
-      END 900160
+        END 900167
+      END 900165
 
-      BEGIN 900163
+      BEGIN 900168
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900164
+        BEGIN 900169
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(as Battery DRIVE MODE, NovumTech function)
-        END 900164
+        END 900169
 
-        BEGIN 900165
+        BEGIN 900170
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900165
-      END 900163
+        END 900170
+      END 900168
 
-      BEGIN 900166
+      BEGIN 900171
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900167
+        BEGIN 900172
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(as Battery DRIVE MODE, Tyva function)
-        END 900167
+        END 900172
 
-        BEGIN 900168
+        BEGIN 900173
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900168
-      END 900166
+        END 900173
+      END 900171
 
-      BEGIN 900169
+      BEGIN 900174
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900170
+        BEGIN 900175
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(as Battery DRIVE MODE, Kreisel function)
-        END 900170
+        END 900175
 
-        BEGIN 900171
+        BEGIN 900176
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900171
-      END 900169
-    END 900159
+        END 900176
+      END 900174
+    END 900164
 
-    BEGIN 900172
+    BEGIN 900177
     Math channel (MAC)
     Name=BAT SOC
     Description=State of charge.  [origin: Battery SOC]
     Unit=%
     Function selector=eb Battery Brand
 
-      BEGIN 900173
+      BEGIN 900178
       Function
       Name=BMW
       Description=
 
-        BEGIN 900174
+        BEGIN 900179
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=BMW - SOC
-        END 900174
-      END 900173
+        END 900179
+      END 900178
 
-      BEGIN 900175
+      BEGIN 900180
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900176
+        BEGIN 900181
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Novum - SOC
-        END 900176
-      END 900175
-
-      BEGIN 900177
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900178
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Soc Tyva onoff CHECK
-        END 900178
-      END 900177
-
-      BEGIN 900179
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900180
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - SOC
-        END 900180
-      END 900179
-    END 900172
-
-    BEGIN 900181
-    Math channel (MAC)
-    Name=BAT Voltage
-    Description=Battery pack voltage.  [origin: Battery InstantVoltage]
-    Unit=V
-    Function selector=eb Battery Brand
+        END 900181
+      END 900180
 
       BEGIN 900182
       Function
-      Name=BMW
+      Name=Tyva
       Description=
 
         BEGIN 900183
@@ -516,13 +478,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW_-_Battery_InstantVoltage
+        Expression=Soc Tyva onoff CHECK
         END 900183
       END 900182
 
       BEGIN 900184
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900185
@@ -531,51 +493,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - BatteryVoltage
+        Expression=Kreisel - SOC
         END 900185
       END 900184
+    END 900177
 
-      BEGIN 900186
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900187
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=BatteryVoltage Tyva
-        END 900187
-      END 900186
-
-      BEGIN 900188
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900189
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - Battery InstantVoltage
-        END 900189
-      END 900188
-    END 900181
-
-    BEGIN 900190
+    BEGIN 900186
     Math channel (MAC)
-    Name=BAT Voltage traction
-    Description=Voltage on the traction (DC bus) side of the contactors. NovumTech and Tyva: pack voltage, no separate measurement.  [origin: BMS_U_Trac]
+    Name=BAT Voltage
+    Description=Battery pack voltage.  [origin: Battery InstantVoltage]
     Unit=V
     Function selector=eb Battery Brand
 
-      BEGIN 900191
+      BEGIN 900187
       Function
       Name=BMW
+      Description=
+
+        BEGIN 900188
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW_-_Battery_InstantVoltage
+        END 900188
+      END 900187
+
+      BEGIN 900189
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900190
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - BatteryVoltage
+        END 900190
+      END 900189
+
+      BEGIN 900191
+      Function
+      Name=Tyva
       Description=
 
         BEGIN 900192
@@ -584,13 +546,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW_-_U_Trac
+        Expression=BatteryVoltage Tyva
         END 900192
       END 900191
 
       BEGIN 900193
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900194
@@ -599,51 +561,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - BatteryVoltage
+        Expression=Kreisel - Battery InstantVoltage
         END 900194
       END 900193
+    END 900186
 
-      BEGIN 900195
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900196
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=BatteryVoltage Tyva
-        END 900196
-      END 900195
-
-      BEGIN 900197
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900198
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - U_Trac
-        END 900198
-      END 900197
-    END 900190
-
-    BEGIN 900199
+    BEGIN 900195
     Math channel (MAC)
-    Name=BAT Voltage precharge ref
-    Description=Reference voltage for precharge check. Kreisel: no source in 108.3.1, to define (D29).  [origin: CPI_BMS_U_Trac (Kreisel empty)]
+    Name=BAT Voltage traction
+    Description=Voltage on the traction (DC bus) side of the contactors. NovumTech and Tyva: pack voltage, no separate measurement.  [origin: BMS_U_Trac]
     Unit=V
     Function selector=eb Battery Brand
 
-      BEGIN 900200
+      BEGIN 900196
       Function
       Name=BMW
+      Description=
+
+        BEGIN 900197
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW_-_U_Trac
+        END 900197
+      END 900196
+
+      BEGIN 900198
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900199
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - BatteryVoltage
+        END 900199
+      END 900198
+
+      BEGIN 900200
+      Function
+      Name=Tyva
       Description=
 
         BEGIN 900201
@@ -652,13 +614,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW_-_Battery_InstantVoltage
+        Expression=BatteryVoltage Tyva
         END 900201
       END 900200
 
       BEGIN 900202
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900203
@@ -667,51 +629,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - BatteryVoltage
+        Expression=Kreisel - U_Trac
         END 900203
       END 900202
+    END 900195
 
-      BEGIN 900204
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900205
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=volt tyva mean off
-        END 900205
-      END 900204
-
-      BEGIN 900206
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900207
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - U_Trac
-        END 900207
-      END 900206
-    END 900199
-
-    BEGIN 900208
+    BEGIN 900204
     Math channel (MAC)
-    Name=BAT Current
-    Description=Battery current. Tyva: sum of M1 and M2 currents (pump M3 not included), the Tyva current frame being marked WRONG.  [origin: Current Bat]
-    Unit=A
+    Name=BAT Voltage precharge ref
+    Description=Reference voltage for precharge check. Kreisel: no source in 108.3.1, to define (D29).  [origin: CPI_BMS_U_Trac (Kreisel empty)]
+    Unit=V
     Function selector=eb Battery Brand
+
+      BEGIN 900205
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900206
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW_-_Battery_InstantVoltage
+        END 900206
+      END 900205
+
+      BEGIN 900207
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900208
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - BatteryVoltage
+        END 900208
+      END 900207
 
       BEGIN 900209
       Function
-      Name=BMW
+      Name=Tyva
       Description=
 
         BEGIN 900210
@@ -720,13 +682,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW - CURRENT
+        Expression=volt tyva mean off
         END 900210
       END 900209
 
       BEGIN 900211
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900212
@@ -735,51 +697,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - BatteryCurrent
+        Expression=Kreisel - U_Trac
         END 900212
       END 900211
+    END 900204
 
-      BEGIN 900213
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900214
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=DRV M1 current + DRV M2 current
-        END 900214
-      END 900213
-
-      BEGIN 900215
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900216
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - CURRENT
-        END 900216
-      END 900215
-    END 900208
-
-    BEGIN 900217
+    BEGIN 900213
     Math channel (MAC)
-    Name=BAT Max discharge current
-    Description=Maximum discharge current allowed by the BMS.  [origin: Max Discharge]
+    Name=BAT Current
+    Description=Battery current. Tyva: sum of M1 and M2 currents (pump M3 not included), the Tyva current frame being marked WRONG.  [origin: Current Bat]
     Unit=A
     Function selector=eb Battery Brand
 
-      BEGIN 900218
+      BEGIN 900214
       Function
       Name=BMW
+      Description=
+
+        BEGIN 900215
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - CURRENT
+        END 900215
+      END 900214
+
+      BEGIN 900216
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900217
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - BatteryCurrent
+        END 900217
+      END 900216
+
+      BEGIN 900218
+      Function
+      Name=Tyva
       Description=
 
         BEGIN 900219
@@ -788,13 +750,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW- Max Current
+        Expression=DRV M1 current + DRV M2 current
         END 900219
       END 900218
 
       BEGIN 900220
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900221
@@ -803,51 +765,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - MaxDischargeBatteryCurrent
+        Expression=Kreisel - CURRENT
         END 900221
       END 900220
+    END 900213
 
-      BEGIN 900222
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900223
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=IMD Tyva Max curr
-        END 900223
-      END 900222
-
-      BEGIN 900224
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900225
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel- Max Current
-        END 900225
-      END 900224
-    END 900217
-
-    BEGIN 900226
+    BEGIN 900222
     Math channel (MAC)
-    Name=BAT Cell T max
-    Description=Highest cell temperature.  [origin: Cell_T_max_Master]
-    Unit=°C
+    Name=BAT Max discharge current
+    Description=Maximum discharge current allowed by the BMS.  [origin: Max Discharge]
+    Unit=A
     Function selector=eb Battery Brand
+
+      BEGIN 900223
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900224
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW- Max Current
+        END 900224
+      END 900223
+
+      BEGIN 900225
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900226
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - MaxDischargeBatteryCurrent
+        END 900226
+      END 900225
 
       BEGIN 900227
       Function
-      Name=BMW
+      Name=Tyva
       Description=
 
         BEGIN 900228
@@ -856,13 +818,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BMW - Cell_T_max_Master
+        Expression=IMD Tyva Max curr
         END 900228
       END 900227
 
       BEGIN 900229
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900230
@@ -871,51 +833,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - MaxTemp
+        Expression=Kreisel- Max Current
         END 900230
       END 900229
+    END 900222
 
-      BEGIN 900231
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900232
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Tyva - MaxTemp
-        END 900232
-      END 900231
-
-      BEGIN 900233
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900234
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - Cell_T_max_Master
-        END 900234
-      END 900233
-    END 900226
-
-    BEGIN 900235
+    BEGIN 900231
     Math channel (MAC)
-    Name=BAT Cell V min
-    Description=Lowest cell voltage. Torqeedo: not decoded in 108.3.1 (frame to find in the Torqeedo documentation).  [origin: LowCellVoltage check bmw (BMW empty)]
-    Unit=mV
+    Name=BAT Cell T max
+    Description=Highest cell temperature.  [origin: Cell_T_max_Master]
+    Unit=°C
     Function selector=eb Battery Brand
+
+      BEGIN 900232
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900233
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - Cell_T_max_Master
+        END 900233
+      END 900232
+
+      BEGIN 900234
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900235
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - MaxTemp
+        END 900235
+      END 900234
 
       BEGIN 900236
       Function
-      Name=BMW
+      Name=Tyva
       Description=
 
         BEGIN 900237
@@ -924,13 +886,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=0
+        Expression=Tyva - MaxTemp
         END 900237
       END 900236
 
       BEGIN 900238
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900239
@@ -939,51 +901,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - MinCellVoltage
+        Expression=Kreisel - Cell_T_max_Master
         END 900239
       END 900238
+    END 900231
 
-      BEGIN 900240
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900241
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=VoltageCellMin Tyva V
-        END 900241
-      END 900240
-
-      BEGIN 900242
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900243
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - LowCellVoltage
-        END 900243
-      END 900242
-    END 900235
-
-    BEGIN 900244
+    BEGIN 900240
     Math channel (MAC)
-    Name=BAT Cell V max
-    Description=Highest cell voltage. Torqeedo: not decoded in 108.3.1.  [origin: HighCellVoltage check bmw (BMW empty)]
+    Name=BAT Cell V min
+    Description=Lowest cell voltage. Torqeedo: not decoded in 108.3.1 (frame to find in the Torqeedo documentation).  [origin: LowCellVoltage check bmw (BMW empty)]
     Unit=mV
     Function selector=eb Battery Brand
 
-      BEGIN 900245
+      BEGIN 900241
       Function
       Name=BMW
+      Description=
+
+        BEGIN 900242
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900242
+      END 900241
+
+      BEGIN 900243
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900244
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - MinCellVoltage
+        END 900244
+      END 900243
+
+      BEGIN 900245
+      Function
+      Name=Tyva
       Description=
 
         BEGIN 900246
@@ -992,13 +954,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=0
+        Expression=VoltageCellMin Tyva V
         END 900246
       END 900245
 
       BEGIN 900247
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900248
@@ -1007,51 +969,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Novum - MaxCellVoltage
+        Expression=Kreisel - LowCellVoltage
         END 900248
       END 900247
+    END 900240
 
-      BEGIN 900249
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900250
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=VoltageCellMax Tyva V
-        END 900250
-      END 900249
-
-      BEGIN 900251
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900252
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=Kreisel - HighCellVoltage
-        END 900252
-      END 900251
-    END 900244
-
-    BEGIN 900253
+    BEGIN 900249
     Math channel (MAC)
-    Name=BAT Cell V delta
-    Description=Cell imbalance (max - min); 0 when cell voltages are not available. Feeds the Cell imbalance event (Tyva field returns #010, #102, #104).  [origin: new]
+    Name=BAT Cell V max
+    Description=Highest cell voltage. Torqeedo: not decoded in 108.3.1.  [origin: HighCellVoltage check bmw (BMW empty)]
     Unit=mV
     Function selector=eb Battery Brand
 
-      BEGIN 900254
+      BEGIN 900250
       Function
       Name=BMW
+      Description=
+
+        BEGIN 900251
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900251
+      END 900250
+
+      BEGIN 900252
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900253
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Novum - MaxCellVoltage
+        END 900253
+      END 900252
+
+      BEGIN 900254
+      Function
+      Name=Tyva
       Description=
 
         BEGIN 900255
@@ -1060,13 +1022,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=0
+        Expression=VoltageCellMax Tyva V
         END 900255
       END 900254
 
       BEGIN 900256
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900257
@@ -1075,51 +1037,51 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=BAT Cell V max - BAT Cell V min
+        Expression=Kreisel - HighCellVoltage
         END 900257
       END 900256
+    END 900249
 
-      BEGIN 900258
-      Function
-      Name=Tyva
-      Description=
-
-        BEGIN 900259
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=BAT Cell V max - BAT Cell V min
-        END 900259
-      END 900258
-
-      BEGIN 900260
-      Function
-      Name=Kreisel
-      Description=
-
-        BEGIN 900261
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=BAT Cell V max - BAT Cell V min
-        END 900261
-      END 900260
-    END 900253
-
-    BEGIN 900262
+    BEGIN 900258
     Math channel (MAC)
-    Name=BAT Isolation
-    Description=Isolation resistance. NovumTech: not transmitted, constant 5000.  [origin: Batt - Iso_Resist]
-    Unit=kOhm
+    Name=BAT Cell V delta
+    Description=Cell imbalance (max - min); 0 when cell voltages are not available. Feeds the Cell imbalance event (Tyva field returns #010, #102, #104).  [origin: new]
+    Unit=mV
     Function selector=eb Battery Brand
+
+      BEGIN 900259
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900260
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900260
+      END 900259
+
+      BEGIN 900261
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900262
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BAT Cell V max - BAT Cell V min
+        END 900262
+      END 900261
 
       BEGIN 900263
       Function
-      Name=BMW
+      Name=Tyva
       Description=
 
         BEGIN 900264
@@ -1128,13 +1090,13 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=IsoMonResistance BMW
+        Expression=BAT Cell V max - BAT Cell V min
         END 900264
       END 900263
 
       BEGIN 900265
       Function
-      Name=NovumTech
+      Name=Kreisel
       Description=
 
         BEGIN 900266
@@ -1143,145 +1105,183 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=5000
+        Expression=BAT Cell V max - BAT Cell V min
         END 900266
       END 900265
+    END 900258
 
-      BEGIN 900267
+    BEGIN 900267
+    Math channel (MAC)
+    Name=BAT Isolation
+    Description=Isolation resistance. NovumTech: not transmitted, constant 5000.  [origin: Batt - Iso_Resist]
+    Unit=kOhm
+    Function selector=eb Battery Brand
+
+      BEGIN 900268
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900269
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=IsoMonResistance BMW
+        END 900269
+      END 900268
+
+      BEGIN 900270
+      Function
+      Name=NovumTech
+      Description=
+
+        BEGIN 900271
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=5000
+        END 900271
+      END 900270
+
+      BEGIN 900272
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900268
+        BEGIN 900273
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Batt - Iso_Resist - tyva
-        END 900268
-      END 900267
+        END 900273
+      END 900272
 
-      BEGIN 900269
+      BEGIN 900274
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900270
+        BEGIN 900275
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Kreisel - Iso_Resist
-        END 900270
-      END 900269
-    END 900262
+        END 900275
+      END 900274
+    END 900267
 
-    BEGIN 900271
+    BEGIN 900276
     Internal digital channel (IDC)
     Name=BAT Isolation low
     Description=Isolation below eb Isolation Protection Level. NovumTech: False on supplier recommendation.  [origin: BMW tyva - Isolation Error]
     Function selector=eb Battery Brand
 
-      BEGIN 900272
+      BEGIN 900277
       Function
       Name=BMW
       Description=
 
-        BEGIN 900273
+        BEGIN 900278
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Last Isolation value BMW/tyva <= eb Isolation Protection Level
-        END 900273
+        END 900278
 
-        BEGIN 900274
+        BEGIN 900279
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900274
-      END 900272
+        END 900279
+      END 900277
 
-      BEGIN 900275
+      BEGIN 900280
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900276
+        BEGIN 900281
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=False
-        END 900276
+        END 900281
 
-        BEGIN 900277
+        BEGIN 900282
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900277
-      END 900275
+        END 900282
+      END 900280
 
-      BEGIN 900278
+      BEGIN 900283
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900279
+        BEGIN 900284
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Last Isolation value BMW/tyva <= eb Isolation Protection Level
-        END 900279
+        END 900284
 
-        BEGIN 900280
+        BEGIN 900285
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900280
-      END 900278
+        END 900285
+      END 900283
 
-      BEGIN 900281
+      BEGIN 900286
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900282
+        BEGIN 900287
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Isolation <= eb Isolation Protection Level
-        END 900282
+        END 900287
 
-        BEGIN 900283
+        BEGIN 900288
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900283
-      END 900281
-    END 900271
+        END 900288
+      END 900286
+    END 900276
 
-    BEGIN 900284
+    BEGIN 900289
     Internal digital channel (IDC)
     Name=BAT Isolation error
     Description=Isolation fault confirmed (message e1170, protection after 100 s).  [origin: Error Iso_Resist]
@@ -1289,104 +1289,104 @@ Enabled=Yes
     Delay off=0
     Function selector=eb Battery Brand
 
-      BEGIN 900285
+      BEGIN 900290
       Function
       Name=BMW
       Description=
 
-        BEGIN 900286
+        BEGIN 900291
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Isolation low
-        END 900286
+        END 900291
 
-        BEGIN 900287
+        BEGIN 900292
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900287
-      END 900285
+        END 900292
+      END 900290
 
-      BEGIN 900288
+      BEGIN 900293
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900289
+        BEGIN 900294
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum - Isolation Error
-        END 900289
+        END 900294
 
-        BEGIN 900290
+        BEGIN 900295
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900290
-      END 900288
+        END 900295
+      END 900293
 
-      BEGIN 900291
+      BEGIN 900296
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900292
+        BEGIN 900297
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Isolation low AND system failure tyva isomon com
-        END 900292
+        END 900297
 
-        BEGIN 900293
+        BEGIN 900298
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900293
-      END 900291
+        END 900298
+      END 900296
 
-      BEGIN 900294
+      BEGIN 900299
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900295
+        BEGIN 900300
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BAT Isolation low
-        END 900295
+        END 900300
 
-        BEGIN 900296
+        BEGIN 900301
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900296
-      END 900294
-    END 900284
+        END 900301
+      END 900299
+    END 900289
 
-    BEGIN 900297
+    BEGIN 900302
     Internal digital channel (IDC)
     Name=BAT Ground fault
     Description=One battery pole pulled to ground. NovumTech: no signal. Kreisel: no signal identified, waiting for Kreisel documentation (D13).  [origin: Flag Ground Fault Detection]
@@ -1394,104 +1394,104 @@ Enabled=Yes
     Delay off=0
     Function selector=eb Battery Brand
 
-      BEGIN 900298
+      BEGIN 900303
       Function
       Name=BMW
       Description=
 
-        BEGIN 900299
+        BEGIN 900304
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=IsoMonTriggerRecord (iso value valid) AND (BAT Isolation <= 0)
-        END 900299
+        END 900304
 
-        BEGIN 900300
+        BEGIN 900305
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900300
-      END 900298
+        END 900305
+      END 900303
 
-      BEGIN 900301
+      BEGIN 900306
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900302
+        BEGIN 900307
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=False
-        END 900302
+        END 900307
 
-        BEGIN 900303
+        BEGIN 900308
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900303
-      END 900301
+        END 900308
+      END 900306
 
-      BEGIN 900304
+      BEGIN 900309
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900305
+        BEGIN 900310
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=IsoMonTriggerRecord (iso value valid) AND (BAT Isolation <= 0)
-        END 900305
+        END 900310
 
-        BEGIN 900306
+        BEGIN 900311
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900306
-      END 900304
+        END 900311
+      END 900309
 
-      BEGIN 900307
+      BEGIN 900312
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900308
+        BEGIN 900313
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=False
-        END 900308
+        END 900313
 
-        BEGIN 900309
+        BEGIN 900314
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900309
-      END 900307
-    END 900297
+        END 900314
+      END 900312
+    END 900302
 
-    BEGIN 900310
+    BEGIN 900315
     Internal digital channel (IDC)
     Name=BAT Charged
     Description=Battery full: SOC reached eb Charge Max or charger asks end of charge (D9 for Kreisel).  [origin: Battery CHARGED]
@@ -1499,374 +1499,374 @@ Enabled=Yes
     Delay off=300
     Function selector=eb Battery Brand
 
-      BEGIN 900311
+      BEGIN 900316
       Function
       Name=BMW
       Description=
 
-        BEGIN 900312
+        BEGIN 900317
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge
-        END 900312
+        END 900317
 
-        BEGIN 900313
+        BEGIN 900318
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900313
-      END 900311
+        END 900318
+      END 900316
 
-      BEGIN 900314
+      BEGIN 900319
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900315
+        BEGIN 900320
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum_EndOfCharge OR (BAT SOC >= eb Charge Max) OR Charger asks End Of Charge
-        END 900315
+        END 900320
 
-        BEGIN 900316
+        BEGIN 900321
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900316
-      END 900314
+        END 900321
+      END 900319
 
-      BEGIN 900317
+      BEGIN 900322
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900318
+        BEGIN 900323
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge
-        END 900318
+        END 900323
 
-        BEGIN 900319
+        BEGIN 900324
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900319
-      END 900317
+        END 900324
+      END 900322
 
-      BEGIN 900320
+      BEGIN 900325
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900321
+        BEGIN 900326
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge
-        END 900321
+        END 900326
 
-        BEGIN 900322
+        BEGIN 900327
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900322
-      END 900320
-    END 900310
+        END 900327
+      END 900325
+    END 900315
 
-    BEGIN 900323
+    BEGIN 900328
     Internal digital channel (IDC)
     Name=BAT Error
     Description=BMS reports an error (brand error only; watchdog and isolation protection are added in PWR Battery fault).  [origin: brand part of Battery ERROR DIGIT]
     Function selector=eb Battery Brand
 
-      BEGIN 900324
+      BEGIN 900329
       Function
       Name=BMW
       Description=
 
-        BEGIN 900325
+        BEGIN 900330
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=BMW battery error (BatErrorCode TF <> 0)
-        END 900325
+        END 900330
 
-        BEGIN 900326
+        BEGIN 900331
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900326
-      END 900324
+        END 900331
+      END 900329
 
-      BEGIN 900327
+      BEGIN 900332
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900328
+        BEGIN 900333
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum error bits (BMS_NTHT_Errors)
-        END 900328
+        END 900333
 
-        BEGIN 900329
+        BEGIN 900334
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900329
-      END 900327
+        END 900334
+      END 900332
 
-      BEGIN 900330
+      BEGIN 900335
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900331
+        BEGIN 900336
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Tyva Error_M0 error bits
-        END 900331
+        END 900336
 
-        BEGIN 900332
+        BEGIN 900337
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900332
-      END 900330
+        END 900337
+      END 900335
 
-      BEGIN 900333
+      BEGIN 900338
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900334
+        BEGIN 900339
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Kreisel error (mBMS_FuncSTAT)
-        END 900334
+        END 900339
 
-        BEGIN 900335
+        BEGIN 900340
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900335
-      END 900333
-    END 900323
+        END 900340
+      END 900338
+    END 900328
 
-    BEGIN 900336
+    BEGIN 900341
     Internal digital channel (IDC)
     Name=BAT Warning
     Description=BMS reports a warning without error.  [origin: new]
     Function selector=eb Battery Brand
 
-      BEGIN 900337
+      BEGIN 900342
       Function
       Name=BMW
       Description=
 
-        BEGIN 900338
+        BEGIN 900343
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=False
-        END 900338
+        END 900343
 
-        BEGIN 900339
+        BEGIN 900344
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900339
-      END 900337
+        END 900344
+      END 900342
 
-      BEGIN 900340
+      BEGIN 900345
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900341
+        BEGIN 900346
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Novum warning bits
-        END 900341
+        END 900346
 
-        BEGIN 900342
+        BEGIN 900347
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900342
-      END 900340
+        END 900347
+      END 900345
 
-      BEGIN 900343
+      BEGIN 900348
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900344
+        BEGIN 900349
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Tyva Error_M0 warning bits
-        END 900344
+        END 900349
 
-        BEGIN 900345
+        BEGIN 900350
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900345
-      END 900343
+        END 900350
+      END 900348
 
-      BEGIN 900346
+      BEGIN 900351
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900347
+        BEGIN 900352
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=False (to define)
-        END 900347
+        END 900352
 
-        BEGIN 900348
+        BEGIN 900353
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900348
-      END 900346
-    END 900336
+        END 900353
+      END 900351
+    END 900341
 
-    BEGIN 900349
+    BEGIN 900354
     Integer math channel (IMAC)
     Name=BAT Error raw code
     Description=Raw error code of the BMS, logged with every battery error.  [origin: new]
     Function selector=eb Battery Brand
 
-      BEGIN 900350
+      BEGIN 900355
       Function
       Name=BMW
       Description=
 
-        BEGIN 900351
+        BEGIN 900356
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=BatErrorCode TF
-        END 900351
-      END 900350
+        END 900356
+      END 900355
 
-      BEGIN 900352
+      BEGIN 900357
       Function
       Name=NovumTech
       Description=
 
-        BEGIN 900353
+        BEGIN 900358
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Novum error word
-        END 900353
-      END 900352
+        END 900358
+      END 900357
 
-      BEGIN 900354
+      BEGIN 900359
       Function
       Name=Tyva
       Description=
 
-        BEGIN 900355
+        BEGIN 900360
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Tyva error word
-        END 900355
-      END 900354
+        END 900360
+      END 900359
 
-      BEGIN 900356
+      BEGIN 900361
       Function
       Name=Kreisel
       Description=
 
-        BEGIN 900357
+        BEGIN 900362
         Object group
         Name=Controlling
         Description=
         Method=Expression
         Valid=True
         Expression=Kreisel error code
-        END 900357
-      END 900356
-    END 900349
-  END 900119
-END 900118
+        END 900362
+      END 900361
+    END 900354
+  END 900124
+END 900123

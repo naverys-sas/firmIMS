@@ -82,7 +82,7 @@ Repris de `logic screen c10 and KB / cEQUIPEMENT`, `mc.Accesory i/o CAB`, `elect
 
 ## 5.7 Sous-ensemble du projet v2 MC2
 
-Le projet MC2 reprend : `00 CFG` (sous-ensemble thermique + `Hydraulic Bloc` V01 / V01-Locking / V17-Locking), son propre `10 IO` (sorties 2 à 23 du MC2, alimentations directes moteur, démarreur, ventilateurs, PWM de tendeur), `25 ENG` (même pilote J1939), `30 ACT` thermique, `40 PWR` (partie moteur), `50 TRK`, `55 HYD`, `60 THM`, `80 HMI` réduit au MD3 et à la radio, `85 LOG`. La logique est copiée depuis la v2 MC42 une fois celle-ci validée.
+Le projet MC2 est construit dans une copie de la V5.37 (réglages conservés, D38). Il reprend : `00 CFG` (sous-ensemble thermique ; les indicateurs décodent les paramètres V5.37, dont `Hydraulic Bloc` V01 / V01-Locking / V17-Locking), son propre `10 IO` (sorties 2 à 23 du MC2, alimentations directes moteur, démarreur, ventilateurs, PWM de tendeur), `25 ENG` (même pilote J1939), `30 ACT` thermique, `40 PWR` (partie moteur), `50 TRK`, `55 HYD`, `60 THM`, `80 HMI` réduit au MD3 et à la radio, `85 LOG`. La logique est copiée depuis la v2 MC42-MD4 une fois celle-ci validée, comme pour la v2 MC42-MD3 (§1.1 de [01_architecture.md](01_architecture.md)).
 
 ## 5.8 Corrections reprises ou à faire au moment de la transplantation
 

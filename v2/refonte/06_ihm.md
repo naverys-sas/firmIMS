@@ -72,10 +72,12 @@ HMI Inputs                  HMI Command arbitration                 logique mét
 |---|---|---|
 | `MD4-5 app` | MD4-5, tableau de bord, adresse 1 | 18 boutons, joystick local optionnel (C2:1/C2:2), buzzer C2:3, niveau d'eau V10 (C2:1 partagé, D12) |
 | `MD4-10 app` | MD4-10, Commuter, adresse 2 | boutons tactiles, joystick cabine, NMEA hors-bords Mercury/Yamaha/COX, GPS Garmin, A/C sur batterie Tyva 24 V (CAN D), boutons cabine et porte |
-| `MD3 app` ✚ | MD3, bateaux lignée B, adresse 0 | pages reprises de la V69 (thermique) et de la V35 (électrique), joysticks C2:1/C2:2, buzzer C2:12, radio (option `Radio remote`) |
+| `MD3 app` | MD3, adresse 0, **dans la v2 MC42-MD3** (copie de la V69) et dans la v2 MC2 | application existante de la V69, conservée et adaptée au contrat (IQANdesign 6.08 ne sait plus créer de MD3, essai B2) ; pages thermiques V69, pages électriques reconstruites d'après la V35, joysticks C2:1/C2:2, buzzer C2:12, radio (`Radio remote`) |
 | `MD5 app` (futur) | MD5 | même contrat ; voir §6.5 |
 
 Chaque application a la même structure : `HMI link` (APPIN/APPOUT et paquetage), `Pages`, `Local I/O`, et ses équipements propres. Les textes sont en anglais. Les pages MD3 électriques (V35) seront reconstruites sur les mêmes mots d'état que les MD4.
+
+Le groupe `80 HMI` du MC42 est le même dans les deux projets MC42 : il prévoit une entrée par source (MD4-5, MD4-10, MD3, radio). Dans un projet où un écran n'existe pas, son mot de commande est une constante nulle et son `CFG Has_…` est faux ; l'arbitrage n'a donc pas besoin de savoir dans quel projet il tourne.
 
 ## 6.5 Préparer le MD5
 
@@ -83,5 +85,5 @@ Ce que l'on sait (fiche Parker IQAN-MD5) : écran tactile capacitif 5", 8", 10,1
 
 À vérifier avant d'engager le MD5 ([10_besoins_iqandesign.md](10_besoins_iqandesign.md), B9) :
 - version d'IQANdesign qui supporte le MD5 (probablement une version 7.x) et si elle ouvre les projets 6.08 sans perte ;
-- si un MD5 et un MC42 peuvent cohabiter dans un même projet avec un MD3 et des MD4 (parc mixte) ;
+- si un MD5 peut être ajouté à un projet qui contient déjà un MD3 (la v2 MC42-MD3) : sinon, un bateau lignée B qui passe au MD5 changera de projet, avec ressaisie de ses réglages ;
 - format des pages : les pages MD4 ne seront pas reprises telles quelles ; prévoir de les redessiner.

@@ -2,280 +2,242 @@
 // Not an importable file: IQANdesign has no text import. Enter in the IDE, then
 // compare the export of the project with check_spec.py.
 
-BEGIN 900590
+BEGIN 900595
 Function group
 Name=20 EQP Equipment drivers
 Description=
 Enabled=Yes
 
-  BEGIN 900591
+  BEGIN 900596
   Function group
   Name=24 PMP Pump inverter
   Description=
   Enabled=Yes
 
-    BEGIN 900592
+    BEGIN 900597
     Internal digital channel (IDC)
     Name=PMP CAN ok
     Description=Hydraulic pump inverter (M3) communication alive.  [origin: M3 - CAN OK]
     Function selector=em M-Pump - Brand
 
-      BEGIN 900593
+      BEGIN 900598
       Function
       Name=Sevcon gen
       Description=
 
-        BEGIN 900594
+        BEGIN 900599
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=gen - CAN OK
-        END 900594
+        END 900599
 
-        BEGIN 900595
+        BEGIN 900600
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900595
-      END 900593
+        END 900600
+      END 900598
 
-      BEGIN 900596
+      BEGIN 900601
       Function
       Name=Sevcon j19
       Description=
 
-        BEGIN 900597
+        BEGIN 900602
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=j19 M3 CAN OK
-        END 900597
+        END 900602
 
-        BEGIN 900598
+        BEGIN 900603
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900598
-      END 900596
-    END 900592
+        END 900603
+      END 900601
+    END 900597
 
-    BEGIN 900599
+    BEGIN 900604
     Internal digital channel (IDC)
     Name=PMP ready
     Description=M3 inverter ready.  [origin: M3 - Ready]
     Function selector=em M-Pump - Brand
 
-      BEGIN 900600
+      BEGIN 900605
       Function
       Name=Sevcon gen
       Description=
 
-        BEGIN 900601
+        BEGIN 900606
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=gen - Ready
-        END 900601
+        END 900606
 
-        BEGIN 900602
+        BEGIN 900607
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900602
-      END 900600
+        END 900607
+      END 900605
 
-      BEGIN 900603
+      BEGIN 900608
       Function
       Name=Sevcon j19
       Description=
 
-        BEGIN 900604
+        BEGIN 900609
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=j19 M3 Ready
-        END 900604
+        END 900609
 
-        BEGIN 900605
+        BEGIN 900610
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900605
-      END 900603
-    END 900599
+        END 900610
+      END 900608
+    END 900604
 
-    BEGIN 900606
+    BEGIN 900611
     Internal digital channel (IDC)
     Name=PMP run
     Description=M3 inverter running.  [origin: M3 - Run]
     Function selector=em M-Pump - Brand
 
-      BEGIN 900607
+      BEGIN 900612
       Function
       Name=Sevcon gen
       Description=
 
-        BEGIN 900608
+        BEGIN 900613
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=gen - M3 - RUN
-        END 900608
+        END 900613
 
-        BEGIN 900609
+        BEGIN 900614
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900609
-      END 900607
+        END 900614
+      END 900612
 
-      BEGIN 900610
+      BEGIN 900615
       Function
       Name=Sevcon j19
       Description=
 
-        BEGIN 900611
+        BEGIN 900616
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=j19 M3 - RUN
-        END 900611
+        END 900616
 
-        BEGIN 900612
+        BEGIN 900617
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900612
-      END 900610
-    END 900606
+        END 900617
+      END 900615
+    END 900611
 
-    BEGIN 900613
+    BEGIN 900618
     Internal digital channel (IDC)
     Name=PMP error
     Description=M3 inverter in error mode.  [origin: M3 - Error mode]
     Function selector=em M-Pump - Brand
 
-      BEGIN 900614
+      BEGIN 900619
       Function
       Name=Sevcon gen
       Description=
 
-        BEGIN 900615
+        BEGIN 900620
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=gen M3 - Error mode
-        END 900615
+        END 900620
 
-        BEGIN 900616
+        BEGIN 900621
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900616
-      END 900614
+        END 900621
+      END 900619
 
-      BEGIN 900617
+      BEGIN 900622
       Function
       Name=Sevcon j19
       Description=
 
-        BEGIN 900618
+        BEGIN 900623
         Object group
         Name=Activating
         Description=
         Method=Expression
         Valid=True
         Expression=Sevcon - Error mode
-        END 900618
+        END 900623
 
-        BEGIN 900619
+        BEGIN 900624
         Object group
         Name=Blocking
         Description=
         Method=Or
         Valid=True
         Expression=
-        END 900619
-      END 900617
-    END 900613
+        END 900624
+      END 900622
+    END 900618
 
-    BEGIN 900620
+    BEGIN 900625
     Integer math channel (IMAC)
     Name=PMP error raw code
     Description=M3 raw error code, logged.  [origin: new]
-    Function selector=em M-Pump - Brand
-
-      BEGIN 900621
-      Function
-      Name=Sevcon gen
-      Description=
-
-        BEGIN 900622
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=gen M3 error code
-        END 900622
-      END 900621
-
-      BEGIN 900623
-      Function
-      Name=Sevcon j19
-      Description=
-
-        BEGIN 900624
-        Object group
-        Name=Controlling
-        Description=
-        Method=Expression
-        Valid=True
-        Expression=M3 - New Error Code
-        END 900624
-      END 900623
-    END 900620
-
-    BEGIN 900625
-    Math channel (MAC)
-    Name=PMP heatsink temp
-    Description=M3 inverter heatsink temperature.  [origin: M3 - Heatsink]
-    Unit=°C
     Function selector=em M-Pump - Brand
 
       BEGIN 900626
@@ -289,7 +251,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=genHeatsink
+        Expression=gen M3 error code
         END 900627
       END 900626
 
@@ -304,15 +266,15 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=insideHeatsink
+        Expression=M3 - New Error Code
         END 900629
       END 900628
     END 900625
 
     BEGIN 900630
     Math channel (MAC)
-    Name=PMP motor temp
-    Description=Hydraulic pump motor temperature.  [origin: M3 - Engine Temps]
+    Name=PMP heatsink temp
+    Description=M3 inverter heatsink temperature.  [origin: M3 - Heatsink]
     Unit=°C
     Function selector=em M-Pump - Brand
 
@@ -327,7 +289,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=genSevcon - Engine Temp
+        Expression=genHeatsink
         END 900632
       END 900631
 
@@ -342,16 +304,16 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=Sevcon - Engine Temp
+        Expression=insideHeatsink
         END 900634
       END 900633
     END 900630
 
     BEGIN 900635
     Math channel (MAC)
-    Name=PMP voltage
-    Description=M3 inverter DC voltage.  [origin: M3 - Voltage]
-    Unit=V
+    Name=PMP motor temp
+    Description=Hydraulic pump motor temperature.  [origin: M3 - Engine Temps]
+    Unit=°C
     Function selector=em M-Pump - Brand
 
       BEGIN 900636
@@ -365,7 +327,7 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=gen M3 Voltage
+        Expression=genSevcon - Engine Temp
         END 900637
       END 900636
 
@@ -380,9 +342,47 @@ Enabled=Yes
         Description=
         Method=Expression
         Valid=True
-        Expression=j19 M3 Voltage
+        Expression=Sevcon - Engine Temp
         END 900639
       END 900638
     END 900635
-  END 900591
-END 900590
+
+    BEGIN 900640
+    Math channel (MAC)
+    Name=PMP voltage
+    Description=M3 inverter DC voltage.  [origin: M3 - Voltage]
+    Unit=V
+    Function selector=em M-Pump - Brand
+
+      BEGIN 900641
+      Function
+      Name=Sevcon gen
+      Description=
+
+        BEGIN 900642
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=gen M3 Voltage
+        END 900642
+      END 900641
+
+      BEGIN 900643
+      Function
+      Name=Sevcon j19
+      Description=
+
+        BEGIN 900644
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=j19 M3 Voltage
+        END 900644
+      END 900643
+    END 900640
+  END 900596
+END 900595
