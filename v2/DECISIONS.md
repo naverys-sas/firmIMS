@@ -31,3 +31,9 @@ Chaque choix de conception de la v2, avec qui l'a pris, quand et pourquoi. On aj
 Décision proposée : saisir la v2 en faisant écrire les fichiers projet par Claude (outils `outils_format/`), IQANdesign ne servant plus qu'à vérifier (export texte) et à envoyer au contrôleur.
 Raison : essai concluant le 23/10/2026 ([essais/generation_directe.md](essais/generation_directe.md)). Textes, valeurs, ajout d'objets et de canaux, avec renumérotation des références, sont acceptés par IQANdesign 6.08. Le pilotage de l'écran était jugé inefficace (120 à 250 h de PC).
 Conséquence : on reste en IQANdesign 6.08 pendant la refonte, et chaque fichier généré est vérifié par export texte avant tout envoi.
+
+## D43 — 23/10/2026 — Les conditions de la v2 deviennent des groupes « Expression » d'IQAN
+
+Décision : chaque formule des feuilles v2 (activation, blocage, calcul) est écrite par l'outil dans un groupe d'objets à méthode Expression (script IQAN `Result := …`), au lieu d'être décomposée en objets simples et mathématiques.
+Raison : IQANdesign 6.08 a ce type de groupe en natif (736 dans la 108.3.1) et recompile lui-même les objets de calcul à partir du texte au chargement (lot 6, [essais/generation_directe.md](essais/generation_directe.md)). La formule reste lisible telle quelle dans l'IDE et dans l'export texte (« Qcode expression »), ce qui sert l'objectif de lisibilité pour les collègues.
+Conséquence : la spec doit contenir de vraies formules. Les 79 formules encore écrites en clair ou qui citent des canaux non définis (PWR, KPD, KBX, MNT…) sont à compléter avant l'assemblage.

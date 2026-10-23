@@ -155,3 +155,37 @@ def parse(s, names):
     if p.p != len(s):
         p.fail("fin d'expression attendue")
     return x
+
+
+_PREC = {"or": 1, "and": 2, "not": 3, "cmp": 4, "+": 5, "-": 5, "*": 6, "/": 6}
+
+
+def to_iqan(x, oid_of, prec=0):
+    """Texte de script IQAN (groupe Expression) : « Result := » + to_iqan(arbre, oid_of).
+    oid_of(nom) rend l'identifiant d'objet du canal, écrit {#identifiant#}."""
+    k = x[0]
+    if k == "chan":
+        return "{#%d#}" % oid_of(x[1])
+    if k == "num":
+        v = x[1]
+        return str(int(v)) if v == int(v) else repr(v)
+    if k == "bool":
+        return "True" if x[1] else "False"
+    if k == "not":
+        s, p = "not " + to_iqan(x[1], oid_of, _PREC["not"]), _PREC["not"]
+    elif k in ("and", "or"):
+        p = _PREC[k]
+        s = (" %s " % k).join(to_iqan(i, oid_of, p + 1) for i in x[1])
+    elif k == "cmp":
+        p = _PREC["cmp"]
+        s = "%s %s %s" % (to_iqan(x[2], oid_of, p + 1), x[1], to_iqan(x[3], oid_of, p + 1))
+    elif k == "arith":
+        p = _PREC[x[1]]
+        s = "%s %s %s" % (to_iqan(x[2], oid_of, p), x[1], to_iqan(x[3], oid_of, p + 1))
+    elif k == "call":
+        return "%s(%s)" % (x[1], ", ".join(to_iqan(a, oid_of) for a in x[2]))
+    else:
+        raise ExprError("nœud inconnu %r" % (k,))
+    if k == "cmp" and prec > 0:  # priorité des comparaisons dans IQAN non vérifiée : parenthèses
+        return "(%s)" % s
+    return "(%s)" % s if p < prec else s
