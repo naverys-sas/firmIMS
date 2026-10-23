@@ -2,7 +2,8 @@
 
 Pour chaque projet : chaque arbre d'objets est découpé objet par objet, puis réécrit ; la
 réécriture doit être identique à l'octet près. Quand l'export texte du projet est disponible,
-le nom de chaque objet (première valeur, n° de chaîne) est comparé à celui de l'export.
+le nom de chaque objet (première valeur, n° de chaîne) est comparé à celui de l'export, et on
+compte les propriétés de l'export (hors X, Y) retrouvées parmi les valeurs lues (iqanvaleurs).
 
 Usage (depuis outils_format/) : python banc_props.py"""
 import os
@@ -14,7 +15,9 @@ import iqanobj
 import iqanprj
 import iqanprops
 import iqanstr
+import iqansym
 import iqantxt
+import iqanvaleurs
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 PROJETS = [
@@ -41,10 +44,18 @@ def name_of(obj, strs):
     return strs[idx] if idx < len(strs) else "?"
 
 
+def _flat(v, ctx, out):
+    out.add(iqanvaleurs.render(v, ctx).strip())
+    if v[0] == 0xD2:
+        for x in iqanvaleurs.items(v):
+            _flat(x, ctx, out)
+
+
 def check(idax, txt=None):
     T = iqantxt.read(txt) if txt and os.path.exists(txt) else {}
     p = iqanprj.Project(idax)
     secs = p.sections
+    syms = iqansym.parse(next(s for s in secs if s.tag == 0xBD).data)[1]
     res = Counter()
     seen = Counter()  # un même identifiant peut servir dans plusieurs arbres (ex. 20, 22)
     for i, s in enumerate(secs):
@@ -56,6 +67,7 @@ def check(idax, txt=None):
         if s.tag not in (0xB5, 0xCA, 0xC8):
             continue
         strs = iqanstr.parse(secs[i + 1].data)[1][0].strings if secs[i + 1].tag in (0xC6, 0xCB) else []
+        ctx = iqanvaleurs.Context(strs, syms)
         bl = iqanobj.Block(s.data)
         trees = [o for m, o in bl.records if m == 0x96]
         props = [o for m, o in bl.records if m == 0x97]
@@ -75,6 +87,13 @@ def check(idax, txt=None):
                 ref = dict(T.get(n.oid, {}).get("props", [])).get("Name")
                 if ref is None or seen[n.oid] > 1:
                     continue
+                found = set()
+                for v in n.obj.values:
+                    _flat(v, ctx, found)
+                for k, tv in T[n.oid]["props"]:
+                    if k not in ("X", "Y"):
+                        res["propriétés texte"] += 1
+                        res["propriétés retrouvées"] += tv.strip() in found
                 got = name_of(n.obj, strs)
                 if got is None:
                     continue
@@ -91,5 +110,8 @@ if __name__ == "__main__":
         total.update(r)
         print("%-45s %s" % (idax, dict(r)))
     print("TOTAL", dict(total))
+    if total["propriétés texte"]:
+        print("propriétés de l'export retrouvées : %.1f %%"
+              % (100.0 * total["propriétés retrouvées"] / total["propriétés texte"]))
     bad = total["arbres non découpés"] + total["arbres réécrits différents"] + total["noms différents"]
     sys.exit(1 if bad else 0)

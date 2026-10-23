@@ -6,12 +6,12 @@ _end = re.compile(r"^\s*END (\d+)\s*$")
 
 
 def read(path):
-    raw = open(path, "rb").read()
-    try:
-        text = raw.decode("utf-8")
-    except UnicodeDecodeError:
-        text = raw.decode("latin-1")
-    lines = text.splitlines()
+    lines = []
+    for b in open(path, "rb").read().splitlines():
+        try:  # l'export est en UTF-8, sauf quelques textes saisis en Windows-1252 (Don’t care)
+            lines.append(b.decode("utf-8"))
+        except UnicodeDecodeError:
+            lines.append(b.decode("cp1252", "replace"))
     objs, stack, i = {}, [], 0
     while i < len(lines):
         ln = lines[i]
