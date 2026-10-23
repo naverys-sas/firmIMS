@@ -49,7 +49,7 @@ python correspondance.py ../TESTIA.idax ../exports/TESTIA_108.3.1.txt
 | 1 | CRC du fichier faux ; CRC d'un bloc faux | refusés (attendu) |
 | 2 | Temporisation `Delay on` 1000 → 1500 ms | acceptée, seule différence dans l'export |
 | 2 | Sélecteur de fonction retiré (champ de taille différente) | accepté ; la fonction reprend le nom « Default function », comme dans IQANdesign |
-| 3 | Ajout d'un commentaire, ajout d'un canal | voir le compte rendu de l'essai |
+| 3 | Ajout d'un commentaire ; ajout d'un canal en fin d'application ; ajout au milieu avec renumérotation | acceptés (sans renumérotation, IQANdesign plante) |
 
 ## Ce qui reste à faire pour tout écrire
 

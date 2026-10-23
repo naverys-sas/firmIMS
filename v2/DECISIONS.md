@@ -25,3 +25,9 @@ Chaque choix de conception de la v2, avec qui l'a pris, quand et pourquoi. On aj
 | D19 | 23/10/2026 | Les électriques Kreisel (#020 à #036) ont un MC42 : ils relèvent de la v2 MC42 | Réponse de Nicolas | Nicolas | — |
 | D20 | 23/10/2026 | Coque #001 (Kohler CH1000) : couverte si possible sans complexité ajoutée, sinon abandonnée | « si possible oui, sinon tant pis » | Nicolas | — |
 | D21 | 23/10/2026 | `T Pump wiring` : défaut = 108.3.1 (lignée A) ; à la migration d'un bateau de la lignée B (V35, V69), régler la valeur inverse puis contrôler à quai joystick droit = chenille droite | V35 et V69 commandent C1:14 avec le joystick droit, la 108.3.1 avec le gauche | Claude, sur la base de D18 | [../kb_flotte/lignees.md](../kb_flotte/lignees.md) |
+
+## D42 — 23/10/2026 — Génération directe des fichiers IQAN plutôt que pilotage de l'interface
+
+Décision proposée : saisir la v2 en faisant écrire les fichiers projet par Claude (outils `outils_format/`), IQANdesign ne servant plus qu'à vérifier (export texte) et à envoyer au contrôleur.
+Raison : essai concluant le 23/10/2026 ([essais/generation_directe.md](essais/generation_directe.md)). Textes, valeurs, ajout d'objets et de canaux, avec renumérotation des références, sont acceptés par IQANdesign 6.08. Le pilotage de l'écran était jugé inefficace (120 à 250 h de PC).
+Conséquence : on reste en IQANdesign 6.08 pendant la refonte, et chaque fichier généré est vérifié par export texte avant tout envoi.

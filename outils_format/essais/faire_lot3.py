@@ -4,9 +4,11 @@ C2 : ajoute un canal Integer parameter (IP) "CLAUDE test IP" = 123 au même endr
      avec son entrée dans la table des symboles (numéro 468 du maître MC42) -> plante IQANdesign.
 C2a : même canal placé en dernier dans l'arbre (son numéro 468 suit alors l'ordre de l'arbre)
      et nombre de canaux du maître mis à jour dans le préambule.
-C2b : comme C2 (au milieu, sans renuméroter) mais avec le nombre de canaux mis à jour.
+C2b : comme C2 (au milieu, sans renuméroter) mais avec le nombre de canaux mis à jour -> plante aussi.
+C2c : au milieu, avec renumérotation des canaux suivants (table des symboles, références cf 04
+     et, depuis la 2e version, listes de sorties des groupes de fonctions), comme le fait IQANdesign.
 Usage (depuis Documents\\testia) : python essais_format\\outils\\faire_lot3.py"""
-import os, struct, sys, zlib
+import os, re, struct, sys, zlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [HERE, os.path.dirname(HERE)]  # outils_format/ (dépôt) ou même dossier (PC)
 import iqanprj, iqanstr
@@ -14,6 +16,7 @@ import iqanprj, iqanstr
 SRC = "avecMD3_V69.03.01.WIP.idax"
 OUT = os.path.join("essais_format", "lot3")
 NEWID, OLDCTR = 69697, 0x1103F
+K_MID = 34  # numéro pris par le canal inséré avant le commentaire 67563 (34 canaux le précèdent)
 
 
 def records(data):
@@ -79,7 +82,7 @@ def tree_append(pl, parent_id, node12):
     return b"".join(struct.pack("<BBBBIHH", *n) for n in nodes)
 
 
-def build(name, kind, last=False, count=False):
+def build(name, kind, last=False, count=False, renumber=0):
     p = iqanprj.Project(SRC)
     secs = p.sections
     h, langs = iqanstr.parse(secs[4].data)
@@ -103,8 +106,8 @@ def build(name, kind, last=False, count=False):
                 trees = [j for j, r in enumerate(recs) if r[0] == 0x96]
                 kp = [j for j, r in enumerate(recs) if r[0] == 0x97][trees.index(k)]  # même rang
                 pr = recs[kp][1]
-                assert pr.endswith(bytes.fromhex("1e0000001e000000"))
-                recs[kp][1] = pr[:-8] + rec + pr[-8:]  # avant les champs de fin de l'application
+                assert pr.endswith(bytes.fromhex("001e0000001e000000"))
+                recs[kp][1] = pr[:-9] + rec + pr[-9:]  # avant les champs de fin de l'application : u8 + X + Y
                 done += 2
                 break
             recs[k][1] = tree_insert(recs[k][1], 24950, 67563, node)
@@ -126,7 +129,56 @@ def build(name, kind, last=False, count=False):
             struct.pack_into("<I", d, 79, NEWID + 1)
             d[-4:] = struct.pack("<I", zlib.crc32(bytes(d[:-4])))
             s.data = bytes(d)
-    if kind == "C2":
+    if kind == "C2" and renumber:
+        # numéro du nouveau canal = nombre de canaux du maître MC42 qui le précèdent dans l'arbre
+        b = secs[6].data
+        k = renumber
+        pat = re.compile(rb"\xcf\x04(..)\x00\x01", re.S)
+        def bump(m):
+            num = struct.unpack("<H", m.group(1))[0]
+            return m.group(0) if num < k else b"\xcf\x04" + struct.pack("<H", num + 1) + b"\x00\x01"
+        # listes de sorties des groupes de fonctions (fin du groupe, après une empreinte
+        # base64 de 12 caractères) : u16 nombre puis [u16 numéro][00][maître] sans préfixe cf
+        gpat = re.compile(rb"[A-Za-z0-9+/]{11}=\x00(..)", re.S)
+        def bump_outputs(b):
+            out, last = bytearray(), 0
+            for m in gpat.finditer(b):
+                n, q = struct.unpack("<H", m.group(1))[0], m.end()
+                if n == 0 or q + 4 * n > len(b):
+                    continue
+                out += b[last:q]
+                for r in range(n):
+                    num, z, ms = struct.unpack_from("<HBB", b, q + 4 * r)
+                    if z == 0 and ms == 1 and num >= k:
+                        num += 1
+                    out += struct.pack("<HBB", num, z, ms)
+                last = q + 4 * n
+            return bytes(out + b[last:])
+        for s in secs:
+            if s.tag in (0xB5, 0xCA, 0xC8):
+                hd, rr = records(s.data)
+                for r in rr:
+                    if r[0] == 0x97:
+                        r[1] = bump_outputs(pat.sub(bump, r[1]))
+                s.data = pack(hd, rr)
+        n = struct.unpack_from("<I", b, 1)[0]
+        q = b.index(b"\0", 7) + 1
+        out = bytearray(b[:q])
+        while q < len(b):
+            e = q + 11
+            for _ in range(3):
+                e = b.index(b"\0", e) + 1
+            ent = bytearray(b[q:e])
+            oid, num, z, ms, kd = struct.unpack_from("<IHBBB", ent, 0)
+            if ms == 1 and kd == 4 and num >= k:
+                if num == k:
+                    out += struct.pack("<IHBBBH", NEWID, k, 0, 1, 4, 0x30) + b"CLAUDE test IP\0\0%\0"
+                struct.pack_into("<H", ent, 4, num + 1)
+            out += ent
+            q = e
+        struct.pack_into("<I", out, 1, n + 1)
+        secs[6].data = bytes(out)
+    elif kind == "C2":
         b = secs[6].data
         n = struct.unpack_from("<I", b, 1)[0]
         prev = b.index(b"debug temps screen\0") - 11  # dernier canal du maître MC42 (numéro 467)
@@ -146,3 +198,4 @@ if __name__ == "__main__":
     build("C2_md3_canal_ajoute.idax", "C2")
     build("C2a_md3_canal_en_dernier.idax", "C2", last=True, count=True)
     build("C2b_md3_canal_milieu_compte.idax", "C2", count=True)
+    build("C2c_md3_canal_milieu_renumerote.idax", "C2", count=True, renumber=K_MID)
