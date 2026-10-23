@@ -21,7 +21,7 @@ import zlib
 
 
 class Node:
-    __slots__ = ("cls", "sub", "a", "b", "oid", "idx", "children", "props", "parent", "obj")
+    __slots__ = ("cls", "sub", "a", "b", "oid", "idx", "children", "props", "parent", "obj", "st")
 
     def __init__(self, cls, sub, a, b, oid, idx):
         self.cls, self.sub, self.a, self.b, self.oid, self.idx = cls, sub, a, b, oid, idx
