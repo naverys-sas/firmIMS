@@ -3,13 +3,17 @@
 Les noms de canaux contiennent des espaces, des tirets, des points : on les reconnaît en prenant,
 à chaque position, le plus long nom connu qui commence là (la liste des noms est fournie). Rend un
 arbre de tuples :
-    ("chan", nom)  ("num", valeur)  ("bool", True/False)
+    ("chan", nom)  ("idx", nom, n)  ("num", valeur)  ("bool", True/False)
     ("not", x)  ("and", [x, ...])  ("or", [x, ...])
     ("cmp", op, a, b)   op parmi = <> < > <= >=
     ("arith", op, a, b) op parmi + - * /
     ("call", fonction, [arguments])
 
     arbre = parse("A = 1", noms)       # ExprError si un mot n'est pas un canal connu
+
+« X[3] » désigne l'élément 3 d'un canal tableau (ARC, compté depuis 0, comme dans IQAN).
+« X = Charging » : si X a une liste d'états (paramètre etats, nom -> [états]), un nom d'état à
+droite d'un = ou <> est remplacé par son rang (0 pour le premier état).
 """
 import re
 
@@ -23,8 +27,9 @@ class ExprError(Exception):
 
 
 class _Parser:
-    def __init__(self, s, names):
+    def __init__(self, s, names, states=None):
         self.s, self.p = s, 0
+        self.states = states or {}
         self.names = sorted(names, key=len, reverse=True)
         self.lower = {n.lower(): n for n in names}
 
@@ -77,8 +82,23 @@ class _Parser:
         self.ws()
         for op in RELOPS:
             if self.take(op):
+                if a[0] == "chan" and a[1] in self.states and op in ("=", "<>"):
+                    k = self.state_here(self.states[a[1]])
+                    if k is not None:
+                        return ("cmp", op, a, ("num", float(k)))
                 return ("cmp", op, a, self.sum())
         return a
+
+    def state_here(self, etats):
+        """Rang du plus long nom d'état qui commence à la position courante (en avançant)."""
+        self.ws()
+        rest = self.s[self.p:].lower()
+        for e in sorted(etats, key=len, reverse=True):
+            fin = self.p + len(e)
+            if rest.startswith(e.lower()) and (fin >= len(self.s) or not self.s[fin].isalnum()):
+                self.p = fin
+                return etats.index(e)
+        return None
 
     def sum(self):
         a = self.term()
@@ -119,6 +139,10 @@ class _Parser:
         name = self.channel_here()
         if name:
             self.p += len(name)
+            m = re.compile(r"\s*\[\s*(\d+)\s*\]").match(self.s, self.p)
+            if m:
+                self.p = m.end()
+                return ("idx", name, int(m.group(1)))
             return ("chan", name)
         if self.take("("):
             x = self.expr()
@@ -148,13 +172,25 @@ class _Parser:
         self.fail("canal inconnu")
 
 
-def parse(s, names):
-    p = _Parser(s, names)
+def parse(s, names, states=None):
+    p = _Parser(s, names, states)
     x = p.expr()
     p.ws()
     if p.p != len(s):
         p.fail("fin d'expression attendue")
     return x
+
+
+def channels(x):
+    """Noms des canaux cités par un arbre."""
+    if x[0] in ("chan", "idx"):
+        return {x[1]}
+    out = set()
+    for c in x[1:]:
+        for i in (c if isinstance(c, list) else [c]):
+            if isinstance(i, tuple):
+                out |= channels(i)
+    return out
 
 
 _PREC = {"or": 1, "and": 2, "not": 3, "cmp": 4, "+": 5, "-": 5, "*": 6, "/": 6}
@@ -166,6 +202,8 @@ def to_iqan(x, oid_of, prec=0):
     k = x[0]
     if k == "chan":
         return "{#%d#}" % oid_of(x[1])
+    if k == "idx":
+        return "{#%d#}[%d]" % (oid_of(x[1]), x[2])
     if k == "num":
         v = x[1]
         return str(int(v)) if v == int(v) else repr(v)

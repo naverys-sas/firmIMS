@@ -1,0 +1,8 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key up;ALIAS;;8-key keypad, up;;;;;existing=Up Keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key down;ALIAS;;8-key keypad, down;;;;;existing=Down Keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key slow;ALIAS;;8-key keypad, slow;;;;;existing=Slow keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key fast;ALIAS;;8-key keypad, fast;;;;;existing=Fast keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key free;ALIAS;;8-key keypad, free;;;;;existing=Free keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD Key start stop;ALIAS;;8-key keypad, start/stop;;;;;existing=Start/Stop keypad;108.3.1 mapping (D45)
+20 EQP Equipment drivers/27 KPD Keypad;KPD CAN ok;IDC;;Keypad heartbeat received;;;not(No heartbeat);;Delay on=0 & Delay off=0;108.3.1 mapping (D45)

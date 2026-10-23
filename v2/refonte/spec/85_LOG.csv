@@ -1,7 +1,7 @@
 group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
 85 LOG Logs/LOG SYS;LOG SYS start;IDC;;System started (rising edge), logged in SYS Events with BAT SOC or ENG Coolant temp.;;;PositiveFlank(PWR System started);;;new
 85 LOG Logs/LOG SYS;LOG SYS stop;IDC;;System stopped (falling edge), logged in SYS Events with PWR Stop cause.;;;NegativeFlank(PWR System started);;;new
-85 LOG Logs/LOG SYS;LOG SYS screen lost;IDC;;A configured display stopped answering while the system runs.;;;PWR System started AND ((Joystick plugged md45 AND not(CFG Has_MD45)) OR (CFG Is_Cab AND not(CFG Has_MD410)) OR (Joystick plugged md3 AND not(CFG Has_MD3)));;Delay on=5000 & Delay off=0;new
+85 LOG Logs/LOG SYS;LOG SYS screen lost;IDC;;A configured display stopped answering while the system runs.;;;PWR System started AND ((CFG Is_X100 AND not(CFG Has_MD45)) OR (CFG Is_Cab AND not(CFG Has_MD410)));;Delay on=5000 & Delay off=0;"new ; 108.3.1 mapping (D45)"
 85 LOG Logs/LOG BAT;LOG BAT error;IDC;;Battery error (rising edge), logged with BAT Error raw code.;;;PositiveFlank(BAT Error);;;new
 85 LOG Logs/LOG BAT;LOG BAT warning;IDC;;Battery warning (rising edge), logged with BAT Error raw code.;;;PositiveFlank(BAT Warning);;;new
 85 LOG Logs/LOG BAT;LOG BAT isolation low;IDC;;Isolation below threshold (rising edge), logged with BAT Isolation.;;;PositiveFlank(BAT Isolation low);;;Battery Isolation log

@@ -1,0 +1,5 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+10 IO Inputs/IO MC42;IO Remote up C1:29;ALIAS;;Cab remote, up button;;;;;existing=C REMOTE LD UP mc 29;108.3.1 mapping (D45)
+10 IO Inputs/IO MC42;IO Remote down C1:28;ALIAS;;Cab remote, down button;;;;;existing=C REMOTE LD DOWN mc 28;108.3.1 mapping (D45)
+10 IO Inputs/IO MC42;IO Joystick left C1:36;ALIAS;;Joystick wired on the MC42, left;;;;;existing=Left Joystick mc 36;108.3.1 mapping (D45)
+10 IO Inputs/IO MC42;IO Joystick right C1:24;ALIAS;;Joystick wired on the MC42, right (shared with the cab water level input);;;;;existing=Low water level RJoy;108.3.1 mapping (D45)

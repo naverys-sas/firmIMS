@@ -1,5 +1,5 @@
 group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
-20 EQP Equipment drivers/22 CHG Charger;CHG CAN ok;IDC;;Charger communication alive.;ec Charger Brand;BMW;BMW CAN OK;;;Charger CAN BUS OK
+20 EQP Equipment drivers/22 CHG Charger;CHG CAN ok;IDC;;Charger communication alive.;ec Charger Brand;BMW;BMW CAN OK@E.Charger_BMW;;;Charger CAN BUS OK
 20 EQP Equipment drivers/22 CHG Charger;CHG CAN ok;IDC;;;ec Charger Brand;Brusa;Brusa CAN OK;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG CAN ok;IDC;;;ec Charger Brand;Elcon;Elcon CAN OK;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG AC connected;IDC;;Charger plugged to the mains.;ec Charger Brand;BMW;BMW Connected;;;Charger CONNECT to 220V
@@ -25,10 +25,10 @@ group;channel;type;unit;description;selector;function;activating;blocking;proper
 20 EQP Equipment drivers/22 CHG Charger;CHG Mains current;MAC;A;;ec Charger Brand;Elcon;0;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG Mains voltage;MAC;V;AC mains voltage.;ec Charger Brand;BMW;0;;;new
 20 EQP Equipment drivers/22 CHG Charger;CHG Mains voltage;MAC;V;;ec Charger Brand;Brusa;1553 - Actual mains voltage;;;
-20 EQP Equipment drivers/22 CHG Charger;CHG Mains voltage;MAC;V;;ec Charger Brand;Elcon;Input Voltage;;;
+20 EQP Equipment drivers/22 CHG Charger;CHG Mains voltage;MAC;V;;ec Charger Brand;Elcon;Input Voltage@E.Charger_Elcon;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG Temperature;MAC;°C;Charger power stage temperature.;ec Charger Brand;BMW;0;;;new
-20 EQP Equipment drivers/22 CHG Charger;CHG Temperature;MAC;°C;;ec Charger Brand;Brusa;1555 - Power stage temperature - Byte;;;
-20 EQP Equipment drivers/22 CHG Charger;CHG Temperature;MAC;°C;;ec Charger Brand;Elcon;Temperature od charger;;;
+20 EQP Equipment drivers/22 CHG Charger;CHG Temperature;MAC;°C;;ec Charger Brand;Brusa;1555 - Power stage temperature - Byte@MAC;;;
+20 EQP Equipment drivers/22 CHG Charger;CHG Temperature;MAC;°C;;ec Charger Brand;Elcon;Temperature od charger@GPIN;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG Error raw code;IMAC;;Raw status / error code of the charger, logged with charger errors.;ec Charger Brand;BMW;BMW - Status;;;new
 20 EQP Equipment drivers/22 CHG Charger;CHG Error raw code;IMAC;;;ec Charger Brand;Brusa;1552 - Error detect - Byte;;;
 20 EQP Equipment drivers/22 CHG Charger;CHG Error raw code;IMAC;;;ec Charger Brand;Elcon;Communication State;;;

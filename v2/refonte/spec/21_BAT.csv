@@ -1,20 +1,20 @@
 group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
-20 EQP Equipment drivers/21 BAT Battery;BAT CAN ok;IDC;;HV battery communication alive (all frames used by the logic received in time, D16).;eb Battery Brand;BMW;BMW CAN OK;;;Battery CAN OK
+20 EQP Equipment drivers/21 BAT Battery;BAT CAN ok;IDC;;HV battery communication alive (all frames used by the logic received in time, D16).;eb Battery Brand;BMW;BMW CAN OK@E.BMW;;;Battery CAN OK
 20 EQP Equipment drivers/21 BAT Battery;BAT CAN ok;IDC;;;eb Battery Brand;NovumTech;Novum - CAN OK;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT CAN ok;IDC;;;eb Battery Brand;Tyva;tyva batt can ok idc;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT CAN ok;IDC;;;eb Battery Brand;Kreisel;Kreisel - CAN OK;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Standby;IDC;;Battery reports standby (contactors open, ready to close).;eb Battery Brand;BMW;BMW CAN OK;BAT Discharge mode;"Delay on=1000 & Delay off=2000";Battery STANDBY
+20 EQP Equipment drivers/21 BAT Battery;BAT Standby;IDC;;Battery reports standby (contactors open, ready to close).;eb Battery Brand;BMW;BMW CAN OK@E.BMW;BAT Discharge mode;Delay on=1000 & Delay off=2000;Battery STANDBY
 20 EQP Equipment drivers/21 BAT Battery;BAT Standby;IDC;;;eb Battery Brand;NovumTech;Novum - STANDBY;not(BAT CAN ok);;
 20 EQP Equipment drivers/21 BAT Battery;BAT Standby;IDC;;;eb Battery Brand;Tyva;BAT CAN ok;BAT Discharge mode;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Standby;IDC;;;eb Battery Brand;Kreisel;Kreisel - CAN OK;BAT Discharge mode;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Charge mode;IDC;;Battery reports charge mode.;eb Battery Brand;BMW;BMW - CHARGE;not(BAT CAN ok);"Delay on=0 & Delay off=2000";Battery CHARGE
+20 EQP Equipment drivers/21 BAT Battery;BAT Charge mode;IDC;;Battery reports charge mode.;eb Battery Brand;BMW;BMW - CHARGE;not(BAT CAN ok);Delay on=0 & Delay off=2000;Battery CHARGE
 20 EQP Equipment drivers/21 BAT Battery;BAT Charge mode;IDC;;;eb Battery Brand;NovumTech;Novum - CHARGE;not(BAT CAN ok);;
 20 EQP Equipment drivers/21 BAT Battery;BAT Charge mode;IDC;;;eb Battery Brand;Tyva;tyva - CHARGE;not(BAT CAN ok);;
 20 EQP Equipment drivers/21 BAT Battery;BAT Charge mode;IDC;;;eb Battery Brand;Kreisel;kreisel - CHARGE;not(BAT CAN ok);;
-20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;Battery reports discharge (drive) mode.;eb Battery Brand;BMW;(as Battery DRIVE MODE, BMW function);;;Battery DRIVE MODE
-20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;NovumTech;(as Battery DRIVE MODE, NovumTech function);;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;Tyva;(as Battery DRIVE MODE, Tyva function);;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;Kreisel;(as Battery DRIVE MODE, Kreisel function);;;
+20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;Battery reports discharge (drive) mode.;eb Battery Brand;BMW;BMW - DRIVE MODE;;;"Battery DRIVE MODE ; 108.3.1 mapping (D45)"
+20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;NovumTech;Novum - DRIVE MODE;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;Tyva;Tyva discharge b3 OR Tyva charge b4;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Discharge mode;IDC;;;eb Battery Brand;Kreisel;Kreisel - DRIVE MODE;;;108.3.1 mapping (D45)
 20 EQP Equipment drivers/21 BAT Battery;BAT SOC;MAC;%;State of charge.;eb Battery Brand;BMW;BMW - SOC;;;Battery SOC
 20 EQP Equipment drivers/21 BAT Battery;BAT SOC;MAC;%;;eb Battery Brand;NovumTech;Novum - SOC;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT SOC;MAC;%;;eb Battery Brand;Tyva;Soc Tyva onoff CHECK;;;
@@ -63,27 +63,27 @@ group;channel;type;unit;description;selector;function;activating;blocking;proper
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation low;IDC;;;eb Battery Brand;NovumTech;False;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation low;IDC;;;eb Battery Brand;Tyva;Last Isolation value BMW/tyva <= eb Isolation Protection Level;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation low;IDC;;;eb Battery Brand;Kreisel;BAT Isolation <= eb Isolation Protection Level;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Isolation error;IDC;;Isolation fault confirmed (message e1170, protection after 100 s).;eb Battery Brand;BMW;BAT Isolation low;;"Delay on=1000 & Delay off=0";Error Iso_Resist
+20 EQP Equipment drivers/21 BAT Battery;BAT Isolation error;IDC;;Isolation fault confirmed (message e1170, protection after 100 s).;eb Battery Brand;BMW;BAT Isolation low;;Delay on=1000 & Delay off=0;Error Iso_Resist
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation error;IDC;;;eb Battery Brand;NovumTech;Novum - Isolation Error;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation error;IDC;;;eb Battery Brand;Tyva;BAT Isolation low AND system failure tyva isomon com;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Isolation error;IDC;;;eb Battery Brand;Kreisel;BAT Isolation low;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Ground fault;IDC;;One battery pole pulled to ground. NovumTech: no signal. Kreisel: no signal identified, waiting for Kreisel documentation (D13).;eb Battery Brand;BMW;IsoMonTriggerRecord (iso value valid) AND (BAT Isolation <= 0);;"Delay on=1200 & Delay off=0";Flag Ground Fault Detection
+20 EQP Equipment drivers/21 BAT Battery;BAT Ground fault;IDC;;One battery pole pulled to ground. NovumTech: no signal. Kreisel: no signal identified, waiting for Kreisel documentation (D13).;eb Battery Brand;BMW;IsoMonTriggerRecord (iso value valid) AND (BAT Isolation <= 0);;Delay on=1200 & Delay off=0;Flag Ground Fault Detection
 20 EQP Equipment drivers/21 BAT Battery;BAT Ground fault;IDC;;;eb Battery Brand;NovumTech;False;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Ground fault;IDC;;;eb Battery Brand;Tyva;IsoMonTriggerRecord (iso value valid) AND (BAT Isolation <= 0);;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Ground fault;IDC;;;eb Battery Brand;Kreisel;False;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Charged;IDC;;Battery full: SOC reached eb Charge Max or charger asks end of charge (D9 for Kreisel).;eb Battery Brand;BMW;(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge;;"Delay on=300 & Delay off=300";Battery CHARGED
+20 EQP Equipment drivers/21 BAT Battery;BAT Charged;IDC;;Battery full: SOC reached eb Charge Max or charger asks end of charge (D9 for Kreisel).;eb Battery Brand;BMW;(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge;;Delay on=300 & Delay off=300;Battery CHARGED
 20 EQP Equipment drivers/21 BAT Battery;BAT Charged;IDC;;;eb Battery Brand;NovumTech;Novum_EndOfCharge OR (BAT SOC >= eb Charge Max) OR Charger asks End Of Charge;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Charged;IDC;;;eb Battery Brand;Tyva;(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge;;;
 20 EQP Equipment drivers/21 BAT Battery;BAT Charged;IDC;;;eb Battery Brand;Kreisel;(BAT SOC >= eb Charge Max) OR Charger asks End Of Charge;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;"BMS reports an error (brand error only; watchdog and isolation protection are added in PWR Battery fault).";eb Battery Brand;BMW;BMW battery error (BatErrorCode TF <> 0);;;brand part of Battery ERROR DIGIT
-20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;NovumTech;Novum error bits (BMS_NTHT_Errors);;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;Tyva;Tyva Error_M0 error bits;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;Kreisel;Kreisel error (mBMS_FuncSTAT);;;
+20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;"BMS reports an error (brand error only; watchdog and isolation protection are added in PWR Battery fault).";eb Battery Brand;BMW;BatErrorCode TF <> 0;;;"brand part of Battery ERROR DIGIT ; 108.3.1 mapping (D45)"
+20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;NovumTech;Novum_ERROR DIGIT;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;Tyva;tyva - ERROR DIGIT;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Error;IDC;;;eb Battery Brand;Kreisel;Kreisel - ERROR DIGIT;;;108.3.1 mapping (D45)
 20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;BMS reports a warning without error.;eb Battery Brand;BMW;False;;;new
-20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;NovumTech;Novum warning bits;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;Tyva;Tyva Error_M0 warning bits;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;Kreisel;False (to define);;;
+20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;NovumTech;Novum_WarningFlag;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;Tyva;WarningAFEIssues OR WarningBluetooth OR WarningBmsOverTemperature OR WarningCellIssues OR WarningChargerIssue OR WarningCurrentCalibration OR WarningDataLogger OR WarningHighVoltage OR WarningLowVoltage OR WarningNTC OR WarningOverCurrent OR WarningOverTemperatureCharge OR WarningOverTemperatureDischarge OR WarningOverVoltage@E. Tyva OR WarningPDULock OR WarningPduFailure OR WarningPduOverTemperature OR WarningShortCircuit OR WarningShortCircuitOnPrecharge OR WarningSlaveSilent OR WarningUnderTemperatureCharge OR WarningUnderTemperatureDischarge OR WarningUnderVoltage@E. Tyva;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Warning;IDC;;;eb Battery Brand;Kreisel;False;;;108.3.1 mapping (D45)
 20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;Raw error code of the BMS, logged with every battery error.;eb Battery Brand;BMW;BatErrorCode TF;;;new
-20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;NovumTech;Novum error word;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;Tyva;Tyva error word;;;
-20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;Kreisel;Kreisel error code;;;
+20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;NovumTech;0;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;Tyva;0;;;108.3.1 mapping (D45)
+20 EQP Equipment drivers/21 BAT Battery;BAT Error raw code;IMAC;;;eb Battery Brand;Kreisel;0;;;108.3.1 mapping (D45)

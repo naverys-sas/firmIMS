@@ -19,12 +19,12 @@ group;channel;type;unit;description;selector;function;activating;blocking;proper
 00 CFG Configuration/CFG Variant flags;CFG Is_ENG_J1939;IDC;;Thermal engine on J1939 (EB2, Ford, Kubota share one driver, D28). In v2 MC42-MD3 the same flag decodes the V69 T Engine type (0 EB2, 1 Ford).;;;CFG Is_Thermic AND (T Engine type ext = 0);;;Is_EB2 mc, Is_FORD mc, Is_Kubo mc
 00 CFG Configuration/CFG Variant flags;CFG Is_KBX_X100;IDC;;Keybox X100 present (all non-cab boats).;;;CFG Is_X100;;;Is_Electric_x100 mc, T.KeyBox enable
 00 CFG Configuration/CFG Variant flags;CFG Is_KBX_Cab;IDC;;Cab keyboxes KTB, KBB, KTC present.;;;CFG Is_Cab;;;is_cab_mc
-00 CFG Configuration/CFG Variant flags;CFG Has_MD45;IDC;;MD4-5 dashboard display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).;;;MD4-Status:MD45 = 0;;Delay on=2000 & Delay off=2000;new
-00 CFG Configuration/CFG Variant flags;CFG Has_MD410;IDC;;MD4-10 cab display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).;;;MDGN-Status:MD4 C = 0;;Delay on=2000 & Delay off=2000;new
-00 CFG Configuration/CFG Variant flags;CFG Has_MD3;IDC;;MD3 display answers on the Master bus. Only in v2 MC42-MD3 and v2 MC2, constant False in v2 MC42-MD4 (D38).;;;MDGN-Status:MD3 = 0;;Delay on=2000 & Delay off=2000;new
+00 CFG Configuration/CFG Variant flags;CFG Has_MD45;IDC;;MD4-5 dashboard display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).;;;B12 md4-5_State ok;;Delay on=2000 & Delay off=2000;"new ; 108.3.1 mapping (D45)"
+00 CFG Configuration/CFG Variant flags;CFG Has_MD410;IDC;;MD4-10 cab display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).;;;B12 45 State ok C10;;Delay on=2000 & Delay off=2000;"new ; 108.3.1 mapping (D45)"
+00 CFG Configuration/CFG Variant flags;CFG Has_MD3;IDC;;MD3 display answers on the Master bus. Only in v2 MC42-MD3 and v2 MC2, constant False in v2 MC42-MD4 (D38).;;;False;;Delay on=2000 & Delay off=2000;"new ; 108.3.1 mapping (D45)"
 00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;Which module the track joysticks are wired to (one source only).;;MC42;joystick plugged mc42;;Default state name=None;joystick plugged mc42/md45/md10 read in many groups
-00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;;;MD4-5;Joystick plugged md45;;;
-00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;;;MD4-10;Joystick plugged md10;;;
+00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;;;MD4-5;not(joystick plugged mc42) AND CFG Is_X100;;;108.3.1 mapping (D45)
+00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;;;MD4-10;not(joystick plugged mc42) AND CFG Is_Cab;;;108.3.1 mapping (D45)
 00 CFG Configuration/CFG Variant flags;CFG Joystick source;SMC;;;;MD3;Joystick plugged md3;;;
 00 CFG Configuration/CFG Settings (v2);T Pump wiring;SP;;Which pump output follows which joystick. Standard = 108.3.1 (lineage A), Swapped = V35/V69 (lineage B). Default per project: Standard in v2 MC42-MD4, Swapped in v2 MC42-MD3. Check at the quay that the right joystick drives the right track (D8, D18, D21).;;;Standard|Swapped;;;already in v2 step A
 00 CFG Configuration/CFG Settings (v2);Joystick plugged md3;DP;;Track joysticks wired to the MD3 display. Only in v2 MC42-MD3, default True there (D38).;;;True;;;new (D30)

@@ -7,7 +7,7 @@ group;channel;type;unit;description;selector;function;activating;blocking;proper
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP run;IDC;;;em M-Pump - Brand;Sevcon j19;j19 M3 - RUN;;;
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP error;IDC;;M3 inverter in error mode.;em M-Pump - Brand;Sevcon gen;gen M3 - Error mode;;;M3 - Error mode
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP error;IDC;;;em M-Pump - Brand;Sevcon j19;Sevcon - Error mode;;;
-20 EQP Equipment drivers/24 PMP Pump inverter;PMP error raw code;IMAC;;M3 raw error code, logged.;em M-Pump - Brand;Sevcon gen;gen M3 error code;;;new
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP error raw code;IMAC;;M3 raw error code, logged.;em M-Pump - Brand;Sevcon gen;M3 (Pump) - Error@GPIN;;;"new ; 108.3.1 mapping (D45)"
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP error raw code;IMAC;;;em M-Pump - Brand;Sevcon j19;M3 - New Error Code;;;
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP heatsink temp;MAC;°C;M3 inverter heatsink temperature.;em M-Pump - Brand;Sevcon gen;genHeatsink;;;M3 - Heatsink
 20 EQP Equipment drivers/24 PMP Pump inverter;PMP heatsink temp;MAC;°C;;em M-Pump - Brand;Sevcon j19;insideHeatsink;;;

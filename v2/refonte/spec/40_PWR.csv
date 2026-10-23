@@ -1,0 +1,5 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+40 PWR Power management/PWR Interface;PWR System started;ALIAS;;Battery (E) or engine (T) started;;;;;existing=Batt or engine started mc;108.3.1 mapping (D45)
+40 PWR Power management/PWR Interface;PWR Crash;IDC;;Crash management requested (System Crash Signal is active low);;;not(System Crash Signal);;Delay on=0 & Delay off=0;108.3.1 mapping (D45)
+40 PWR Power management/PWR Interface;PWR Charging state;ALIAS;;Charging state machine;;;;;existing=E.Charging State Machine & States=OFF|Charger Ready|Charging|Finish Charge;108.3.1 mapping (D45)
+40 PWR Power management/PWR Interface;PWR PMS state;ALIAS;;Power management state machine;;;;;existing=E.Power Management System & States=OFF|Standby|Discharge|Charge|Crash|Charge Aborted|Auto Off;108.3.1 mapping (D45)

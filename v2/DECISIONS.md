@@ -37,3 +37,21 @@ Conséquence : on reste en IQANdesign 6.08 pendant la refonte, et chaque fichier
 Décision : chaque formule des feuilles v2 (activation, blocage, calcul) est écrite par l'outil dans un groupe d'objets à méthode Expression (script IQAN `Result := …`), au lieu d'être décomposée en objets simples et mathématiques.
 Raison : IQANdesign 6.08 a ce type de groupe en natif (736 dans la 108.3.1) et recompile lui-même les objets de calcul à partir du texte au chargement (lot 6, [essais/generation_directe.md](essais/generation_directe.md)). La formule reste lisible telle quelle dans l'IDE et dans l'export texte (« Qcode expression »), ce qui sert l'objectif de lisibilité pour les collègues.
 Conséquence : la spec doit contenir de vraies formules. Les 79 formules encore écrites en clair ou qui citent des canaux non définis (PWR, KPD, KBX, MNT…) sont à compléter avant l'assemblage.
+
+## D44 — 23/10/2026 — La v2 se branche sur l'existant de la 108.3.1 par des liens nommés
+
+Décision : une ligne de spec avec la propriété `existing=Nom` ne crée pas de canal ; son nom v2 désigne le canal existant (entrées écran APPIN, tableaux de bits `btod 45` / `btod c10`, touches du clavier, entrées de la MC42, machines d'état de la gestion d'énergie). Les formules peuvent écrire `X[n]` (élément n d'un tableau, compté depuis 0), `X = Nom d'état` (rang de l'état, liste donnée par `States=…`), un script IQAN brut (`QCODE:` avec les canaux en `{Nom}`), et le type `COPY` copie un canal existant en remplaçant ses références (rampes SFC des chenilles). Un nom porté par plusieurs canaux de la 108.3.1 est refusé ; on le qualifie par son type ou son groupe (`BMW CAN OK@E.BMW`, `Voltage - S.M1.Right@IMAC`).
+Raison : les écrans MD4 actuels ne changent pas pendant la refonte de la MC42 ; relier plutôt que recréer évite deux sources pour le même signal. L'ancien assembleur prenait sans le dire le premier de deux canaux homonymes (10 cas, dont `BMW CAN OK` batterie / chargeur) : ce risque d'erreur silencieuse est supprimé.
+Conséquence : les mots d'état MC42 → écrans (APPOUT « HMI Status word 1-4 », « HMI Values ») attendent le contrat d'échange avec les applis MD4 et ne sont pas encore générés. Les entrées MD3 sortent de ce projet (projet MC42-MD3 à part, B1/B2).
+
+## D45 — 23/10/2026 — Bits de commande des écrans : on garde la position actuelle de chaque appli
+
+Décision : les commandes `CMD …` lisent les bits tels que les applis MD4 les envoient aujourd'hui. Bits 1 à 13 identiques sur MD4-5 et MD4-10. Écart conservé : sur MD4-10 le bit 14 est « super slow » (bit 18 sur MD4-5), et les bits 14 à 17 de MD4-5 (contrôle 10 h, remises à zéro entretien 1, 2 et 4 ans) n'existent pas sur MD4-10.
+Raison : compatibilité avec les bateaux en service sans toucher aux écrans. L'alignement « même position sur tous les écrans » de la spec (80_HMI_bits.csv) se fera avec la reprise des applis MD4.
+Conséquence : `CMD Super slow` = bit 18 MD4-5 ou bit 14 MD4-10. Présence des écrans : `CFG Has_MD45` = bit 12 « State ok » reçu de MD4-5, `CFG Has_MD410` = bit 12 reçu de MD4-10 (2 s de retard), plus de lecture de l'état des modules.
+
+## D46 — 23/10/2026 — Codes d'erreur bruts sans équivalent : 0 en attendant
+
+Décision : `BAT Error raw code` vaut 0 pour NovumTech, Tyva et Kreisel ; `ENG DM1 …` et `LOG HYD up down interrupted` restent à définir.
+Raison : la 108.3.1 n'a pas de mot d'erreur unique pour ces batteries (seulement des bits séparés, déjà regroupés dans `BAT Error` et `BAT Warning`), et ne lit pas les codes DM1 ni l'interruption d'une montée / descente. Inventer un format serait pire que de l'annoncer manquant.
+Conséquence : à reprendre avec les documentations constructeur (Novum, Tyva, Kreisel) et une décision sur l'affichage des défauts moteur.

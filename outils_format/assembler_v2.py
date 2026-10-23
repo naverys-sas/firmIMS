@@ -13,7 +13,20 @@ Une formule est traduite en script IQAN (« Result := … », canaux désignés 
 Une formule illisible ou qui cite un canal inconnu n'est pas inventée : la fonction reste vide,
 la formule d'origine va dans la description de la fonction (« À DÉFINIR : … ») et dans le rapport.
 Un canal dont le nom existe déjà dans le projet de base n'est pas recréé (rapport).
-Non traités pour l'instant (rapport) : APPIN, APPOUT, FGI (liens entre maîtres)."""
+
+Écritures particulières de la spec (D44) :
+- « X[3] » : élément 3 d'un canal tableau ; « X = Charging » : nom d'état (états donnés par la
+  propriété « States=OFF|Charging|… » de la ligne de X, ou ceux d'une SMC / d'un SP créé) ;
+- formule « QCODE: … » : script IQAN brut, canaux écrits {Nom}, lignes séparées par « \\n » ;
+- propriété « existing=Nom » : la ligne ne crée rien, son nom désigne le canal existant Nom
+  (entrées des écrans : APPIN de la 108.3.1, tableaux de bits) ;
+- type COPY, propriétés « from=Canal & AncienneRéf=NouvelleRéf & … » : copie d'un canal existant
+  (SFC par exemple), ses références remplacées par nom.
+Un nom porté par plusieurs canaux du projet de base est refusé dans une formule (rapport) ; on
+le qualifie par le type ou par le groupe de fonctions qui le contient, quand cela suffit à le
+distinguer : « BMW CAN OK@E.BMW », « Voltage - S.M1.Right@IMAC ».
+Non traités pour l'instant (rapport) : APPOUT et FGI sans « existing »."""
+import re
 import collections
 import csv
 import glob
@@ -39,6 +52,14 @@ FG_MODELE = None     # premier groupe de fonctions 0100 version 0
 EXPR_DIGITAL = 226741  # groupe Expression Activating (3a01) ; son voisin = Blocking (3a02)
 EXPR_MATH = 129554     # groupe Expression Controlling (3a08) ; son voisin = Limiting (3a09)
 PAS_X, PAS_Y, COLONNES = 230, 40, 4
+# abréviations des classes de canaux (comme dans l'export texte d'IQANdesign)
+TYPES = {0x01: "VIN", 0x02: "DIN", 0x05: "DMAC", 0x06: "IDC", 0x08: "COUT", 0x09: "DOUT", 0x0B: "ECNT",
+         0x0C: "CMSG", 0x0D: "FP", 0x0F: "TMR", 0x10: "TFC", 0x11: "PWM", 0x12: "TP", 0x13: "ILC",
+         0x14: "SMC", 0x15: "IMSG", 0x16: "MEM", 0x18: "MDGN", 0x1B: "FGI", 0x1C: "SFC", 0x1E: "JFIN",
+         0x1F: "JFOUT", 0x20: "TSC1", 0x21: "SPN", 0x22: "JPIN", 0x23: "JPOUT", 0x24: "GFIN", 0x25: "MAC",
+         0x26: "SIC", 0x27: "GFOUT", 0x28: "SP", 0x29: "DM1IN", 0x2C: "PCC", 0x2D: "APPIN", 0x2E: "APPOUT",
+         0x2F: "IMAC", 0x30: "IP", 0x31: "DP", 0x32: "GPIN", 0x33: "GPOUT", 0x35: "DPCNT", 0x39: "LTC",
+         0x3B: "ARC", 0x3D: "FSM", 0x3F: "VIN32"}
 
 
 class Assembleur:
@@ -47,8 +68,21 @@ class Assembleur:
         self.sec = self.pr.masters[0]
         self.rapport = collections.defaultdict(list)
         self.noms = {}  # nom -> identifiant, canaux du maître MC42
+        vus = collections.defaultdict(list)
         for n in self._canaux():
-            self.noms.setdefault(self.pr.name(self.sec, n), n.oid)
+            nom = self.pr.name(self.sec, n)
+            vus[nom].append(n)
+            self.noms.setdefault(nom, n.oid)
+        self.doublons = {n for n, l in vus.items() if len(l) > 1}
+        for nom in self.doublons:  # noms qualifiés : Nom@TYPE, Nom@Groupe
+            for qual in (lambda n: TYPES.get(n.sub, "%02x" % n.sub), self._groupe_de):
+                q = collections.defaultdict(list)
+                for n in vus[nom]:
+                    q["%s@%s" % (nom, qual(n))].append(n)
+                for k, l in q.items():
+                    if len(l) == 1:
+                        self.noms[k] = l[0].oid
+        self.etats_nommes = {}  # canal -> noms de ses états, pour « X = Etat » dans les formules
         self.existants = set(self.noms)
         self.prochain = self.pr.max_oid() + 1
         self._crees = {}
@@ -61,6 +95,12 @@ class Assembleur:
         for _, n in self.pr.walk([self.sec]):
             if n.cls == 0x04:
                 yield n
+
+    def _groupe_de(self, n):
+        p = n.parent
+        while p is not None and not (p.cls == 0x01 and p.sub in (0x00, 0x06)):
+            p = p.parent
+        return self.pr.name(self.sec, p) if p is not None else ""
 
     def un(self, oid):
         if not hasattr(self, "_index"):
@@ -124,12 +164,28 @@ class Assembleur:
         """Script IQAN d'une formule de la spec, ou None (rapport) si elle n'est pas traduisible."""
         if not expr:
             return ""
+        if expr.startswith("QCODE:"):
+            return self.qcode(expr[6:].strip(), ou)
         try:
-            arbre = iqanexpr.parse(expr, self.noms)
+            arbre = iqanexpr.parse(expr, self.noms, self.etats_nommes)
+            ambigus = iqanexpr.channels(arbre) & self.doublons
+            if ambigus:
+                raise iqanexpr.ExprError("nom porté par plusieurs canaux : %s" % ", ".join(sorted(ambigus)))
         except iqanexpr.ExprError as e:
             self.rapport["Formules à définir"].append("%s : « %s » (%s)" % (ou, expr, e))
             return None
         return "Result := " + iqanexpr.to_iqan(arbre, self.noms.__getitem__)
+
+    def qcode(self, texte, ou):
+        """Script IQAN écrit tel quel dans la spec : {Nom} -> {#identifiant#}."""
+        noms = re.findall(r"\{([^}#]+)\}", texte)
+        faux = [n for n in noms if n not in self.noms or n in self.doublons]
+        if faux:
+            self.rapport["Formules à définir"].append(
+                "%s : script « %s » (canaux inconnus ou ambigus : %s)" % (ou, texte, ", ".join(faux)))
+            return None
+        texte = re.sub(r"\{([^}#]+)\}", lambda m: "{#%d#}" % self.noms[m.group(1)], texte)
+        return texte.replace("\\n", "\r\n")
 
     def fonctions(self, ch, typ, lignes, etats):
         """Remplace les fonctions du canal ch : une par état du sélecteur (ou Default function)."""
@@ -189,8 +245,22 @@ class Assembleur:
     def canal(self, parent, lignes, k):
         r = lignes[0]
         typ, nom = r["type"], r["channel"]
+        props = dict(p.split("=", 1) for p in (r["properties"] or "").split(" & ") if "=" in p)
+        if "States" in props:
+            self.etats_nommes[nom] = props["States"].split("|")
+        if "existing" in props:
+            cible = props["existing"]
+            if cible not in self.noms or cible in self.doublons:
+                self.rapport["Liens vers l'existant impossibles"].append("%s -> %s" % (nom, cible))
+            else:
+                self.noms[nom] = self.noms[cible]
+                self.rapport["Liens vers l'existant"].append("%s -> %s" % (nom, cible))
+            return
         if nom in self.existants:
             self.rapport["Canaux déjà présents (non recréés)"].append("%s (%s)" % (nom, typ))
+            return
+        if typ == "COPY":
+            self.copie(parent, r, props, k)
             return
         if typ not in MODELES:
             self.rapport["Types non traités"].append("%s (%s)" % (nom, typ))
@@ -199,7 +269,6 @@ class Assembleur:
         self.texte(ch, 0, nom)
         self.texte(ch, 1, r["description"])
         self.position(ch, k)
-        props = dict(p.split("=", 1) for p in (r["properties"] or "").split(" & ") if "=" in p)
         if typ == "IDC":
             for cle, i in (("Delay on", 3), ("Delay off", 4)):
                 self.pr.set_int(ch, i, int(props.get(cle, 0)))
@@ -214,6 +283,7 @@ class Assembleur:
             defaut = props.get("Default state name", "Off")
             self.texte(ch, 2, defaut)
             self.etats_smc[nom] = [defaut] + [l["function"] for l in lignes]
+            self.etats_nommes.setdefault(nom, self.etats_smc[nom])
             self.differe.append(lambda: self.fonctions(ch, typ, lignes, [l["function"] for l in lignes]))
         elif typ in ("SP", "DP", "IP"):
             self.parametre(ch, typ, r)
@@ -223,6 +293,36 @@ class Assembleur:
         self.crees[typ] += 1
         self.noms[nom] = ch.oid
         self._crees[ch.oid] = ch
+
+    def copie(self, parent, r, props, k):
+        """Type COPY : copie du canal « from », références remplacées par nom (D44)."""
+        nom, src = r["channel"], props.pop("from", "")
+        props.pop("States", None)
+        manque = [n for n in [src] + list(props) + list(props.values())
+                  if n not in self.noms or n in self.doublons]
+        if manque:
+            self.rapport["Copies impossibles"].append("%s (inconnus ou ambigus : %s)" % (nom, ", ".join(manque)))
+            return
+        ch = self.nouveau(self.trouver(src))
+        self.texte(ch, 0, nom)
+        self.texte(ch, 1, r["description"])
+        self.position(ch, k)
+        self.poser(parent, ch)
+        self.noms[nom] = ch.oid
+        self._crees[ch.oid] = ch
+        self.crees["COPY"] += 1
+        # les remplacements visent des canaux qui peuvent n'être créés qu'ensuite : après la passe 1
+        def remplacer():
+            table = {self.noms[a]: self.noms[b] for a, b in props.items()}
+
+            def ref(v):
+                if v[1] != iqanprojet.REF:
+                    return v
+                o = struct.unpack_from("<I", v, 2)[0]
+                return v[:2] + struct.pack("<I", table.get(o, o))
+            for x in ch.walk():
+                x.obj.values = [iqanprojet._map_refs(v, ref) for v in x.obj.values]
+        self.differe.append(remplacer)
 
     def selecteur(self, ch, i, r):
         if r["selector"] and r["selector"] in self.noms:
@@ -260,7 +360,9 @@ class Assembleur:
     # --- ensemble ------------------------------------------------------------------------------
     def assembler(self, dossier):
         lignes = []
-        for f in sorted(glob.glob(os.path.join(dossier, "[0-9][0-9]_[A-Z][A-Z][A-Z].csv"))):
+        for f in sorted(glob.glob(os.path.join(dossier, "[0-9][0-9]_*.csv"))):
+            if not re.fullmatch(r"\d\d_[A-Z]{2,3}\.csv", os.path.basename(f)):
+                continue
             for r in csv.DictReader(open(f, encoding="utf-8-sig"), delimiter=";"):
                 lignes.append({k: (v or "").strip() for k, v in r.items()})
         arbre = collections.OrderedDict()
