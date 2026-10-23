@@ -26,10 +26,12 @@ group;channel;type;unit;description;selector;function;activating;blocking;proper
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick left;MAC;%;;CFG Joystick source;MD4-5;HMI MD45 joystick left;;;
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick left;MAC;%;;CFG Joystick source;MD4-10;HMI MD410 joystick left;;;
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick left;MAC;%;;CFG Joystick source;MD3;0;;;108.3.1 mapping (D45)
+80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick left;MAC;%;;CFG Joystick source;None;0;;;no joystick source: 0
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick right;MAC;%;"Track joystick right, from the single source given by CFG Joystick source; 0 if that module is absent.";CFG Joystick source;MC42;IO Joystick right C1:24;;;Math Gauche/Droit ... 45 (joystick selection logic)
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick right;MAC;%;;CFG Joystick source;MD4-5;HMI MD45 joystick right;;;
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick right;MAC;%;;CFG Joystick source;MD4-10;HMI MD410 joystick right;;;
 80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick right;MAC;%;;CFG Joystick source;MD3;0;;;108.3.1 mapping (D45)
+80 HMI Human-machine interface/HMI Command arbitration;CMD Joystick right;MAC;%;;CFG Joystick source;None;0;;;no joystick source: 0
 80 HMI Human-machine interface/HMI Command arbitration;CMD Speed level;IMAC;;Speed level requested: 0 idle, 1 super slow, 2 slow, 3 fast (same coding as E Speed Int / Screen_Speed Input mc).;;;45 Speed state;;;"Screen_Speed Input mc, 45 Speed state ; 108.3.1 mapping (D45)"
 80 HMI Human-machine interface/HMI Outputs;HMI Status word 1;APPOUT;;Status word 1 published to every display (bit map in 80_HMI_bits.csv).;;;HMI status word 1 packing (ARC);;;dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start
 80 HMI Human-machine interface/HMI Outputs;HMI Status word 2;APPOUT;;Status word 2 published to every display (bit map in 80_HMI_bits.csv).;;;HMI status word 2 packing (ARC);;;dtobin 2 / dtobin 3 / Joystick to zero / batt ok to start
