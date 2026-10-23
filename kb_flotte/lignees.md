@@ -32,6 +32,6 @@ Les deux lignées envoient donc **des consignes opposées sur la même broche**.
 
 ## Bateaux dont la version exacte n'est pas en notre possession
 
-- #026 (Kreisel) en V35.38.01 et #043 (NovumTech) en V35.40 : la V35.42 ne gère ni Kreisel ni Novum, ils sont donc sur une autre branche V35.
+- #026 et #043 (anciennes branches V35 Kreisel et Novum) : refités depuis, plus à couvrir (Nicolas, 23/10/2026).
 - #024 (V16.34) et #023 (V23.x) : versions antérieures à la V25.
 - #010 (V10.8.12, refit Aentron) : version unique.

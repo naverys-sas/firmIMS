@@ -16,4 +16,4 @@ Rapports : [../kb_flotte/compat/compat_v35_v69.md](../kb_flotte/compat/compat_v3
 
 - La V69 a gardé le thermique et abandonné toute la partie électrique de la V35 (Sevcon, Zapi, BMW, WattAlps, HVLP). Les X100 électriques en V35 (#016, #026, #039, #042, #043, #053) ne peuvent donc passer ni en V69 ni, sans adaptation, en 108.3.1 (joysticks sur MD3, pas sur MD4).
 - **Sortie pompe C1:14** : en V35, elle s'appelle `Pump 1 Right` et reçoit la consigne du **joystick droit**. En 108.3.1, la même broche reçoit la consigne du **joystick gauche**. Voir [../kb_flotte/lignees.md](../kb_flotte/lignees.md).
-- Le registre note #026 (Kreisel) et #043 (NovumTech) en V35, alors que la V35.42 ne gère ni Kreisel ni Novum : ces bateaux tournent sur une autre branche V35 (V35.38.01, V35.40) qu'il faudrait aussi récupérer.
+- #026 (Kreisel) et #043 (NovumTech), notés en V35 dans le registre, ont été refités depuis : leurs anciennes branches V35 ne sont plus à couvrir.
