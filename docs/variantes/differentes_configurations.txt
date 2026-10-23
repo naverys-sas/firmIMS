@@ -1,0 +1,43 @@
+On appelle IMS "iguana mobility system" tout se qui se raccorde au système de mobilité amphibie du bateau, à chenilles donc
+
+il est totalement indépendant des systèmes classiques d'un bateau, propulsion marine, confort, etc...
+
+le microcontrolleur MC42 gère tout l'IMS
+
+sur certaines versions, notamment pour le Cab (=modème "commuter"), certaines fonctions de confort sont néanmoins régis via le MD4 10 pouces et passent donc par le MC42
+
+
+sur les premiers bateaux, le microcontrolleur principale était un MC2, et il a été remplacé par le MC42 à partir des bateaux numéros 40 (environ, ce n'est pas exact)
+l'écran ims était le md3, remplacé par le md4 à partir du bateau numéro 76.
+
+
+Il y a deux branches/versions de l'ims : électrique et thermique
+
+Le modèles cab/commuter n'étant disponible qu'en version électrique seulement, et avec pour écran IMS le MD4 10 pouces (c'est le seul modèle à avoir cet écran 10 pouces), et ils n'ont eu que des mc42 en microcrontrolleur également.
+
+à propos de la version thermique :
+un moteur à essence fait tourner 3 pompes hydrauliques en série. les deux premieres sont deux Bosch rexroth a10vg28, avec valves proportionnelles pour du skid steering, en tant que propulsion terrestre principale. la troisième pompe en série est une petit pompe à cylindrée fixe alimentant un bloc distributeur hydraulique.
+
+
+l'ordre des moteurs essence qui ont été successivement installé :
+- le VW 2l
+- le ford 1.5l
+- l'EB2F
+- le Kubota wg
+
+à propos de la version électrique : 
+une batterie HV sert de traction principale. son courant est dirigée vers deux variateurs qui vont ensuite faire marcher les moteurs électriques SEW dans les chenilles, en skid steering toujours.
+un troisième variateur (toujours le HVLP) sert à alimenter un moteur de pompe hydraulique, alimentant un bloc distributeur hydraulique.
+
+l'ordre des couples batterie/variateurs de traction qui ont été successivement installé dans les bateaux :
+- Kreisel/sevcon
+- torqeedo/zapi
+- Novum/sevcon
+- tyva/sevcon
+
+
+
+Les blocs hydrauliques ont évolué dans le temps, je joins les schémas que j'ai , mais il y a du tri à faire, regarde bien les dates. 
+
+"architecture all" résume lui les différentes configs "modernes et up to date" des différents circuits électriques
+
