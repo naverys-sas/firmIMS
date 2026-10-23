@@ -30,6 +30,8 @@ Les références entre canaux étaient le point le plus risqué. Les règles de 
 - **Table des symboles** : numérotation des canaux par maître et nombre de canaux.
 - **Références entre canaux** : jeton `cf 04 [numéro] 00 [maître]` dans les propriétés, plus les listes de sorties des groupes de fonctions (sans préfixe).
 - **Propriétés** : 99,2 % des objets de la 108.3.1 sont reliés à leur équivalent de l'export texte. Les champs typés (textes, entiers, références) se lisent directement.
+- **Lecture exacte de chaque objet** (`iqanprops.py`, 23/10) : valeurs typées, enfants et fin propre à chaque classe. Les 99 350 objets des 7 projets se relisent exactement. 84 % des propriétés de l'export texte sont retrouvées (`banc_props.py`), et les codes d'énumération sont appris automatiquement (`iqan_enums.json`, 134 codes).
+- **Éditeur** (`iqanprojet.py`, 23/10) : renommer, changer une valeur ou une référence, insérer, supprimer, déplacer, copier un objet ou un groupe (y compris depuis un autre projet), remplacer un groupe en gardant les identifiants des canaux de même nom. La renumérotation, les symboles, les compteurs et les listes de sorties sont recalculés à l'enregistrement. **Lot 4 validé par IQANdesign** : les 6 opérations testées sur une copie du projet MD3 V69 s'exportent sans dialogue, et chaque export montre exactement l'effet voulu. Note : à chaque chargement, IQANdesign crée un groupe « Library image group (legacy) » avec le prochain identifiant libre. Ce groupe change donc de numéro d'un export à l'autre, ce n'est pas une erreur.
 - **Code compilé** : IQANdesign ne le régénère pas à l'enregistrement, il le recompile à l'envoi. On n'a jamais à le produire.
 
 ## Ce qui reste à faire
@@ -69,4 +71,4 @@ Les gestes que seul IQANdesign peut faire restent les mêmes : envoyer le progra
 ## Fichiers
 
 - Outils : [`outils_format/`](../../outils_format/README.md). Scripts des essais : `outils_format/essais/`.
-- Résultats des exports sur le PC : `Documents\testia\essais_format\lot1\`. Lot 3 : `Documents\testia\.claude\worktrees\intelligent-golick-ac697c\essais_format\lot3\`.
+- Résultats des exports sur le PC : `Documents\testia\essais_format\lot1\` et `lot4\`. Lot 3 : `Documents\testia\.claude\worktrees\intelligent-golick-ac697c\essais_format\lot3\`.
