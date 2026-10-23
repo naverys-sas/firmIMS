@@ -1,0 +1,458 @@
+# Contrôle de compatibilité
+
+- Référence : `export.txt`
+- Candidat : `../md3_v69/export.txt`
+
+**141 éléments supprimés, 14 modifiés, 260 ajoutés.** Un élément supprimé ou modifié casse potentiellement un bateau déjà livré ; il doit être justifié.
+
+## Supprimés (141)
+
+- Broche ·  · `G1x#0` — était : MDGN Status:G1x
+- Broche ·  · `G1x#1` — était : MDGN Network state:G1x
+- Broche ·  · `J1939[0]#0` — était : MDGN Protect lamp
+- Broche ·  · `MC2[1]#0` — était : MDGN MDGN-Status:MC2[1]
+- Broche ·  · `MC2[1]#1` — était : MDGN MDGN-S/N:MC2[1]
+- Broche ·  · `MC2[1]#12` — était : DOUT EV Frein
+- Broche ·  · `MC2[1]#13` — était : DOUT EV By pass
+- Broche ·  · `MC2[1]#14` — était : DOUT EV Descente
+- Broche ·  · `MC2[1]#15` — était : DOUT EV Montée
+- Broche ·  · `MC2[1]#18` — était : DOUT EV Tendeur Chenille
+- Broche ·  · `MC2[1]#19` — était : DOUT EV DéTendeur Chenille
+- Broche ·  · `MC2[1]#2` — était : VIN Track pressure
+- Broche ·  · `MC2[1]#20` — était : DOUT Out SWITCH ON Engine
+- Broche ·  · `MC2[1]#21` — était : DOUT Out START Engine
+- Broche ·  · `MC2[1]#22` — était : DOUT Out FAN Engine
+- Broche ·  · `MC2[1]#23` — était : DOUT OUT Full FAN
+- Broche ·  · `MC2[1]#3` — était : MDGN MDGN-Address:MC2[1]
+- Broche ·  · `MC2[1]#4` — était : VIN 
+- Broche ·  · `MC2[1]#5` — était : DOUT Alim by pass et frein
+- Broche ·  · `MC2[1]#6` — était : DOUT Alim moteur
+- Broche ·  · `MC2[1]#7` — était : DOUT Alim vérin et tendeur
+- Broche ·  · `MD3[0]#5` — était : VIN Y
+- Broche ·  · `MD3[0]#6` — était : VIN Z
+- Journal ·  · `Event log: Acceleration` — était : 
+- Journal ·  · `Event log: Engine Start/Stop` — était : 
+- Journal ·  · `Event log: Hydraulic and Engine Event` — était : 
+- Journal ·  · `Statistics log: Engine Hours` — était : 
+- Journal ·  · `Statistics log: System 1 Log` — était : 
+- Journal ·  · `Statistics log: System 2 log` — était : 
+- Liaison appli ·  · `Bad Oil Level Buzzer` — était : APPOUT ← Wait Very Low Oil Level
+- Liaison appli ·  · `CAN  Free` — était : APPOUT ← IDC Speed Free
+- Liaison appli ·  · `CAN  Speed` — était : APPOUT ← Speed
+- Liaison appli ·  · `CAN - ENGINE RUN - Out` — était : APPIN ← CAN - ENGINE RUN
+- Liaison appli ·  · `CAN - ENGINE RUN` — était : APPOUT ← Engine START
+- Liaison appli ·  · `CAN Free` — était : APPIN ← CAN  Free
+- Liaison appli ·  · `CAN IN Oil level` — était : APPIN ← Bad Oil Level Buzzer
+- Liaison appli ·  · `CAN IN State Up/Down` — était : APPIN ← CAN OUT State Up/Down
+- Liaison appli ·  · `CAN OK UP/DOWN` — était : APPOUT ← OK UP/DOWN
+- Liaison appli ·  · `CAN OUT State Up/Down` — était : APPOUT ← State Up/Down
+- Liaison appli ·  · `CAN Out tIMER FAN` — était : APPOUT ← % Timer FAN [%]
+- Liaison appli ·  · `CAN Speed` — était : APPIN ← CAN  Speed
+- Liaison appli ·  · `Can In MD3 UP/DOWN Button` — était : APPIN ← Can Out UP/DOWN Button
+- Liaison appli ·  · `Can Out Button State` — était : APPOUT ← F1 - Button
+- Liaison appli ·  · `Can Out UP/DOWN Button` — était : APPOUT ← UP/DOWN Button
+- Liaison appli ·  · `Can tIMER in` — était : APPIN ← CAN Out tIMER FAN [%]
+- Liaison appli ·  · `MD3 CAN Status` — était : APPOUT ← MDGN-Status:MD3[0]
+- Liaison appli ·  · `MD3 Start/Stop Button` — était : APPIN ← Can Out Button State
+- Liaison appli ·  · `MD3 Status CAN In` — était : APPIN ← MD3 CAN Status
+- Message ·  · `Hot Water` — était : Inboard engine low oil | Critical
+- Paramètre ·  · `2200 tr/min` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Acceleration` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Auto Beach After Down` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Backward Curent  - Hight Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Backward Curent - Low Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Backward Curent - Super Low Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `ECU Engine` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `FAN Plus temp` — était : FP unité=°C défaut={97} états= modes=Not used
+- Paramètre ·  · `FT - Start réduction` — était : FP unité=°C défaut={99} états= modes=Not used
+- Paramètre ·  · `Fan Mode` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force UNTIGHTEN` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Forward Curent  - Hight Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Forward Curent - Low Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Forward Curent - Super Low Speed` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Full Fan Mode` — était : SP unité= défaut=AUTO états=FULL modes=
+- Paramètre ·  · `G11 Modem` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Hydraulic Bloc` — était : SP unité= défaut=V01 états=V01 - Locking|V17 - Locking modes=
+- Paramètre ·  · `Latitude (+ = North)` — était : FP unité=° défaut={0} états= modes=Not used
+- Paramètre ·  · `Longitude (+ = East)` — était : FP unité=° défaut={0} états= modes=Not used
+- Paramètre ·  · `Max curent` — était : FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Min Speed` — était : FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Min black light` — était : IP unité=% défaut={7} états= modes=Not used
+- Paramètre ·  · `Minimum Fan` — était : IP unité=Not used défaut={20} états= modes=Not used
+- Paramètre ·  · `PWM Max mA` — était : IP unité=mA défaut={900} états= modes=Not used
+- Paramètre ·  · `Para enclench voyant T° moteur critical` — était : FP unité=°C défaut={105} états= modes=Not used
+- Paramètre ·  · `Para enclench voyant T° moteur warning` — était : FP unité=°C défaut={100} états= modes=Not used
+- Paramètre ·  · `Parking` — était : IP unité=% défaut={50} états= modes=Not used
+- Paramètre ·  · `Security PIN` — était : PCC unité= défaut= états= modes=
+- Paramètre ·  · `Setup PIN` — était : PCC unité= défaut= états= modes=
+- Paramètre ·  · `Slope Fast - Low` — était : FP unité=mA/s défaut={200} états= modes=Not used
+- Paramètre ·  · `Start Slope - Pump` — était : FP unité=%/s défaut= états= modes=Speed Pump
+- Paramètre ·  · `Stop Slope - Pump` — était : FP unité=%/s défaut= états= modes=Speed Pump
+- Paramètre ·  · `Stop temp Fan` — était : IP unité=Not used défaut={82} états= modes=Not used
+- Paramètre ·  · `TSC1 Filter Slope` — était : FP unité=%/s défaut={100} états= modes=Not used
+- Paramètre ·  · `Temp cold/hot` — était : FP unité=°C défaut={92} états= modes=Not used
+- Paramètre ·  · `Tension Speed` — était : FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Timer Fan Engine Hot` — était : FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `Timer Fan Engine cold` — était : FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `UP/DOWN Special mode` — était : SP unité= défaut=UNACTIVE états=ACTIVE modes=
+- Paramètre ·  · `UP/DOWN Speed` — était : FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Value Hight Speed` — était : FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Value Slow Speed` — était : FP unité=rpm défaut= états= modes=Engine type
+- Réglage ·  · `2200 tr/min` — était : 2200 tr/min 
+- Réglage ·  · `Acceleration` — était : Acceleration 
+- Réglage ·  · `Auto Beach After Down` — était : Auto Beach After Down 
+- Réglage ·  · `Backward Curent  - Hight Speed` — était : Backward Curent  - Hight Speed [mA] 
+- Réglage ·  · `Backward Curent - Low Speed` — était : Backward Curent - Low Speed [mA] 
+- Réglage ·  · `Backward Curent - Super Low Speed` — était : Backward Curent - Super Low Speed [mA] 
+- Réglage ·  · `ECU Engine` — était : ECU Engine 
+- Réglage ·  · `FAN Plus temp` — était : FAN Plus temp [°C] 
+- Réglage ·  · `FT - Start réduction` — était : FT - Start réduction [°C] 
+- Réglage ·  · `Fan Mode` — était : Fan Mode 
+- Réglage ·  · `Force UNTIGHTEN` — était : Force UNTIGHTEN 
+- Réglage ·  · `Force tension` — était : Force tension 
+- Réglage ·  · `Forward Curent  - Hight Speed` — était : Forward Curent  - Hight Speed [mA] 
+- Réglage ·  · `Forward Curent - Low Speed` — était : Forward Curent - Low Speed [mA] 
+- Réglage ·  · `Forward Curent - Super Low Speed` — était : Forward Curent - Super Low Speed [mA] 
+- Réglage ·  · `Fuel line ignition` — était : Fuel line ignition 
+- Réglage ·  · `Fuseau` — était : Fuseau [h] 
+- Réglage ·  · `G11 Modem` — était : G11 Modem 
+- Réglage ·  · `Hydraulic Bloc` — était : Hydraulic Bloc 
+- Réglage ·  · `Latitude (+ = North)` — était : Latitude (+ = North) [°] 
+- Réglage ·  · `Locking Up Track` — était : Locking UP Track 
+- Réglage ·  · `Longitude (+ = East)` — était : Longitude (+ = East) [°] 
+- Réglage ·  · `Max curent` — était : Max curent [mA] 
+- Réglage ·  · `Min Speed` — était : Min Speed [rpm] 
+- Réglage ·  · `Min black light` — était : Min black light [%] 
+- Réglage ·  · `PWM Max mA` — était : PWM Max mA [mA] 
+- Réglage ·  · `Parking` — était : Parking [%] 
+- Réglage ·  · `Slope Fast - Low` — était : Slope Fast - Low [mA/s] 
+- Réglage ·  · `Start Slope - Pump` — était : Start Slope - Pump [%/s] 
+- Réglage ·  · `Stop Slope - Pump` — était : Stop Slope - Pump [%/s] 
+- Réglage ·  · `Temp cold/hot` — était : Temp cold/hot [°C] 
+- Réglage ·  · `Tension Error Parameter` — était : Tension Error Parameter [%] 
+- Réglage ·  · `Tension Speed` — était : Tension Speed [rpm] 
+- Réglage ·  · `UP/DOWN Special mode` — était : UP/DOWN Special mode 
+- Réglage ·  · `UP/DOWN Speed` — était : UP/DOWN Speed [rpm] 
+- Réglage ·  · `Value Hight Speed` — était : Value Hight Speed [rpm] 
+- Réglage ·  · `Value Slow Speed` — était : Value Slow Speed [rpm] 
+- Trame CAN ·  · `Driver's demand, engine %` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Accelerator pedal position` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Air inlet pressure` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `EEC1` — était : JFIN module=J1939[0] id=61444 dlc= contenu={{Driver's demand, engine % [%]; 9}; {Actual engine, % torque [%]; 17}; {Engine speed [rpm]; 25}}
+- Trame CAN ·  · `EEC2` — était : JFIN module=J1939[0] id=61443 dlc= contenu={{Accelerator pedal position [%]; 9}; {% load at current speed [%]; 17}}
+- Trame CAN ·  · `Engine Temperature` — était : JFIN module=J1939[0] id=65262 dlc= contenu={{Engine coolant temperature [°C]; 1}}
+- Trame CAN ·  · `Engine fluid level/pressure 1` — était : JFIN module=J1939[0] id=65263 dlc= contenu={{Engine oil pressure [kPa]; 25}}
+- Trame CAN ·  · `Engine speed` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Inlet / Exhaust conditions 1` — était : JFIN module=J1939[0] id=65270 dlc= contenu={{Intake manifold temperature [°C]; 17}; {Air inlet pressure [kPa]; 25}}
+- Trame CAN ·  · `Intake manifold temperature` — était : JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `TSC1-A:J1939-0` — était : TSC1 module=J1939[0] id= dlc= contenu=
+
+## Modifiés (14)
+
+- Broche ·  · `MD3[0]#4`
+  - avant : VIN X
+  - après : MDGN MDGN-VREF:MD3-0
+- Liaison appli ·  · `OK UP/DOWN`
+  - avant : APPIN ← CAN OK UP/DOWN
+  - après : APPOUT ← OK UP/DOWN
+- Paramètre ·  · `Ambiante Temperature`
+  - avant : SP unité= défaut=Normal états=High modes=
+  - après : SP unité= défaut= états=High modes=
+- Paramètre ·  · `Auto Stop Timer`
+  - avant : IP unité=s défaut={15} états= modes=Not used
+  - après : IP unité=s défaut={30} états= modes=Not used
+- Paramètre ·  · `Engine type`
+  - avant : SP unité= défaut=VW 2.0L états=FORD 1.5L modes=
+  - après : SP unité= défaut=EB2 1.2L états=FORD 1.5L modes=
+- Paramètre ·  · `FP - Decres Speed`
+  - avant : FP unité=%/s défaut={60} états= modes=Not used
+  - après : FP unité=%/s défaut={80} états= modes=Not used
+- Paramètre ·  · `FP - Incres Speed`
+  - avant : FP unité=%/s défaut={5} états= modes=Not used
+  - après : FP unité=%/s défaut={20} états= modes=Not used
+- Paramètre ·  · `Locking UP Track`
+  - avant : DP unité= défaut={False} états= modes=Not used
+  - après : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Min current Left Backward`
+  - avant : FP unité=mA défaut={600} états= modes=Not used
+  - après : FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `Min current Left Fordward`
+  - avant : FP unité=mA défaut={600} états= modes=Not used
+  - après : FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `Min current Right Backward`
+  - avant : FP unité=mA défaut={600} états= modes=Not used
+  - après : FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `Min current Right Fordward`
+  - avant : FP unité=mA défaut={600} états= modes=Not used
+  - après : FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `Para enclench voyant pression huile`
+  - avant : FP unité=kPa défaut={300} états= modes=Not used
+  - après : FP unité=kPa défaut= états= modes=Engine type
+- Trame CAN ·  · `DM1`
+  - avant : DM1IN module=J1939[0] id= dlc= contenu={SPN 98; SPN 100; SPN 102; SPN 105; SPN 106; SPN 110; SPN 175; SPN 626; SPN 629; SPN 636; SPN 637; SPN 639; SPN 651; SPN 652; SPN 653; SPN 654; SPN 655; SPN 656; SPN 677; SPN 1485}
+  - après : DM1IN module=Inboard Engine Ford (J1939[0]) id= dlc= contenu={SPN 98; SPN 100; SPN 102; SPN 105; SPN 106; SPN 110; SPN 175; SPN 626; SPN 629; SPN 636; SPN 637; SPN 639; SPN 651; SPN 652; SPN 653; SPN 654; SPN 655; SPN 656; SPN 677; SPN 1485}
+
+## Ajoutés (260)
+
+- Broche ·  · `Inboard Engine EB2 (J1939[0])#1` — MDGN Malfunction lamp EB2
+- Broche ·  · `Inboard Engine EB2 (J1939[0])#2` — MDGN Red stop lamp EB2
+- Broche ·  · `Inboard Engine EB2 (J1939[0])#3` — MDGN Amber warning lamp EB2
+- Broche ·  · `Inboard Engine EB2 (J1939[0])#4` — MDGN Protect lamp EB2
+- Broche ·  · `Inboard Engine Ford (J1939[0])#1` — MDGN Malfunction lamp Ford
+- Broche ·  · `Inboard Engine Ford (J1939[0])#2` — MDGN Red stop lamp Ford
+- Broche ·  · `Inboard Engine Ford (J1939[0])#3` — MDGN Amber warning lamp Ford
+- Broche ·  · `Inboard Engine Ford (J1939[0])#4` — MDGN Protect lamp Ford
+- Broche ·  · `MC42 (MC42[1])#0` — COUT Pump 1 Right
+- Broche ·  · `MC42 (MC42[1])#1` — MDGN S/N:MC42[1]
+- Broche ·  · `MC42 (MC42[1])#10` — DOUT EV Down
+- Broche ·  · `MC42 (MC42[1])#11` — DOUT EV Tension
+- Broche ·  · `MC42 (MC42[1])#12` — DOUT EV Unlock
+- Broche ·  · `MC42 (MC42[1])#13` — DOUT EV Lock
+- Broche ·  · `MC42 (MC42[1])#14` — DOUT Pin 44 (Brake)
+- Broche ·  · `MC42 (MC42[1])#2` — MDGN Temp:MC42[1]
+- Broche ·  · `MC42 (MC42[1])#3` — MDGN Address:MC42[1]
+- Broche ·  · `MC42 (MC42[1])#4` — MDGN 12V Batt.
+- Broche ·  · `MC42 (MC42[1])#5` — MDGN VREF-A:MC42[1]
+- Broche ·  · `MC42 (MC42[1])#7` — VIN T Exhaust coolant temp mc 52
+- Broche ·  · `MC42 (MC42[1])#8` — DOUT EV By pass
+- Broche ·  · `MC42 (MC42[1])#9` — DOUT EV Up
+- Journal ·  · `Event log: Hydraulic Event` — 
+- Journal ·  · `Event log: Thermic Events` — 
+- Journal ·  · `Statistics log: System Stats` — 
+- Journal ·  · `Statistics log: Thermic Stats` — 
+- Liaison appli ·  · `Can Out Button F1` — APPOUT ← F1 - START PAGE
+- Liaison appli ·  · `ENGINE RUN Input` — APPIN ← System Started
+- Liaison appli ·  · `Free Input` — APPIN ← IDC Speed Free
+- Liaison appli ·  · `IDC Speed Free` — APPOUT ← IDC Speed Free
+- Liaison appli ·  · `MD3_Start/Stop` — APPIN ← Can Out Button F1
+- Liaison appli ·  · `OK UP/DOWN Input` — APPIN ← OK UP/DOWN
+- Liaison appli ·  · `Oil level Very Low Input` — APPIN ← Wait_Very_Low_Oil_Level
+- Liaison appli ·  · `Speed Input` — APPIN ← Speed Input
+- Liaison appli ·  · `State Up/Down` — APPIN ← State Up/Down
+- Liaison appli ·  · `System Started` — APPOUT ← System Started DELAYS
+- Liaison appli ·  · `UP/DOWN Button Input` — APPIN ← UP/DOWN Button
+- Liaison appli ·  · `UP/DOWN Button` — APPOUT ← UP/DOWN Button
+- Liaison appli ·  · `Wait_Very_Low_Oil_Level` — APPOUT ← Wait_Very_Low_Oil_Level
+- Message ·  · `Alert critical engine` — Stop | Critical
+- Message ·  · `Alert critical exhaust` — Stop | Critical
+- Message ·  · `Alert critical hydraulic` — Stop | Critical
+- Message ·  · `CanBus Error TB` — KeyBox T2 | Error
+- Message ·  · `Hot Oil` — Hydraulic Oil is to hot. | Critical
+- Message ·  · `K1 fuse is blown` — K1 fuse is blown | Alarm
+- Message ·  · `K10 fuse is blown` — K10 fuse is blown | Alarm
+- Message ·  · `K11 fuse is blown` — K11 fuse is blown | Alarm
+- Message ·  · `K12 fuse is blown` — K12 fuse is blown | Alarm
+- Message ·  · `K13 fuse is blown` — K12 fuse is blown | Alarm
+- Message ·  · `K2 fuse is blown` — K2 fuse is blown | Alarm
+- Message ·  · `K3 fuse is blown` — K4 fuse is blown | Alarm
+- Message ·  · `K4 fuse is blown` —  | Alarm
+- Message ·  · `K5 fuse is blown` — K5 fuse is blown | Alarm
+- Message ·  · `K6 fuse is blown` — K6 fuse is blown | Alarm
+- Message ·  · `K7 fuse is blown` — K7 fuse is blown | Alarm
+- Message ·  · `K8 fuse is blown` — K8 fuse is blown | Alarm
+- Message ·  · `K9 fuse is blown` — K9 fuse is blown | Alarm
+- Message ·  · `Oil pressure` — Inboard engine low oil | Critical
+- Paramètre ·  · `?Throttle pulse at Start up` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aft Fan Low Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aft Fan Max Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Auto Fast After Down` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Automatic Joystick Inhibition` — IP unité=s défaut={300} états= modes=Not used
+- Paramètre ·  · `Back light` — IP unité=% défaut={90} états= modes=Not used
+- Paramètre ·  · `CAN Speed` — SP unité= défaut=500 états=125 Prog Keybox modes=
+- Paramètre ·  · `Can Speed` — IP unité=kbps défaut= états= modes=CAN Speed
+- Paramètre ·  · `Check Pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Debug Mode` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `ECU Engine on` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Exhaust Fan Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Exhaust temp sensor` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `FO - Decres Speed` — FP unité=%/s défaut={1} états= modes=Not used
+- Paramètre ·  · `FO - Incres Speed` — FP unité=%/s défaut={50} états= modes=Not used
+- Paramètre ·  · `FO - Max Error` — FP unité=°C défaut={10} états= modes=Not used
+- Paramètre ·  · `FS - Decres Speed` — FP unité=%/s défaut={80} états= modes=Not used
+- Paramètre ·  · `FS - Incres Speed` — FP unité=%/s défaut={20} états= modes=Not used
+- Paramètre ·  · `FS - Max Error` — FP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `FS - Start réduction` — FP unité=% défaut= états= modes=Engine type
+- Paramètre ·  · `Force EV By Pass` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force Engine pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force Exhaust pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force at 2200 rpm` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `GPS Speed factor` — SP unité= défaut=m/s états=kts modes=
+- Paramètre ·  · `GPS_Factor` — IP unité=Not used défaut= états= modes=GPS Speed factor
+- Paramètre ·  · `General speed filtering` — FP unité=%/s défaut= états= modes=Engine type
+- Paramètre ·  · `Hight Speed` — FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Idle decel filter` — FP unité=Not used défaut= états= modes=Engine type
+- Paramètre ·  · `Locking Time` — IP unité=ms défaut= états= modes=Number of lockers
+- Paramètre ·  · `Manual Start Engine` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Max Speed Gap` — IP unité=% défaut={20} états= modes=Not used
+- Paramètre ·  · `Min Speed acc1` — FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Min Speed mode` — FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Min back light` — IP unité=% défaut={20} états= modes=Not used
+- Paramètre ·  · `Need Pressure Tempo` — IP unité=ms défaut={5000} états= modes=Not used
+- Paramètre ·  · `Number 1` — IP unité=Not used défaut={1} états= modes=Not used
+- Paramètre ·  · `Number 2` — IP unité=Not used défaut={1} états= modes=Not used
+- Paramètre ·  · `Number 3` — IP unité=Not used défaut={1} états= modes=Not used
+- Paramètre ·  · `Number 4` — IP unité=Not used défaut={1} états= modes=Not used
+- Paramètre ·  · `Number of lockers` — SP unité= défaut=One états=Two modes=
+- Paramètre ·  · `Oil Temp Critical` — FP unité=°C défaut={90} états= modes=Not used
+- Paramètre ·  · `Oil Temp Hysteresis` — FP unité=% défaut={0,9} états= modes=Not used
+- Paramètre ·  · `Oil Temp Low/Mid` — FP unité=°C défaut={50} états= modes=Not used
+- Paramètre ·  · `Oil Temp Mid/High` — FP unité=°C défaut={75} états= modes=Not used
+- Paramètre ·  · `Proemion` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Program KeyBox` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Pump Curent  - Hight Speed` — FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Pump Curent - Low Speed` — FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Pump Curent - Super Low Speed` — FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Pump Max curent` — FP unité=mA défaut= états= modes=Engine type
+- Paramètre ·  · `Slow Max  Speed` — FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Stall speed eng off` — IP unité=Not used défaut={600} états= modes=Not used
+- Paramètre ·  · `Stall speed eng on` — IP unité=Not used défaut={700} états= modes=Not used
+- Paramètre ·  · `Start PIN` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Start Slope` — FP unité=%/s défaut= états= modes=Speed Pump
+- Paramètre ·  · `Stop Slope` — FP unité=%/s défaut= états= modes=Speed Pump
+- Paramètre ·  · `Tempo Need Min Speed` — IP unité=ms défaut={300} états= modes=Not used
+- Paramètre ·  · `Tension/UpDown Speed` — FP unité=rpm défaut= états= modes=Engine type
+- Paramètre ·  · `Test Locker` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Text ****` — TP unité= défaut= états= modes=Text State
+- Paramètre ·  · `Text State` — SP unité= défaut=1 états=2|3|4|5 modes=
+- Paramètre ·  · `Timer Fan Critical` — FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `Timer Fan Hot` — FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `Timer Fan Low` — FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `Timer Fan Mild` — FP unité=s défaut= états= modes=Ambiante Temperature
+- Paramètre ·  · `Water Temp Hysteresis Gap` — FP unité=°C défaut={5} états= modes=Not used
+- Paramètre ·  · `Water °C Critical Critical` — FP unité=°C défaut= états= modes=Engine type
+- Paramètre ·  · `Water °C Critical` — FP unité=°C défaut= états= modes=Engine type
+- Paramètre ·  · `Water °C High` — FP unité=°C défaut= états= modes=Engine type
+- Paramètre ·  · `Water °C Low` — FP unité=°C défaut= états= modes=Engine type
+- Paramètre ·  · `With tension` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `coeff pente ?` — FP unité=mA/s défaut={200} états= modes=Not used
+- Paramètre ·  · `debug temps screen` — DP unité= défaut={False} états= modes=Not used
+- Réglage ·  · `?Throttle pulse at Start up` — ?Throttle pulse at Start up 
+- Réglage ·  · `Aft Fan Low Test` — Aft Fan Low Test 
+- Réglage ·  · `Aft Fan Max Test` — Aft Fan Max Test 
+- Réglage ·  · `Auto Fast After Down` — Auto Fast After Down 
+- Réglage ·  · `Automatic Joystick Inhibition` — Automatic Joystick Inhibition [s] 
+- Réglage ·  · `Back light` — Back light [%] 
+- Réglage ·  · `Backward - direct corrector` — Backward - direct corrector [%] 
+- Réglage ·  · `CAN Speed` — CAN Speed 
+- Réglage ·  · `Check Pump` — Check Pump 
+- Réglage ·  · `ECU Engine on` — ECU Engine on 
+- Réglage ·  · `Exhaust Fan Test` — Exhaust Fan Test 
+- Réglage ·  · `FO - Decres Speed` — FO - Decres Speed [%/s] 
+- Réglage ·  · `FO - Incres Speed` — FO - Incres Speed [%/s] 
+- Réglage ·  · `FO - Max Error` — FO - Max Error [°C] 
+- Réglage ·  · `FS - Decres Speed` — FS - Decres Speed [%/s] 
+- Réglage ·  · `FS - Incres Speed` — FS - Incres Speed [%/s] 
+- Réglage ·  · `FS - Max Error` — FS - Max Error [%] 
+- Réglage ·  · `FS - Start réduction` — FS - Start réduction [%] 
+- Réglage ·  · `Force EV By Pass` — Force EV By Pass 
+- Réglage ·  · `Force Engine pump` — Force Engine pump 
+- Réglage ·  · `Force Exhaust pump` — Force Exhaust pump 
+- Réglage ·  · `Force at 2200 rpm` — Force at 2200 rpm 
+- Réglage ·  · `Forward - direct corrector` — Forward - direct corrector [%] 
+- Réglage ·  · `Fuel line ignition State` — Fuel line ignition State 
+- Réglage ·  · `General speed filtering` — General speed filtering [%/s] 
+- Réglage ·  · `Hight Speed` — Hight Speed [rpm] 
+- Réglage ·  · `Idle decel filter` — Idle decel filter 
+- Réglage ·  · `Locking UP Track` — Locking UP Track 
+- Réglage ·  · `Locking pressure` — Locking pressure [bar] 
+- Réglage ·  · `Manual Start Engine` — Manual Start Engine 
+- Réglage ·  · `Max Speed Gap` — Max Speed Gap [%] 
+- Réglage ·  · `Min Speed acc1` — Min Speed acc1 [rpm] 
+- Réglage ·  · `Min Speed mode` — Min Speed mode [rpm] 
+- Réglage ·  · `Min back light` — Min back light [%] 
+- Réglage ·  · `Need Pressure Tempo` — Need Pressure Tempo [ms] 
+- Réglage ·  · `Number 1` — Number 1 
+- Réglage ·  · `Number 2` — Number 2 
+- Réglage ·  · `Number 3` — Number 3 
+- Réglage ·  · `Number 4` — Number 4 
+- Réglage ·  · `Number of lockers` — Number of lockers 
+- Réglage ·  · `Oil Temp Critical` — Oil Temp Critical [°C] 
+- Réglage ·  · `Oil Temp Low/Mid` — Oil Temp Low/Mid [°C] 
+- Réglage ·  · `Oil Temp Mid/High` — Oil Temp Mid/High [°C] 
+- Réglage ·  · `Proemion` — Proemion 
+- Réglage ·  · `Program KeyBox` — Program KeyBox 
+- Réglage ·  · `Pump Curent  - Hight Speed` — Pump Curent  - Hight Speed [mA] 
+- Réglage ·  · `Pump Curent - Low Speed` — Pump Curent - Low Speed [mA] 
+- Réglage ·  · `Pump Curent - Super Low Speed` — Pump Curent - Super Low Speed [mA] 
+- Réglage ·  · `Pump Max curent` — Pump Max curent [mA] 
+- Réglage ·  · `Slow Max  Speed` — Slow Max  Speed [rpm] 
+- Réglage ·  · `Start PIN` — Start PIN 
+- Réglage ·  · `Start Slope` — Start Slope [%/s] 
+- Réglage ·  · `Stop Slope` — Stop Slope [%/s] 
+- Réglage ·  · `Tempo Need Min Speed` — Tempo Need Min Speed [ms] 
+- Réglage ·  · `Tension/UpDown Speed` — Tension/UpDown Speed [rpm] 
+- Réglage ·  · `Test Locker` — Test Locker 
+- Réglage ·  · `Time to tension` — Time to tension [ms] 
+- Réglage ·  · `Timer Fan Hot` — Timer Fan Hot [s] 
+- Réglage ·  · `Timer Fan Low` — Timer Fan Low [s] 
+- Réglage ·  · `Timer Fan Mild` — Timer Fan Mild [s] 
+- Réglage ·  · `Water °C Critical Critical` — Water °C Critical Critical [°C] 
+- Réglage ·  · `Water °C Critical` — Water °C Critical [°C] 
+- Réglage ·  · `Water °C High` — Water °C High [°C] 
+- Réglage ·  · `Water °C Low` — Water °C Low [°C] 
+- Réglage ·  · `With tension` — With tension 
+- Réglage ·  · `debug temps screen` — debug temps screen 
+- Signal CAN ·  · `3` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 0 - HB` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 1 - HB` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 2 - HB` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 4 - HB` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 5 - HB` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Byte 0` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Byte 1` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Current Date J` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K1 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K10 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K11 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K12 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K13 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K2 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K3 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K4 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K5 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K6 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K7 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K8 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K9 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Latitude G` — GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Longitude G` — GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Network State` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `OFF_Bits_GOUT` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ON_Bits_GOUT` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Signal Quality` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Speed_Over_Ground_Raw` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Time_Byte_1_2_J` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Time_Byte_3` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Time_Byte_4` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Trame CAN ·  · `Driver's demand, engine % EB2` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Driver's demand, engine %, Ford` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed EB2` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed Ford` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `0x70C` — GFIN module=KeyBox (Generic) id=0x70C dlc=Dont care contenu={}
+- Trame CAN ·  · `129025-0` — GFIN module=Garmin (Generic) id=PGN-129025 dlc=Dont care contenu={{Latitude G; 0}; {Longitude G; 32}}
+- Trame CAN ·  · `129026-0` — GFIN module=Garmin (Generic) id=PGN-129026 dlc=Dont care contenu={{Speed_Over_Ground_Raw; 32}}
+- Trame CAN ·  · `129029-0` — GFIN module=Garmin (Generic) id=PGN-129029 dlc=Dont care contenu={{Current Date J; 24}; {Time_Byte_1_2_J; 40}; {Time_Byte_3; 56}}
+- Trame CAN ·  · `129029-1` — GFIN module=Garmin (Generic) id=PGN-129029 dlc=Dont care contenu={{Time_Byte_4; 8}}
+- Trame CAN ·  · `Accelerator pedal position EB2` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Accelerator pedal position Ford` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque EB2` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque, Ford` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `EEC1 EB2` — JFIN module=Inboard Engine EB2 (J1939[0]) id=61444 dlc= contenu={{Driver's demand, engine % EB2 [%]; 9}; {Actual engine, % torque EB2 [%]; 17}; {Engine speed EB2 [rpm]; 25}}
+- Trame CAN ·  · `EEC1 Ford` — JFIN module=Inboard Engine Ford (J1939[0]) id=61444 dlc= contenu={{Driver's demand, engine %, Ford [%]; 9}; {Actual engine, % torque, Ford [%]; 17}; {Engine speed Ford [rpm]; 25}}
+- Trame CAN ·  · `EEC2 EB2` — JFIN module=Inboard Engine EB2 (J1939[0]) id=61443 dlc= contenu={{Accelerator pedal position EB2 [%]; 9}; {% load at current speed EB2 [%]; 17}}
+- Trame CAN ·  · `EEC2 Ford` — JFIN module=Inboard Engine Ford (J1939[0]) id=61443 dlc= contenu={{Accelerator pedal position Ford [%]; 9}; {% load at current speed Ford [%]; 17}}
+- Trame CAN ·  · `Engine Temperature EB 2` — JFIN module=Inboard Engine EB2 (J1939[0]) id=65262 dlc= contenu={{Engine coolant temperature EB2 [°C]; 1}}
+- Trame CAN ·  · `Engine Temperature Ford` — JFIN module=Inboard Engine Ford (J1939[0]) id=65262 dlc= contenu={{Engine coolant temperature Ford [°C]; 1}}
+- Trame CAN ·  · `Engine fluid level/pressure 1 EB2` — JFIN module=Inboard Engine EB2 (J1939[0]) id=65263 dlc= contenu={{Engine oil pressure EB2 [kPa]; 25}}
+- Trame CAN ·  · `Engine fluid level/pressure 1 Ford` — JFIN module=Inboard Engine Ford (J1939[0]) id=65263 dlc= contenu={{Engine oil pressure Ford [kPa]; 25}}
+- Trame CAN ·  · `Engine speed EB2` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine speed Ford` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `GFIN-A:Generic` — GFIN module=Proemion (Generic) id=0x7451220 dlc=Dont care contenu={{Network State; 0}; {Signal Quality; 8}}
+- Trame CAN ·  · `GFIN-B:Generic` — GFIN module=KeyBox (Generic) id=ID Fault dlc=Dont care contenu={{K1 Fault; 1}; {K2 Fault; 2}; {K3 Fault; 3}; {K4 Fault; 4}; {K5 Fault; 5}; {K6 Fault; 6}; {K7 Fault; 7}; {K8 Fault; 8}; {K9 Fault; 9}; {K10 Fault; 10}; {K11 Fault; 11}; {K12 Fault; 12}; {K13 Fault; 13}}
+- Trame CAN ·  · `GFOUT-D:Generic` — GFOUT module=KeyBox (Generic) id=ID Prog dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}; {BYTE 5 - HB; 40}}
+- Trame CAN ·  · `GFOUT-E:Generic` — GFOUT module=KeyBox (Generic) id=ID Prog dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}}
+- Trame CAN ·  · `Proemion Device` — GFOUT module=Proemion (Generic) id=0x7451230 dlc=8 contenu={{3 [cV]; 0}}
+- Trame CAN ·  · `TSC1-A:J1939-0 EB2` — TSC1 module=Inboard Engine EB2 (J1939[0]) id= dlc= contenu=
+- Trame CAN ·  · `TSC1-A:J1939-0 Ford` — TSC1 module=Inboard Engine Ford (J1939[0]) id= dlc= contenu=

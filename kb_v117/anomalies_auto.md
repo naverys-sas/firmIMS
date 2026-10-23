@@ -1,0 +1,794 @@
+# Anomalies détectées automatiquement — v117
+
+Liste brute produite par `tools/anomalies.py`. Chaque point est un **indice**, pas une certitude : voir `anomalies.md` pour la lecture commentée et priorisée.
+
+## Références vers un nom de canal inexistant (lien cassé) (0)
+
+
+## Canaux qui ne servent à rien (lus par aucun canal, écran, log ou réglage) (274)
+
+- `sim state` (SP, MC42 app, l.75825)
+- `S/N:MC` (MDGN, MC42 app, l.103079)
+- `Address:MC` (MDGN, MC42 app, l.103101)
+- `Can Speed B` (IP, MC42 app / Initialization, l.66)
+- `Can Speed C` (IP, MC42 app / Initialization, l.119)
+- `B6` (IDC, MC42 app / logic screen c10 and KB, l.97979)
+- `B7` (IDC, MC42 app / logic screen c10 and KB, l.97999)
+- `B8` (IDC, MC42 app / logic screen c10 and KB, l.98019)
+- `B9` (IDC, MC42 app / logic screen c10 and KB, l.98039)
+- `B10` (IDC, MC42 app / logic screen c10 and KB, l.98059)
+- `B11` (IDC, MC42 app / logic screen c10 and KB, l.98079)
+- `B12` (IDC, MC42 app / logic screen c10 and KB, l.98099)
+- `debug Be1 Ladder is not up` (IDC, MC42 app / logic screen c10 and KB, l.98254)
+- `debug Be2 KTB K1 IDC - GPS_EQT` (IDC, MC42 app / logic screen c10 and KB, l.98274)
+- `debug Be3 KTC K9 IDC - OutBoard On-OFF` (IDC, MC42 app / logic screen c10 and KB, l.98294)
+- `debug Be4 Is multi button Eqt` (IDC, MC42 app / logic screen c10 and KB, l.98314)
+- `debug Be5` (IDC, MC42 app / logic screen c10 and KB, l.98334)
+- `debug Be6` (IDC, MC42 app / logic screen c10 and KB, l.98354)
+- `debug Be7` (IDC, MC42 app / logic screen c10 and KB, l.98374)
+- `debug Be8` (IDC, MC42 app / logic screen c10 and KB, l.98405)
+- `Not Blink Light` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.91660)
+- `A/C Clim KTBK9` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.91986)
+- `Engine On` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95124)
+- `Engine 1 - Flank` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95267)
+- `Engine 2 - Flank` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95402)
+- `SMC Wipper` (SMC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95552)
+- `Unlock Boat` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95660)
+- `True1` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.97867)
+- `VHF - Show if SIngle Button Eqt` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT / Options, l.96112)
+- `C UP/DOWN mc 45` (PWM, MC42 app / logic screen c10 and KB / mc.Accesory i/o CAB / electronic seat, l.98882)
+- `C FRONT BACK mc 48` (PWM, MC42 app / logic screen c10 and KB / mc.Accesory i/o CAB / electronic seat, l.98944)
+- `Stop Engine Flank` (IDC, MC42 app / logic screen md4, l.76458)
+- `IDC Speed S Wait` (IDC, MC42 app / logic screen md4, l.77186)
+- `IDC Speed Fast Wait` (IDC, MC42 app / logic screen md4, l.77229)
+- `4ET Engine hours` (TMR, MC42 app / logic screen md4, l.83458)
+- `T Engine Button OutPut` (TP, MC42 app / logic screen md4, l.83567)
+- `StateM Up/Down` (SMC, MC42 app / logic screen md4 / 45.UP/DOWN, l.78724)
+- `Show P-1-2` (IDC, MC42 app / logic screen md4 / 45.UP/DOWN, l.79266)
+- `Timer sleep engine to Img` (SMC, MC42 app / logic screen md4 / 45.UP/DOWN, l.79391)
+- `TRACK DOWN 4ET [logic screen md4.45.UP/DOWN]` (FGI, MC42 app / logic screen md4 / 45.buzzer, l.80129)
+- `Stop Engine Flank 4ET` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.82536)
+- `Charger Connected` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.82718)
+- `Info page on T` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.83047)
+- `Info page on E` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.83097)
+- `BUTTON DRIVE Super Slow 4ET` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.83242)
+- `BUTTON DRIVE Slow 4ET` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.83312)
+- `day RESET 1yr maintenance` (MEM, MC42 app / logic screen md4 / WIP/45.Maintenance, l.87365)
+- `IDC text yearly maintenance` (IDC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.89369)
+- `minutes` (IMAC, MC42 app / logic screen md4 / WIP/45.Maintenance / Time/Date, l.86734)
+- `seconds` (IMAC, MC42 app / logic screen md4 / WIP/45.Maintenance / Time/Date, l.86752)
+- `debug Be1 Inter Buzzer for 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84318)
+- `debug Be2 Main page IDC E` (IDC, MC42 app / logic screen md4 / send data to md4, l.84338)
+- `debug Be3 Main page IDC T` (IDC, MC42 app / logic screen md4 / send data to md4, l.84358)
+- `debug Be4 ShutDown page IDC` (IDC, MC42 app / logic screen md4 / send data to md4, l.84378)
+- `debug Be5 Startup page IDC` (IDC, MC42 app / logic screen md4 / send data to md4, l.84398)
+- `debug Be6 Engines READY for 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84418)
+- `debug Be7 Safety_disable 45 sel` (IDC, MC42 app / logic screen md4 / send data to md4, l.84438)
+- `debug Be8 ALL ASK STOP` (IDC, MC42 app / logic screen md4 / send data to md4, l.84469)
+- `debug Be9 Reset safety to on 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84489)
+- `debug Be10 batt ok to start` (IDC, MC42 app / logic screen md4 / send data to md4, l.84552)
+- `debug enabled on/off` (IDC, MC42 app / logic screen md4 / send data to md4, l.84572)
+- `debug button drive 4ET 45/10` (IDC, MC42 app / logic screen md4 / send data to md4, l.84592)
+- `Start 3 s` (IDC, MC42 app / mc.Electric / E.BATTERY, l.9280)
+- `Bat - 25A-50A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12373)
+- `Bat - 50A-75A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12427)
+- `Bat - 75A-100A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12481)
+- `Bat - 100A-125A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12535)
+- `Bat - up to 125A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12589)
+- `Bat - 1A-25A` (IDC, MC42 app / mc.Electric / E.BATTERY, l.12634)
+- `DiffCellVoltage` (MAC, MC42 app / mc.Electric / E.BATTERY, l.13366)
+- `BMW/tyva - Bender Error` (IDC, MC42 app / mc.Electric / E.BATTERY, l.21639)
+- `Battery u trac/cpi volt ok` (IDC, MC42 app / mc.Electric / E.BATTERY, l.22006)
+- `Battery r isomon ok` (IDC, MC42 app / mc.Electric / E.BATTERY, l.22088)
+- `TemperatureCellMin calc` (MAC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20101)
+- `TemperatureCellMean calc` (MAC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20347)
+- `off b0` (IDC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20487)
+- `idle b1` (IDC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20507)
+- `Tyva standby b2` (IDC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20527)
+- `fw update b7` (IDC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20587)
+- `Tyva - isDischargePossible` (MAC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.20649)
+- `r isomon Tyva onoff` (MAC, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.21409)
+- `BMS_EmergencyState_Master_IDC` (IDC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.23213)
+- `AvgCellVoltage` (MAC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.23703)
+- `Cell_T_Min_Master` (MAC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.23759)
+- `Battery Real SOC` (MAC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.24368)
+- `BMS_Master_available_IDC` (IDC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.24412)
+- `BMS_Master_not_available_IDC` (IDC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.24465)
+- `BMS_Master_MSW_Closed_IDC` (IDC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.24518)
+- `BMS_Master_MSW_Opened_IDC` (IDC, MC42 app / mc.Electric / E.BATTERY / E.Kresel, l.24571)
+- `Novum_WarningFlag` (IDC, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.14232)
+- `Novum_HardwareFailure` (IDC, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.14632)
+- `Test End Of Charge Trigger` (IDC, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.15605)
+- `main batt on novum` (IDC, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.15863)
+- `Charger READY` (IDC, MC42 app / mc.Electric / E.CHARGER, l.25005)
+- `Charger kWMax` (MAC, MC42 app / mc.Electric / E.CHARGER, l.29061)
+- `Charger I Target` (MAC, MC42 app / mc.Electric / E.CHARGER, l.29103)
+- `Engines Not Ready` (IDC, MC42 app / mc.Electric / E.MOTORS, l.43696)
+- `M1 - Ready` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.37232)
+- `M2 - Ready` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.38105)
+- `M1 - Mechanical power` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.38846)
+- `M1 - Torque Tracks` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.38908)
+- `M1 - 25A-50A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.38952)
+- `M1 - 50A-75A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39006)
+- `M1 - 75A-100A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39060)
+- `M1 - 100A-125A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39114)
+- `M1 - up to 125A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39168)
+- `M2 - Mechanical power` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39317)
+- `M2 - Torque tracks` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39379)
+- `M2 - 25A-50A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39423)
+- `M2 - 50A-75A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39477)
+- `M2 - 75A-100A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39531)
+- `M2 - 100A-125A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39585)
+- `M2 - up to 125A` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.39639)
+- `M3 - Charge` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau, l.40364)
+- `M3 - Ready` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau, l.40518)
+- `Motor Speed` (IMAC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.42952)
+- `Torque actual` (MAC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.42977)
+- `Tension State` (SMC, MC42 app / mc.Electric / E.Track tension, l.48691)
+- `Cruise Left` (LTC, MC42 app / mc.Electric / E.Translate, l.47127)
+- `Cruise Right` (LTC, MC42 app / mc.Electric / E.Translate, l.47388)
+- `e Brake Activation` (IDC, MC42 app / mc.Electric / E.Translate, l.47637)
+- `Batterie 12v State` (SMC, MC42 app / mc.I/O, l.74319)
+- `debug screen E` (IDC, MC42 app / mc.I/O, l.75212)
+- `Oil temps sensor ok` (IDC, MC42 app / mc.I/O, l.75600)
+- `FSM Keypad X100` (FSM, MC42 app / mc.Keypad_PKP2400SI, l.103375)
+- `Toggle Free 45M` (ECNT, MC42 app / mc.Link MC42-Screens Logic ims, l.838)
+- `Right Joystick neg` (MAC, MC42 app / mc.Link MC42-Screens Logic ims, l.2760)
+- `Left Joystick neg` (MAC, MC42 app / mc.Link MC42-Screens Logic ims, l.2804)
+- `T ?Speed OK` (IDC, MC42 app / mc.Thermic / T.Engine Speed calc, l.60617)
+- `Malfunction lamp T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.64178)
+- `Red stop lamp T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.64282)
+- `Amber warning lamp T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.64386)
+- `Protect lamp T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.64490)
+- `Actual engine, % torque T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.64594)
+- `DM1 EB2 T45` (DM1IN, MC42 app / mc.Thermic / T.Engine i/o / EB2 T45, l.62520)
+- `Protect lamp EB2 T45` (MDGN, MC42 app / mc.Thermic / T.Engine i/o / EB2 T45, l.63040)
+- `TSC1-A:J1939-0 EB2 T45` (TSC1, MC42 app / mc.Thermic / T.Engine i/o / EB2 T45, l.63099)
+- `DM1 Ford T45` (DM1IN, MC42 app / mc.Thermic / T.Engine i/o / Ford T45, l.63384)
+- `Protect lamp Ford T` (MDGN, MC42 app / mc.Thermic / T.Engine i/o / Ford T45, l.63904)
+- `TSC1-A:J1939-0 Ford T45` (TSC1, MC42 app / mc.Thermic / T.Engine i/o / Ford T45, l.63963)
+- `DM1 Kubo T45` (DM1IN, MC42 app / mc.Thermic / T.Engine i/o / Kubota WG16, l.64831)
+- `TSC1-A:J1939-0 Kubo T45` (TSC1, MC42 app / mc.Thermic / T.Engine i/o / Kubota WG16, l.65410)
+- `in T Engine coolant temperature` (FGI, MC42 app / mc.Thermic / T.SAEJ Std engine input, l.59003)
+- `T Para enclench voyant pression huile` (FP, MC42 app / mc.Thermic / T.SAEJ Std engine input, l.59017)
+- `T Activate Critical State` (IDC, MC42 app / mc.Thermic / T.Thermal Management, l.66163)
+- `T show ventilateur` (IDC, MC42 app / mc.Thermic / T.Thermal Management, l.66346)
+- `Tension State` (SMC, MC42 app / mc.Thermic / T.Track tension, l.68798)
+- `Cruise Left` (LTC, MC42 app / mc.Thermic / T.Translate, l.67260)
+- `Cruise Right` (LTC, MC42 app / mc.Thermic / T.Translate, l.67503)
+- `VIEW BAT Ready d3` (IDC, MC42 app / mc.d3 Screen State, l.54029)
+- `VIEW BAT Charging d3` (IDC, MC42 app / mc.d3 Screen State, l.54091)
+- `VIEW BAT Run d3` (IDC, MC42 app / mc.d3 Screen State, l.54136)
+- `VIEW Power State d3` (SP, MC42 app / mc.d3 Screen State, l.54190)
+- `SOC Display d3` (MAC, MC42 app / mc.d3 Screen State, l.54293)
+- `ready d3` (IDC, MC42 app / mc.d3 Screen State, l.54829)
+- `interm d3` (IDC, MC42 app / mc.d3 Screen State, l.54883)
+- `display up d3` (IDC, MC42 app / mc.d3 Screen State, l.54942)
+- `slow d3` (IDC, MC42 app / mc.d3 Screen State, l.55069)
+- `fast d3` (IDC, MC42 app / mc.d3 Screen State, l.55143)
+- `s.slow d3` (IDC, MC42 app / mc.d3 Screen State, l.55217)
+- `slow d3 safetyoff` (IDC, MC42 app / mc.d3 Screen State, l.55291)
+- `fast d3 safetyoff` (IDC, MC42 app / mc.d3 Screen State, l.55366)
+- `s.slow d3 safetyoff` (IDC, MC42 app / mc.d3 Screen State, l.55441)
+- `E Engine OutPut Text` (TP, MC42 app / mc.d4s Screen state, l.52278)
+- `E Track OutPut Text` (TP, MC42 app / mc.d4s Screen state, l.53055)
+- `T Engine OutPut Text` (TP, MC42 app / mc.d4s Screen state, l.53336)
+- `T Track OutPut Text` (TP, MC42 app / mc.d4s Screen state, l.53647)
+- `Setup PIN` (PCC, MD4-CAB app, l.103631)
+- `Iguana PIN` (PCC, MD4-CAB app, l.103668)
+- `debug B1 UP C10` (IDC, MD4-CAB app, l.108538)
+- `debug B2 DOWN C10` (IDC, MD4-CAB app, l.108558)
+- `debug B3 CANCEL C10` (IDC, MD4-CAB app, l.108578)
+- `debug B4 SLOW C10` (IDC, MD4-CAB app, l.108598)
+- `debug B5 FAST C10` (IDC, MD4-CAB app, l.108618)
+- `debug B6 OFF C10` (IDC, MD4-CAB app, l.108638)
+- `debug B7 CONTINUE C10` (IDC, MD4-CAB app, l.108658)
+- `debug B8 FREE C10` (IDC, MD4-CAB app, l.108678)
+- `debug B9 START C10` (IDC, MD4-CAB app, l.108698)
+- `debug B10 SAFETY OFF C10` (IDC, MD4-CAB app, l.108718)
+- `debug B11 SAFETY OFF RESET C10` (IDC, MD4-CAB app, l.108738)
+- `debug B12 45 State ok C10` (IDC, MD4-CAB app, l.108789)
+- `debug B13 Info page on 45 C10` (IDC, MD4-CAB app, l.108809)
+- `Be3 Main page IDC T c10` (IDC, MD4-CAB app, l.108849)
+- `Joystick to zero APPIN` (APPIN, MD4-CAB app, l.108929)
+- `debug B1 Button Cabine IDC C10` (IDC, MD4-CAB app, l.109558)
+- `debug B2 Door IDC C10` (IDC, MD4-CAB app, l.109578)
+- `debug B3 Main page on C10_1` (IDC, MD4-CAB app, l.109598)
+- `debug B4 KB Send new node` (IDC, MD4-CAB app, l.109618)
+- `debug B5 KB Reset` (IDC, MD4-CAB app, l.109638)
+- `debug B6` (IDC, MD4-CAB app, l.109658)
+- `debug B7` (IDC, MD4-CAB app, l.109678)
+- `debug B8` (IDC, MD4-CAB app, l.109698)
+- `debug B9` (IDC, MD4-CAB app, l.109718)
+- `debug B10` (IDC, MD4-CAB app, l.109738)
+- `debug B11` (IDC, MD4-CAB app, l.109758)
+- `debug B12` (IDC, MD4-CAB app, l.109778)
+- `Be8` (IDC, MD4-CAB app, l.109798)
+- `Be5` (IDC, MD4-CAB app, l.109838)
+- `Be6` (IDC, MD4-CAB app, l.109858)
+- `Be7` (IDC, MD4-CAB app, l.109878)
+- `debug B1 LD UP - VDIN` (IDC, MD4-CAB app, l.110305)
+- `debug B2 LD DOWN - VDIN` (IDC, MD4-CAB app, l.110325)
+- `debug B3 HT UP D` (IDC, MD4-CAB app, l.110345)
+- `debug B4 HT DOWN D` (IDC, MD4-CAB app, l.110365)
+- `debug B5 md4 GPS` (IDC, MD4-CAB app, l.110385)
+- `debug B6 md4 AUX 4` (IDC, MD4-CAB app, l.110405)
+- `debug B7 md4 AUDIO` (IDC, MD4-CAB app, l.110425)
+- `debug B8 md4 AUX 5` (IDC, MD4-CAB app, l.110445)
+- `debug B9 md4 VHF` (IDC, MD4-CAB app, l.110465)
+- `debug B10 CABINE ON/OFF` (IDC, MD4-CAB app, l.110485)
+- `debug B11 NAV + 360 LIGHT` (IDC, MD4-CAB app, l.110505)
+- `debug B12 LIGHT HT SPOT` (IDC, MD4-CAB app, l.110536)
+- `debug B13 Search Light` (IDC, MD4-CAB app, l.110556)
+- `debug B14 Fridge` (IDC, MD4-CAB app, l.110576)
+- `debug B15 LIGHT HT DIM` (IDC, MD4-CAB app, l.110596)
+- `debug B1_1 AUX 2` (IDC, MD4-CAB app, l.110706)
+- `debug B2_1 LD UP - Force` (IDC, MD4-CAB app, l.110726)
+- `debug B3_1 LD DOWN - Force` (IDC, MD4-CAB app, l.110746)
+- `debug B4_1 ANCHOR UP` (IDC, MD4-CAB app, l.110766)
+- `debug B5_1 ANCHOR DOWN` (IDC, MD4-CAB app, l.110786)
+- `debug B6_1 AUX 1` (IDC, MD4-CAB app, l.110806)
+- `debug B7_1 WIND CLEANER` (IDC, MD4-CAB app, l.110826)
+- `debug B8_1 BILGE` (IDC, MD4-CAB app, l.110846)
+- `debug B9_1 Seat Power Force` (IDC, MD4-CAB app, l.110866)
+- `debug B10_1 OutBoard Button` (IDC, MD4-CAB app, l.110886)
+- `debug B11_1 FAN WIND` (IDC, MD4-CAB app, l.110906)
+- `debug B12_1 AUX 3` (IDC, MD4-CAB app, l.110937)
+- `debug B13_1 Wipper Button` (IDC, MD4-CAB app, l.110957)
+- `debug B14_1 SHOWER` (IDC, MD4-CAB app, l.110977)
+- `debug B15_1 md4 Seat position` (IDC, MD4-CAB app, l.110997)
+- `debug B14 F5 speed super slow C10` (IDC, MD4-CAB app, l.113899)
+- `be11 button drive 4ET 10` (IDC, MD4-CAB app, l.113939)
+- `TemperaturePDU1` (MAC, MD4-CAB app / a/c tyva24v, l.112274)
+- `VoltageCellMax Tyva1 V` (MAC, MD4-CAB app / a/c tyva24v, l.112318)
+- `VoltageCellMin Tyva1 V` (MAC, MD4-CAB app / a/c tyva24v, l.112362)
+- `TemperatureCellMin calc1` (MAC, MD4-CAB app / a/c tyva24v, l.112450)
+- `IMD Tyva1 Max curr` (MAC, MD4-CAB app / a/c tyva24v, l.112494)
+- `SOH1` (MAC, MD4-CAB app / a/c tyva24v, l.112582)
+- `TemperatureCellMean calc1` (MAC, MD4-CAB app / a/c tyva24v, l.112696)
+- `IMR1` (MAC, MD4-CAB app / a/c tyva24v, l.112753)
+- `off b0 1` (IDC, MD4-CAB app / a/c tyva24v, l.112836)
+- `idle b1 1` (IDC, MD4-CAB app / a/c tyva24v, l.112856)
+- `Tyva standby b2 1` (IDC, MD4-CAB app / a/c tyva24v, l.112876)
+- `fw update b7 1` (IDC, MD4-CAB app / a/c tyva24v, l.112936)
+- `Tyva1 - MaxTemp` (MAC, MD4-CAB app / a/c tyva24v, l.112956)
+- `Tyva1 - isDischargePossible` (MAC, MD4-CAB app / a/c tyva24v, l.112998)
+- `tyva1 batt can nok` (IDC, MD4-CAB app / a/c tyva24v, l.113040)
+- `tyva1 - ERROR DIGIT` (IDC, MD4-CAB app / a/c tyva24v, l.113094)
+- `Soc Tyva1 onoff CHECK` (MAC, MD4-CAB app / a/c tyva24v, l.113393)
+- `Engine RUN - NMEA` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.106151)
+- `Mercury - Show` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.107922)
+- `Yamaha - Show` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.107967)
+- `Cox - Show` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.108073)
+- `Be8 ALL ASK STOP` (IDC, MD45-ET app, l.114061)
+- `B1 UP 45` (IDC, MD45-ET app, l.114479)
+- `B2 DOWN 45` (IDC, MD45-ET app, l.114499)
+- `B3 CANCEL 45` (IDC, MD45-ET app, l.114519)
+- `B4 SLOW 45` (IDC, MD45-ET app, l.114539)
+- `B5 FAST 45` (IDC, MD45-ET app, l.114559)
+- `B6 OFF 45` (IDC, MD45-ET app, l.114579)
+- `B7 CONTINUE 45` (IDC, MD45-ET app, l.114599)
+- `B8 FREE 45` (IDC, MD45-ET app, l.114619)
+- `B9 START 45` (IDC, MD45-ET app, l.114639)
+- `B10 SAFETY OFF 45` (IDC, MD45-ET app, l.114659)
+- `B11 SAFETY OFF RESET 45` (IDC, MD45-ET app, l.114679)
+- `B12 45 State ok` (IDC, MD45-ET app, l.114743)
+- `B13 Info page on 45` (IDC, MD45-ET app, l.114763)
+- `+BAT:MD45` (MDGN, MD45-ET app, l.114783)
+- `Be10 batt ok to start md4` (IDC, MD45-ET app, l.115057)
+- `B14 10 hours certified button` (IDC, MD45-ET app, l.115077)
+- `B15 RESET 1yr Maintenance button` (IDC, MD45-ET app, l.115097)
+- `B16 RESET 2yrs Maintenance button` (IDC, MD45-ET app, l.115117)
+- `B17 RESET 4yrs Maintenance button` (IDC, MD45-ET app, l.115137)
+- `B18 super slow 45` (IDC, MD45-ET app, l.115260)
+
+## Canaux sans aucune logique (toutes les conditions vides) (27)
+
+- `r u sure check 10 hours` (IMSG, MC42 app / mc.Link MC42-Screens Logic ims, l.3091)
+- `BMW - ERROR DIGIT` (IDC, MC42 app / mc.Electric / E.BATTERY / E.BMW, l.10920)
+- `Test Mode` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon, l.40716)
+- `Test Mode` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.41972)
+- `e M3 - Pump Engine CMSG mc` (CMSG, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.42721)
+- `K5 Engine Start` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49360)
+- `K7 Aux 2` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49446)
+- `K8` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49482)
+- `K9` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49518)
+- `K10` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49554)
+- `K11` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49590)
+- `K12` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49626)
+- `K13` (IDC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49662)
+- `T Voyant Pression Huile Moteur` (IDC, MC42 app / mc.Thermic / T.SAEJ Std engine input, l.59033)
+- `T K9` (IDC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71892)
+- `T K10` (IDC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71928)
+- `T K11` (IDC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71964)
+- `T K12` (IDC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72000)
+- `T K13` (IDC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72036)
+- `Iguana Master menus PIN` (PCC, MC42 app, l.73599)
+- `PIN State` (SMC, MC42 app / logic screen md4 / 45.screen state and pin / broken PIN Pad 4ET, l.81267)
+- `IDC text yearly maintenance` (IDC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.89369)
+- `A/C Clim KTBK9` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.91986)
+- `KTC K10 IDC - OutBoard Start PORT` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95311)
+- `KTC K11 IDC - OutBoard Start STBD` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95446)
+- `Setup PIN` (PCC, MD4-CAB app, l.103631)
+- `Iguana PIN` (PCC, MD4-CAB app, l.103668)
+
+## Modes de fonction vides (le canal reste à 0 dans ces modes) (15)
+
+- `F4 Off` (IDC, MC42 app / mc.Electric, l.3935) : modes vides ['Ready', 'Start', 'Start Free']
+- `Battery Watchdog` (IDC, MC42 app / mc.Electric / E.BATTERY, l.6199) : modes vides ['Off']
+- `Battery CHARGED` (IDC, MC42 app / mc.Electric / E.BATTERY, l.7462) : modes vides ['Kreisel']
+- `Error Iso_Resist` (IDC, MC42 app / mc.Electric / E.BATTERY, l.7887) : modes vides ['Kreisel']
+- `e Battery Protection mc` (CMSG, MC42 app / mc.Electric / E.BATTERY, l.12747) : modes vides ['Kreisel']
+- `LowCellVoltage check bmw` (MAC, MC42 app / mc.Electric / E.BATTERY, l.12881) : modes vides ['BMW']
+- `HighCellVoltage check bmw` (MAC, MC42 app / mc.Electric / E.BATTERY, l.13009) : modes vides ['BMW']
+- `Flag Ground Fault Detection` (IDC, MC42 app / mc.Electric / E.BATTERY, l.16413) : modes vides ['Kreisel']
+- `CPI_BMS_U_Trac` (MAC, MC42 app / mc.Electric / E.BATTERY, l.21794) : modes vides ['Kreisel']
+- `1560 - Max Current from 230 V` (MAC, MC42 app / mc.Electric / E.CHARGER / E.Charger_Brusa, l.28121) : modes vides ['STOP', 'Clear ERROR']
+- `1560 - Desired Voltage` (MAC, MC42 app / mc.Electric / E.CHARGER / E.Charger_Brusa, l.28225) : modes vides ['STOP', 'Clear ERROR']
+- `1560 - Desired Current` (MAC, MC42 app / mc.Electric / E.CHARGER / E.Charger_Brusa, l.28329) : modes vides ['STOP', 'Clear ERROR']
+- `Func State` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.31285) : modes vides ['Preprop']
+- `Func State` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.33589) : modes vides ['Preprop']
+- `Adress Loose` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.104559) : modes vides ['COX']
+
+## Messages qui ne peuvent jamais s’afficher (groupe Showing vide) (2)
+
+- `r u sure check 10 hours` (IMSG, MC42 app / mc.Link MC42-Screens Logic ims, l.3091)
+- `e M3 - Pump Engine CMSG mc` (CMSG, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.42721)
+
+## Conditions constantes vraies (13)
+
+- `Global Auto Off Timer` (TMR, MC42 app / mc.Electric, l.4112) groupe Increasing
+- `Start 3 s` (IDC, MC42 app / mc.Electric / E.BATTERY, l.9280) groupe Activating
+- `M1 - Ready` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.37232) groupe Activating
+- `E rad FAN OUT` (IDC, MC42 app / mc.Electric / E.MOTORS / E.Cooling, l.43294) groupe Activating
+- `E water PUMP VAR` (IDC, MC42 app / mc.Electric / E.MOTORS / E.Cooling, l.43472) groupe Activating
+- `System Crash Signal` (IDC, MC42 app / mc.Electric / E.Translate, l.46947) groupe Activating
+- `T Reset Startup` (IDC, MC42 app / mc.Thermic / T.Power, l.55840) groupe Activating
+- `Reset Startup` (IDC, MC42 app / mc.I/O, l.74776) groupe Activating
+- `Reset on startup` (IDC, MC42 app / logic screen md4, l.76558) groupe Activating
+- `Intermediaire` (IDC, MC42 app / logic screen md4 / 45.UP/DOWN, l.78841) groupe Activating
+- `Show P-1-2` (IDC, MC42 app / logic screen md4 / 45.UP/DOWN, l.79266) groupe Activating
+- `True1` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.97867) groupe Activating
+- `Engine 1 - Show` (IDC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.105751) groupe Activating
+
+## Conditions constantes fausses (8)
+
+- `BMW tyva - Isolation Error` (IDC, MC42 app / mc.Electric / E.BATTERY, l.8831) groupe Activating
+- `Flag Ground Fault Detection` (IDC, MC42 app / mc.Electric / E.BATTERY, l.16413) groupe Activating
+- `system failure tyva isomon gen2` (IDC, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva, l.18742) groupe Activating
+- `E Don'push button` (IDC, MC42 app / mc.Electric / E.Track Up/Down, l.45435) groupe Activating
+- `Don'push button` (IDC, MC42 app / mc.Thermic / T.Track Up/Down, l.70433) groupe Activating
+- `Fake SM Remote 4ET` (SMC, MC42 app / logic screen md4 / 45.screen state and pin, l.80227) groupe Activating
+- `Fake SM Remote 4ET` (SMC, MC42 app / logic screen md4 / 45.screen state and pin, l.80227) groupe Activating
+- `Auto Light and Start broken need brightness` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.91522) groupe Activating
+
+## Noms en double dans un même groupe de fonctions (86)
+
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.BMW : `DcuNodeState` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.BMW : `BatNodeState` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.BMW : `IsoMonNodeState` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.BMW : `BatState` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `A BYTE 1 - 00` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `A BYTE 2 - 00` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `BYTE 0 - D2` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `BYTE 2 - 00` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `BYTE 3 - 01` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1 : `BYTE 4 - 00` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2 : `A BYTE 1 - FF` ×4
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2 : `A BYTE 2 - FF` ×4
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2 : `A BYTE 3 - FF` ×4
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva : `SOH` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva : `TemperaturePDU` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E. Tyva : `IMR` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `BMS_ext_Temp_Inlet` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `BMS_ext_Temp_Outlet` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_CSC_release` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_MC_release` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_CSC_minor` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_CSC_major` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_MC_minor` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_MC_major` ×2
+- MC42 app / MC42 app / mc.Electric / E.BATTERY / E.Kresel : `VER_MC_DS_CRC` ×2
+- MC42 app / MC42 app / mc.Electric / E.CHARGER / E.Charger_Elcon : `Temperature od charger` ×2
+- MC42 app / MC42 app / mc.Electric / E.CHARGER / E.Charger_Brusa : `1555 - Power stage temperature - Byte` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen : `GFIN PDO2_TX` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen : `Stuffing` ×3
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen : `Brake` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen : `GFIN PDO2_TX` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen : `Brake` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen : `Stuffing` ×3
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `VARIATOR ON Wait` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `FS1 Switch - S.M1.Right` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `Voltage - S.M1.Right` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `Torque actual - S.M2.Left` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `Voltage - S.M2.Left` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Sevcon.M1.M2.gen4 : `FS1 Switch - S.M2.Left` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks : `Instant current Filter` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M-Tracks : `Couple Moteur` ×2
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon : `Status Word` ×3
+- MC42 app / MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19 : `Status Word` ×2
+- MC42 app / MC42 app / mc.Electric / E.Track tension : `e Tracks pressure Mode` ×2
+- MC42 app / MC42 app / mc.Electric / E.KeyBox x100 E : `BYTE 0 - HB` ×2
+- MC42 app / MC42 app / mc.Electric / E.KeyBox x100 E : `BYTE 1 - HB` ×2
+- MC42 app / MC42 app / mc.Electric / E.KeyBox x100 E : `BYTE 2 - HB` ×2
+- MC42 app / MC42 app / mc.Electric / E.KeyBox x100 E : `BYTE 4 - HB` ×2
+- MC42 app / MC42 app / mc.Thermic / T.Pump : `T Punp 1 - Current` ×2
+- MC42 app / MC42 app / mc.Thermic / T.Pump : `T Punp 2 - Current` ×2
+- MC42 app / MC42 app / mc.Thermic / T.Track tension : `T Tracks pressure Mode` ×2
+- MC42 app / MC42 app / mc.Thermic / T.KeyBox x100 T : `BYTE 0 - HB` ×2
+- MC42 app / MC42 app / mc.Thermic / T.KeyBox x100 T : `BYTE 1 - HB` ×2
+- MC42 app / MC42 app / mc.Thermic / T.KeyBox x100 T : `BYTE 2 - HB` ×2
+- MC42 app / MC42 app / mc.Thermic / T.KeyBox x100 T : `BYTE 4 - HB` ×2
+- MC42 app / MC42 app / logic screen md4 / 45.UP/DOWN : `Timer sleep engine to Img` ×2
+- MC42 app / MC42 app / logic screen md4 / WIP/45.10 hours check : `Elec/md4 10 hours check-up 45` ×2
+- MC42 app / MC42 app / logic screen md4 / WIP/45.10 hours check : `Therm/md4 10 hours check-up 45` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `Byte 0` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `Byte 1` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `BYTE 0 - New ID` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `BYTE 1 - New ID` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `BYTE 2 - New ID` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `BYTE 4 - New ID` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `Confirmation` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `Confirmation Ok` ×2
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB : `New Generic frame out` ×4
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K1 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K2 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K3 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K4 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K5 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K6 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K7 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K8 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K9 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K10 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K11 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K12 Fault` ×3
+- MC42 app / MC42 app / logic screen c10 and KB / Keyboxs CAB : `K13 Fault` ×3
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Engine 1 - Tank` ×2
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Engine 2 - Tank` ×2
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Alternator potential` ×2
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Fuel rate` ×2
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Sequence` ×2
+- MD4-CAB app / MD4-CAB app / c5.NMEA / OutBoards nmea : `Page` ×2
+
+## Boucles de calcul entre canaux combinatoires (1 cycle de retard) (9)
+
+- `LD UP Toogle` → `Stop Ladder` → `LD Down Toogle`
+- `KBB K4 IDC- LD DOWN` → `KBB K3 IDC - LD UP`
+- `Over Tension` → `Over Tension`
+- `Error mode - Z.M1.Right` → `Error Wait` → `ZAPI_M2_Error mode` → `Error Wait` → `Emmergency Stop Left` → `Emmergency Stop - Z.M1.Right`
+- `Adress_Search` → `Adress_Search`
+- `T MD3 start last checks` → `T AutoStopafter 5 secondes`
+- `Reset safety to on 45` → `Safety_disable 45`
+- `Keep ON` → `IMS Asks Power`
+- `KBB K1 IDC - HT - UP` → `KBB K2 IDC - HT -DOWN`
+
+## Canal qui se lit lui-même (22)
+
+- `MDs - Start Button Blocking Neutral E mc` (IDC, MC42 app / mc.Link MC42-Screens Logic ims, l.1076)
+- `Auto Off Confirmed` (IDC, MC42 app / mc.Electric, l.4363)
+- `Keep ON` (IDC, MC42 app / mc.Electric, l.4860)
+- `Emmergency Stop - Z.M1.Right` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.30428)
+- `Emmergency Stop Left` (IDC, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.32692)
+- `Need to Charge Voltage` (IDC, MC42 app / mc.Electric, l.44264)
+- `T Reset Startup` (IDC, MC42 app / mc.Thermic / T.Power, l.55840)
+- `T Pre Fuel line ignition IDC` (IDC, MC42 app / mc.Thermic / T.Power, l.56229)
+- `T MD3 start last checks` (IDC, MC42 app / mc.Thermic / T.Power, l.56555)
+- `T Digit Engine On` (IDC, MC42 app / mc.Thermic / T.Power, l.56911)
+- `Reset Startup` (IDC, MC42 app / mc.I/O, l.74776)
+- `4ET Start Button` (IDC, MC42 app / logic screen md4, l.76366)
+- `Reset on startup` (IDC, MC42 app / logic screen md4, l.76558)
+- `Unlock Boat remote 4ET` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.80298)
+- `Continue 4ET` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.80700)
+- `PIN Pad Show 45` (IDC, MC42 app / logic screen md4 / 45.screen state and pin / broken PIN Pad 4ET, l.82145)
+- `Start Button 4ET bit` (IDC, MC42 app / logic screen md4 / 45.screen state and pin, l.82460)
+- `LD Down Toogle` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.92625)
+- `LD UP Toogle` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.92751)
+- `HT UP Toogle` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.93454)
+- `HT Down Toogle` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.93573)
+- `Unlock Boat` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.95660)
+
+## Qcode : if sans else (valeur figée si aucune branche) (2)
+
+- `T Engine Temp State` (SMC, MC42 app / mc.Thermic / T.Power, l.57816)
+- `T Speed error` (MAC, MC42 app / mc.Thermic / T.Engine Speed calc, l.60584)
+
+## Qcode : divisions par un canal (risque de division par zéro) (22)
+
+- `BMW- Max Current` (MAC, MC42 app / mc.Electric / E.BATTERY / E.BMW, l.11055) : / `BMW_`
+- `Max DC Current` (MAC, MC42 app / mc.Electric / E.CHARGER, l.25758) : / `ec Max Full Charge Voltage`
+- `ON_Bits` (IMAC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49698) : / `Fan mk E`
+- `ON_Bits` (IMAC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49698) : / `Pump`
+- `ON_Bits` (IMAC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49698) : / `AutoOff`
+- `ON_Bits` (IMAC, MC42 app / mc.Electric / E.KeyBox x100 E, l.49698) : / `Search Lights`
+- `T Speed error` (MAC, MC42 app / mc.Thermic / T.Engine Speed calc, l.60584) : / `T Speed_RPM_needed`
+- `T Speed Error Calcul` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.62258) : / `T Speed_RPM_needed`
+- `T ON_Bits` (IMAC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72072) : / `Fan`
+- `T ON_Bits` (IMAC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72072) : / `Pump`
+- `T ON_Bits` (IMAC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72072) : / `AutoOff`
+- `T ON_Bits` (IMAC, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72072) : / `Search Lights`
+- `trameb 2` (ARC, MC42 app / logic screen md4 / send data to md4, l.84238) : / `OFF T`
+- `Current month - Delivery month` (MAC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.86893) : / `Date`
+- `Current Year - Delivery Year` (MAC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.86911) : / `Date`
+- `Current month - month RESET 1yr Maintenance` (MAC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.87608) : / `Date`
+- `current year - year RESET 1yr Maintenance` (MAC, MC42 app / logic screen md4 / WIP/45.Maintenance, l.87626) : / `Date`
+- `ON_Bits 1 ktb` (IMAC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.97786) : / `AUX 4`
+- `ON_Bits 1 ktb` (IMAC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.97786) : / `AUX 5`
+- `ON_Bits 3 ktc` (IMAC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.97822) : / `Off`
+- `Fuel Economy` (MAC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.107515) : / `Speed Over Ground Kts`
+- `trameb c10_B` (ARC, MD4-CAB app, l.110218) : / `OFF`
+
+## Trames CAN reçues sans timeout (perte de communication non détectée) (35)
+
+- `Dcu50Error` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.BMW, l.10815)
+- `Bat51Error` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.BMW, l.10850)
+- `Iso52MonError` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.BMW, l.10885)
+- `BMS_NTHT_G1_Info` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.13601)
+- `BMS_NTHT_G2_Voltage` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.13635)
+- `BMS_NTHT_G3_Current` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.13663)
+- `BMS_NTHT_G4_Temperature` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.13688)
+- `BMS_NTHT_G5_Charger` (GFIN, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.13713)
+- `IMD_InfoGeneral gen2` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2, l.17245)
+- `BatteryState_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.18824)
+- `PDUStatus_M0b` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.18875)
+- `TemperaturePDU_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.19386)
+- `VoltageBattery_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.19418)
+- `CurrentBattery_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.19469)
+- `TemperatureCell_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.19501)
+- `MaxAdmissibleCurrent_M0` (GFIN, MC42 app / mc.Electric / E.BATTERY / E. Tyva, l.19552)
+- `GFIN PDO2_TX` (GFIN, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.30088)
+- `GFIN PDO2_TX` (GFIN, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.32402)
+- `GFIN-A:Generic` (GFIN, MC42 app / mc.Electric / E.KeyBox x100 E, l.50127)
+- `Engine Temperature EB 2` (JFIN, MC42 app / mc.Thermic / T.Engine i/o / EB2 T45, l.63243)
+- `Engine Temperature Ford T45` (JFIN, MC42 app / mc.Thermic / T.Engine i/o / Ford T45, l.64107)
+- `Engine Temperature Kubo` (JFIN, MC42 app / mc.Thermic / T.Engine i/o / Kubota WG16, l.65554)
+- `GFIN-E:Generic` (GFIN, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.100564)
+- `GFIN-F:Generic` (GFIN, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.101416)
+- `GFIN-G:Generic` (GFIN, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.102268)
+- `heart` (GFIN, MC42 app / mc.Keypad_PKP2400SI, l.103407)
+- `BatteryState_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111173)
+- `PDUStatus_M0b` (GFIN, MD4-CAB app / a/c tyva24v, l.111224)
+- `TemperaturePDU_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111735)
+- `VoltageBattery_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111767)
+- `CurrentBattery_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111818)
+- `TemperatureCell_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111850)
+- `MaxAdmissibleCurrent_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.111901)
+- `ConfigurationInformation_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.113738)
+- `FirmwareInformation_M0` (GFIN, MD4-CAB app / a/c tyva24v, l.113769)
+
+## Même identifiant CAN émis plusieurs fois sur le même module (7)
+
+- ('tyva bender (Generic)', '0x22') : `get_hv_2 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1, l.16933), `get_hv_1 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1, l.16991), `close relay hv1 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1, l.17104), `close relay hv2 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen1, l.17190), `get_HV_System 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2, l.17579), `get_R_iso_corrected 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2, l.17702), `get_R_iso 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2, l.17807), `get_R_iso_neg 0x22` (GFOUT, MC42 app / mc.Electric / E.BATTERY / E. Tyva / bender tyva / gen2, l.17912)
+- ('Zapi_M_Track (Generic)', 'PDO1_RX') : `GFOUT - PDO1_RX` (GFOUT, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.30906), `GFOUT - PDO1_RX` (GFOUT, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.33360)
+- ('Zapi_M_Track (Generic)', '0') : `NMT` (GFOUT, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.31416), `NMT` (GFOUT, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.33731)
+- ('Keybox X100 E (Generic)', 'ID Prog') : `GFOUT-A:Generic` (GFOUT, MC42 app / mc.Electric / E.KeyBox x100 E, l.49935), `GFOUT-B:Generic` (GFOUT, MC42 app / mc.Electric / E.KeyBox x100 E, l.50055)
+- ('Keybox X100 T (Generic)', 'ID Prog') : `GFOUT-C:Generic` (GFOUT, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72444), `GFOUT-B:Generic` (GFOUT, MC42 app / mc.Thermic / T.KeyBox x100 T, l.72564)
+- ('Keyboxs CAB (Generic)', '0') : `GFOUT-D:Generic` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.99341), `GFOUT-E:Generic` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.99385), `GFOUT-F:Generic` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB, l.99623), `New Generic frame out` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB, l.100235)
+- ('Keyboxs CAB (Generic)', 'ID') : `New Generic frame out` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB, l.100083), `New Generic frame out` (GFOUT, MC42 app / logic screen c10 and KB / Keyboxs CAB / Program KB CAB, l.100491)
+
+## Canaux d’un groupe désactivé lus par de la logique active (0)
+
+
+## Groupes de fonctions désactivés (0)
+
+
+## Groupes de fonctions au nom suspect (WIP, broken, soon, test…) (6)
+
+- MC42 app : MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon
+- MC42 app : MC42 app / mc.Thermic / T.Exhaust temp
+- MC42 app : MC42 app / logic screen md4 / 45.screen state and pin / broken PIN Pad 4ET
+- MC42 app : MC42 app / logic screen md4 / WIP/45.10 hours check
+- MC42 app : MC42 app / logic screen md4 / WIP/45.Maintenance
+- MC42 app : MC42 app / logic screen md4 / WIP/Pin delivery date
+
+## Groupes de fonctions vides (2)
+
+- MC42 app : MC42 app / mc.Keypad_PKP2400SI / CAN Keypad X100
+- MD45-ET app : MD45-ET app / Keypad PKP 2400SI
+
+## Canaux au nom suspect (test, debug, sim, old…) (160)
+
+- `E HVLP Pump Test` (DP, MC42 app / mc.Electric, l.3909)
+- `eb Battery max temp` (IP, MC42 app / mc.Electric / E.BATTERY, l.5260)
+- `Battery HIGHT TEMP` (IDC, MC42 app / mc.Electric / E.BATTERY, l.5421)
+- `eb Debug: Mute Watchdog` (DP, MC42 app / mc.Electric / E.BATTERY, l.5478)
+- `test reset novum` (DP, MC42 app / mc.Electric / E.BATTERY, l.8066)
+- `eb Battery hight temp` (IP, MC42 app / mc.Electric / E.BATTERY, l.12361)
+- `eb Debug: Trig Battery Error` (DP, MC42 app / mc.Electric / E.BATTERY, l.13463)
+- `eb Debug: Mute Battery Error` (DP, MC42 app / mc.Electric / E.BATTERY, l.13476)
+- `eb Debug: Trig Battery Low Voltage Error` (DP, MC42 app / mc.Electric / E.BATTERY, l.13489)
+- `eb Debug: Test End Of Charge` (DP, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.14940)
+- `Test End Of Charge Trigger` (IDC, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.15605)
+- `eb Trig Debug Cell Voltage` (DP, MC42 app / mc.Electric / E.BATTERY / E.NovumTech, l.15727)
+- `Battery temp ok` (IDC, MC42 app / mc.Electric / E.BATTERY, l.22147)
+- `ec Debug: Trig Charger Ready` (DP, MC42 app / mc.Electric / E.CHARGER, l.29145)
+- `ec Debug: Trig Battery Charged` (DP, MC42 app / mc.Electric / E.CHARGER, l.29516)
+- `Motor Temp` (GPIN, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M1.Right.gen, l.31113)
+- `Motor Temp` (GPIN, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks / E.Zapi.M2.Left.gen, l.33397)
+- `em Engine Max Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.36800)
+- `em Controller Fan Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.36812)
+- `em Engine Eco Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.36942)
+- `em Controller Pump Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M-Tracks, l.36954)
+- `HVLP Fan Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau, l.39985)
+- `HVLP Pump Temp` (IP, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau, l.40042)
+- `Test Mode` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon, l.40716)
+- `HVLP Speed Test` (IP, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon, l.40749)
+- `genSevcon - Engine Temp` (GPIN, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / broeknE.Sevcon.M3.gen.soon, l.40935)
+- `Test Mode` (SMC, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.41972)
+- `HVLP Speed Test` (IP, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.42005)
+- `Sevcon - Engine Temp` (GPIN, MC42 app / mc.Electric / E.MOTORS / E.M3-Hydrau / E.Sevcon.M3.j19, l.43002)
+- `E Debug: Trig Low LTBat Voltage 12V` (DP, MC42 app / mc.Electric, l.44347)
+- `e Debug: Inhibit System Crash Signal` (DP, MC42 app / mc.Electric / E.Translate, l.46934)
+- `E Full Fan Test` (DP, MC42 app / mc.Electric / E.KeyBox x100 E, l.50936)
+- `debug vario on` (IDC, MC42 app / mc.Electric, l.51064)
+- `sim start engine` (IDC, MC42 app, l.55619)
+- `sim start engine_m` (MAC, MC42 app, l.55669)
+- `sim state moteur` (SP, MC42 app, l.55713)
+- `T Persistant Water Temp` (MEM, MC42 app / mc.Thermic / T.Power, l.57278)
+- `T High Temp Timer` (TMR, MC42 app / mc.Thermic / T.Power, l.57382)
+- `T Mid Temp Timer` (TMR, MC42 app / mc.Thermic / T.Power, l.57457)
+- `T Low Temp Timer` (TMR, MC42 app / mc.Thermic / T.Power, l.57532)
+- `T Critical Temp Timer` (TMR, MC42 app / mc.Thermic / T.Power, l.57623)
+- `T Water Temp Hysteresis Gap` (FP, MC42 app / mc.Thermic / T.Power, l.57790)
+- `T inExhaust temp` (FGI, MC42 app / mc.Thermic / T.Power, l.57802)
+- `T Engine Temp State` (SMC, MC42 app / mc.Thermic / T.Power, l.57816)
+- `T Exhaust Temp State hy test` (SMC, MC42 app / mc.Thermic / T.Power, l.58075)
+- `T Oil Temp Mid/High` (FP, MC42 app / mc.Thermic / T.Oil security, l.58477)
+- `T Oil Temp Low/Mid` (FP, MC42 app / mc.Thermic / T.Oil security, l.58489)
+- `T Oil Temp Critical` (FP, MC42 app / mc.Thermic / T.Oil security, l.58501)
+- `T Oil Temp Hysteresis` (FP, MC42 app / mc.Thermic / T.Oil security, l.58513)
+- `sim thermal engine speed` (IP, MC42 app / mc.Thermic / T.Engine i/o, l.62082)
+- `Engine coolant temp T45` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.62288)
+- `T Engine coolant temp` (MAC, MC42 app / mc.Thermic / T.Engine i/o, l.62392)
+- `T Engine coolant temp T45 ok` (IDC, MC42 app / mc.Thermic / T.Engine i/o, l.65638)
+- `In T Hydraulics Temp State` (FGI, MC42 app / mc.Thermic / T.Thermal Management, l.65748)
+- `In T Exhaust Temp State` (FGI, MC42 app / mc.Thermic / T.Thermal Management, l.65780)
+- `Exhaust temp sensor mc` (DP, MC42 app / mc.Thermic, l.66526)
+- `Exhaust temp sensor mc sel` (IDC, MC42 app / mc.Thermic, l.66539)
+- `T Exhaust coolant temp mc 52` (VIN, MC42 app / mc.Thermic / T.Exhaust temp, l.66614)
+- `T Test Locker` (DP, MC42 app / mc.Thermic / T.Track Up/Down, l.69251)
+- `mk T Aft Fan Max Test` (DP, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71365)
+- `mk T Aft Fan Low Test` (DP, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71378)
+- `mk T Exhaust Fan Test` (DP, MC42 app / mc.Thermic / T.KeyBox x100 T, l.71520)
+- `test batt main on/off` (DP, MC42 app / mc.I/O, l.74431)
+- `debug screen` (DP, MC42 app / mc.I/O, l.75149)
+- `debug screen T` (IDC, MC42 app / mc.I/O, l.75162)
+- `debug screen E` (IDC, MC42 app / mc.I/O, l.75212)
+- `sim state` (SP, MC42 app, l.75825)
+- `DEBUG Start soft 4ET` (DP, MC42 app / logic screen md4, l.76353)
+- `test buzzer 45` (DP, MC42 app / logic screen md4 / 45.buzzer, l.80105)
+- `debug btod 2` (ARC, MC42 app / logic screen md4 / send data to md4, l.84287)
+- `debug Be1 Inter Buzzer for 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84318)
+- `debug Be2 Main page IDC E` (IDC, MC42 app / logic screen md4 / send data to md4, l.84338)
+- `debug Be3 Main page IDC T` (IDC, MC42 app / logic screen md4 / send data to md4, l.84358)
+- `debug Be4 ShutDown page IDC` (IDC, MC42 app / logic screen md4 / send data to md4, l.84378)
+- `debug Be5 Startup page IDC` (IDC, MC42 app / logic screen md4 / send data to md4, l.84398)
+- `debug Be6 Engines READY for 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84418)
+- `debug Be7 Safety_disable 45 sel` (IDC, MC42 app / logic screen md4 / send data to md4, l.84438)
+- `debug Be8 ALL ASK STOP` (IDC, MC42 app / logic screen md4 / send data to md4, l.84469)
+- `debug Be9 Reset safety to on 45` (IDC, MC42 app / logic screen md4 / send data to md4, l.84489)
+- `debug Be10 batt ok to start` (IDC, MC42 app / logic screen md4 / send data to md4, l.84552)
+- `debug enabled on/off` (IDC, MC42 app / logic screen md4 / send data to md4, l.84572)
+- `debug button drive 4ET 45/10` (IDC, MC42 app / logic screen md4 / send data to md4, l.84592)
+- `Auto Light and Start broken need brightness` (IDC, MC42 app / logic screen c10 and KB / cEQUIPEMENT, l.91522)
+- `debug btod 3` (ARC, MC42 app / logic screen c10 and KB, l.98225)
+- `debug Be1 Ladder is not up` (IDC, MC42 app / logic screen c10 and KB, l.98254)
+- `debug Be2 KTB K1 IDC - GPS_EQT` (IDC, MC42 app / logic screen c10 and KB, l.98274)
+- `debug Be3 KTC K9 IDC - OutBoard On-OFF` (IDC, MC42 app / logic screen c10 and KB, l.98294)
+- `debug Be4 Is multi button Eqt` (IDC, MC42 app / logic screen c10 and KB, l.98314)
+- `debug Be5` (IDC, MC42 app / logic screen c10 and KB, l.98334)
+- `debug Be6` (IDC, MC42 app / logic screen c10 and KB, l.98354)
+- `debug Be7` (IDC, MC42 app / logic screen c10 and KB, l.98374)
+- `debug Be8` (IDC, MC42 app / logic screen c10 and KB, l.98405)
+- `Temp:MC` (MDGN, MC42 app, l.103090)
+- `Engine temp. Byte 0` (GPIN, MD4-CAB app / c5.NMEA / OutBoards nmea, l.106475)
+- `Engine temp. Byte 1` (GPIN, MD4-CAB app / c5.NMEA / OutBoards nmea, l.106522)
+- `Engine temp` (MAC, MD4-CAB app / c5.NMEA / OutBoards nmea, l.106534)
+- `Engine temp - 1` (MEM, MD4-CAB app / c5.NMEA / OutBoards nmea, l.106972)
+- `Engine temp - 2` (MEM, MD4-CAB app / c5.NMEA / OutBoards nmea, l.107377)
+- `Engine oil temp.` (GPIN, MD4-CAB app / c5.NMEA / OutBoards nmea, l.108036)
+- `debug btod c10` (ARC, MD4-CAB app, l.108503)
+- `debug B1 UP C10` (IDC, MD4-CAB app, l.108538)
+- `debug B2 DOWN C10` (IDC, MD4-CAB app, l.108558)
+- `debug B3 CANCEL C10` (IDC, MD4-CAB app, l.108578)
+- `debug B4 SLOW C10` (IDC, MD4-CAB app, l.108598)
+- `debug B5 FAST C10` (IDC, MD4-CAB app, l.108618)
+- `debug B6 OFF C10` (IDC, MD4-CAB app, l.108638)
+- `debug B7 CONTINUE C10` (IDC, MD4-CAB app, l.108658)
+- `debug B8 FREE C10` (IDC, MD4-CAB app, l.108678)
+- `debug B9 START C10` (IDC, MD4-CAB app, l.108698)
+- `debug B10 SAFETY OFF C10` (IDC, MD4-CAB app, l.108718)
+- `debug B11 SAFETY OFF RESET C10` (IDC, MD4-CAB app, l.108738)
+- `debug B12 45 State ok C10` (IDC, MD4-CAB app, l.108789)
+- `debug B13 Info page on 45 C10` (IDC, MD4-CAB app, l.108809)
+- `debug btod c10_1` (ARC, MD4-CAB app, l.109525)
+- `debug B1 Button Cabine IDC C10` (IDC, MD4-CAB app, l.109558)
+- `debug B2 Door IDC C10` (IDC, MD4-CAB app, l.109578)
+- `debug B3 Main page on C10_1` (IDC, MD4-CAB app, l.109598)
+- `debug B4 KB Send new node` (IDC, MD4-CAB app, l.109618)
+- `debug B5 KB Reset` (IDC, MD4-CAB app, l.109638)
+- `debug B6` (IDC, MD4-CAB app, l.109658)
+- `debug B7` (IDC, MD4-CAB app, l.109678)
+- `debug B8` (IDC, MD4-CAB app, l.109698)
+- `debug B9` (IDC, MD4-CAB app, l.109718)
+- `debug B10` (IDC, MD4-CAB app, l.109738)
+- `debug B11` (IDC, MD4-CAB app, l.109758)
+- `debug B12` (IDC, MD4-CAB app, l.109778)
+- `debug btod c10 B` (ARC, MD4-CAB app, l.110271)
+- `debug B1 LD UP - VDIN` (IDC, MD4-CAB app, l.110305)
+- `debug B2 LD DOWN - VDIN` (IDC, MD4-CAB app, l.110325)
+- `debug B3 HT UP D` (IDC, MD4-CAB app, l.110345)
+- `debug B4 HT DOWN D` (IDC, MD4-CAB app, l.110365)
+- `debug B5 md4 GPS` (IDC, MD4-CAB app, l.110385)
+- `debug B6 md4 AUX 4` (IDC, MD4-CAB app, l.110405)
+- `debug B7 md4 AUDIO` (IDC, MD4-CAB app, l.110425)
+- `debug B8 md4 AUX 5` (IDC, MD4-CAB app, l.110445)
+- `debug B9 md4 VHF` (IDC, MD4-CAB app, l.110465)
+- `debug B10 CABINE ON/OFF` (IDC, MD4-CAB app, l.110485)
+- `debug B11 NAV + 360 LIGHT` (IDC, MD4-CAB app, l.110505)
+- `debug B12 LIGHT HT SPOT` (IDC, MD4-CAB app, l.110536)
+- `debug B13 Search Light` (IDC, MD4-CAB app, l.110556)
+- `debug B14 Fridge` (IDC, MD4-CAB app, l.110576)
+- `debug B15 LIGHT HT DIM` (IDC, MD4-CAB app, l.110596)
+- `debug btod c10 B_1` (ARC, MD4-CAB app, l.110669)
+- `debug B1_1 AUX 2` (IDC, MD4-CAB app, l.110706)
+- `debug B2_1 LD UP - Force` (IDC, MD4-CAB app, l.110726)
+- `debug B3_1 LD DOWN - Force` (IDC, MD4-CAB app, l.110746)
+- `debug B4_1 ANCHOR UP` (IDC, MD4-CAB app, l.110766)
+- `debug B5_1 ANCHOR DOWN` (IDC, MD4-CAB app, l.110786)
+- `debug B6_1 AUX 1` (IDC, MD4-CAB app, l.110806)
+- `debug B7_1 WIND CLEANER` (IDC, MD4-CAB app, l.110826)
+- `debug B8_1 BILGE` (IDC, MD4-CAB app, l.110846)
+- `debug B9_1 Seat Power Force` (IDC, MD4-CAB app, l.110866)
+- `debug B10_1 OutBoard Button` (IDC, MD4-CAB app, l.110886)
+- `debug B11_1 FAN WIND` (IDC, MD4-CAB app, l.110906)
+- `debug B12_1 AUX 3` (IDC, MD4-CAB app, l.110937)
+- `debug B13_1 Wipper Button` (IDC, MD4-CAB app, l.110957)
+- `debug B14_1 SHOWER` (IDC, MD4-CAB app, l.110977)
+- `debug B15_1 md4 Seat position` (IDC, MD4-CAB app, l.110997)
+- `debug B14 F5 speed super slow C10` (IDC, MD4-CAB app, l.113899)
+- `buttons 45 bin to d debug` (ARC, MD45-ET app, l.114442)
+
+## Réglages de mise au point exposés (debug/force/test/sim) (38)
+
+- Is_a_Sim
+- Debug: Mute Watchdog
+- Charging Force
+- Variator Force
+- HVLP Pump Test
+- Power Controler Force
+- Battery Force Discharge
+- Force BMW Charge
+- Trig Debug Cell Voltage
+- Engine - Force Ready
+- Force EV By Pass
+- Debug: Trig Charger Ready
+- Debug: Trig Low LTBat Voltage
+- Debug: Mute Battery Error
+- Debug: Trig Battery Error
+- Debug: Trig Battery Low Voltage Error
+- Debug: Test End Of Charge
+- Debug: Inhibit System Crash Signal
+- Debug: Trig Battery Charged
+- Force K3 Auto-off
+- Speed Hydro Force
+- Force at 2200 rpm
+- Force EV By Pass
+- Test Locker
+- Aft Fan Max Test
+- Exhaust Fan Test
+- Aft Fan Low Test
+- Force Engine pump
+- Force Exhaust pump
+- debug screen
+- sim thermal engine speed
+- Automatic Joystick Inhibition
+- Force Safety off up/down 45
+- Test buzzer MD4
+- bypsass brake T
+- T Force 12v port sensor on
+- test batt main on/off
+- trig balancing
+
+## Références à un canal d’une autre application (hors APPIN/APPOUT) (0)
+

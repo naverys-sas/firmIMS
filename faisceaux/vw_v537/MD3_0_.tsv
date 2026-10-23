@@ -1,0 +1,25 @@
+﻿pin	name	channel	description
+C1:1	-BAT		
+C1:2	CAN-A-L		
+C1:3	CAN-B-L		
+C1:4	CAN-C-L		
+C1:5	RS232-DATA IN		
+C1:6	ADDR-L		
+C1:7	+RTC		
+C1:8	RS232-DATA-OUT		
+C1:9	CAN-C-H		
+C1:10	CAN-B-H		
+C1:11	CAN-A-H		
+C1:12	+BAT		
+C2:1	VIN-A	Left Joystick [%]	
+C2:2	VIN-B	Right Joystick [%]	
+C2:3	- 		
+C2:4	- 		
+C2:5	-VREF		
+C2:6	- 		
+C2:7	- 		
+C2:8	+VREF		
+C2:9	VIN-E	X [g]	
+C2:10	VIN-F	Y [g]	
+C2:11	VIN-G	Z [g]	
+C2:12	DOUT-A (HS)	Buzzer	

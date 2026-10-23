@@ -1,0 +1,67 @@
+﻿pin	name	channel	description
+C1:1	CAN-A-L		
+C1:2	CAN-B-L		
+C1:3	CAN-C-L		
+C1:4	ADDR-L		
+C1:5	- 		
+C1:6	- 		
+C1:7	+VREF-A		
+C1:8	VIN-A	Oil level Analog mc 8 [%]	
+C1:9	VIN-B	Locking pressure mc 9 [bar]	
+C1:10	VIN-C	Track pressure mc 10 [bar]	
+C1:11	DPCNT-A (+)	C Ladder_Sensor mc 11	Ladder
+C1:12	DPCNT-A (-)	C Ladder_Sensor mc 11	Ladder
+C1:13	- 		
+C1:14	COUT-A (HS)	T Pump 2 Left mc 14 [mA]	
+C1:15	COUT-B (HS)	T Pump 1 Right mc 15 [mA]	
+C1:16	- 		
+C1:17	CAN-A-H		
+C1:18	CAN-B-H		
+C1:19	CAN-C-H		
+C1:20	ADDR-H		
+C1:21	- 		
+C1:22	- 		
+C1:23	-VREF		
+C1:24	VIN-D	Low water level RJoy [%]	
+C1:25	VIN-E	T Oil Temps mc 25/Current bilge C [°C]	
+C1:26	VIN-F	T Hydraulic pump statut mc 26 [Bar]	
+C1:27	- 		
+C1:28	DIN-M	C REMOTE LD DOWN mc 28	
+C1:29	DIN-N	C REMOTE LD UP mc 29	
+C1:30	- 		
+C1:31	- 		
+C1:32	- 		
+C1:33	ETHRD-		
+C1:34	ETHTD-		
+C1:35	-VREF		
+C1:36	VIN-G	Left Joystick mc 36 [%]	
+C1:37	- 		
+C1:38	VIN32-A	T V sensor inflate 24v [V]	
+C1:39	COUT-A (LS+)	T Pump 2 Left mc 14 [mA]	
+C1:40	COUT-B (LS+)	T Pump 1 Right mc 15 [mA]	
+C1:41	DOUT-I (LS)	EV By pass mc 41	
+C1:42	DOUT-K (LS)	EV Down mc 42	
+C1:43	DOUT-M (LS)	EV unlock mc 43	
+C1:44	DOUT-O (LS)	Brake T/ Batt HT reset OR tyva on mc 44 / Var Power C	
+C1:45	PWM-G (HS)	C UP/DOWN mc 45 [%]	
+C1:46	DOUT-J (HS)	EV Up mc 57	
+C1:47	DOUT-P (HS)	Power Vars E mc 60/ Batt reset C	
+C1:48	PWM-J (HS)	C FRONT BACK mc 48 [%]	
+C1:49	ETHRD+		
+C1:50	ETHTD+		
+C1:51	+VREF-B		
+C1:52	VIN-H	T Exhaust coolant temp mc 52 [°C]	
+C1:53	- 		
+C1:54	VIN32-B	T V sensor port [V]	
+C1:55	COUT-A (LS-)	T Pump 2 Left mc 14 [mA]	
+C1:56	COUT-B (LS-)	T Pump 1 Right mc 15 [mA]	
+C1:57	DOUT-J (LS)	EV Up mc 57	
+C1:58	DOUT-L (LS)	EV Tension mc 58	
+C1:59	DOUT-N (LS)	EV lock mc 59	
+C1:60	DOUT-P (LS)	Power Vars E mc 60/ Batt reset C	
+C1:61	- 		
+C1:62	- 		
+C1:63	- 		
+C1:64	- 		
+C1:65	+BAT		
+C1:66	-BAT		

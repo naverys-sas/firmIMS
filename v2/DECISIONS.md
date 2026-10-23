@@ -1,0 +1,23 @@
+# Journal des décisions — v2
+
+Chaque choix de conception de la v2, avec qui l'a pris, quand et pourquoi. On ajoute une ligne à chaque décision ; on ne réécrit pas les anciennes (une décision annulée reçoit une nouvelle ligne qui la remplace).
+
+| # | Date | Décision | Pourquoi | Décidé par | Où dans le projet |
+|---|---|---|---|---|---|
+| D1 | 22/10/2026 | La v2 doit rester compatible avec tous les bateaux et équipements en service ; tout écart est signalé | Parc installé à maintenir | Nicolas | [compatibilite.md](compatibilite.md) |
+| D2 | 22/10/2026 | Version de référence = `TESTIA.idax` 108.3.1 (keypad Blink complet) | Dernière version fonctionnelle | Nicolas | — |
+| D3 | 22/10/2026 | Les bateaux MD3 restent maintenus ; la v2 MC42 intègre le MD3 en écran optionnel | Nombreux bateaux MD3 en exploitation | Nicolas | [methode.md](methode.md) |
+| D4 | 22/10/2026 | La pompe HV pilotée par le HVLP (« Sevcon gen », choisie en cabine) est conservée telle quelle | Équipement en service | Nicolas | — |
+| D5 | 22/10/2026 | Deux livrables : v2 MC42 (108.x + V69) et v2 MC2 (V5.37) ; structure neuve, logique transplantée depuis les versions en service | Trois projets distincts, deux matériels | Nicolas (« go ») | [methode.md](methode.md) |
+| D6 | 22/10/2026 | La v2 MC42 est construite dans une copie de la 108.3.1 pour garder son identifiant de projet | Un identifiant différent efface les réglages et repart sur de nouveaux journaux (manuel IQANdesign, « Project ID ») | Claude, validé | [methode.md](methode.md) |
+| D7 | 22/10/2026 | Journaux unifiés par le haut sur toutes les variantes | Dépannage et statistiques de flotte | Nicolas | [journalisation.md](journalisation.md) |
+| D8 | 23/10/2026 | Le câblage des pompes devient un réglage `T Pump wiring` (Standard = 108.x, Swapped = V69 / V5.37) plutôt qu'un choix figé | La même broche C1:14 est « pompe gauche » en 108.3.1 et « pompe droite » en V69 | Nicolas | `mc.Thermic / T.Pump / pins thermic`, menu Master Config |
+| D9 | 23/10/2026 | Corrections Kreisel : défaut d'isolement, message e1170, fin de charge | Fonctions Kreisel vides (bugs) | Claude, étape A validée | [rapport_etape_A.md](rapport_etape_A.md) |
+| D10 | 23/10/2026 | Message e1168 de la pompe M3 Sevcon J1939 affiché sur `M3 - New Error Code` | Message sans condition d'affichage | Claude, étape A validée | idem |
+| D11 | 23/10/2026 | Hystérésis ajoutée à l'état thermique « Low » | L'état ne se libérait jamais | Claude, étape A validée | idem |
+| D12 | 23/10/2026 | Groupe « Water level V10 motor » (MD4-5) réactivé comme en v117 | Sa désactivation en 108.3.1 coupait aussi l'entrée C2:1 partagée avec le joystick gauche du MD4-5 | Claude, à confirmer par Nicolas | idem |
+| D13 | 23/10/2026 | Défaut de masse Kreisel laissé tel quel | Signaux BMW/Tyva absents chez Kreisel ; attente doc Kreisel | Claude | — |
+| D14 | 23/10/2026 | Timeouts CAN : ajoutés sur les trames périodiques de mesure (délai = celui des autres trames du même équipement), jamais sur les trames d'événement | Valeur figée sans alarme vs faux déclenchements | Nicolas (« ok ») | [timeouts_can.md](timeouts_can.md) |
+| D15 | 23/10/2026 | Perte de la température d'eau moteur (moteur en marche) : message critique « e1201 Engine temperature lost » répété toutes les 30 s, sans action automatique | Un timeout seul ferait tomber la température à 0 °C et effacerait une alerte de surchauffe | Nicolas | `mc.Thermic / T.Engine i/o` : `T Engine temp CAN lost`, `T Engine temp lost repeat`, `T Engine temp CAN lost mc` |
+| D16 | 23/10/2026 | Batteries Novum, Tyva HT et Tyva 24 V clim : timeouts sur les trames de mesure utilisées, et ces trames ajoutées à la surveillance « CAN OK » de la batterie (perte = perte de communication batterie, comme une perte de heartbeat aujourd'hui). Trames non utilisées ou marquées WRONG (CurrentBattery_M0) et trames d'information (versions) exclues de la surveillance | Éviter des valeurs figées sans alarme, sans créer de fausse perte | Claude, sur la base de D14 | [timeouts_can.md](timeouts_can.md) |
+| D17 | 23/10/2026 | Isomètre Bender gen2 : timeout 3 s seulement ; la logique de perte existait déjà (`tyva isomon can ok` teste l'état de la trame) mais ne pouvait jamais se déclencher sans timeout | Correction d'un défaut latent | Claude, sur la base de D14 | idem |

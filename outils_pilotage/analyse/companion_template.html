@@ -1,0 +1,599 @@
+<meta charset="utf-8">
+<title>Firmware Iguana 108.3.1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: chart-table workstation — fixed top tab rail, content column, side panel on wide screens */
+:root{
+  --bg:#f3f5f6; --panel:#ffffff; --ink:#14212b; --muted:#5b6b77; --line:#d6dde2;
+  --accent:#0b6e8a; --accent-soft:#e1f0f4; --warn:#b5650d; --warn-soft:#fbeedd;
+  --crit:#b3261e; --crit-soft:#fbe4e2; --ok:#2f7d4f; --ok-soft:#e2f2e8; --code:#eef2f4;
+  --f-display:"Archivo",system-ui,sans-serif; --f-body:"Archivo",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e161c; --panel:#152129; --ink:#e3ebef; --muted:#93a4af; --line:#2a3a45;
+  --accent:#4fb6d3; --accent-soft:#163541; --warn:#e2a04f; --warn-soft:#3a2a14;
+  --crit:#f07b70; --crit-soft:#3d1c1a; --ok:#6cc58f; --ok-soft:#173326; --code:#0f1b22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e161c; --panel:#152129; --ink:#e3ebef; --muted:#93a4af; --line:#2a3a45;
+  --accent:#4fb6d3; --accent-soft:#163541; --warn:#e2a04f; --warn-soft:#3a2a14;
+  --crit:#f07b70; --crit-soft:#3d1c1a; --ok:#6cc58f; --ok-soft:#173326; --code:#0f1b22; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-block:12px 6px}
+.top h1{font-family:var(--f-display);font-weight:800;font-size:20px;margin:0;letter-spacing:-.01em}
+.top .ver{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.ver-switch{margin-left:auto;display:flex;gap:4px}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;padding-bottom:0}
+nav.tabs button{font:inherit;font-weight:600;font-size:14px;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:8px 12px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-block:20px 60px}
+section.view{display:flex;flex-direction:column;gap:20px}
+h2{font-family:var(--f-display);font-weight:800;font-size:26px;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h3{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0 0 6px;text-wrap:balance}
+p{margin:0;max-width:72ch}
+.lead{color:var(--muted);font-size:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.kpi{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:26px;font-weight:600}
+.kpi-l{color:var(--muted);font-size:13px}
+.label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+code,.mono{font-family:var(--f-mono);font-size:12.5px}
+pre{font-family:var(--f-mono);font-size:12.5px;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:10px;overflow-x:auto;margin:0;white-space:pre}
+.chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:3px;padding:2px 6px;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.ui{cursor:default;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:2px 6px;white-space:nowrap}
+.t-crit{background:var(--crit-soft);color:var(--crit)}.t-warn{background:var(--warn-soft);color:var(--warn)}
+.t-info{background:var(--accent-soft);color:var(--accent)}.t-ok{background:var(--ok-soft);color:var(--ok)}
+button.btn{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;padding:5px 10px;cursor:pointer}
+button.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+input[type=search],select{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;padding:7px 10px;min-width:0}
+.explorer{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:820px){.explorer{grid-template-columns:minmax(0,1fr)}}
+.results{max-height:70vh;overflow:auto;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.results button{all:unset;cursor:pointer;padding:7px 10px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:1px}
+.results button:hover,.results button[aria-current="true"]{background:var(--accent-soft)}
+.results .rn{font-family:var(--f-mono);font-size:12.5px;overflow-wrap:anywhere}
+.results .rp{font-size:11.5px;color:var(--muted);overflow-wrap:anywhere}
+.logic{font-family:var(--f-mono);font-size:12.5px;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:10px;margin:0}
+.svgwrap{overflow-x:auto}
+svg text{font-family:var(--f-body)}
+.steps{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:8px}
+.step{position:relative;padding:0 0 18px 20px;display:flex;flex-direction:column;gap:6px}
+.step::before{content:attr(data-n);position:absolute;left:-13px;top:0;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--panel);font:700 12px/24px var(--f-mono);text-align:center}
+.bug{border-left:4px solid var(--line)}
+.bug.s1{border-left-color:var(--crit)}.bug.s2{border-left-color:var(--warn)}.bug.s3{border-left-color:var(--accent)}
+.bug .hd{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border-bottom:1px solid var(--line);text-align:left;padding:6px 8px;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tbl{overflow-x:auto}
+.cfg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.cfg fieldset{border:1px solid var(--line);border-radius:6px;padding:10px;margin:0;background:var(--panel);display:flex;flex-direction:column;gap:4px}
+.cfg legend{font-weight:700;font-size:13px;padding:0 4px}
+.cfg label{display:flex;gap:6px;align-items:center;font-size:14px;cursor:pointer}
+.grp{display:flex;justify-content:space-between;gap:8px;padding:5px 8px;border-bottom:1px solid var(--line);font-size:13.5px}
+.grp .gp{overflow-wrap:anywhere;min-width:0}
+.grp.off{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.state{fill:var(--panel);stroke:var(--accent);stroke-width:1.5}
+.state.hot{fill:var(--accent-soft)}
+.edge{stroke:var(--muted);stroke-width:1.2;fill:none}
+.svg-t{fill:var(--ink);font-size:13px}.svg-m{fill:var(--muted);font-size:11px}
+.blk{cursor:pointer}
+.blk rect{fill:var(--panel);stroke:var(--line);stroke-width:1.5}
+.blk:hover rect,.blk.sel rect{stroke:var(--accent);fill:var(--accent-soft)}
+.blk.ghost rect{stroke-dasharray:5 4}
+.bus{stroke-width:4;fill:none}
+.note{font-size:13px;color:var(--muted)}
+.callout{background:var(--warn-soft);border:1px solid var(--line);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.layer{border:1px solid var(--line);border-radius:4px;padding:8px 10px;background:var(--panel);display:flex;flex-direction:column;gap:2px}
+.layer b{font-family:var(--f-mono);font-size:12.5px}
+.layer span{font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.results button,.chip,.blk rect{transition:background .12s,border-color .12s,fill .12s}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <h1>Firmware Iguana Yachts</h1>
+      <span class="ver">IQAN · version de référence 108.3.1 · v2 en préparation</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" data-v="apercu">Vue d'ensemble</button>
+      <button role="tab" data-v="parcours">Comment ça marche</button>
+      <button role="tab" data-v="variantes">Variantes</button>
+      <button role="tab" data-v="explorateur">Explorateur</button>
+      <button role="tab" data-v="bugs">Bugs</button>
+      <button role="tab" data-v="v2">La v2</button>
+      <button role="tab" data-v="faisceaux">Faisceaux</button>
+      <button role="tab" data-v="glossaire">Lire IQAN</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="view" id="v-apercu">
+  <h2>Un contrôleur, deux écrans, une vingtaine d'équipements</h2>
+  <p class="lead">Le MC42 porte toute la logique. Les écrans MD4 servent surtout à afficher et à envoyer des boutons. Clique un bloc du schéma pour savoir ce qu'il fait et où se trouve sa logique.</p>
+  <div class="grid3" id="kpis"></div>
+  <div class="box">
+    <div class="svgwrap"><svg id="sys" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="Schéma des contrôleurs et des bus CAN"></svg></div>
+    <div id="sysinfo" class="box" style="border-style:dashed"></div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Le principe qui explique tout le reste</h3>
+      <p>Le même logiciel équipe des bateaux électriques ou thermiques, avec quatre marques de batterie, trois chargeurs, deux marques de variateurs, trois moteurs thermiques, avec ou sans cabine. Deux mécanismes IQAN font ce tri : des <b>groupes de fonctions activés</b> par un canal <code>Is_…</code>, et des <b>sélecteurs</b> qui donnent à un même canal une logique différente par variante. L'onglet <i>Variantes</i> te les fait manipuler.</p></div>
+    <div class="box"><h3>Ce qui alourdit le code aujourd'hui</h3>
+      <p>Les blocs chenilles existent deux fois (électrique et thermique) et ont divergé, les variateurs gauche et droit sont recopiés, 275 canaux ne sont lus par personne, 38 réglages de forçage restent dans les menus. Rien d'anormal pour un logiciel qui a dix ans de bateaux derrière lui ; c'est ce que la v2 range.</p></div>
+  </div>
+</section>
+
+<section class="view" id="v-parcours" hidden>
+  <h2>Comment ça marche, scénario par scénario</h2>
+  <p class="lead">Chaque parcours suit un geste réel du pilote à travers les canaux. Les puces ouvrent la fiche du canal dans l'explorateur.</p>
+  <div class="chips" id="tourbtns"></div>
+  <div id="tour" class="box"></div>
+</section>
+
+<section class="view" id="v-variantes" hidden>
+  <h2>Compose un bateau, vois ce qui tourne</h2>
+  <p class="lead">Choisis une configuration : la liste montre les groupes de fonctions actifs et les bugs connus qui la concernent. Les groupes dont l'activation dépend d'un autre réglage (joystick branché, options) sont marqués « selon réglage ».</p>
+  <div class="cfg" id="cfg"></div>
+  <div class="grid2">
+    <div class="box"><h3>Bugs connus pour cette configuration</h3><div id="cfgbugs" class="chips" style="flex-direction:column;align-items:stretch"></div></div>
+    <div class="box"><h3>Groupes de fonctions</h3><div class="note" id="cfgcount"></div><div id="cfggroups" style="max-height:60vh;overflow:auto"></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-explorateur" hidden>
+  <h2>Explorateur des canaux</h2>
+  <p class="lead">Les 3 266 canaux de la 108.3.1, avec leur logique réécrite en clair. Cherche un nom, puis remonte ou descends les dépendances en cliquant.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="search" id="q" placeholder="Nom de canal, ex. Battery CHARGED" style="flex:1 1 260px" aria-label="Rechercher un canal">
+    <select id="fapp" aria-label="Application"><option value="">Toutes les applis</option></select>
+    <select id="fkind" aria-label="Type de canal"><option value="">Tous les types</option></select>
+  </div>
+  <div class="explorer">
+    <div><div class="note" id="rcount"></div><div class="results" id="results"></div></div>
+    <div id="detail" class="box"></div>
+  </div>
+</section>
+
+<section class="view" id="v-bugs" hidden>
+  <h2>Bugs et points à vérifier</h2>
+  <p class="lead">Classés par gravité. « À confirmer » veut dire que la logique est anormale mais peut être voulue : toi seul peux trancher.</p>
+  <div class="chips" id="bugfilter"></div>
+  <div id="buglist" style="display:flex;flex-direction:column;gap:12px"></div>
+</section>
+
+<section class="view" id="v-v2" hidden>
+  <h2>La v2 : mêmes fonctions, une seule fois chacune</h2>
+  <p class="lead">IQANdesign ne réimporte pas de texte : la v2 se construit dans l'IDE, par étapes, sur une copie de la 108.3.1. Chaque étape est vérifiée par deux outils automatiques avant d'aller plus loin.</p>
+  <div class="vs">
+    <div class="box"><span class="label">Aujourd'hui</span><div id="archnow" style="display:flex;flex-direction:column;gap:6px"></div></div>
+    <div class="box"><span class="label">v2</span><div id="archv2" style="display:flex;flex-direction:column;gap:6px"></div></div>
+  </div>
+  <h3>Les étapes</h3>
+  <div class="steps" id="v2steps"></div>
+  <div class="box"><h3>Le contrat avec les bateaux livrés</h3>
+    <p>Un bateau garde ses réglages et son câblage. La v2 ne change donc ni le nom, ni le type, ni l'ordre des états d'un réglage, ni une trame CAN, ni une broche, ni un code de message. L'outil <code>compat_check.py</code> compare deux versions et liste tout écart : sur v117 → 108.3.1 il trouve 1 406 éléments de contrat, 2 retraits (l'ancien heartbeat du keypad) et 35 ajouts.</p>
+    <div class="tbl"><table id="matrix"></table></div></div>
+  <div class="box"><h3>Trois lignées, deux applications v2</h3>
+    <p>Le parc tourne sur trois projets différents, pas sur trois versions d'un même projet. La v2 garde une architecture et des blocs de logique communs, mais le matériel impose deux applications.</p>
+    <div class="tbl"><table><tr><th>Lignée</th><th>Matériel</th><th>Propulsion</th><th>Devient</th></tr>
+      <tr><td>108.x (v117, 108.3.1)</td><td>MC42 + MD4-10 / MD4-5 + keypad</td><td>électrique ou thermique EB2/Ford/Kubota</td><td>v2 MC42</td></tr>
+      <tr><td>MD3 V69.03.1</td><td>MC42 + MD3, radio, Proemion</td><td>thermique EB2/Ford</td><td>v2 MC42 (MD3 en écran optionnel)</td></tr>
+      <tr><td>VW V5.37</td><td>MC2 + MD3, radio</td><td>thermique VW 2.0L/Ford</td><td>v2 MC2</td></tr></table></div>
+    <p class="note">Méthode : page blanche pour la structure, logique transplantée depuis la version qui tourne sur les bateaux, migration des réglages pour V69 et V5.37. Point à vérifier d'abord : les sorties de pompe gauche/droite sont inversées entre V69/V5.37 et la 108.3.1.</p></div>
+  <div class="box"><h3>Journaux unifiés par le haut</h3>
+    <p>Chaque famille d'équipement remplit la même grille d'événements et de statistiques, quelle que soit la marque : arrêt avec sa cause, changements d'état batterie, erreurs avec leur code brut, charges, alertes moteur et hydrauliques, maintenance, forçages. Les journaux existants gardent leur nom pour que l'historique des bateaux reste lisible.</p>
+    <p class="note">Trous actuels en 108.3.1 : rien pour Kreisel, les chargeurs, le keypad ni la cause d'un arrêt ; pas de statistiques de charge.</p></div>
+  <div class="callout"><b>Ce qu'il me manque pour garantir la compatibilité</b><div id="openq"></div></div>
+</section>
+
+<section class="view" id="v-glossaire" hidden>
+  <h2>Lire un projet IQAN</h2>
+  <p class="lead">Ce qu'il faut savoir pour lire les fiches de l'explorateur sans ouvrir l'IDE.</p>
+  <div class="grid2">
+    <div class="box"><h3>Groupes d'objets</h3>
+      <p>La logique d'un canal se compose de <b>groupes</b> : <i>Activating</i> (allume), <i>Blocking</i> (éteint, prioritaire), <i>Controlling</i> (calcule une valeur), <i>Limiting</i> (la borne), <i>Increasing/Decreasing/Resetting</i> (compteurs, timers), <i>Showing/Hiding</i> (messages).</p>
+      <p>Dans un groupe, seuls les objets <b>résultants</b> (non utilisés par un autre objet) sont combinés par la méthode du groupe (Or, And, Multiply…). Les fiches réécrivent ça en une expression unique. <code>[verrouillé]</code> = méthode Latching : reste vrai jusqu'au Blocking.</p></div>
+    <div class="box"><h3>Variantes</h3>
+      <p><b>Function selector</b> : un canal a une fonction par état d'un paramètre (ex. une par marque de batterie). Une fonction vide laisse le canal à 0 dans cette variante : c'est l'origine des bugs Kreisel.</p>
+      <p><b>Groupe activé par un canal</b> : si le canal est faux, tous les canaux du groupe valent 0 (ou leur valeur d'erreur). C'est l'origine de la régression du joystick MD4-5.</p></div>
+    <div class="box"><h3>Conventions de noms du projet</h3><div class="tbl"><table id="namingtbl"></table></div></div>
+    <div class="box"><h3>Types de canaux</h3><div class="tbl" style="max-height:420px;overflow:auto"><table id="kindtbl"></table></div></div>
+  </div>
+  <p class="note">Limites de l'export texte : la cible des transitions des machines d'état et la portée des canaux ne sont pas exportées par IQANdesign. Les références sont résolues comme IQAN le fait par défaut (même groupe, puis groupes parents).</p>
+</section>
+
+<section class="view" id="v-faisceaux" hidden>
+  <h2>Plans de faisceaux</h2>
+  <p class="lead">Brochage relevé dans IQANdesign pour chaque contrôleur et écran, croisé avec la logique : chaque broche dit ce qu'elle commande et dans quelle configuration elle sert. Choisis la version et la configuration du bateau ; les broches inutiles dans cette configuration passent en gris.</p>
+  <div class="cfg" id="hcfg"></div>
+  <div class="chips" id="hlegend"></div>
+  <div id="hmods" style="display:flex;flex-direction:column;gap:20px"></div>
+  <p class="note">Source : vue « List » des modules dans IQANdesign (connecteur:broche, nom de signal, canal) et groupes de fonctions des exports. Les broches d'alimentation (+BAT, -BAT), de bus CAN et d'adresse sont toujours câblées. Les sorties HS+LS utilisent deux broches (alimentation et retour) ; les broches HS communes (ex. C1:46, C1:47 du MC42) alimentent plusieurs sorties.</p>
+</section>
+
+</main>
+
+<script type="application/json" id="hdata">__HDATA__</script>
+<script type="application/json" id="data">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const C = D.chans;
+const byName = {};
+C.forEach((c,i)=>{(byName[c.n]=byName[c.n]||[]).push(i)});
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+const KIND = {IDC:"Logique tout-ou-rien",MAC:"Calcul (réel)",IMAC:"Calcul (entier)",DMAC:"Calcul double sens",FSM:"Machine d'état finie",SMC:"Machine d'états (choix d'état)",TMR:"Minuterie",MEM:"Mémoire",ECNT:"Compteur",SFC:"Rampe / filtre",ARC:"Tableau",SP:"Réglage à états",IP:"Réglage entier",FP:"Réglage réel",DP:"Réglage oui/non",TP:"Texte paramétrable",SIP:"Réglage entier court",PCC:"Code PIN",GFIN:"Trame CAN reçue",GFOUT:"Trame CAN émise",GPIN:"Signal dans une trame reçue",GPOUT:"Signal dans une trame émise",JFIN:"Trame J1939 reçue",JFOUT:"Trame J1939 émise",JPIN:"Signal J1939 reçu",JPOUT:"Signal J1939 émis",SPN:"Paramètre J1939 (SPN)",DM1IN:"Défauts moteur J1939 (DM1)",TSC1:"Consigne moteur J1939 (TSC1)",CMSG:"Message écran",IMSG:"Message avec choix",APPIN:"Entrée venant d'une autre appli",APPOUT:"Sortie vers une autre appli",FGI:"Entrée de groupe",VIN:"Entrée analogique",VIN32:"Entrée analogique 32 V",DIN:"Entrée tout-ou-rien",DOUT:"Sortie tout-ou-rien",PWM:"Sortie PWM",COUT:"Sortie en courant",VDIN:"Bouton d'écran",MDGN:"Diagnostic module",SIC:"Information système",LTC:"Régulation de translation",TFC:"Mise en forme de texte",ILC:"Voyant",DPCNT:"Compteur double impulsion"};
+const kindLabel = k=>KIND[k]||k;
+
+/* ---------- tabs ---------- */
+const views=[...document.querySelectorAll('nav.tabs button')].map(b=>b.dataset.v);
+function show(v){
+  if(!views.includes(v)) v='apercu';
+  views.forEach(x=>{document.getElementById('v-'+x).hidden = x!==v});
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.v===v));
+  try{localStorage.setItem('iq-tab',v)}catch(e){}
+}
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{show(b.dataset.v);window.scrollTo(0,0)});
+
+/* ---------- chips ---------- */
+function chip(name,label){
+  const ids=byName[name];
+  if(!ids) return `<span class="chip ui">${esc(label||name)}</span>`;
+  return `<button class="chip" data-ch="${ids[0]}" title="${esc(C[ids[0]].g)}">${esc(label||name)}</button>`;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-ch]'); if(!b) return;
+  openChan(+b.dataset.ch);
+});
+
+/* ---------- overview ---------- */
+const nApp={};C.forEach(c=>nApp[c.a]=(nApp[c.a]||0)+1);
+const kp=[[C.length,"canaux au total"],[nApp['MC42 app'],"dans le MC42"],[nApp['MD4-CAB app'],"dans l'écran cabine MD4-10"],[nApp['MD45-ET app'],"dans l'écran tableau MD4-5"],[23,"équipements CAN déclarés"],[219,"réglages en menu"]];
+$('#kpis').innerHTML=kp.map(([v,l])=>`<div class="box"><span class="kpi">${v.toLocaleString('fr-FR')}</span><span class="kpi-l">${l}</span></div>`).join('');
+
+const BLOCKS=[
+ {id:'mc42',x:380,y:190,w:240,h:90,t:'MC42-33',s:'contrôleur principal · « MC42 app »',
+  info:`<h3>MC42-33 — le cerveau</h3><p>Toute la logique machine : gestion d'énergie (batterie, charge, arrêt), propulsion, relevage et tension des chenilles, moteur thermique, keyboxes, messages d'erreur. Ses blocs principaux : <code>mc.Electric</code> (actif si ${chip('Is_Electric mc')}), <code>mc.Thermic</code> (actif si ${chip('Is_Thermic mc')}), <code>mc.I/O</code>, la logique des écrans et, depuis la 108.3.1, <code>Keypad 8 keys</code>.</p>`},
+ {id:'md410',x:720,y:40,w:250,h:80,t:'MD4-10 « C10 »',s:'écran cabine · optionnel',
+  info:`<h3>Écran cabine MD4-10</h3><p>Boutons tactiles empaquetés en bits et envoyés au MC42 (${chip('dtobin APPOUT C10')}), joystick cabine, réception NMEA des hors-bords Mercury/Yamaha/COX et GPS Garmin sur son port C (250 kb/s), batterie 24 V Tyva de la clim sur son port D.</p>`},
+ {id:'md45',x:720,y:150,w:250,h:80,t:'MD4-5 « 45 » / « 4ET »',s:'écran tableau · optionnel',
+  info:`<h3>Écran tableau MD4-5</h3><p>18 boutons (UP, DOWN, SLOW, FAST, FREE, START, SAFETY OFF…) envoyés au MC42 en un mot de bits (${chip('buttons 45 dtobin APPOUT')}), joystick, buzzer, niveau d'eau V10. Son entrée C2:1 sert soit au capteur de niveau d'eau V10, soit à un joystick gauche branché sur cet écran (réglage « Joystick plugged md45 »).</p>`},
+ {id:'md3',x:720,y:260,w:250,h:70,t:'MD3 « d3 »',s:'bateaux anciens · absent du projet',ghost:true,
+  info:`<h3>Écran MD3</h3><p>Encore présent sur de nombreux bateaux en service, mais aucun module MD3 n'est déclaré dans la 108.3.1 : il ne reste que le groupe ${chip('VIEW BAT Ready d3','mc.d3 Screen State')} côté MC42, dont la plupart des canaux ne sont plus lus. La v2 doit le réintégrer comme écran optionnel ; il me faut pour cela le projet utilisé aujourd'hui sur ces bateaux.</p>`},
+ {id:'canc',x:20,y:30,w:300,h:180,t:'CAN C du MC42',s:'500 ou 125 kb/s',list:['Batteries BMW · Novum · Tyva · Kreisel','Isomètre Bender (Tyva)','Chargeurs BMW · Brusa · Elcon','Variateurs Zapi ou Sevcon gen4','Pompe HV Sevcon « gen » (HVLP)','Keybox X100 E / T','Keypad Blink PKP2400SI'],
+  info:`<h3>Bus CAN C</h3><p>Le bus de puissance : batteries, isomètre, chargeurs, variateurs de chenilles, pompe hydraulique HV en configuration cabine, keybox X100, keypad. Vitesse choisie par ${chip('CAN Speed C mc')} (500, ou 125 pour programmer une keybox X100). Chaque équipement n'est actif que si sa variante est choisie.</p>`},
+ {id:'canb',x:20,y:260,w:300,h:150,t:'CAN B du MC42',s:'500 · 250 · 125 kb/s',list:['J1939 : moteurs EB2 · Ford · Kubota','J1939 : onduleur pompe M3 (adresse 113)','Keyboxes cabine KTB · KBB · KTC'],
+  info:`<h3>Bus CAN B</h3><p>Moteurs thermiques et onduleur de pompe en J1939, keyboxes cabine en trames 11 bits. Une seule vitesse à la fois (${chip('CAN Speed B mc')}) : 500 électrique, 250 thermique, 125 keyboxes cabine. Un bateau thermique avec keyboxes cabine n'est donc pas possible sans recâblage.</p>`},
+];
+function drawSys(){
+  const s=$('#sys'); let h='';
+  h+=`<path class="bus" d="M320 120 C350 120 350 215 380 215" stroke="var(--accent)"/>`;
+  h+=`<path class="bus" d="M320 335 C350 335 350 255 380 255" stroke="var(--warn)"/>`;
+  h+=`<path class="bus" d="M620 220 L690 220 L690 80 L720 80 M690 190 L720 190 M690 220 L690 295 L720 295" stroke="var(--muted)" stroke-dasharray="0"/>`;
+  h+=`<text x="636" y="212" class="svg-m">bus Master</text>`;
+  BLOCKS.forEach(b=>{
+    h+=`<g class="blk${b.ghost?' ghost':''}" data-b="${b.id}" tabindex="0" role="button" aria-label="${esc(b.t)}"><rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="5"/>`;
+    h+=`<text x="${b.x+12}" y="${b.y+24}" class="svg-t" font-weight="700">${esc(b.t)}</text><text x="${b.x+12}" y="${b.y+42}" class="svg-m">${esc(b.s)}</text>`;
+    (b.list||[]).forEach((l,i)=>h+=`<text x="${b.x+12}" y="${b.y+64+i*16}" class="svg-m">· ${esc(l)}</text>`);
+    h+=`</g>`;
+  });
+  h+=`<text x="400" y="320" class="svg-m">port A : bus Master + diagnostic (G1x Bluetooth)</text>`;
+  s.innerHTML=h;
+  s.querySelectorAll('.blk').forEach(g=>{
+    const f=()=>selBlock(g.dataset.b); g.onclick=f; g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}};
+  });
+  selBlock('mc42');
+}
+function selBlock(id){
+  document.querySelectorAll('#sys .blk').forEach(g=>g.classList.toggle('sel',g.dataset.b===id));
+  $('#sysinfo').innerHTML=BLOCKS.find(b=>b.id===id).info;
+}
+drawSys();
+
+/* ---------- tours ---------- */
+const TOURS=[
+ {id:'start',t:"Démarrer le bateau",steps:[
+  ["Le pilote appuie sur ON/OFF",`L'appui arrive de trois endroits possibles et converge dans ${chip('B9')} : l'écran tableau (${chip('B9 Start Button 4ET START')}), l'écran cabine (${chip('B9 START C10')}) ou, depuis la 108.3.1, la touche 1 du keypad (${chip('Start/Stop keypad')}).`],
+  ["Une jauge se remplit",`Il faut maintenir l'appui : ${chip('B9 wait')} cale le début de la jauge sur son affichage, ${chip('Rampe 0->100')} la remplit, ${chip('B9 toggle')} bascule quand elle atteint le seuil. ${chip('Démarrage')} passe alors en état actif.`],
+  ["Le MC42 demande la puissance",`En électrique, la demande devient ${chip('IMS Start Request confirmed')} puis ${chip('IMS Asks Power')}, maintenue par ${chip('Keep ON')}. Elle est bloquée si les variateurs ne sont pas prêts (${chip('PARKERs OK E mc')}) ou pendant une coupure.`],
+  ["La batterie accepte",`Côté batterie, ${chip('IMS engines CMD')} entre dans ${chip('E.Power Management System')} qui passe de Standby à Discharge si aucune erreur n'est présente. ${chip('E.Battery CMD')} ordonne alors la fermeture des contacteurs.`],
+  ["Les écrans suivent",`${chip('batt ok to start')} est renvoyé aux deux écrans ; l'écran tableau quitte l'état Startup de ${chip('eBoat State 4E')} (après code PIN ou déverrouillage à distance) pour Run, et ${chip('45 Speed state')} passe de Parking à Slow quand les moteurs sont prêts.`]]},
+ {id:'pms',t:"La batterie, chef d'orchestre",fsm:{name:'E.Power Management System',states:['OFF','Standby','Discharge','Charge','Crash','Charge Aborted','Auto Off'],
+   edges:[[0,1,'Battery ready'],[1,2,'Ask Discharge'],[1,3,'Ask Charge'],[2,1,'Ask Stand by'],[2,4,'Critical Discharge Error'],[3,2,'Ask direct Discharge'],[3,1,'Charger Off / End Of Charge'],[3,5,'Critical Charge Error'],[5,2,'Ready for discharge'],[6,1,'No ShutDown']]},
+  steps:[
+  ["Trois clients, une batterie",`La batterie reçoit trois demandes : propulsion (${chip('IMS engines CMD')}), charge (${chip('Charger CMD')}) et convertisseur 12 V (${chip('DCDC CMD')}). ${chip('E.Power Management System')} décide de l'état ; les flèches du schéma reprennent les noms des transitions (IQAN n'exporte pas leur cible, elle est déduite du nom).`],
+  ["L'ordre envoyé à la batterie",`${chip('E.Battery CMD')} traduit l'état en ordre (Off, Stand by, Discharge, Charge) et attend ${chip('OK Open Battery Relay')} avant d'ouvrir les contacteurs.`],
+  ["Le chien de garde",`${chip('Battery Watchdog')} compare l'ordre au retour de la batterie (${chip('Battery State Feed-Back')}). Si la batterie ne suit pas après ${chip('eb Battery Watchdog Delay')}, c'est une erreur.`],
+  ["Une seule erreur pour toutes les marques",`${chip('Battery ERROR DIGIT')} regroupe les erreurs BMW, Novum, Tyva, Kreisel, le chien de garde et la protection d'isolement (${chip('IDC Battery Protection')}, 100 s d'isolement bas). Elle fait passer le système en Crash ; ${chip('Crash recovery flag')} permet d'en sortir.`],
+  ["Les valeurs normalisées",`Chaque marque a son groupe qui décode ses trames. La logique commune lit des canaux génériques à sélecteur ${chip('eb Battery Brand')} : ${chip('Battery SOC')}, ${chip('Cell_T_max_Master')}, ${chip('Battery CHARGED')}… Une fonction vide dans l'un d'eux = une marque mal servie.`]]},
+ {id:'charge',t:"Charger",fsm:{name:'E.Charging State Machine',states:['OFF','Charger Ready','Charging','Finish Charge'],edges:[[0,1,'Ready & Connected'],[1,2,'Charge CMD'],[1,0,'Unplug'],[2,0,'Unplug'],[2,1,'Stop Charge'],[2,3,'End Of Charge'],[3,0,'Turn Off Delay']]},
+  steps:[
+  ["Le chargeur se signale",`Quand le chargeur est branché au secteur et dialogue sans erreur, ${chip('Charger State Feed-back')} dépasse 2 : ${chip('E.Charging State Machine')} passe à Charger Ready.`],
+  ["La demande de charge",`${chip('Charger REQ')} puis ${chip('Charger CMD')} remontent vers la batterie, qui passe en Charge si ${chip('HT Battery NEED TO CHARGE')} et si la propulsion n'est pas demandée.`],
+  ["Consignes",`Tension et courant maximums viennent des réglages (${chip('ec Max Full Charge Voltage')}, ${chip('ec AC Max Current Line')}) et de la batterie ; ${chip('Max DC Current')} les combine. Chaque marque de chargeur (BMW, Brusa, Elcon) a son groupe.`],
+  ["Fin de charge",`Le chargeur peut finir (${chip('Charger end of charge')}, sauf équilibrage en cours) ou la batterie peut déclarer ${chip('Battery CHARGED')}. Sur une batterie Kreisel, ce second chemin n'existe pas (bug 1.2).`]]},
+ {id:'speed',t:"Choisir une vitesse",fsm:{name:'45 Speed state',states:['Parking','Slow','Super Slow','Fast'],edges:[[0,1,'Slow ou Start'],[0,3,'Fast'],[1,2,'Super slow'],[1,3,'Fast'],[2,1,'Slow'],[2,3,'Fast'],[3,1,'Slow'],[3,2,'Super slow']]},
+  steps:[
+  ["Quatre états",`${chip('45 Speed state')} part de Parking et passe à Slow dès que les moteurs sont prêts (${chip('Engines READY 45')}).`],
+  ["Les boutons",`Les boutons SLOW, FAST et super slow des écrans et, en 108.3.1, les touches Slow/Normal/Fast du keypad (${chip('Slow keypad')}, ${chip('Fast keypad')}, ${chip('Normal keypad')}) font changer d'état.`],
+  ["Vers la translation",`L'état choisi alimente ${chip('Screen_Speed Input mc')} et les voyants de l'écran ; la translation applique ensuite la vitesse maximale correspondante.`]]},
+ {id:'updown',t:"Relever les chenilles",steps:[
+  ["Position mesurée",`La position des bras est lue en pourcentage puis classée par ${chip('E State Up/Down')} (électrique) ou ${chip('T State Up/Down')} (thermique) : DOWN sous 2 %, INTERMEDIATE de 2 à 98 %, UP au-delà, UP AND BLOC quand les verrous sont engagés.`],
+  ["Commande",`Les boutons UP/DOWN des écrans, et en thermique ceux du keypad, passent par ${chip('B1 Virtual UP 4ETUP sel')} et ${chip('B2 Virtual DOWN 4ETDOWN sel')}.`],
+  ["Sécurité keypad",`Bras en butée : il faut maintenir 3 s (${chip('keypad up wait')}). Bras en position intermédiaire : effet immédiat (${chip('keypad up quick')}), pour pouvoir les arrêter tout de suite.`],
+  ["Sorties",`Les électrovannes sont choisies selon la propulsion par les canaux « Sel » : ${chip('EV Up Sel')}, ${chip('EV Down Sel')}, ${chip('EV Lock Sel')}, puis pilotées sur les broches du MC42 (${chip('EV Up mc 57')}, ${chip('EV Down mc 42')}…).`]]},
+ {id:'keypad',t:"Le keypad Blink",fsm:{name:'FSM keypad',states:['Default','Pre-operational','Operational','Stop'],edges:[[0,1,'127'],[0,2,'5'],[0,3,'4'],[1,2,'5'],[1,3,'4'],[1,0,'0'],[2,3,'4'],[2,1,'127'],[2,0,'0'],[3,0,'0'],[3,2,'5'],[3,1,'127']]},
+  steps:[
+  ["Activation",`Réglage ${chip('Keypad 8 keys')} dans le menu Master Config. Pensé pour les thermiques : le relevage par keypad exige ${chip('T Engine_Started mc')}.`],
+  ["Surveillance",`Le heartbeat CANopen (${chip('heartbeat')}, 0x715, timeout 2 s) alimente ${chip('FSM keypad')}. Absence ou état Stop/Pre-op : message ${chip('Keypad HS')} « Keypad is not working ».`],
+  ["Touches",`${chip('keys number')} donne la touche appuyée : 1 Start/Stop, puis Free, Slow, Normal, Fast, Up, Down. Elles rejoignent la logique existante des écrans, rien n'est dupliqué.`],
+  ["LED",`Couleur et luminosité réglables (${chip('Keypad backlight color')}, ${chip('Keypad LED brightness level')}) ; la flèche du dernier sens demandé clignote (${chip('up or down keypad')}).`]]},
+];
+function fsmSvg(f){
+  const n=f.states.length, W=Math.max(640,n*150), R=Math.min(170,W/2-90), cx=W/2, cy=R+40, H=cy*2+20;
+  const pos=f.states.map((s,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[cx+R*Math.cos(a),cy+R*Math.sin(a)]});
+  let h=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Machine d'état ${esc(f.name)}"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>`;
+  f.edges.forEach(([a,b,l],k)=>{
+    const [x1,y1]=pos[a],[x2,y2]=pos[b]; const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;
+    const off=18, nx=-dy/L*off, ny=dx/L*off; const sx=x1+dx/L*58+nx, sy=y1+dy/L*22+ny, ex=x2-dx/L*58+nx, ey=y2-dy/L*22+ny;
+    h+=`<path class="edge" d="M${sx} ${sy} L${ex} ${ey}" marker-end="url(#ar)"><title>${esc(l)}</title></path>`;
+    if(f.edges.length<=8) h+=`<text x="${(sx+ex)/2+nx*0.6}" y="${(sy+ey)/2+ny*0.6}" class="svg-m" text-anchor="middle">${esc(l)}</text>`;
+  });
+  pos.forEach(([x,y],i)=>{h+=`<rect class="state" x="${x-58}" y="${y-18}" width="116" height="36" rx="18"/><text x="${x}" y="${y+4}" class="svg-t" text-anchor="middle" font-size="12">${i} · ${esc(f.states[i])}</text>`});
+  return h+`</svg>`;
+}
+function showTour(id){
+  const t=TOURS.find(x=>x.id===id);
+  document.querySelectorAll('#tourbtns .btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===id));
+  $('#tour').innerHTML=`<h3>${esc(t.t)}</h3>`+(t.fsm?`<div class="svgwrap">${fsmSvg(t.fsm)}</div><p class="note">Numéros = valeur de l'état dans IQAN. Transitions :</p><div class="tbl"><table><tr><th>De</th><th>Vers</th><th>Transition</th></tr>${t.fsm.edges.map(([a,b,l])=>`<tr><td>${a} · ${esc(t.fsm.states[a])}</td><td>${b} · ${esc(t.fsm.states[b])}</td><td>${esc(l)}</td></tr>`).join('')}</table></div>`:'')+
+   `<div class="steps">${t.steps.map((s,i)=>`<div class="step" data-n="${i+1}"><b>${s[0]}</b><p>${s[1]}</p></div>`).join('')}</div>`;
+}
+$('#tourbtns').innerHTML=TOURS.map(t=>`<button class="btn" data-t="${t.id}">${esc(t.t)}</button>`).join('');
+document.querySelectorAll('#tourbtns .btn').forEach(b=>b.onclick=()=>showTour(b.dataset.t));
+showTour('start');
+
+/* ---------- bugs ---------- */
+const BUGS=[
+ {s:1,t:"Batterie Kreisel : isolement bas sans message, puis coupure",v:"v117 et 108.3.1",st:"À confirmer",tags:['Kreisel'],
+  d:"Le défaut d'isolement est bien calculé pour Kreisel, mais les fonctions Kreisel du canal d'erreur et du message « e1170 Battery Isolation » sont vides. Le pilote n'est pas prévenu, puis la protection coupe la batterie au bout de 100 s.",
+  c:['BMW tyva - Isolation Error','Error Iso_Resist','e Battery Protection mc','IDC Battery Protection','Flag Ground Fault Detection'],fix:"Remplir les fonctions Kreisel sur le modèle BMW."},
+ {s:1,t:"Batterie Kreisel : la batterie ne déclare jamais « chargée »",v:"v117 et 108.3.1",st:"À confirmer",tags:['Kreisel'],
+  d:"La fonction Kreisel de Battery CHARGED est vide : la transition « End Of Charge » ne peut pas se produire, la charge ne s'arrête que si le chargeur coupe, et le journal « Battery Charged » ne s'écrit jamais.",
+  c:['Battery CHARGED','E.Power Management System'],fix:"(SOC ≥ Charge Max) OU fin de charge chargeur, comme BMW."},
+ {s:2,t:"Joystick gauche branché sur le MD4-5 : forcé à 0",v:"régression 108.3.1",st:"À surveiller",tags:['MD4-5'],
+  d:"Le groupe « Water level V10 motor » est passé de actif à désactivé. Il contient l'entrée C2:1 du MD4-5, partagée entre le capteur de niveau d'eau des hors-bords et un éventuel joystick gauche branché sur cet écran. Un groupe désactivé met ses canaux à 0. Effet uniquement si le réglage « Joystick plugged md45 » est sur oui (non par défaut) ; les joysticks branchés sur le MC42 ou l'écran cabine ne sont pas touchés.",
+  c:['Left Joy ET45 ou water level C2:1','Left Joystick ET45 CanOut','Joystick plugged md45','Calibration water level motor V10'],fix:"Sortir l'entrée du groupe, ne désactiver que la calibration niveau d'eau."},
+ {s:1,t:"Erreur de la pompe M3 (Sevcon J1939) jamais affichée",v:"v117 et 108.3.1",st:"Bug",tags:['x100','Électrique'],
+  d:"Le message « e1168 Pump Engine » n'a aucune condition d'affichage. La variante « gen » a la sienne ; la copie J1939 l'a perdue.",
+  c:['e M3 - Pump Engine CMSG mc','e gen M3 - Pump Engine CMSG mc','M3 - New Error Code'],fix:"Showing = M3 - New Error Code."},
+ {s:1,t:"Port CAN B partagé : thermique et keyboxes cabine incompatibles",v:"conception",st:"Limite",tags:['Thermique','Cabine'],
+  d:"Le port B ne prend qu'une vitesse : 250 kb/s pour les moteurs J1939 ou 125 kb/s pour les keyboxes cabine.",
+  c:['CAN Speed B mc'],fix:"Conservé tel quel en v2 (lever la limite demande du câblage)."},
+ {s:2,t:"Bouton Free : la bascule a changé de place",v:"108.3.1",st:"À vérifier",tags:['Cabine'],
+  d:"La bascule est passée du bouton de l'écran 45 au canal commun qui reçoit aussi l'écran cabine et le keypad. Si le bouton Free de l'écran cabine basculait déjà de son côté, il est basculé deux fois.",
+  c:['B8 F4 Speed Free 4ET FREE Sel','F4 Speed Free 45','B8 FREE C10'],fix:"Essai sur un bateau cabine."},
+ {s:2,t:"Pertes de communication CAN mal détectées",v:"v117 et 108.3.1",st:"Robustesse",tags:[],
+  d:"Aucun module n'a de timeout et 35 trames reçues n'en ont pas. Les batteries sont surveillées par une seule trame sentinelle par marque : une trame de mesure qui s'arrête seule garde sa dernière valeur.",
+  c:['Battery CAN OK','tyva batt can nok','novum batt can nok','SynthesisBMS_M0'],fix:"Timeout sur chaque trame utilisée en sécurité."},
+ {s:2,t:"État thermique « Low » qui ne se remet jamais à faux",v:"v117 et 108.3.1",st:"À confirmer",tags:['Thermique'],
+  d:"Dans le Qcode de la fonction Low, la variable statique passe à vrai sous le seuil bas et rien ne la remet à faux, contrairement à Mid/High/Critical qui ont une hystérésis.",
+  c:['T Engine Temp State'],fix:"Ajouter la branche de retour avec hystérésis."},
+ {s:2,t:"Keypad : petits écarts",v:"108.3.1",st:"Mineur",tags:['Keypad'],
+  d:"La description annonce 1 s de maintien en butée, le délai réel est 3 s. Le message « Keypad is not working » s'affiche aussi pendant l'état Pre-operational, donc brièvement à chaque démarrage.",
+  c:['keypad up wait','keypad down wait','Keypad HS'],fix:"Aligner la description ; ignorer Pre-op au démarrage."},
+ {s:3,t:"Logique chenilles en double (électrique / thermique)",v:"historique",st:"Maintenabilité",tags:[],
+  d:"Translation, tension, relevage et keybox existent en deux copies (≈ 330 canaux) qui ont divergé : sur les canaux communs, seuls 8/17, 7/17, 5/21 et 5/47 ont une logique identique.",
+  c:['Over Tension','E State Up/Down','T State Up/Down'],fix:"Étape C de la v2."},
+ {s:3,t:"275 canaux lus par personne",v:"historique",st:"Maintenabilité",tags:[],
+  d:"Dont 110 bits de mise au point et les états destinés au MD3 (à garder, puisque les MD3 restent maintenus).",
+  c:['debug Be1 Inter Buzzer for 45','VIEW BAT Ready d3'],fix:"Étape B de la v2, hors contrat."},
+ {s:3,t:"38 réglages de forçage dans les menus",v:"historique",st:"Maintenabilité",tags:[],
+  d:"Forçages, simulations, inhibitions d'erreurs (ex. « Debug: Mute Battery Error », « Force EV By Pass ») restent accessibles, protégés par le PIN Master.",
+  c:['eb Debug: Mute Watchdog'],fix:"Un menu maintenance unique et un interrupteur maître."},
+ {s:3,t:"Mot de passe en clair dans le projet",v:"historique",st:"Sécurité",tags:[],
+  d:"La description du groupe « PIN code delivery date » contient un mot de passe de déverrouillage, visible par toute personne qui a le projet ou son export.",
+  c:[],fix:"Le retirer avant de partager le projet."},
+];
+const SEV={1:['t-crit','Priorité 1'],2:['t-warn','Priorité 2'],3:['t-info','Priorité 3']};
+let bugF=0;
+function renderBugs(){
+  $('#bugfilter').innerHTML=[[0,'Tous'],[1,'Priorité 1'],[2,'Priorité 2'],[3,'Priorité 3']].map(([v,l])=>`<button class="btn" data-f="${v}" aria-pressed="${bugF===v}">${l} (${v?BUGS.filter(b=>b.s===v).length:BUGS.length})</button>`).join('');
+  document.querySelectorAll('#bugfilter .btn').forEach(b=>b.onclick=()=>{bugF=+b.dataset.f;renderBugs()});
+  $('#buglist').innerHTML=BUGS.filter(b=>!bugF||b.s===bugF).map(bugHtml).join('');
+}
+const bugHtml=b=>`<div class="box bug s${b.s}"><div class="hd"><span class="tag ${SEV[b.s][0]}">${SEV[b.s][1]}</span><span class="tag t-info">${esc(b.st)}</span><span class="note">${esc(b.v)}</span></div><h3>${esc(b.t)}</h3><p>${esc(b.d)}</p>${b.c.length?`<div class="chips">${b.c.map(n=>chip(n)).join('')}</div>`:''}<p class="note"><b>Correction proposée :</b> ${esc(b.fix)}</p></div>`;
+renderBugs();
+
+/* ---------- variants ---------- */
+const CFG=[
+ {k:'drive',l:'Propulsion',o:['Électrique','Thermique']},
+ {k:'bat',l:'Batterie HT',o:['BMW','NovumTech','Tyva','Kreisel'],when:c=>c.drive==0},
+ {k:'tyvagen',l:'Isomètre Tyva',o:['Bender gen1','Bender gen2'],when:c=>c.drive==0&&c.bat==2},
+ {k:'chg',l:'Chargeur',o:['BMW','Brusa','Elcon'],when:c=>c.drive==0},
+ {k:'trk',l:'Variateurs chenilles',o:['Sevcon gen4','Zapi'],when:c=>c.drive==0},
+ {k:'eng',l:'Moteur thermique',o:['EB2 1.2L','Ford 1.5L','Kubota WG16'],when:c=>c.drive==1},
+ {k:'cab',l:'Configuration',o:['x100','Cabine']},
+ {k:'kp',l:'Keypad Blink',o:['Sans','Avec']},
+];
+const cfg={drive:0,bat:0,tyvagen:0,chg:0,trk:0,eng:0,cab:0,kp:0};
+function isOn(en){
+  const E=cfg.drive==0,T=cfg.drive==1,cab=cfg.cab==1;
+  const m={'Is_Electric mc':E,'Is_Thermic mc':T,'Is_BMW':E&&cfg.bat==0,'Is_Novum':E&&cfg.bat==1,'Is_Tyva':E&&cfg.bat==2,'Is_Kreisel':E&&cfg.bat==3,
+   'gen1':E&&cfg.bat==2&&cfg.tyvagen==0,'gen2':E&&cfg.bat==2&&cfg.tyvagen==1,'Is_Charger_BMW':E&&cfg.chg==0,'Is_Charger_Brusa':E&&cfg.chg==1,'Is_Charger_Elcon':E&&cfg.chg==2,
+   'Is_MT_Sevcon':E&&cfg.trk==0,'Is_MT_Zapi':E&&cfg.trk==1,'Is_M3_Sevcon_gen':E&&cab,'Is_M3_Sevcon_j19':E&&!cab,'Is_Electric_x100 mc':E&&!cab,
+   'Is_EB2 mc':T&&cfg.eng==0,'Is_FORD mc':T&&cfg.eng==1,'Is_Kubo mc':T&&cfg.eng==2,'is_cab_mc':cab,'Keypad 8 keys':cfg.kp==1,'VARIATOR SUPER ON E mc':E};
+  if(en==='Yes') return true; if(en==='No') return false;
+  return en in m ? m[en] : null;
+}
+function renderCfg(){
+  $('#cfg').innerHTML=CFG.map(f=>{const dis=f.when&&!f.when(cfg);return `<fieldset ${dis?'disabled style="opacity:.45"':''}><legend>${f.l}</legend>${f.o.map((o,i)=>`<label><input type="radio" name="c-${f.k}" id="c-${f.k}-${i}" value="${i}" ${cfg[f.k]==i?'checked':''}> ${o}</label>`).join('')}</fieldset>`}).join('');
+  document.querySelectorAll('#cfg input').forEach(i=>i.onchange=()=>{cfg[i.name.slice(2)]=+i.value;renderCfg()});
+  const G=Object.entries(D.groups); let on=0,rows=[];
+  const state={};
+  G.sort((a,b)=>a[0].localeCompare(b[0])).forEach(([p,g])=>{
+    const parent=p.split(' / ').slice(0,-1).join(' / ');
+    let s=isOn(g.en); if(state[parent]===false) s=false; else if(state[parent]===null&&s!==false) s=null;
+    state[p]=s; if(p.split(' / ').length<2) return;
+    if(s) on++;
+    rows.push(`<div class="grp ${s===false?'off':''}"><span class="gp mono">${esc(p)}</span><span class="tag ${s?'t-ok':s===false?'':'t-warn'}">${s?'actif':s===false?'inactif':'selon réglage'}</span></div>`);
+  });
+  $('#cfggroups').innerHTML=rows.join('');
+  $('#cfgcount').textContent=`${on} groupes actifs sur ${rows.length}.`;
+  const tags=new Set([cfg.drive?'Thermique':'Électrique',cfg.cab?'Cabine':'x100']);
+  if(!cfg.drive&&cfg.bat==3) tags.add('Kreisel'); if(cfg.kp) tags.add('Keypad'); tags.add('MD4-5');
+  const bl=BUGS.filter(b=>b.s<3&&b.tags.some(t=>tags.has(t))&&!(b.tags.includes('Thermique')&&b.tags.includes('Cabine')&&!(cfg.drive==1&&cfg.cab==1)));
+  $('#cfgbugs').innerHTML=bl.length?bl.map(b=>`<div class="grp"><span>${esc(b.t)}</span><span class="tag ${SEV[b.s][0]}">P${b.s}</span></div>`).join(''):'<p class="note">Aucun bug spécifique connu ; les points généraux (pertes CAN) restent valables.</p>';
+}
+renderCfg();
+
+/* ---------- explorer ---------- */
+const apps=[...new Set(C.map(c=>c.a))], kinds=[...new Set(C.map(c=>c.k))].sort();
+$('#fapp').innerHTML+=apps.map(a=>`<option>${esc(a)}</option>`).join('');
+$('#fkind').innerHTML+=kinds.map(k=>`<option value="${k}">${k} — ${esc(kindLabel(k))}</option>`).join('');
+let cur=-1;
+function search(){
+  const q=$('#q').value.trim().toLowerCase(), a=$('#fapp').value, k=$('#fkind').value;
+  let r=[];
+  C.forEach((c,i)=>{ if(a&&c.a!==a) return; if(k&&c.k!==k) return; if(q&&!(c.n.toLowerCase().includes(q)||c.g.toLowerCase().includes(q))) return; r.push(i)});
+  if(q) r.sort((x,y)=>(C[x].n.toLowerCase().startsWith(q)?0:1)-(C[y].n.toLowerCase().startsWith(q)?0:1)||C[y].r.length-C[x].r.length);
+  else r.sort((x,y)=>C[y].r.length-C[x].r.length);
+  $('#rcount').textContent=`${r.length} canaux${r.length>200?' (200 premiers affichés)':''}${q?'':' — les plus utilisés en premier'}`;
+  $('#results').innerHTML=r.slice(0,200).map(i=>`<button data-i="${i}" ${i===cur?'aria-current="true"':''}><span class="rn">${esc(C[i].n)} <span class="tag t-info">${C[i].k}</span></span><span class="rp">${esc(C[i].g)}</span></button>`).join('');
+  document.querySelectorAll('#results button').forEach(b=>b.onclick=()=>detail(+b.dataset.i));
+}
+['input','change'].forEach(e=>{$('#q').addEventListener(e,search);$('#fapp').addEventListener(e,search);$('#fkind').addEventListener(e,search)});
+function renderLogic(b){
+  return esc(b).replace(/^&gt; (.*)$/gm,'<i>$1</i>').replace(/```qcode\n?|```/g,'').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`([^`\n]+)`/g,'$1');
+}
+function miniGraph(i){
+  const c=C[i], up=c.u.slice(0,10), dn=c.r.slice(0,10), H=Math.max(up.length,dn.length,1)*26+30, W=760;
+  let h=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Dépendances">`;
+  const cy=H/2;
+  const node=(j,x,y,anchor)=>`<g class="blk" data-ch="${j}" style="cursor:pointer"><text x="${x}" y="${y+4}" class="svg-t" font-size="12" text-anchor="${anchor}">${esc(C[j].n.length>34?C[j].n.slice(0,33)+'…':C[j].n)}</text></g>`;
+  up.forEach((j,k)=>{const y=20+k*26;h+=`<path class="edge" d="M240 ${y} C300 ${y} 300 ${cy} 330 ${cy}"/>`+node(j,232,y,'end')});
+  dn.forEach((j,k)=>{const y=20+k*26;h+=`<path class="edge" d="M430 ${cy} C460 ${cy} 460 ${y} 520 ${y}"/>`+node(j,528,y,'start')});
+  h+=`<rect class="state hot" x="330" y="${cy-16}" width="100" height="32" rx="4"/><text x="380" y="${cy+4}" class="svg-t" text-anchor="middle" font-size="12" font-weight="700">${c.k}</text>`;
+  h+=`<text x="232" y="${H-4}" class="svg-m" text-anchor="end">lit ← ${c.u.length}${c.u.length>10?' (10 affichés)':''}</text><text x="528" y="${H-4}" class="svg-m">→ utilisé par ${c.r.length}${c.r.length>10?' (10 affichés)':''}</text>`;
+  return h+'</svg>';
+}
+function detail(i){
+  cur=i; const c=C[i];
+  document.querySelectorAll('#results button').forEach(b=>b.setAttribute('aria-current',+b.dataset.i===i));
+  const bug=BUGS.filter(b=>b.c.includes(c.n));
+  $('#detail').innerHTML=`<div class="hd" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="tag t-info">${c.k}</span><span class="note">${esc(kindLabel(c.k))}</span>${bug.map(b=>`<span class="tag ${SEV[b.s][0]}">bug P${b.s}</span>`).join('')}</div>
+   <h3 class="mono" style="font-size:17px;overflow-wrap:anywhere">${esc(c.n)}</h3><p class="note">${esc(c.a)} · ${esc(c.g.split(' / ').slice(1).join(' / ')||'racine')} · ligne ${c.l} de l'export</p>
+   ${bug.map(b=>`<div class="callout" style="background:var(--crit-soft)"><b>${esc(b.t)}</b><span>${esc(b.d)}</span></div>`).join('')}
+   <span class="label">Logique</span><pre class="logic">${c.b?renderLogic(c.b):'(aucune logique : valeur reçue, réglée ou fixe)'}</pre>
+   <span class="label">Dépendances</span><div class="svgwrap">${miniGraph(i)}</div>
+   <span class="label">Lit (${c.u.length})</span><div class="chips">${c.u.map(j=>`<button class="chip" data-ch="${j}">${esc(C[j].n)}</button>`).join('')||'<span class="note">rien</span>'}</div>
+   <span class="label">Utilisé par (${c.r.length+c.ui.length})</span><div class="chips">${c.r.map(j=>`<button class="chip" data-ch="${j}">${esc(C[j].n)}</button>`).join('')}${c.ui.map(u=>`<span class="chip ui">${esc(u)}</span>`).join('')||(c.r.length?'':'<span class="tag t-warn">lu par personne</span>')}</div>`;
+}
+function openChan(i){
+  show('explorateur'); if(!$('#q').value){search()}
+  detail(i); $('#detail').scrollIntoView({block:'start'});
+}
+search(); detail(byName['E.Power Management System'][0]);
+
+/* ---------- v2 ---------- */
+const NOW=[['mc.Electric','énergie, chenilles E, keybox E, moteurs'],['mc.Thermic','moteur, chenilles T (copie divergente), keybox T'],['Logique écrans','MD4-10, MD4-5, restes MD3, keypad'],['Partout','debug, forçages, WIP mélangés à la logique']];
+const V2=[['0.Config','réglages de variante inchangés, canaux Is_…'],['1.Équipements','un groupe par équipement (BAT, CHG, MOT, PMP, ENG, KBX, KPD, NMEA)'],['2.Normalisation','une grandeur = un canal, toutes les marques remplies'],['3.Métier','énergie, chenilles une seule fois, thermique, cabine'],['4.IHM','MD4-10, MD4-5, MD3 optionnel, keypad, messages'],['9.Maintenance','debug et forçages, coupés hors maintenance']];
+$('#archnow').innerHTML=NOW.map(([a,b])=>`<div class="layer"><b>${a}</b><span>${b}</span></div>`).join('');
+$('#archv2').innerHTML=V2.map(([a,b])=>`<div class="layer"><b>${a}</b><span>${b}</span></div>`).join('');
+const STEPS=[
+ ["Corrections sûres","Kreisel (isolement, fin de charge), message pompe M3, entrée C2:1 du MD4-5, hystérésis thermique, timeouts CAN. Le contrat ne bouge pas ; le comportement corrigé est listé dans les notes de version."],
+ ["Nettoyage sans effet","Retrait des canaux lus par personne hors contrat, des « AND False », du mot de passe en clair ; un seul menu maintenance avec interrupteur maître."],
+ ["Une seule logique chenilles","Tableau des écarts électrique/thermique canal par canal, que tu valides ; puis un groupe unique alimenté par les canaux « Sel » existants ; essais sur banc dans les deux propulsions."],
+ ["Normalisation des équipements","Liste des grandeurs par famille ; chaque marque les fournit toutes ; une fonction vide bloque la livraison."],
+ ["MD3 réintégré","Écran MD3 optionnel avec son application et ses pages, repris de la V69 ; application MC2 séparée pour les bateaux VW, construite avec les mêmes blocs."],
+ ["Conventions et documentation","Préfixes sur les nouveaux canaux seulement, descriptions, base de connaissances régénérée à chaque version."],
+];
+$('#v2steps').innerHTML=STEPS.map((s,i)=>`<div class="step" data-n="${String.fromCharCode(65+i)}"><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
+const MAT=[['Propulsion','Électrique · Thermique','Drive Type mc'],['Batterie HT','BMW · NovumTech · Tyva · Kreisel','eb Battery Brand'],['Isomètre Tyva','Bender gen1 · gen2','Tyva gen bender'],['Chargeur','BMW · Brusa · Elcon','ec Charger Brand'],['Variateurs','Sevcon gen4 · Zapi','em1 M-Track - Brand'],['Pompe HV','Sevcon gen (HVLP, cabine) · Sevcon J1939 (x100)','em M-Pump - Brand'],['Moteur thermique','EB2 · Ford · Kubota','T Engine type'],['Configuration','x100 · Cabine','is_cab_mc'],['Hors-bords','Mercury · Yamaha · COX','md4 Engine Brand'],['Keypad','Sans · Avec','Keypad 8 keys'],['Écrans','MD4-10 · MD4-5 · MD3','modules optionnels']];
+$('#matrix').innerHTML=`<tr><th>Fonction</th><th>Équipements, dans l'ordre des états</th><th>Réglage</th></tr>`+MAT.map(r=>`<tr><td>${r[0]}</td><td>${esc(r[1])}</td><td>${byName[r[2]]?chip(r[2]):esc(r[2])}</td></tr>`).join('');
+$('#openq').innerHTML=`<p>1. Le câblage des pompes sur un bateau MD4 et sur un bateau MD3 : <code>COUT 0</code> est-il la pompe droite ou gauche ?</p><p>2. Un essai sur banc : mise à jour d'un MC42 avec un projet d'un autre identifiant, pour voir ce que deviennent ses réglages et ses journaux.</p>`;
+
+/* ---------- glossary ---------- */
+$('#namingtbl').innerHTML=`<tr><th>Motif</th><th>Sens</th></tr>`+[['E …, e …, E.','branche électrique'],['T …, T.','branche thermique'],['… mc NN','broche NN du MC42'],['… C41 C2:N, … ET45 C2:N','broche des écrans'],['… Sel','sortie choisie selon la propulsion'],['eb / ec / em …','réglages batterie / chargeur / moteurs'],['Is_…','active un groupe de variante'],['B1…B18, Be…','bits de boutons échangés avec les écrans'],['… APPOUT / APPIN','liaison entre applications'],['e1170, e1168…','code d’erreur affiché au pilote']].map(r=>`<tr><td class="mono">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
+const kc={};C.forEach(c=>kc[c.k]=(kc[c.k]||0)+1);
+$('#kindtbl').innerHTML=`<tr><th>Type</th><th>Rôle</th><th>Nb</th></tr>`+Object.entries(kc).sort((a,b)=>b[1]-a[1]).map(([k,n])=>`<tr><td class="mono">${k}</td><td>${esc(kindLabel(k))}</td><td class="mono">${n}</td></tr>`).join('');
+
+/* ---------- start ---------- */
+let start=location.hash.slice(1);
+if(!views.includes(start)){try{start=localStorage.getItem('iq-tab')||'apercu'}catch(e){start='apercu'}}
+
+/* ---------- harness ---------- */
+const H = JSON.parse(document.getElementById('hdata').textContent);
+const hc = {lin:0, drive:1, cab:0, seat:0, inflate:0, joy42:1, exhaust:1};
+const HCFG = [
+  {k:'lin', l:'Version', o:H.map(x=>x.label)},
+  {k:'drive', l:'Propulsion', o:['Électrique','Thermique'], when:c=>c.lin==0},
+  {k:'cab', l:'Configuration', o:['x100','Cabine'], when:c=>c.lin==0},
+  {k:'seat', l:'Siège électrique', o:['Non','Oui'], when:c=>c.lin==0&&c.cab==1},
+  {k:'inflate', l:'Gonflage 24 V', o:['Non','Oui'], when:c=>c.lin==0},
+  {k:'joy42', l:'Joystick sur le MC42', o:['Non','Oui'], when:c=>c.lin==0&&c.cab==0},
+  {k:'exhaust', l:'Capteur échappement', o:['Non','Oui'], when:c=>c.lin==0&&c.drive==1},
+];
+function hcond(name){
+  const E=hc.drive==0, T=hc.drive==1, cab=hc.cab==1;
+  const m={'not_a_sim':true,'Is_Thermic mc':T,'Is_Electric mc':E,'is_cab_mc':cab,'is_x100_mc_s':!cab,'electronic seat':hc.seat==1,
+    'feature inflate 24v':hc.inflate==1,'joystick plugged mc42':hc.joy42==1,'is_cab or joy_mc42':cab||hc.joy42==1,
+    'sel thermic or cab':T||cab,'Exhaust temp sensor mc sel':hc.exhaust==1};
+  if(hc.lin!=0) return null;
+  return name in m ? m[name] : null;
+}
+function hstate(r){
+  if(!r.ch) return r.kind==='power'||r.kind==='can'||r.kind==='ref' ? (r.sig&&r.sig!=='-'?'sys':'free') : 'free';
+  let s=true; for(const c of r.cond){ const v=hcond(c); if(v===false) return 'off'; if(v===null) s=null; }
+  return s===null?'maybe':'on';
+}
+const KCOL={power:'var(--crit)',can:'var(--accent)',ref:'var(--muted)',in:'var(--ok)',out:'var(--warn)',other:'var(--muted)'};
+const KLAB={power:'Alimentation',can:'Bus CAN',ref:'Référence / adresse',in:'Entrée',out:'Sortie'};
+$('#hlegend').innerHTML=Object.entries(KLAB).map(([k,l])=>`<span class="chip ui"><svg width="10" height="10"><rect width="10" height="10" rx="2" fill="${KCOL[k]}"/></svg>${l}</span>`).join('')+
+  '<span class="chip ui">gris = non utilisé dans cette configuration</span><span class="chip ui">pointillé = dépend d’un autre réglage</span>';
+function modTitle(m){ return m.replace(/_\d+_$/,'').replace(/_/g,' '); }
+function renderH(){
+  $('#hcfg').innerHTML=HCFG.map(f=>{const dis=f.when&&!f.when(hc);return `<fieldset ${dis?'disabled style="opacity:.45"':''}><legend>${f.l}</legend>${f.o.map((o,i)=>`<label><input type="radio" name="h-${f.k}" id="h-${f.k}-${i}" value="${i}" ${hc[f.k]==i?'checked':''}> ${esc(o)}</label>`).join('')}</fieldset>`}).join('');
+  document.querySelectorAll('#hcfg input').forEach(i=>i.onchange=()=>{hc[i.name.slice(2)]=+i.value;renderH()});
+  const L=H[hc.lin];
+  $('#hmods').innerHTML=L.modules.map(mod=>{
+    const conns={}; mod.rows.forEach(r=>{const c=r.pin.split(':')[0]; (conns[c]=conns[c]||[]).push(r)});
+    const used=mod.rows.filter(r=>r.ch).length;
+    let svg='';
+    Object.entries(conns).forEach(([cn,rows])=>{
+      const per=Math.min(22,Math.ceil(rows.length/ (rows.length>24?3:2))), cols=Math.ceil(rows.length/per), cw=46, ch=26, W=cols*cw+20, Hh=per*ch+40;
+      let g=`<svg viewBox="0 0 ${W} ${Hh}" width="${W}" height="${Hh}" role="img" aria-label="Connecteur ${esc(cn)}"><rect x="2" y="2" width="${W-4}" height="${Hh-4}" rx="8" fill="var(--code)" stroke="var(--line)"/><text x="10" y="20" class="svg-t" font-weight="700">${esc(cn)}</text>`;
+      rows.forEach((r,i)=>{const col=Math.floor(i/per), row=i%per, x=10+col*cw, y=30+row*ch, st=hstate(r);
+        const fill= st==='free'?'var(--panel)': st==='off'?'var(--line)':KCOL[r.kind];
+        g+=`<g class="pinb" data-p="${esc(r.pin)}" style="cursor:pointer"><rect x="${x}" y="${y}" width="${cw-6}" height="${ch-6}" rx="3" fill="${fill}" stroke="${st==='maybe'?'var(--ink)':'var(--line)'}" ${st==='maybe'?'stroke-dasharray="3 2"':''} opacity="${st==='off'?0.6:1}"/><text x="${x+(cw-6)/2}" y="${y+14}" text-anchor="middle" font-size="10" fill="${st==='free'||st==='off'?'var(--muted)':'var(--panel)'}" font-family="var(--f-mono)">${esc(r.pin.split(':')[1])}</text><title>${esc(r.pin+' '+r.sig+(r.ch?' — '+r.ch:''))}</title></g>`;});
+      svg+=`<div class="svgwrap">${g}</svg></div>`;
+    });
+    const tbl=mod.rows.filter(r=>r.ch||r.kind==='power'||r.kind==='can').map(r=>{const st=hstate(r);
+      const lab= st==='on'?'<span class="tag t-ok">utilisée</span>': st==='off'?'<span class="tag">inutile ici</span>': st==='maybe'?'<span class="tag t-warn">selon réglage</span>':'<span class="tag t-info">toujours</span>';
+      const cname=r.ch.replace(/\s*\[[^\]]*\]$/,'');
+      return `<tr style="${st==='off'?'color:var(--muted)':''}"><td class="mono">${esc(r.pin)}</td><td class="mono">${esc(r.sig)}</td><td>${r.ch?(hc.lin==0&&byName[cname]?chip(cname,r.ch):esc(r.ch)):''}${r.desc?`<div class="note">${esc(r.desc)}</div>`:''}</td><td>${lab}</td><td class="note">${esc(r.grp)}</td></tr>`}).join('');
+    return `<div class="box"><h3>${esc(modTitle(mod.module))}</h3><p class="note">${used} broches affectées à un canal.</p><div style="display:flex;gap:12px;flex-wrap:wrap">${svg}</div>
+      <div class="tbl"><table><tr><th>Broche</th><th>Signal</th><th>Fonction (canal IQAN)</th><th>Cette config.</th><th>Groupe</th></tr>${tbl}</table></div></div>`;
+  }).join('');
+}
+renderH();
+
+show(start);
+</script>

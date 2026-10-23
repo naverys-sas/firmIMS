@@ -1,0 +1,43 @@
+﻿pin	name	channel	description
+C1:1	ADDR-H		
+C1:2	COUT-A (HS)	Pump 1 Right [mA]	
+C1:3	COUT-B (HS)	Pump 2 Left [mA]	
+C1:4	DOUT-C (HS)	EV - Select Blocage or Blocage	
+C1:5	DOUT-D (HS)	EV - Dé blocage	
+C1:6	+RTC		
+C1:7	VIN-E	Oil level Analog [%]	
+C1:8	COUT-E (HS)	PWM Pression tendeur [mA]	
+C1:9	DOUT-F (HS)	Alim by pass et frein	
+C1:10	DOUT-G (HS)	Alim moteur	
+C1:11	DOUT-H (HS)	Alim vérin et tendeur	
+C1:12	- 		
+C1:13	- 		
+C1:14	ADDR-L		
+C1:15	-BAT		
+C1:16	COUT-A (RET+)	Pump 1 Right [mA]	
+C1:17	COUT-B (RET+)	Pump 2 Left [mA]	
+C1:18	DOUT-M (LS)	EV Frein	
+C1:19	DOUT-O (LS)	EV Descente	
+C1:20	DIN-A	Hydraulic pump statut	
+C1:21	- 		
+C1:22	COUT-E (RET+)	PWM Pression tendeur [mA]	
+C1:23	DOUT-S (LS)	EV Tendeur Chenille	
+C1:24	DOUT-U (LS)	Out SWITCH ON Engine	
+C1:25	DOUT-W (LS)	Out FAN Engine	
+C1:26	CAN-B-H		
+C1:27	CAN-A-H		
+C1:28	+BAT		
+C1:29	-VREF		
+C1:30	COUT-A (RET-)	Pump 1 Right [mA]	
+C1:31	COUT-B (RET-)	Pump 2 Left [mA]	
+C1:32	DOUT-N (LS)	EV By pass	
+C1:33	DOUT-P (LS)	EV Montée	
+C1:34	VIN-C	Track pressure [bar]	
+C1:35	VIN-D	Locking pressure [bar]	
+C1:36	COUT-E (RET-)	PWM Pression tendeur [mA]	
+C1:37	DOUT-T (LS)	EV DéTendeur Chenille	
+C1:38	DOUT-V (LS)	Out START Engine	
+C1:39	DOUT-X (LS)	OUT Full FAN	
+C1:40	CAN-B-L		
+C1:41	CAN-A-L		
+C1:42	+VREF		

@@ -1,0 +1,25 @@
+﻿pin	name	channel	description
+C1:1	-BAT		
+C1:2	CAN-A-L		
+C1:3	CAN-B-L		
+C1:4	CAN-C-L		
+C1:5	CAN-D-L		
+C1:6	ADDR-L		
+C1:7	ADDR-H		
+C1:8	CAN-D-H		
+C1:9	CAN-C-H		
+C1:10	CAN-B-H		
+C1:11	CAN-A-H		
+C1:12	+BAT		
+C2:1	VIN-A	Left Joy ET45 ou water level C2:1 [%]	
+C2:2	VIN-B	Right Joystick ET45 C2:2 [%]	
+C2:3	DOUT-A (LS)	Buzzer ET45 C2:3	input is Be1 Inter Buzzer for 45
+C2:4	- 		
+C2:5	- 		
+C2:6	- 		
+C2:7	- 		
+C2:8	- 		
+C2:9	- 		
+C2:10	- 		
+C2:11	+VREF		
+C2:12	+RTC		

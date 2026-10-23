@@ -1,0 +1,4 @@
+*.lck
+*.bak
+~$*
+__pycache__/

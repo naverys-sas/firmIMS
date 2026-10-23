@@ -1,0 +1,690 @@
+﻿appli;chemin;nom;type;id;ligne;nb_entrees;nb_utilisateurs;actif;fichier
+MC42;MC42;Status:MC42[1];MDGN;32508;14769;0;0;oui;MC42__racine_appli.md
+MC42;MC42;MD3_Start/Stop;APPIN;54459;14780;1;2;oui;MC42__racine_appli.md
+MC42;MC42;S/N:MC42[1];MDGN;32510;23950;0;0;oui;MC42__racine_appli.md
+MC42;MC42;Address:MC42[1];MDGN;32513;23961;0;0;oui;MC42__racine_appli.md
+MC42;MC42;Temp:MC42[1];MDGN;32514;23972;1;0;oui;MC42__racine_appli.md
+MC42;MC42;VREF-A:MC42[1];MDGN;32515;23983;0;1;oui;MC42__racine_appli.md
+MC42;MC42;12V Batt.;MDGN;32516;23994;0;2;oui;MC42__racine_appli.md
+MC42;MC42;PIN 44;IDC;54870;24650;2;1;oui;MC42__racine_appli.md
+MC42;MC42;Pin 44 (Brake);DOUT;54869;24693;1;0;oui;MC42__racine_appli.md
+MC42;MC42;Proemion;DP;61696;26819;0;4;oui;MC42__racine_appli.md
+MC42;MC42;Thermic Engine STATE;SMC;51442;27119;3;1;oui;MC42__racine_appli.md
+MC42;MC42;debug temps screen;DP;67860;27204;0;3;oui;MC42__racine_appli.md
+MC42;MC42 / Initialization;CAN Speed;SP;36115;9731;0;3;oui;MC42__Initialization.md
+MC42;MC42 / Initialization;Can Speed;IP;36114;9743;1;0;oui;MC42__Initialization.md
+MC42;MC42 / KeyBox;0x70C;GFIN;58578;24724;0;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Byte 0;GPOUT;58579;24740;0;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Byte 1;GPOUT;58580;24751;0;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;GFOUT-D:Generic;GFOUT;58581;24762;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;KeyBox Can Ok;IDC;58582;24784;1;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;CanBus Error TB;CMSG;58590;24827;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Aft Fan Max Test;DP;63103;24881;0;4;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Aft Fan Low Test;DP;66018;24894;0;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Activate Low Aft Fan;FGI;66266;24907;1;4;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K1 Fan Rear / Fan;IDC;58599;24918;4;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Activate High Aft Fan;FGI;66268;24975;1;5;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K2 Fan Super / Pump;IDC;58606;24986;3;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Exhaust Fan Test;DP;60073;25036;0;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Activate Exhaust;FGI;66264;25049;1;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K3 Fan Exhaust / AutoOff;IDC;58613;25060;3;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K4 Engine Power / Search Lights;IDC;58620;25110;2;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K5 Engine Start;IDC;58627;25153;2;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Force Engine pump;DP;66422;25196;0;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K6 Engine Water Pump;IDC;58634;25209;6;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Force Exhaust pump;DP;66421;25280;0;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K7 Exhaust Water Pump;IDC;58641;25293;6;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K8;IDC;58648;25364;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K9;IDC;58655;25400;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K10;IDC;58662;25436;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K11;IDC;58669;25472;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K12;IDC;58676;25508;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K13;IDC;58684;25544;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;ON_Bits;IMAC;58692;25580;13;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;ON_Bits_GOUT;GPOUT;58726;25598;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;OFF_Bits;IMAC;58727;25610;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;OFF_Bits_GOUT;GPOUT;58738;25628;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Program KeyBox;DP;58739;25640;0;3;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;GFOUT-E:Generic;GFOUT;58740;25653;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 0 - HB;GPOUT;58741;25675;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 1 - HB;GPOUT;58742;25686;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 2 - HB;GPOUT;58743;25697;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 4 - HB;GPOUT;58744;25708;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;ID Prog;IMAC;58745;25719;1;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 5 - HB;GPOUT;58753;25762;0;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Trigger HeartBeat;IDC;58754;25773;2;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;GFOUT-D:Generic;GFOUT;58762;25817;7;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 0 - HB;GPOUT;58763;25849;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 1 - HB;GPOUT;58764;25860;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 2 - HB;GPOUT;58765;25871;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;BYTE 4 - HB;GPOUT;58766;25882;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;Trigger Speed;IDC;58767;25893;2;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;GFOUT-E:Generic;GFOUT;58775;25937;6;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;ID Fault;IMAC;58776;25966;1;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;GFIN-B:Generic;GFIN;58784;26009;14;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K1 Fault;GPIN;58785;26064;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K1 fuse is blown;CMSG;58786;26076;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K2 Fault;GPIN;58794;26122;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K2 fuse is blown;CMSG;58795;26134;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K3 Fault;GPIN;58803;26180;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K3 fuse is blown;CMSG;58804;26192;3;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K4 Fault;GPIN;58812;26238;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K4 fuse is blown;CMSG;58813;26250;2;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K5 Fault;GPIN;58821;26296;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K5 fuse is blown;CMSG;58822;26308;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K6 Fault;GPIN;58830;26354;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K6 fuse is blown;CMSG;58831;26366;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K7 Fault;GPIN;58839;26412;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K7 fuse is blown;CMSG;58840;26424;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K8 Fault;GPIN;58848;26470;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K8 fuse is blown;CMSG;58849;26482;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K9 Fault;GPIN;58857;26528;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K9 fuse is blown;CMSG;58858;26540;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K10 Fault;GPIN;58866;26586;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K10 fuse is blown;CMSG;58867;26598;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K11 Fault;GPIN;58875;26644;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K11 fuse is blown;CMSG;58876;26656;2;0;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K12 Fault;GPIN;58884;26702;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K12 fuse is blown;CMSG;58885;26714;2;1;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K13 Fault;GPIN;58928;26760;0;2;oui;MC42__KeyBox.md
+MC42;MC42 / KeyBox;K13 fuse is blown;CMSG;58929;26772;3;0;oui;MC42__KeyBox.md
+MC42;MC42 / Link MC42;Speed Input;APPIN;61651;9773;0;2;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;UP/DOWN Button Input;APPIN;61653;9782;1;2;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;State Up/Down;APPIN;61654;9791;1;1;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;Free Input;APPIN;61658;9801;1;1;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;OK UP/DOWN;APPOUT;61659;9810;1;1;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;Wait_Very_Low_Oil_Level;APPOUT;61661;9821;1;5;oui;MC42__Link_MC42.md
+MC42;MC42 / Link MC42;System Started;APPOUT;61662;9832;1;1;oui;MC42__Link_MC42.md
+MC42;MC42 / Proemion;Wait after stating;IDC;62943;26847;1;1;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;Trigger Timer;TMR;62951;26890;2;1;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;Trigger;IDC;62962;26951;2;1;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;GFIN-A:Generic;GFIN;61736;26996;2;0;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;Network State;GPIN;61737;27018;0;2;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;Signal Quality;GPIN;61738;27030;0;2;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;MDGN-+BAT:MC2[1];MAC;62988;27042;2;1;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;3;GPOUT;61774;27086;1;0;oui;MC42__Proemion.md
+MC42;MC42 / Proemion;Proemion Device;GFOUT;61775;27098;1;0;oui;MC42__Proemion.md
+MC42;MC42 / Screen State;Power State Int;IMAC;51473;24022;2;3;oui;MC42__Screen_State.md
+MC42;MC42 / Screen State;Up/DOWN STATE;FGI;56647;24063;2;1;oui;MC42__Screen_State.md
+MC42;MC42 / Screen State;Speed All State;FGI;56652;24078;2;2;oui;MC42__Screen_State.md
+MC42;MC42 / Screen State;VIEW SPEED STATE;SMC;56659;24096;6;1;oui;MC42__Screen_State.md
+MC42;MC42 / Screen State;VIEW Power State;SP;57157;24483;1;1;oui;MC42__Screen_State.md
+MC42;MC42 / Screen State;VIEW BUTTON States;SMC;57185;24496;4;1;oui;MC42__Screen_State.md
+MC42;MC42 / Thermic;Engine_Started;IDC;32282;14807;4;29;oui;MC42__Thermic.md
+MC42;MC42 / Thermic;Activate exhaust Fan;IDC;66347;23713;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic;Activate Low Aft Fan;IDC;66358;23756;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic;Activate High Aft Fan;IDC;66368;23799;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic;Stall speed eng on;IP;66703;23842;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic;Stall speed eng off;IP;66705;23854;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Joystick not zero;IDC;29433;18125;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Force at 2200 rpm;DP;29454;18179;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;SPEED Engine;SMC;29455;18192;5;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Max Manip;MAC;29497;18504;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;General speed filtering;FP;29506;18555;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In UP/DOWN Speed;FGI;64857;18569;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In IDLE Speed;FGI;64858;18583;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In Slow Speed;FGI;64859;18597;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In Hight Speed;FGI;64860;18611;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In Min Speed mode;FGI;64862;18625;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Calcul Accélération;MAC;29509;18639;8;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;STARTING;IDC;29583;18882;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;?Throttle pulse at Start up;DP;63182;18926;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Tempo Need Min Speed;IP;63241;18939;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Need Min Speed;IDC;29559;18951;7;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In Tension Speed;FGI;64856;19017;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Speed_RPM_needed;MAC;29571;19031;4;5;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Speed Data remapping;MAC;35858;19084;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;TSC1 Filter;SFC;29581;19131;3;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;in Speed CAN;FGI;65177;19149;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Speed error;MAC;63188;19163;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Max Speed Gap;IP;63219;19183;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;?Speed OK;IDC;63208;19195;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Engine speed to send;MAC;64871;19240;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Min Speed Ok;IDC;66440;19282;3;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Idle decel filter;FP;66464;19327;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Accel Filter;MAC;66465;19341;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;Decel Filter;MAC;66476;19407;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine Speed calc;In Min Speed acc1;FGI;67073;19473;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Engine type;SP;29442;20454;0;32;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Is_EB2;IDC;63325;20466;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;In Engine speed;FGI;64880;20511;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Is_FORD;IDC;63317;21346;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Malfunction lamp;MAC;64598;22212;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Red stop lamp;MAC;64629;22285;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Amber warning lamp;MAC;64661;22358;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Protect lamp;MAC;64693;22431;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Pump Curent - Low Speed;FP;32147;22504;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Pump Curent  - Hight Speed;FP;32148;22518;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Pump Curent - Super Low Speed;FP;32149;22532;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Pump Max curent;FP;32144;22546;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;IDLE Speed;FP;29444;22560;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Slow Max  Speed;FP;29445;22574;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Hight Speed;FP;29446;22588;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Tension/UpDown Speed;FP;29507;22602;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Min Speed mode;FP;29508;22616;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Engine oil pressure;MAC;64017;22630;2;6;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;torque OR % load at current speed;MAC;63486;22703;4;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Speed Error Calcul;MAC;35843;22776;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Engine coolant temp;MAC;65141;22826;3;7;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Actual engine, % torque;MAC;65178;22899;4;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Speed CAN;MAC;65507;22978;4;6;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o;Min Speed acc1;FP;67067;23058;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;DM1;DM1IN;29039;20550;20;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 629;SPN;29040;20620;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 100;SPN;29041;20646;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 110;SPN;29042;20666;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 105;SPN;29043;20686;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 175;SPN;29044;20706;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 102;SPN;29045;20726;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 1485;SPN;29046;20749;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 637;SPN;29047;20763;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 656;SPN;29048;20783;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 636;SPN;29049;20812;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 626;SPN;29050;20829;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 677;SPN;29051;20849;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 655;SPN;29052;20869;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 654;SPN;29053;20898;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 653;SPN;29054;20927;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 652;SPN;29055;20956;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 651;SPN;29056;20985;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 639;SPN;29057;21014;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Malfunction lamp EB2;MDGN;29058;21037;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Red stop lamp EB2;MDGN;29059;21048;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Amber warning lamp EB2;MDGN;29060;21059;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Protect lamp EB2;MDGN;29061;21070;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 98;SPN;29062;21081;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;SPN 106;SPN;29063;21101;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;In Engine speed to send EB2;FGI;64878;21115;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;TSC1-A:J1939-0 EB2;TSC1;29582;21129;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;EEC1 EB2;JFIN;29983;21152;3;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Driver's demand, engine % EB2;JPIN;29984;21179;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Actual engine, % torque EB2;JPIN;29985;21193;0;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Engine speed EB2;JPIN;29986;21207;0;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;EEC2 EB2;JFIN;29987;21221;2;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Accelerator pedal position EB2;JPIN;29988;21245;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;% load at current speed EB2;JPIN;29989;21259;0;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Engine Temperature EB 2;JFIN;29977;21273;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;;JPIN;29979;21294;0;292;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;Engine fluid level/pressure 1 EB2;JFIN;29981;21309;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / EB2;;JPIN;29982;21330;1;292;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;DM1;DM1IN;64066;21416;20;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 629;SPN;64067;21486;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 100;SPN;64068;21512;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 110;SPN;64069;21532;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 105;SPN;64070;21552;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 175;SPN;64071;21572;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 102;SPN;64072;21592;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 1485;SPN;64073;21615;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 637;SPN;64074;21629;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 656;SPN;64075;21649;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 636;SPN;64076;21678;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 626;SPN;64077;21695;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 677;SPN;64078;21715;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 655;SPN;64079;21735;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 654;SPN;64080;21764;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 653;SPN;64081;21793;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 652;SPN;64082;21822;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 651;SPN;64083;21851;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 639;SPN;64084;21880;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Malfunction lamp Ford;MDGN;64085;21903;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Red stop lamp Ford;MDGN;64086;21914;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Amber warning lamp Ford;MDGN;64087;21925;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Protect lamp Ford;MDGN;64088;21936;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 98;SPN;64089;21947;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;SPN 106;SPN;64090;21967;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;in Engine speed to send Ford;FGI;64876;21981;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;TSC1-A:J1939-0 Ford;TSC1;63539;21995;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;EEC1 Ford;JFIN;63288;22018;3;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Driver's demand, engine %, Ford;JPIN;63289;22045;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Actual engine, % torque, Ford;JPIN;63290;22059;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Engine speed Ford;JPIN;63291;22073;0;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;EEC2 Ford;JFIN;63500;22087;2;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Accelerator pedal position Ford;JPIN;63501;22111;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;% load at current speed Ford;JPIN;63502;22125;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Engine Temperature Ford;JFIN;63622;22139;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;;JPIN;63623;22160;0;292;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;Engine fluid level/pressure 1 Ford;JFIN;63999;22175;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Engine i/o / Ford;;JPIN;64000;22196;1;292;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Hydraulic pump statut;VIN;35669;17130;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Check Pump;DP;35683;17154;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Wait Bad Pressure;IDC;29815;17167;4;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Bad pressure;CMSG;29834;17226;2;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Oil Temps;VIN;32974;17274;0;7;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Wait Hot Temperature;IDC;33629;17298;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Hot Oil;CMSG;33659;17350;3;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Oil Temp Mid/High;FP;66144;17404;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Oil Temp Low/Mid;FP;66145;17416;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Oil Temp Critical;FP;66146;17428;0;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Oil Temp Hysteresis;FP;66945;17440;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Oil security;Hydraulics Temperature State;SMC;66114;17452;6;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Reset Startup;IDC;30494;14881;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Oil Security Activation;IDC;30513;14931;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;MD3 STOP;IDC;30523;14974;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Coupure Thermique avec sécurité;IDC;30531;15018;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel Line Timer;TMR;30540;15068;3;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel line ignition;MEM;30552;15136;3;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Starter Protection CMSG;IMSG;30569;15180;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Pre Fuel line ignition IDC;IDC;30582;15270;7;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel line ignition IDC;IDC;30597;15370;3;5;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel line ignition State;SP;30606;15420;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Starter Protection Slope;SFC;30616;15432;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Starter Proctection IDC;IDC;30617;15450;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Out START Engine;IDC;32462;15495;3;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Starter Protection;IMAC;30626;15545;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;MD3 start last checks;IDC;30634;15588;6;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;AutoStopafter 5 secondes;IDC;30647;15668;3;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;MD3 START;IDC;30656;15718;3;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Manual Start Engine;DP;33227;15768;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Manual Start Engine Pulse IDC;IDC;33232;15781;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Progress;IMAC;30608;15825;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel line ignition;CMSG;30560;15868;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;ECU Engine on;DP;30667;15923;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Digit Engine On;IDC;30668;15936;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Fuel line ignition Output;IDC;30679;16001;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Inter Allumage Thermique;IDC;30688;16056;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Water °C Low;FP;30703;16131;1;5;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;in Engine coolant temperature;FGI;65162;16145;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Persistant Water Temp;MEM;30705;16159;3;7;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Water °C High;FP;65875;16221;1;5;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Ambiante Temperature;SP;30728;16235;0;6;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Timer Fan Hot;FP;30731;16247;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;High Temp Timer;TMR;65880;16261;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Timer Fan Mild;FP;30730;16322;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Mid Temp Timer;TMR;65898;16336;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Timer Fan Low;FP;65954;16397;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Low Temp Timer;TMR;65938;16411;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Water °C Critical;FP;66041;16472;1;6;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Critical Temp Timer;TMR;66065;16486;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Out SWITCH ON Engine;IDC;32457;16547;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Joystick is not in neutral position;CMSG;30874;16590;3;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Timer Fan Critical;FP;66053;16647;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;T inExhaust temp;FGI;69694;16661;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;oldExhaust Temperature State;SMC;66743;16675;5;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Water Temp Hysteresis Gap;FP;67317;16783;0;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Engine Temp State;SMC;67204;16795;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Engine Thermal State;SMC;67376;16868;7;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Power;Exhaust Temp State hy test;SMC;67924;17054;5;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Min current Right Backward;FP;32143;19507;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Step change;FP;32145;19519;0;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Forward - direct corrector;FP;32146;19531;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;In Curent - Low Speed;FGI;64842;19547;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;In Curent - Super Low Speed;FGI;64844;19561;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;In Curent  - Hight Speed;FGI;64845;19575;1;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Forward Curent;MAC;32150;19589;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;In Max curent;FGI;64850;19693;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Punp 1 - Current;MAC;32172;19707;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;coeff pente ?;FP;32182;19767;0;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Filter pump 1 Pos;SFC;32183;19779;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Min current Left Backward;FP;32184;19797;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Punp 2 - Current;MAC;32185;19809;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Filter pump 2 Pos;SFC;32195;19869;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Min current Left Fordward;FP;32196;19887;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Backward - direct corrector;FP;32197;19899;1;4;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Backward Curent;MAC;32201;19915;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Punp 2 - Current;MAC;32223;20019;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Filter pump 2 Neg;SFC;32233;20079;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Pump 2 Left Filter ECC1;DMAC;32367;20097;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Pump 1 Right Filter ECC1;DMAC;32377;20149;3;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Min current Right Fordward;FP;32235;20201;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Punp 1 - Current;MAC;32236;20213;5;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Filter pump 1 Neg;SFC;32246;20273;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Pump 1 Right;COUT;32234;20291;6;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Pump 2 Left;COUT;32247;20317;6;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Brake Slope;IP;32311;20343;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Pump;Inter EV Frein;IDC;32312;20359;4;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;in Engine coolant temperature;FGI;65165;17667;1;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;Para enclench voyant pression huile;FP;30019;17681;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;in Engine oil pressure;FGI;65125;17695;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;Voyant Pression Huile Moteur;IDC;30020;17709;4;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FP - Start réduction;FP;30029;17761;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FP - Incres Speed;FP;30030;17773;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FP - Max Error;FP;30031;17785;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FP - Decres Speed;FP;30032;17797;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;in % load at current speed;FGI;64885;17809;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;ECC1_Power;ILC;30033;17823;6;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FT - Incres Speed;FP;30034;17838;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FT - Max Error;FP;30035;17850;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FT - Decres Speed;FP;30036;17862;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;ECC1_Engine_Temp;ILC;30038;17874;6;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FO - Incres Speed;FP;35797;17889;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FO - Max Error;FP;35798;17901;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FO - Decres Speed;FP;35799;17913;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;ECC1_Oil_Temp;ILC;35801;17925;6;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FS - Start réduction;FP;35838;17940;1;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FS - Incres Speed;FP;35839;17954;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FS - Max Error;FP;35840;17966;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;FS - Decres Speed;FP;35841;17978;0;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;in Speed Error Calc;FGI;64883;17990;1;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;ECC1_Speed;ILC;35842;18004;6;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;ECC1 Integrating;MAC;30039;18019;4;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / SAEJ Std engine input;Oil pressure;CMSG;30062;18037;2;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / T.Exhaust temp;T Exhaust coolant temp mc 52;VIN;69679;23882;0;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / T.Exhaust temp;out T Exhaust Temps;MAC;69680;23906;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;In Hydraulics Temp State;FGI;66161;23094;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;In Engine Thermal State;FGI;66171;23110;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;In Exhaust Temp State;FGI;66786;23126;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Temperature State;SMC;66823;23141;4;5;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Activate exhaust Fan;IDC;66180;23336;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Activate Low Aft Fan;IDC;66191;23381;2;2;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Activate High Aft Fan;IDC;66208;23427;2;3;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Activate Critical State;IDC;66225;23473;4;0;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Alert critical hydraulic;CMSG;66883;23544;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Alert critical engine;CMSG;66894;23600;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Thermic / Thermal Management;Alert critical exhaust;CMSG;66904;23656;2;1;oui;MC42__Thermic.md
+MC42;MC42 / Track Up/Down;MD3 - UP;IDC;26146;11650;2;5;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV UP Delay;IDC;26154;11695;3;2;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;MD3 - DOWN;IDC;26163;11746;2;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV DOWN delay;IDC;26171;11791;3;2;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Locking UP Track;DP;26181;11842;0;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Number of lockers;SP;62554;11855;0;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Locking Time;IP;62556;11867;1;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Test Locker;DP;66648;11881;0;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Force Lock;IDC;65571;11894;3;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Lock landing;IDC;26182;11946;7;6;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV Verin;IDC;26193;12031;3;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Unlock landing;IDC;26202;12081;4;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Force tension;DP;26240;12139;0;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;With tension;DP;33264;12152;0;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV tendre Chenille;IDC;26241;12165;7;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Force EV By Pass;DP;63111;12245;0;4;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Locking pressure;VIN;26534;12258;0;4;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;OK UP/DOWN;IDC;26302;12282;4;4;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV UP;IDC;26326;12341;3;3;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV DOWN;IDC;67754;12391;3;4;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;IDC Tension;IDC;33246;12441;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter Tension;IDC;65780;12491;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;HIGH arm;IDC;57285;12541;4;2;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;LOW arm;IDC;57295;12598;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;IDC EV By Pass Down;IDC;26346;12649;2;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;IDC EV By Pass;IDC;67818;12692;7;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;IDC EV By Pass sel;IDC;67843;12770;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter EV By Pass;IDC;64204;12820;5;5;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter Lock landing;IDC;65541;12902;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV Lock;DOUT;26301;12952;1;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV Tension;DOUT;26277;12965;1;2;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV Up;DOUT;26335;12978;1;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV Down;DOUT;26345;12991;1;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV By pass;DOUT;26378;13004;1;2;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Force Unlock;IDC;65592;13017;2;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Inter Unlock;IDC;65417;13061;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;EV Unlock;DOUT;26412;13111;1;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;State Up/Down Raw;IMAC;56851;13124;2;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;Don'push button;IDC;56919;13165;3;1;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track Up/Down;State Up/Down;SMC;56859;13222;4;4;oui;MC42__Track_Up_Down.md
+MC42;MC42 / Track tension;Track pressure;VIN;32718;13425;0;4;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Tracks pressure Mode;SP;32719;13449;0;7;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Reset Startup;IDC;32721;13461;2;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Tracks pressure Mode;MEM;32730;13511;3;6;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Wait engine start;IDC;32738;13554;2;4;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;ON/OFF/Untighed;SMC;32746;13597;3;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Pression filtered;SFC;32759;13675;1;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Time to tension;IP;32760;13693;0;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Untighten;IDC;33241;13705;2;4;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Ok tension;IDC;32761;13748;3;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;10 minutes auto tender;TMR;32769;13799;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Tension Pressure;IP;32780;13860;0;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Need Pressure Tempo;IP;63236;13872;0;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Need Pressure;IDC;32781;13884;4;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Tension Error Parameter;FP;32790;13929;0;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Delay Off super ok tension;IDC;32827;13941;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Super Ok Tension Math;IMAC;32835;13984;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Slope Super Ok;SFC;32843;14027;1;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Over Tension;IDC;32791;14045;4;3;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Super Ok tension;IDC;32801;14105;8;2;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Wait engine Stop;IDC;32845;14241;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Tension State;SMC;32853;14284;4;0;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Track Tension Error;CMSG;32890;14369;3;0;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;;VIN;54805;14415;2;313;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;OIL security;SP;61515;14440;0;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;;MEM;61517;14452;3;313;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Wait_Very_Low_Oil_Level;IDC;54806;14496;2;8;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Stop in :;TMR;54814;14550;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Oil level;CMSG;54825;14611;3;6;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Wait Oil Level;IDC;54834;14667;2;1;oui;MC42__Track_tension.md
+MC42;MC42 / Track tension;Oil level;CMSG;54842;14712;3;5;oui;MC42__Track_tension.md
+MC42;MC42 / Translate;Left CanIn;APPIN;25340;9859;1;4;oui;MC42__Translate.md
+MC42;MC42 / Translate;System Started DELAYS;IDC;25341;9869;2;9;oui;MC42__Translate.md
+MC42;MC42 / Translate;Right CanIn;APPIN;25361;9912;1;4;oui;MC42__Translate.md
+MC42;MC42 / Translate;Speed Int;IMAC;36082;9922;2;3;oui;MC42__Translate.md
+MC42;MC42 / Translate;Water °C Critical Critical;FP;67559;9963;1;5;oui;MC42__Translate.md
+MC42;MC42 / Translate;Speed Pump;SMC;25363;9977;4;7;oui;MC42__Translate.md
+MC42;MC42 / Translate;Engine Stopped;IDC;25432;10097;2;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;IDC Free;IDC;33764;10141;3;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;Speed Mode;SMC;25440;10191;4;3;oui;MC42__Translate.md
+MC42;MC42 / Translate;Start Slope;FP;25678;10444;1;4;oui;MC42__Translate.md
+MC42;MC42 / Translate;Stop Slope;FP;25679;10460;1;4;oui;MC42__Translate.md
+MC42;MC42 / Translate;DMAC_EV_2_Left;DMAC;33931;10476;3;5;oui;MC42__Translate.md
+MC42;MC42 / Translate;DMAC_EV_1_Right;DMAC;33942;10528;3;5;oui;MC42__Translate.md
+MC42;MC42 / Translate;Cruise Left;LTC;33952;10580;2;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;Max_diffrential;IP;33953;10593;0;4;oui;MC42__Translate.md
+MC42;MC42 / Translate;Left unfree;MAC;33954;10605;3;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;DMAC Table Left;DMAC;33992;10635;5;2;oui;MC42__Translate.md
+MC42;MC42 / Translate;Left Filter;SFC;25680;10885;3;2;oui;MC42__Translate.md
+MC42;MC42 / Translate;Cruise Right;LTC;34002;10903;2;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;Right unfree;MAC;34003;10916;3;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;DMAC Table Right;DMAC;34041;10946;5;2;oui;MC42__Translate.md
+MC42;MC42 / Translate;Right Filter;SFC;25704;11196;3;2;oui;MC42__Translate.md
+MC42;MC42 / Translate;Brake Activation;IDC;33282;11214;5;1;oui;MC42__Translate.md
+MC42;MC42 / Translate;Joystick Zero;IDC;54506;11286;3;2;oui;MC42__Translate.md
+MC42;MC42 / Translate;State All Speed;SMC;56993;11340;5;1;oui;MC42__Translate.md
+MD3;MD3;MDGN-VREF:MD3-0;MDGN;1040;45;0;0;oui;MD3__racine_appli.md
+MD3;MD3;MDGN-+BAT:MD3-0;MDGN;1041;56;0;0;oui;MD3__racine_appli.md
+MD3;MD3;MDGN-Temp:MD3-0;MDGN;1042;67;1;0;oui;MD3__racine_appli.md
+MD3;MD3;F4 Speed Free;VDIN;1189;78;0;2;oui;MD3__racine_appli.md
+MD3;MD3;Automatic Joystick Inhibition;IP;59460;88;0;3;oui;MD3__racine_appli.md
+MD3;MD3;ENGINE RUN;IDC;36087;100;2;4;oui;MD3__racine_appli.md
+MD3;MD3;Re-Track mode in water;DP;22278;143;0;4;oui;MD3__racine_appli.md
+MD3;MD3;Reset on startup;IDC;22290;156;1;1;oui;MD3__racine_appli.md
+MD3;MD3;Re-Track mode in water;MEM;22279;206;3;3;oui;MD3__racine_appli.md
+MD3;MD3;Ok to move;IDC;6388;250;5;4;oui;MD3__racine_appli.md
+MD3;MD3;Left Joystick;VIN;1004;316;0;5;oui;MD3__racine_appli.md
+MD3;MD3;Neutral Joystick;FP;23852;340;0;4;oui;MD3__racine_appli.md
+MD3;MD3;Joytsick_Neutral_Plus;MAC;23853;352;2;2;oui;MD3__racine_appli.md
+MD3;MD3;Joytsick_Neutral_Minus;MAC;23861;394;2;3;oui;MD3__racine_appli.md
+MD3;MD3;Joystick_Left_DMAC;DMAC;23869;438;4;5;oui;MD3__racine_appli.md
+MD3;MD3;Math Gauche;MAC;6654;502;5;1;oui;MD3__racine_appli.md
+MD3;MD3;Right Joystick;VIN;1065;591;0;5;oui;MD3__racine_appli.md
+MD3;MD3;Joystick_Right_DMAC;DMAC;23880;615;4;5;oui;MD3__racine_appli.md
+MD3;MD3;Math Droit;MAC;6678;679;5;1;oui;MD3__racine_appli.md
+MD3;MD3;Stop To Move;IDC;59461;768;1;1;oui;MD3__racine_appli.md
+MD3;MD3;Auto PAUSE/OFF;TMR;59449;804;4;1;oui;MD3__racine_appli.md
+MD3;MD3;ALL ASK STOP;IDC;6352;872;5;2;oui;MD3__racine_appli.md
+MD3;MD3;F1 - START PAGE;VDIN;12773;970;1;4;oui;MD3__racine_appli.md
+MD3;MD3;Manip Gauche CanOut;APPOUT;1448;981;1;1;oui;MD3__racine_appli.md
+MD3;MD3;Manip Droit CanOut;APPOUT;1450;992;1;1;oui;MD3__racine_appli.md
+MD3;MD3;VIEW START PAGE;IDC;6023;3337;4;1;oui;MD3__racine_appli.md
+MD3;MD3;VIEW ENGINE RUN PAGE;IDC;6117;3394;3;0;oui;MD3__racine_appli.md
+MD3;MD3;Ko to move;IDC;6621;3445;2;1;oui;MD3__racine_appli.md
+MD3;MD3;Remote Control;DP;9359;3489;0;3;oui;MD3__racine_appli.md
+MD3;MD3;F3 Speed Fast;VDIN;17295;4283;0;2;oui;MD3__racine_appli.md
+MD3;MD3;F2 Speed Slow;VDIN;17296;4293;0;2;oui;MD3__racine_appli.md
+MD3;MD3;Auto Fast After Down;DP;23301;4303;0;3;oui;MD3__racine_appli.md
+MD3;MD3;Auto Fast after Down;IDC;23302;4316;3;1;oui;MD3__racine_appli.md
+MD3;MD3;Toggle Free;ECNT;35653;4367;3;1;oui;MD3__racine_appli.md
+MD3;MD3;IDC Speed Free;IDC;17299;4436;2;2;oui;MD3__racine_appli.md
+MD3;MD3;Auto Fast after Down Wait;IDC;63071;4479;2;1;oui;MD3__racine_appli.md
+MD3;MD3;IDC Speed R;IDC;17355;4523;5;2;oui;MD3__racine_appli.md
+MD3;MD3;IDC Speed S;IDC;17391;4606;4;2;oui;MD3__racine_appli.md
+MD3;MD3;IDC Speed S Wait;IDC;23180;4682;3;1;oui;MD3__racine_appli.md
+MD3;MD3;IDC Speed R Wait;IDC;23215;4749;3;1;oui;MD3__racine_appli.md
+MD3;MD3;Reset Speed;IDC;23250;4816;2;1;oui;MD3__racine_appli.md
+MD3;MD3;Speed State;FSM;23130;4859;11;3;oui;MD3__racine_appli.md
+MD3;MD3;Auto Stop Timer;IP;23964;5320;0;5;oui;MD3__racine_appli.md
+MD3;MD3;Auto Stop Timer;TMR;23950;5332;5;4;oui;MD3__racine_appli.md
+MD3;MD3;Stop Cruise;IDC;23742;5421;6;1;oui;MD3__racine_appli.md
+MD3;MD3;Cruise Control;DP;24101;5493;0;3;oui;MD3__racine_appli.md
+MD3;MD3;Allow Run Cruise;IDC;23758;5506;4;1;oui;MD3__racine_appli.md
+MD3;MD3;Allow Cruise;IDC;23800;5568;4;1;oui;MD3__racine_appli.md
+MD3;MD3;Auto Off Bip;IDC;23986;5630;2;1;oui;MD3__racine_appli.md
+MD3;MD3;Bip;IDC;23779;5675;3;1;oui;MD3__racine_appli.md
+MD3;MD3;Engine hours;TMR;9957;6178;2;1;oui;MD3__racine_appli.md
+MD3;MD3;10 hours check-up;CMSG;9975;6239;2;1;oui;MD3__racine_appli.md
+MD3;MD3;Iguana PIN;PCC;11100;6287;1;6;oui;MD3__racine_appli.md
+MD3;MD3;Can Out Button F1;APPOUT;12678;6324;1;1;oui;MD3__racine_appli.md
+MD3;MD3;Exhaust temp sensor;DP;67053;9694;0;0;oui;MD3__racine_appli.md
+MD3;MD3 / BUZZER;UP;FGI;8831;5774;1;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;TRACK UP;FGI;8833;5785;1;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;DOWN;FGI;8829;5796;1;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;TRACK DOWN;FGI;8827;5807;1;3;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;DOWN Super;FGI;20455;5818;1;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;OK Buz;IDC;8842;5829;5;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;UP Super;FGI;20510;5897;1;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;OK Buz 2;IDC;8900;5908;4;2;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;Wait Buz 2;IDC;12854;5968;2;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;OK Buz 3;IDC;9041;6012;2;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;OK Buz Oil;IDC;9904;6056;2;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;Inter Buzzer;IDC;8804;6100;5;1;oui;MD3__BUZZER.md
+MD3;MD3 / BUZZER;Buzzer;DOUT;8812;6164;1;0;oui;MD3__BUZZER.md
+MD3;MD3 / BackLight;GPS Speed factor;SP;34772;6350;0;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;GPS_Factor;IP;34774;6362;1;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;GPS_Adress;IMAC;34831;6376;1;4;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;PGN-129026;IMAC;34840;6394;1;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;129026-0;GFIN;34775;6416;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Garmin - NMEA;IDC;34776;6435;2;4;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Adress Loose;IDC;34784;6478;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Adress_Search;IDC;34793;6522;3;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;GPS Adresse Find;TMR;34803;6581;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;GPS_Adresse_Find_Int;IMAC;34814;6642;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Adresse_Mem;MEM;34822;6683;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Speed_Over_Ground_Raw;GPIN;34859;6735;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Speed Over Ground Kts;MAC;34860;6748;2;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;PGN-129029;IMAC;34876;6770;1;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;129029-0;GFIN;34895;6792;4;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time_Byte_1_2_J;GPIN;34896;6818;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time_Byte_3;GPIN;34897;6831;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;129029-1;GFIN;34898;6843;2;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time_Byte_4;GPIN;34899;6863;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Current Time;MAC;34900;6875;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time;SIC;34920;6893;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;PGN-129025;IMAC;34921;6902;1;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;129025-0;GFIN;34940;6924;3;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Latitude G;GPIN;34941;6946;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Latitude Compute;MAC;34942;6959;2;3;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Longitude G;GPIN;34950;7003;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Longitude Compute;MAC;34951;7016;2;3;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Works Latitude;IDC;34959;7060;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;New Timer;TMR;34968;7114;2;4;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time Diff;MAC;34980;7183;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Time_Diff_MEM;MEM;34990;7201;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Hour actual;MAC;34998;7247;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Fuseau;IP;35006;7291;0;5;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Current Date J;GPIN;35007;7303;0;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Current Date MEN;MEM;35008;7316;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;days since 2000;IMAC;35016;7362;1;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Year since 2000;IMAC;35026;7380;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Days in current year;IMAC;35034;7423;4;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;M;MAC;35045;7493;2;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;C;MAC;35054;7546;2;20;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;L;MAC;35067;7633;3;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Dec;MAC;35077;7695;2;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Latitude Compute MEN;MEM;35087;7755;3;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Ho;MAC;35095;7801;4;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Ho h;MAC;35111;7904;1;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Longitude Compute MEN;MEM;35119;7926;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Lon;MAC;35127;7972;2;5;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;R;MAC;35135;8016;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;ET;MAC;35149;8112;3;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;ET h;MAC;35158;8165;2;5;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Sunset;MAC;35166;8209;6;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Sunrise;MAC;35177;8280;6;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Duree;MAC;35188;8351;3;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Min back light;IP;35196;8395;0;3;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Ho_night;MAC;35197;8407;4;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Ho night h;MAC;35212;8510;1;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Levé night;MAC;35229;8535;6;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Couché night;MAC;35241;8615;6;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;MODE;DP;35253;8695;0;5;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Back light;IP;35254;8708;0;3;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Overdrive BackLight;VDIN;35557;8720;0;3;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;State;SMC;35572;8731;3;6;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Backlight Value;MAC;35301;8779;9;2;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Méridian;MAC;35330;8878;4;1;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Backlight Value Filter;SFC;35366;8940;1;0;oui;MD3__BackLight.md
+MD3;MD3 / BackLight;Backlight;DCC;35556;8958;2;0;oui;MD3__BackLight.md
+MD3;MD3 / Link MD3;MDGN-Status:MD3[0];MDGN;54525;9611;0;0;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;Speed Input;APPOUT;61642;9622;1;0;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;State Up/Down;APPOUT;61644;9633;1;0;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;IDC Speed Free;APPOUT;61645;9644;1;1;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;UP/DOWN Button;APPOUT;61646;9655;1;1;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;OK UP/DOWN Input;APPIN;61668;9666;1;1;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;Oil level Very Low Input;APPIN;61669;9675;1;1;oui;MD3__Link_MD3.md
+MD3;MD3 / Link MD3;ENGINE RUN Input;APPIN;61670;9684;1;3;oui;MD3__Link_MD3.md
+MD3;MD3 / PIN;F1;VDIN;33416;8987;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;F2;VDIN;33417;8997;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;F3;VDIN;33418;9007;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;F4;VDIN;33419;9017;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Number 1;IP;33420;9027;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Number 2;IP;33421;9039;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Number 3;IP;33422;9051;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Number 4;IP;33423;9063;0;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Start PIN;DP;33424;9075;0;7;oui;MD3__PIN.md
+MD3;MD3 / PIN;Touch Value;IMAC;33425;9088;4;1;oui;MD3__PIN.md
+MD3;MD3 / PIN;Reset;IDC;33441;9106;3;2;oui;MD3__PIN.md
+MD3;MD3 / PIN;Counter;ECNT;33451;9169;6;3;oui;MD3__PIN.md
+MD3;MD3 / PIN;Unlock;IDC;33465;9253;3;5;oui;MD3__PIN.md
+MD3;MD3 / PIN;Lock;IDC;33476;9321;2;5;oui;MD3__PIN.md
+MD3;MD3 / PIN;PIn State;FSM;33484;9365;8;1;oui;MD3__PIN.md
+MD3;MD3 / PIN;Text State;SP;33519;9561;1;1;oui;MD3__PIN.md
+MD3;MD3 / PIN;Text ****;TP;33524;9576;1;1;oui;MD3__PIN.md
+MD3;MD3 / RADIO;CAN IN 100;GFIN;7117;3523;5;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioGauche;GPIN;7118;3554;0;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioDroit;GPIN;7119;3567;0;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioStop;GPIN;7120;3580;0;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioStart;GPIN;7121;3592;0;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioSpeed;GPIN;7124;3604;0;3;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;Timeout radio;TMR;7561;3616;2;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;CAN IN 101;GFIN;7499;3675;1;0;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;TimelapsIn;GPIN;7500;3694;0;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;LatenceTimer;TMR;7506;3707;1;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;Latence Math;MAC;7553;3759;3;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;State Latence;SMC;7753;3803;3;2;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioGauche%;MAC;7133;3854;3;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioDroit%;MAC;7146;3947;3;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;Command State;SMC;7172;4040;3;8;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioMode;IDC;7310;4091;2;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioStopInter;IDC;7223;4136;2;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;RadioStartInter;IDC;7227;4181;2;0;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;TimeLapsOut;GPOUT;7501;4226;1;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;Run Engine Statut;GPOUT;7552;4238;1;1;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;CANOUT 102;GFOUT;7502;4249;2;0;oui;MD3__RADIO.md
+MD3;MD3 / RADIO;MDGN-S/N:MD3[0];MDGN;21217;4271;0;0;oui;MD3__RADIO.md
+MD3;MD3 / UP/DOWN;Virtual DOWN;VDIN;6206;1026;0;8;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Virtual UP;VDIN;6208;1036;0;8;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;UP/DOWN Mode;DP;20513;1046;0;6;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;ENGINE RUN;IDC;36092;1059;2;6;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter DOWN Delay;IDC;8658;1102;5;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter DOWN Super Delay;IDC;20343;1175;3;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;TRACK DOWN;IDC;6255;1226;2;5;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Track DOWN Delay;IDC;20351;1271;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;DOWN Counter;ECNT;20326;1314;7;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter UP Delay;IDC;8685;1432;5;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Timer UP/DOWN;TMR;8616;1505;4;4;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;UP/DOWN Choice;SMC;8600;1573;6;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Value UP/DOWN;IP;8599;1676;1;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Store TIMER UP/DOWN;MEM;8591;1692;3;4;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter UP Super Delay;IDC;20301;1747;3;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;TRACK UP;IDC;6251;1798;3;4;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Track UP Delay;IDC;20425;1843;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;UP Counter;ECNT;20309;1886;7;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Timer UP/DOWN;IP;8632;2004;0;5;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Internal Value Timer UP/DOWN;MAC;8637;2016;2;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter DOWN;IDC;6216;2060;5;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Inter UP;IDC;6220;2133;5;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Intermediaire;IDC;6259;2206;3;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Action UP;IDC;6270;2263;3;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Action Down;IDC;6274;2313;3;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Time Sleep engine;FP;6340;2363;0;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;IDC Auto Sleep;IDC;12893;2375;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;All Ask Stop;FGI;12948;2419;1;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Timer Auto Sleep Engine;TMR;12921;2430;5;3;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;ASK STOP;IDC;6342;2506;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Process Down Engine;IDC;6358;2551;3;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;State Up/Down;IMAC;10357;2597;3;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;State Up/Down;SMC;10353;2649;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Mini Wait;IDC;14968;2766;2;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Show P-1-2;IDC;10388;2809;4;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Timer sleep engine to Img;IMAC;10442;2873;4;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Timer sleep engine to Img;SMC;10450;2934;2;0;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;UP/DOWN Button;SMC;12715;3207;3;2;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Debug Mode;DP;36097;3278;0;1;oui;MD3__UP_DOWN.md
+MD3;MD3 / UP/DOWN;Show Debug;IDC;36102;3291;3;0;oui;MD3__UP_DOWN.md
