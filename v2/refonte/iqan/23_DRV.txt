@@ -1,0 +1,1061 @@
+// Generated from 23_DRV.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900452
+Function group
+Name=20 EQP Equipment drivers
+Description=
+Enabled=Yes
+
+  BEGIN 900453
+  Function group
+  Name=23 DRV Traction inverters
+  Description=
+  Enabled=Yes
+
+    BEGIN 900454
+    Internal digital channel (IDC)
+    Name=DRV M1 CAN ok
+    Description=M1 (right track) inverter communication alive.  [origin: M1 - CAN OK]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900455
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900456
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CAN OK - S.M1.Right
+        END 900456
+
+        BEGIN 900457
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900457
+      END 900455
+
+      BEGIN 900458
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900459
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CAN OK - Z.M1.Right
+        END 900459
+
+        BEGIN 900460
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900460
+      END 900458
+    END 900454
+
+    BEGIN 900461
+    Internal digital channel (IDC)
+    Name=DRV M1 ready
+    Description=M1 inverter ready. Zapi M1 was forced True in 108.3.1 while M2 reads the signal: aligned on M2 (D29, check on a Zapi boat).  [origin: M1 - Ready]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900462
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900463
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Ready - S.M1.Right
+        END 900463
+
+        BEGIN 900464
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900464
+      END 900462
+
+      BEGIN 900465
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900466
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Zapi M1 ready signal (same frame bit as ZAPI_M2_READY)
+        END 900466
+
+        BEGIN 900467
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900467
+      END 900465
+    END 900461
+
+    BEGIN 900468
+    Internal digital channel (IDC)
+    Name=DRV M1 run
+    Description=M1 inverter running.  [origin: M1 - RUN]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900469
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900470
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=RUN - S.M1.Right
+        END 900470
+
+        BEGIN 900471
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900471
+      END 900469
+
+      BEGIN 900472
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900473
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=RUN - Z.M1.Right
+        END 900473
+
+        BEGIN 900474
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900474
+      END 900472
+    END 900468
+
+    BEGIN 900475
+    Internal digital channel (IDC)
+    Name=DRV M1 error
+    Description=M1 inverter in error mode.  [origin: M1 - Error mode]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900476
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900477
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Error mode - S.M1.Right
+        END 900477
+
+        BEGIN 900478
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900478
+      END 900476
+
+      BEGIN 900479
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900480
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Error mode - Z.M1.Right
+        END 900480
+
+        BEGIN 900481
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900481
+      END 900479
+    END 900475
+
+    BEGIN 900482
+    Integer math channel (IMAC)
+    Name=DRV M1 error raw code
+    Description=M1 inverter raw error code, logged.  [origin: Electronic logs value items]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900483
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900484
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Sevcon.M1 error code
+        END 900484
+      END 900483
+
+      BEGIN 900485
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900486
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Zapi.M1 Error Code
+        END 900486
+      END 900485
+    END 900482
+
+    BEGIN 900487
+    Integer math channel (IMAC)
+    Name=DRV M1 warning raw code
+    Description=M1 inverter raw warning code (Zapi only), logged.  [origin: Electronic logs value items]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900488
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900489
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900489
+      END 900488
+
+      BEGIN 900490
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900491
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Zapi.M1 Warning Code
+        END 900491
+      END 900490
+    END 900487
+
+    BEGIN 900492
+    Math channel (MAC)
+    Name=DRV M1 speed
+    Description=M1 motor speed.  [origin: M1 - Speed]
+    Unit=rpm
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900493
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900494
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Speed - S.M1.Right
+        END 900494
+      END 900493
+
+      BEGIN 900495
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900496
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Actual_speed - Z.M1.Right
+        END 900496
+      END 900495
+    END 900492
+
+    BEGIN 900497
+    Math channel (MAC)
+    Name=DRV M1 current
+    Description=M1 inverter current.  [origin: M1 - CURRENT]
+    Unit=A
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900498
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900499
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CURRENT - S.M1.Right
+        END 900499
+      END 900498
+
+      BEGIN 900500
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900501
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Actual_current - Z.M1.Right
+        END 900501
+      END 900500
+    END 900497
+
+    BEGIN 900502
+    Integer math channel (IMAC)
+    Name=DRV M1 torque
+    Description=M1 motor torque.  [origin: M1 - Torque]
+    Unit=Nm
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900503
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900504
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Torque actual - S.M1.Right
+        END 900504
+      END 900503
+
+      BEGIN 900505
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900506
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Torque - Z.M1.Right
+        END 900506
+      END 900505
+    END 900502
+
+    BEGIN 900507
+    Integer math channel (IMAC)
+    Name=DRV M1 voltage
+    Description=M1 inverter DC voltage.  [origin: M1 - Voltage]
+    Unit=V
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900508
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900509
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Voltage - S.M1.Right
+        END 900509
+      END 900508
+
+      BEGIN 900510
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900511
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Batterie Voltage - Z.M1.Right
+        END 900511
+      END 900510
+    END 900507
+
+    BEGIN 900512
+    Math channel (MAC)
+    Name=DRV M1 heatsink temp
+    Description=M1 inverter heatsink temperature.  [origin: M1 - Heatsink]
+    Unit=°C
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900513
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900514
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Heatsink - S.M1.Right
+        END 900514
+      END 900513
+
+      BEGIN 900515
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900516
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Heatsink - Z.M1.Right
+        END 900516
+      END 900515
+    END 900512
+
+    BEGIN 900517
+    Math channel (MAC)
+    Name=DRV M1 motor temp
+    Description=M1 SEW motor temperature (KTY sensor).  [origin: M1 - KTY]
+    Unit=°C
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900518
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900519
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=KTY - S.M1.Right
+        END 900519
+      END 900518
+
+      BEGIN 900520
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900521
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Motor_Temp - Z.M1.Right
+        END 900521
+      END 900520
+    END 900517
+
+    BEGIN 900522
+    Internal digital channel (IDC)
+    Name=DRV M2 CAN ok
+    Description=M2 (left track) inverter communication alive.  [origin: M2 - CAN OK]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900523
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900524
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CAN OK - S.M2.Left
+        END 900524
+
+        BEGIN 900525
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900525
+      END 900523
+
+      BEGIN 900526
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900527
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_CAN OK
+        END 900527
+
+        BEGIN 900528
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900528
+      END 900526
+    END 900522
+
+    BEGIN 900529
+    Internal digital channel (IDC)
+    Name=DRV M2 ready
+    Description=M2 inverter ready. Zapi M1 was forced True in 108.3.1 while M2 reads the signal: aligned on M2 (D29, check on a Zapi boat).  [origin: M2 - Ready]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900530
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900531
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Ready - S.M2.Left
+        END 900531
+
+        BEGIN 900532
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900532
+      END 900530
+
+      BEGIN 900533
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900534
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_READY
+        END 900534
+
+        BEGIN 900535
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900535
+      END 900533
+    END 900529
+
+    BEGIN 900536
+    Internal digital channel (IDC)
+    Name=DRV M2 run
+    Description=M2 inverter running.  [origin: M2 - RUN]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900537
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900538
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=RUN - S.M2.Left
+        END 900538
+
+        BEGIN 900539
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900539
+      END 900537
+
+      BEGIN 900540
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900541
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_RUN
+        END 900541
+
+        BEGIN 900542
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900542
+      END 900540
+    END 900536
+
+    BEGIN 900543
+    Internal digital channel (IDC)
+    Name=DRV M2 error
+    Description=M2 inverter in error mode.  [origin: M2 - Error mode]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900544
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900545
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Error mode - S.M2.Left
+        END 900545
+
+        BEGIN 900546
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900546
+      END 900544
+
+      BEGIN 900547
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900548
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Error mode
+        END 900548
+
+        BEGIN 900549
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900549
+      END 900547
+    END 900543
+
+    BEGIN 900550
+    Integer math channel (IMAC)
+    Name=DRV M2 error raw code
+    Description=M2 inverter raw error code, logged.  [origin: Electronic logs value items]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900551
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900552
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Sevcon.M2 error code
+        END 900552
+      END 900551
+
+      BEGIN 900553
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900554
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Zapi.M2 Error Code
+        END 900554
+      END 900553
+    END 900550
+
+    BEGIN 900555
+    Integer math channel (IMAC)
+    Name=DRV M2 warning raw code
+    Description=M2 inverter raw warning code (Zapi only), logged.  [origin: Electronic logs value items]
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900556
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900557
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900557
+      END 900556
+
+      BEGIN 900558
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900559
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Zapi.M2 Warning Code
+        END 900559
+      END 900558
+    END 900555
+
+    BEGIN 900560
+    Math channel (MAC)
+    Name=DRV M2 speed
+    Description=M2 motor speed.  [origin: M2 - Speed]
+    Unit=rpm
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900561
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900562
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Speed - S.M2.Left
+        END 900562
+      END 900561
+
+      BEGIN 900563
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900564
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Actual_speed
+        END 900564
+      END 900563
+    END 900560
+
+    BEGIN 900565
+    Math channel (MAC)
+    Name=DRV M2 current
+    Description=M2 inverter current.  [origin: M2 - CURRENT]
+    Unit=A
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900566
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900567
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CURRENT - S.M2.Left
+        END 900567
+      END 900566
+
+      BEGIN 900568
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900569
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Actual_current
+        END 900569
+      END 900568
+    END 900565
+
+    BEGIN 900570
+    Integer math channel (IMAC)
+    Name=DRV M2 torque
+    Description=M2 motor torque.  [origin: M2 - Torque]
+    Unit=Nm
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900571
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900572
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Torque actual - S.M2.Left
+        END 900572
+      END 900571
+
+      BEGIN 900573
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900574
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Torque
+        END 900574
+      END 900573
+    END 900570
+
+    BEGIN 900575
+    Integer math channel (IMAC)
+    Name=DRV M2 voltage
+    Description=M2 inverter DC voltage.  [origin: M2 - Voltage]
+    Unit=V
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900576
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900577
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Voltage - S.M2.Left
+        END 900577
+      END 900576
+
+      BEGIN 900578
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900579
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Batterie Voltage
+        END 900579
+      END 900578
+    END 900575
+
+    BEGIN 900580
+    Math channel (MAC)
+    Name=DRV M2 heatsink temp
+    Description=M2 inverter heatsink temperature.  [origin: M2 - Heatsink]
+    Unit=°C
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900581
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900582
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Heatsink - S.M2.Left
+        END 900582
+      END 900581
+
+      BEGIN 900583
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900584
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Heatsink
+        END 900584
+      END 900583
+    END 900580
+
+    BEGIN 900585
+    Math channel (MAC)
+    Name=DRV M2 motor temp
+    Description=M2 SEW motor temperature (KTY sensor).  [origin: M2 - KTY]
+    Unit=°C
+    Function selector=em1 M-Track - Brand
+
+      BEGIN 900586
+      Function
+      Name=Sevcon
+      Description=
+
+        BEGIN 900587
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=KTY - S.M2.Left
+        END 900587
+      END 900586
+
+      BEGIN 900588
+      Function
+      Name=Zapi
+      Description=
+
+        BEGIN 900589
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ZAPI_M2_Motor_Temp
+        END 900589
+      END 900588
+    END 900585
+  END 900453
+END 900452

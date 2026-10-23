@@ -1,0 +1,909 @@
+// Generated from 85_LOG.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900884
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900885
+  Function group
+  Name=LOG SYS
+  Description=
+  Enabled=Yes
+
+    BEGIN 900886
+    Internal digital channel (IDC)
+    Name=LOG SYS start
+    Description=System started (rising edge), logged in SYS Events with BAT SOC or ENG Coolant temp.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900887
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900888
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(PWR System started)
+        END 900888
+
+        BEGIN 900889
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900889
+      END 900887
+    END 900886
+
+    BEGIN 900890
+    Internal digital channel (IDC)
+    Name=LOG SYS stop
+    Description=System stopped (falling edge), logged in SYS Events with PWR Stop cause.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900891
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900892
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=NegativeFlank(PWR System started)
+        END 900892
+
+        BEGIN 900893
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900893
+      END 900891
+    END 900890
+
+    BEGIN 900894
+    Internal digital channel (IDC)
+    Name=LOG SYS screen lost
+    Description=A configured display stopped answering while the system runs.  [origin: new]
+    Delay on=5000
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900895
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900896
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR System started AND ((Joystick plugged md45 AND not(CFG Has_MD45)) OR (CFG Is_Cab AND not(CFG Has_MD410)) OR (Joystick plugged md3 AND not(CFG Has_MD3)))
+        END 900896
+
+        BEGIN 900897
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900897
+      END 900895
+    END 900894
+  END 900885
+END 900884
+
+BEGIN 900898
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900899
+  Function group
+  Name=LOG BAT
+  Description=
+  Enabled=Yes
+
+    BEGIN 900900
+    Internal digital channel (IDC)
+    Name=LOG BAT error
+    Description=Battery error (rising edge), logged with BAT Error raw code.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900901
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900902
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(BAT Error)
+        END 900902
+
+        BEGIN 900903
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900903
+      END 900901
+    END 900900
+
+    BEGIN 900904
+    Internal digital channel (IDC)
+    Name=LOG BAT warning
+    Description=Battery warning (rising edge), logged with BAT Error raw code.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900905
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900906
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(BAT Warning)
+        END 900906
+
+        BEGIN 900907
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900907
+      END 900905
+    END 900904
+
+    BEGIN 900908
+    Internal digital channel (IDC)
+    Name=LOG BAT isolation low
+    Description=Isolation below threshold (rising edge), logged with BAT Isolation.  [origin: Battery Isolation log]
+    Function selector=Not used
+
+      BEGIN 900909
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900910
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(BAT Isolation low)
+        END 900910
+
+        BEGIN 900911
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900911
+      END 900909
+    END 900908
+
+    BEGIN 900912
+    Internal digital channel (IDC)
+    Name=LOG BAT ground fault
+    Description=Ground fault (rising edge).  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900913
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900914
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(BAT Ground fault)
+        END 900914
+
+        BEGIN 900915
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900915
+      END 900913
+    END 900912
+
+    BEGIN 900916
+    Internal digital channel (IDC)
+    Name=LOG BAT CAN lost
+    Description=Battery communication lost while the system runs.  [origin: new]
+    Delay on=500
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900917
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900918
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR System started AND not(BAT CAN ok)
+        END 900918
+
+        BEGIN 900919
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900919
+      END 900917
+    END 900916
+
+    BEGIN 900920
+    Internal digital channel (IDC)
+    Name=LOG BAT cell imbalance
+    Description=Cell imbalance above threshold for 60 s, logged with BAT Cell V delta.  [origin: Balancing TYVA log, generalised]
+    Delay on=60000
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900921
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900922
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BAT Cell V delta > LOG Cell delta threshold
+        END 900922
+
+        BEGIN 900923
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900923
+      END 900921
+    END 900920
+
+    BEGIN 900924
+    Integer parameter channel (IP)
+    Name=LOG Cell delta threshold
+    Description=Cell imbalance threshold for the Cell imbalance event.  [origin: new]
+    Unit=mV
+    Mode selector=Not used
+    Default mode={100}
+    END 900924
+
+    BEGIN 900925
+    Internal digital channel (IDC)
+    Name=LOG BAT charged
+    Description=Battery full (rising edge), logged with BAT SOC.  [origin: Battery Charged item]
+    Function selector=Not used
+
+      BEGIN 900926
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900927
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(BAT Charged)
+        END 900927
+
+        BEGIN 900928
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900928
+      END 900926
+    END 900925
+  END 900899
+END 900898
+
+BEGIN 900929
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900930
+  Function group
+  Name=LOG CHG
+  Description=
+  Enabled=Yes
+
+    BEGIN 900931
+    Internal digital channel (IDC)
+    Name=LOG CHG start
+    Description=Charge started, logged with CHG Mains voltage.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900932
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900933
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR Charging state = Charging
+        END 900933
+
+        BEGIN 900934
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900934
+      END 900932
+    END 900931
+
+    BEGIN 900935
+    Internal digital channel (IDC)
+    Name=LOG CHG end
+    Description=Charge finished normally, logged with the energy of the charge.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900936
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900937
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR Charging state = Finish Charge
+        END 900937
+
+        BEGIN 900938
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900938
+      END 900936
+    END 900935
+
+    BEGIN 900939
+    Internal digital channel (IDC)
+    Name=LOG CHG aborted
+    Description=Charge aborted, logged with CHG Error raw code.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900940
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900941
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR PMS state = Charge Aborted
+        END 900941
+
+        BEGIN 900942
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900942
+      END 900940
+    END 900939
+
+    BEGIN 900943
+    Internal digital channel (IDC)
+    Name=LOG CHG error
+    Description=Charger error (rising edge), logged with CHG Error raw code.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900944
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900945
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(CHG Error)
+        END 900945
+
+        BEGIN 900946
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900946
+      END 900944
+    END 900943
+  END 900930
+END 900929
+
+BEGIN 900947
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900948
+  Function group
+  Name=LOG DRV
+  Description=
+  Enabled=Yes
+
+    BEGIN 900949
+    Internal digital channel (IDC)
+    Name=LOG DRV M1 error
+    Description=M1 inverter error, logged with DRV M1 error raw code.  [origin: Electronic logs]
+    Function selector=Not used
+
+      BEGIN 900950
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900951
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(DRV M1 error)
+        END 900951
+
+        BEGIN 900952
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900952
+      END 900950
+    END 900949
+
+    BEGIN 900953
+    Internal digital channel (IDC)
+    Name=LOG DRV M2 error
+    Description=M2 inverter error, logged with DRV M2 error raw code.  [origin: Electronic logs]
+    Function selector=Not used
+
+      BEGIN 900954
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900955
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(DRV M2 error)
+        END 900955
+
+        BEGIN 900956
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900956
+      END 900954
+    END 900953
+
+    BEGIN 900957
+    Internal digital channel (IDC)
+    Name=LOG PMP error
+    Description=M3 pump inverter error, logged with PMP error raw code.  [origin: Electronic logs]
+    Function selector=Not used
+
+      BEGIN 900958
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900959
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(PMP error)
+        END 900959
+
+        BEGIN 900960
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900960
+      END 900958
+    END 900957
+
+    BEGIN 900961
+    Internal digital channel (IDC)
+    Name=LOG DRV CAN lost
+    Description=An inverter (M1, M2 or M3) stopped answering while the system runs.  [origin: new]
+    Delay on=500
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900962
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900963
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR System started AND CFG Is_Electric AND (not(DRV M1 CAN ok) OR not(DRV M2 CAN ok) OR not(PMP CAN ok))
+        END 900963
+
+        BEGIN 900964
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900964
+      END 900962
+    END 900961
+  END 900948
+END 900947
+
+BEGIN 900965
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900966
+  Function group
+  Name=LOG ENG
+  Description=
+  Enabled=Yes
+
+    BEGIN 900967
+    Internal digital channel (IDC)
+    Name=LOG ENG DM1
+    Description=New DM1 fault, logged with ENG DM1 last SPN and FMI.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900968
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900969
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(ENG DM1 active)
+        END 900969
+
+        BEGIN 900970
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900970
+      END 900968
+    END 900967
+
+    BEGIN 900971
+    Internal digital channel (IDC)
+    Name=LOG ENG coolant lost
+    Description=Coolant temperature frame lost engine running (D15).  [origin: T Engine temp CAN lost]
+    Function selector=Not used
+
+      BEGIN 900972
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900973
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(ENG Coolant temp lost)
+        END 900973
+
+        BEGIN 900974
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900974
+      END 900972
+    END 900971
+  END 900966
+END 900965
+
+BEGIN 900975
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900976
+  Function group
+  Name=LOG HYD
+  Description=
+  Enabled=Yes
+
+    BEGIN 900977
+    Internal digital channel (IDC)
+    Name=LOG HYD up down interrupted
+    Description=Arm movement stopped on fault or cancel.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900978
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900979
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=TRK Up/Down aborted
+        END 900979
+
+        BEGIN 900980
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900980
+      END 900978
+    END 900977
+  END 900976
+END 900975
+
+BEGIN 900981
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900982
+  Function group
+  Name=LOG HMI
+  Description=
+  Enabled=Yes
+
+    BEGIN 900983
+    Internal digital channel (IDC)
+    Name=LOG HMI keypad lost
+    Description=Keypad configured but not working.  [origin: Keypad HS]
+    Delay on=3000
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900984
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900985
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Keypad 8 keys AND not(KPD CAN ok)
+        END 900985
+
+        BEGIN 900986
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900986
+      END 900984
+    END 900983
+
+    BEGIN 900987
+    Internal digital channel (IDC)
+    Name=LOG HMI fuse blown
+    Description=A keybox relay fuse blown (rising edge of any), logged with keybox x 100 + relay.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900988
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900989
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PositiveFlank(KBX Any fuse blown)
+        END 900989
+
+        BEGIN 900990
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900990
+      END 900988
+    END 900987
+  END 900982
+END 900981
+
+BEGIN 900991
+Function group
+Name=85 LOG Logs
+Description=
+Enabled=Yes
+
+  BEGIN 900992
+  Function group
+  Name=LOG MNT
+  Description=
+  Enabled=Yes
+
+    BEGIN 900993
+    Internal digital channel (IDC)
+    Name=LOG MNT mode
+    Description=Maintenance mode active.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900994
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900995
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=MNT Mode
+        END 900995
+
+        BEGIN 900996
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900996
+      END 900994
+    END 900993
+
+    BEGIN 900997
+    Internal digital channel (IDC)
+    Name=LOG MNT forcing active
+    Description=At least one forcing setting active while maintenance mode is on.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900998
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900999
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=MNT Any forcing
+        END 900999
+
+        BEGIN 901000
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 901000
+      END 900998
+    END 900997
+  END 900992
+END 900991

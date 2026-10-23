@@ -5,7 +5,7 @@
 | Stockage | Tout va dans le dépôt privé GitHub `naverys-sas/firmIMS`, y compris le registre des bateaux et les fiches techniques. |
 | Versions en service | Connues seulement en partie (colonne du registre). Le dossier complet des versions IQAN peut être fourni : on en tire les exports texte pour l'historique ; les `.idax` volumineux restent hors du dépôt si nécessaire. |
 | Priorité | Un code propre, modulaire, maintenable, professionnel. Pas d'autre priorité pour l'instant. |
-| Variantes à abandonner | Aucune : la refonte doit pouvoir être chargée aussi sur d'anciens bateaux. |
+| Variantes à abandonner | Aucune : la refonte doit pouvoir être chargée aussi sur d'anciens bateaux. Exception (23/10/2026) : #026 et #043 (branches V35.38.01 / V35.40) ont été refités, inutile de les supporter (D22). |
 | Évolutions à prévoir | Nouveaux variateurs, moteurs, batteries HT… (non définis) ; **remplacement du MD4 par le MD5** à préparer dans l'architecture. |
 | Langue des écrans | Anglais uniquement pour l'instant. |
 | Qui maintiendra | Des collègues de Nicolas : documentation et conventions doivent permettre à un autre développeur de reprendre le code. |

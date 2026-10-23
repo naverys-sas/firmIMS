@@ -1,0 +1,729 @@
+// Generated from 22_CHG.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900358
+Function group
+Name=20 EQP Equipment drivers
+Description=
+Enabled=Yes
+
+  BEGIN 900359
+  Function group
+  Name=22 CHG Charger
+  Description=
+  Enabled=Yes
+
+    BEGIN 900360
+    Internal digital channel (IDC)
+    Name=CHG CAN ok
+    Description=Charger communication alive.  [origin: Charger CAN BUS OK]
+    Function selector=ec Charger Brand
+
+      BEGIN 900361
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900362
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW CAN OK
+        END 900362
+
+        BEGIN 900363
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900363
+      END 900361
+
+      BEGIN 900364
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900365
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Brusa CAN OK
+        END 900365
+
+        BEGIN 900366
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900366
+      END 900364
+
+      BEGIN 900367
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900368
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon CAN OK
+        END 900368
+
+        BEGIN 900369
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900369
+      END 900367
+    END 900360
+
+    BEGIN 900370
+    Internal digital channel (IDC)
+    Name=CHG AC connected
+    Description=Charger plugged to the mains.  [origin: Charger CONNECT to 220V]
+    Function selector=ec Charger Brand
+
+      BEGIN 900371
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900372
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW Connected
+        END 900372
+
+        BEGIN 900373
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900373
+      END 900371
+
+      BEGIN 900374
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900375
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Brusa Connected
+        END 900375
+
+        BEGIN 900376
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900376
+      END 900374
+
+      BEGIN 900377
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900378
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon Connected
+        END 900378
+
+        BEGIN 900379
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900379
+      END 900377
+    END 900370
+
+    BEGIN 900380
+    Internal digital channel (IDC)
+    Name=CHG Ready
+    Description=Charger ready to charge.  [origin: Charger READY]
+    Function selector=ec Charger Brand
+
+      BEGIN 900381
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900382
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW Ready
+        END 900382
+
+        BEGIN 900383
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900383
+      END 900381
+
+      BEGIN 900384
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900385
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Brusa ready
+        END 900385
+
+        BEGIN 900386
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900386
+      END 900384
+
+      BEGIN 900387
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900388
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon Ready
+        END 900388
+
+        BEGIN 900389
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900389
+      END 900387
+    END 900380
+
+    BEGIN 900390
+    Internal digital channel (IDC)
+    Name=CHG Charging
+    Description=Charger delivering current.  [origin: Charger CHARGING]
+    Function selector=ec Charger Brand
+
+      BEGIN 900391
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900392
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW Charging
+        END 900392
+
+        BEGIN 900393
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900393
+      END 900391
+
+      BEGIN 900394
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900395
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Brusa Charging
+        END 900395
+
+        BEGIN 900396
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900396
+      END 900394
+
+      BEGIN 900397
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900398
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon Charging
+        END 900398
+
+        BEGIN 900399
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900399
+      END 900397
+    END 900390
+
+    BEGIN 900400
+    Internal digital channel (IDC)
+    Name=CHG Error
+    Description=Charger reports an error.  [origin: Charger ERROR]
+    Function selector=ec Charger Brand
+
+      BEGIN 900401
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900402
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW Error
+        END 900402
+
+        BEGIN 900403
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900403
+      END 900401
+
+      BEGIN 900404
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900405
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Brusa Error
+        END 900405
+
+        BEGIN 900406
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900406
+      END 900404
+
+      BEGIN 900407
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900408
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon Error
+        END 900408
+
+        BEGIN 900409
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900409
+      END 900407
+    END 900400
+
+    BEGIN 900410
+    Math channel (MAC)
+    Name=CHG Output voltage
+    Description=DC voltage delivered to the battery.  [origin: Charger Output Voltage]
+    Unit=V
+    Function selector=ec Charger Brand
+
+      BEGIN 900411
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900412
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - Output Voltage
+        END 900412
+      END 900411
+
+      BEGIN 900413
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900414
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1553 - Actual battery output voltage
+        END 900414
+      END 900413
+
+      BEGIN 900415
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900416
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon - output Voltage
+        END 900416
+      END 900415
+    END 900410
+
+    BEGIN 900417
+    Math channel (MAC)
+    Name=CHG Output current
+    Description=DC current delivered to the battery. Brusa: 108.3.1 read the mains current here, corrected (D29).  [origin: Charger Output Current (Brusa wrong signal)]
+    Unit=A
+    Function selector=ec Charger Brand
+
+      BEGIN 900418
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900419
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - Output current
+        END 900419
+      END 900418
+
+      BEGIN 900420
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900421
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1553 - output current to the battery
+        END 900421
+      END 900420
+
+      BEGIN 900422
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900423
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Elcon - output current
+        END 900423
+      END 900422
+    END 900417
+
+    BEGIN 900424
+    Math channel (MAC)
+    Name=CHG Mains current
+    Description=AC current drawn from the mains.  [origin: new]
+    Unit=A
+    Function selector=ec Charger Brand
+
+      BEGIN 900425
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900426
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - Main current
+        END 900426
+      END 900425
+
+      BEGIN 900427
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900428
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1553 - Actual mains current
+        END 900428
+      END 900427
+
+      BEGIN 900429
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900430
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900430
+      END 900429
+    END 900424
+
+    BEGIN 900431
+    Math channel (MAC)
+    Name=CHG Mains voltage
+    Description=AC mains voltage.  [origin: new]
+    Unit=V
+    Function selector=ec Charger Brand
+
+      BEGIN 900432
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900433
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900433
+      END 900432
+
+      BEGIN 900434
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900435
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1553 - Actual mains voltage
+        END 900435
+      END 900434
+
+      BEGIN 900436
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900437
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Input Voltage
+        END 900437
+      END 900436
+    END 900431
+
+    BEGIN 900438
+    Math channel (MAC)
+    Name=CHG Temperature
+    Description=Charger power stage temperature.  [origin: new]
+    Unit=°C
+    Function selector=ec Charger Brand
+
+      BEGIN 900439
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900440
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900440
+      END 900439
+
+      BEGIN 900441
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900442
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1555 - Power stage temperature - Byte
+        END 900442
+      END 900441
+
+      BEGIN 900443
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900444
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Temperature od charger
+        END 900444
+      END 900443
+    END 900438
+
+    BEGIN 900445
+    Integer math channel (IMAC)
+    Name=CHG Error raw code
+    Description=Raw status / error code of the charger, logged with charger errors.  [origin: new]
+    Function selector=ec Charger Brand
+
+      BEGIN 900446
+      Function
+      Name=BMW
+      Description=
+
+        BEGIN 900447
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=BMW - Status
+        END 900447
+      END 900446
+
+      BEGIN 900448
+      Function
+      Name=Brusa
+      Description=
+
+        BEGIN 900449
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=1552 - Error detect - Byte
+        END 900449
+      END 900448
+
+      BEGIN 900450
+      Function
+      Name=Elcon
+      Description=
+
+        BEGIN 900451
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Communication State
+        END 900451
+      END 900450
+    END 900445
+  END 900359
+END 900358

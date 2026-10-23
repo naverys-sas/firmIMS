@@ -1,0 +1,405 @@
+// Generated from 25_ENG.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900640
+Function group
+Name=20 EQP Equipment drivers
+Description=
+Enabled=Yes
+
+  BEGIN 900641
+  Function group
+  Name=25 ENG Thermal engine
+  Description=
+  Enabled=Yes
+
+    BEGIN 900642
+    Internal digital channel (IDC)
+    Name=ENG CAN ok
+    Description=Engine ECU alive: EEC1 received in time (timeout to set on EEC1, value to validate on bench).  [origin: new]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900643
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900644
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=EEC1 frame status = OK
+        END 900644
+
+        BEGIN 900645
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900645
+      END 900643
+    END 900642
+
+    BEGIN 900646
+    Math channel (MAC)
+    Name=ENG Speed
+    Description=Engine speed (EEC1, SPN 190).  [origin: T Speed CAN 42 / Speed CAN T45]
+    Unit=rpm
+    Function selector=Not used
+
+      BEGIN 900647
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900648
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Engine speed
+        END 900648
+      END 900647
+    END 900646
+
+    BEGIN 900649
+    Math channel (MAC)
+    Name=ENG Coolant temp
+    Description=Engine coolant temperature (ET1, SPN 110, timeout 3 s, D15).  [origin: T Engine coolant temp / Engine coolant temp T45]
+    Unit=°C
+    Function selector=Not used
+
+      BEGIN 900650
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900651
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Engine coolant temperature
+        END 900651
+      END 900650
+    END 900649
+
+    BEGIN 900652
+    Internal digital channel (IDC)
+    Name=ENG Coolant temp lost
+    Description=Engine running and coolant temperature frame lost for 5 s (D15, message e1201).  [origin: T Engine temp CAN lost]
+    Delay on=5000
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900653
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900654
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=ENG Running AND (Engine Temperature frame status = Timeout)
+        END 900654
+
+        BEGIN 900655
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900655
+      END 900653
+    END 900652
+
+    BEGIN 900656
+    Math channel (MAC)
+    Name=ENG Oil pressure
+    Description=Engine oil pressure (EFL/P1, SPN 100).  [origin: Engine oil pressure EB2 T45]
+    Unit=kPa
+    Function selector=Not used
+
+      BEGIN 900657
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900658
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Engine oil pressure
+        END 900658
+      END 900657
+    END 900656
+
+    BEGIN 900659
+    Math channel (MAC)
+    Name=ENG Load
+    Description=Engine load at current speed (EEC2, SPN 92).  [origin: T % load at current speed]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900660
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900661
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=% load at current speed
+        END 900661
+      END 900660
+    END 900659
+
+    BEGIN 900662
+    Math channel (MAC)
+    Name=ENG Torque
+    Description=Actual engine torque (EEC1, SPN 513).  [origin: Actual engine, % torque T45]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900663
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900664
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Actual engine, % torque
+        END 900664
+      END 900663
+    END 900662
+
+    BEGIN 900665
+    Internal digital channel (IDC)
+    Name=ENG MIL lamp
+    Description=DM1 malfunction lamp.  [origin: Malfunction lamp T45]
+    Function selector=Not used
+
+      BEGIN 900666
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900667
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Malfunction lamp (MDGN of the J1939 engine module) <> 0
+        END 900667
+
+        BEGIN 900668
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900668
+      END 900666
+    END 900665
+
+    BEGIN 900669
+    Internal digital channel (IDC)
+    Name=ENG Red stop lamp
+    Description=DM1 red stop lamp.  [origin: Red stop lamp T45]
+    Function selector=Not used
+
+      BEGIN 900670
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900671
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Red stop lamp (MDGN of the J1939 engine module) <> 0
+        END 900671
+
+        BEGIN 900672
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900672
+      END 900670
+    END 900669
+
+    BEGIN 900673
+    Internal digital channel (IDC)
+    Name=ENG Amber lamp
+    Description=DM1 amber warning lamp.  [origin: Amber warning lamp T45]
+    Function selector=Not used
+
+      BEGIN 900674
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900675
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Amber warning lamp (MDGN of the J1939 engine module) <> 0
+        END 900675
+
+        BEGIN 900676
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900676
+      END 900674
+    END 900673
+
+    BEGIN 900677
+    Internal digital channel (IDC)
+    Name=ENG Protect lamp
+    Description=DM1 protect lamp.  [origin: Protect lamp T45]
+    Function selector=Not used
+
+      BEGIN 900678
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900679
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Protect lamp (MDGN of the J1939 engine module) <> 0
+        END 900679
+
+        BEGIN 900680
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900680
+      END 900678
+    END 900677
+
+    BEGIN 900681
+    Internal digital channel (IDC)
+    Name=ENG DM1 active
+    Description=At least one active DM1 fault code.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900682
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900683
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=DM1 active code count > 0
+        END 900683
+
+        BEGIN 900684
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900684
+      END 900682
+    END 900681
+
+    BEGIN 900685
+    Integer math channel (IMAC)
+    Name=ENG DM1 last SPN
+    Description=SPN of the last DM1 fault received, logged.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900686
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900687
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=DM1 SPN
+        END 900687
+      END 900686
+    END 900685
+
+    BEGIN 900688
+    Integer math channel (IMAC)
+    Name=ENG DM1 last FMI
+    Description=FMI of the last DM1 fault received, logged.  [origin: new]
+    Function selector=Not used
+
+      BEGIN 900689
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900690
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=DM1 FMI
+        END 900690
+      END 900689
+    END 900688
+
+    BEGIN 900691
+    Function group input channel (FGI)
+    Name=ENG Speed request
+    Description=Engine speed set point sent in TSC1, written by ACT.  [origin: In T Engine speed / In Engine speed to send]
+    Unit=rpm
+    Input channel=ACT Engine speed request
+    END 900691
+  END 900641
+END 900640

@@ -1,0 +1,30 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+50 TRK Tracks/TRK Parameters;TRK Start slope;MAC;%/s;Start ramp of the track set points for the current speed mode. Reads the E or T parameter so that the stored values of both propulsions are kept (D27).;Drive Type mc;Electric;e Start Slope;;;e Start Slope / T Start Slope
+50 TRK Tracks/TRK Parameters;TRK Start slope;MAC;%/s;;Drive Type mc;Fossil;T Start Slope;;;
+50 TRK Tracks/TRK Parameters;TRK Stop slope;MAC;%/s;Stop ramp of the track set points for the current speed mode (E or T parameter, D27).;Drive Type mc;Electric;e Stop Slope;;;e Stop Slope / T Stop Slope
+50 TRK Tracks/TRK Parameters;TRK Stop slope;MAC;%/s;;Drive Type mc;Fossil;T Stop Slope;;;
+50 TRK Tracks/TRK Parameters;TRK Max differential;MAC;%;Maximum speed difference between tracks in UnFree mode (E or T parameter, D27).;Drive Type mc;Electric;e Max_differential;;;e Max_differential / T Max_diffrential
+50 TRK Tracks/TRK Parameters;TRK Max differential;MAC;%;;Drive Type mc;Fossil;T Max_diffrential;;;
+50 TRK Tracks/TRK Parameters;TRK Need pressure delay;MAC;ms;Delay before a tension pressure demand is accepted: fixed 500 ms in electric (108.3.1), adjustable in thermal.;Drive Type mc;Electric;500;;;E Need Pressure delay / T Need Pressure Tempo
+50 TRK Tracks/TRK Parameters;TRK Need pressure delay;MAC;ms;;Drive Type mc;Fossil;T Need Pressure Tempo;;;
+50 TRK Tracks/TRK Parameters;TRK Lock time;MAC;ms;Time the arm locks are driven: landing blocks (electric) or lockers (thermal), as in 108.3.1.;Drive Type mc;Electric;e Landing time bloking;;;e Landing time bloking / T Locking Time
+50 TRK Tracks/TRK Parameters;TRK Lock time;MAC;ms;;Drive Type mc;Fossil;T Locking Time;;;
+50 TRK Tracks/TRK Translate;TRK Enabled;IDC;;Tracks may move: propulsion started and no crash request.;;;PWR System started;PWR Crash;Delay on=0 & Delay off=0;e System Started / Engine Stopped / System Crash Signal
+50 TRK Tracks/TRK Translate;TRK Joystick left;MAC;%;Left joystick after enable.;;;CMD Joystick left * TRK Enabled;;;DMAC_EV_2_Left
+50 TRK Tracks/TRK Translate;TRK Joystick right;MAC;%;Right joystick after enable.;;;CMD Joystick right * TRK Enabled;;;DMAC_EV_1_Right
+50 TRK Tracks/TRK Translate;TRK Speed mode;SMC;;Idle, Free (each track follows its joystick), UnFree (differential limited by TRK Max differential).;;Idle;CMD Speed level = 0;;Default state name=Off;e Speed Mode / T Speed Mode
+50 TRK Tracks/TRK Translate;TRK Speed mode;SMC;;;;Free;(CMD Speed level >= 1) AND (CMD Speed level <= 3);not(CMD Free);;
+50 TRK Tracks/TRK Translate;TRK Speed mode;SMC;;;;UnFree;(CMD Speed level >= 1) AND (CMD Speed level <= 3);;;
+50 TRK Tracks/TRK Translate;TRK Left unfree;MAC;%;Left set point with differential limit (Qcode copied from Left unfree, 108.3.1).;;;Qcode Left unfree (108.3.1) with TRK Joystick left/right and TRK Max differential;;;Left unfree
+50 TRK Tracks/TRK Translate;TRK Right unfree;MAC;%;Right set point with differential limit (Qcode copied from Right unfree, 108.3.1).;;;Qcode Right unfree (108.3.1) with TRK Joystick left/right and TRK Max differential;;;Right unfree
+50 TRK Tracks/TRK Translate;TRK Left table;MAC;%;Left set point for the current speed mode.;TRK Speed mode;Off;0;;;DMAC Table Left
+50 TRK Tracks/TRK Translate;TRK Left table;MAC;%;;TRK Speed mode;Idle;0;;;
+50 TRK Tracks/TRK Translate;TRK Left table;MAC;%;;TRK Speed mode;Free;TRK Joystick left;;;
+50 TRK Tracks/TRK Translate;TRK Left table;MAC;%;;TRK Speed mode;UnFree;TRK Left unfree;;;
+50 TRK Tracks/TRK Translate;TRK Right table;MAC;%;Right set point for the current speed mode.;TRK Speed mode;Off;0;;;DMAC Table Right
+50 TRK Tracks/TRK Translate;TRK Right table;MAC;%;;TRK Speed mode;Idle;0;;;
+50 TRK Tracks/TRK Translate;TRK Right table;MAC;%;;TRK Speed mode;Free;TRK Joystick right;;;
+50 TRK Tracks/TRK Translate;TRK Right table;MAC;%;;TRK Speed mode;UnFree;TRK Right unfree;;;
+50 TRK Tracks/TRK Translate;TRK Left cmd;MAC;%;Left track set point after ramps (Slope/Filter channel in the IDE, slopes TRK Start slope / TRK Stop slope). Read by ACT Traction.;;;Slopes(TRK Left table, TRK Start slope, TRK Stop slope);;;e Left Filter / T Left Filter
+50 TRK Tracks/TRK Translate;TRK Right cmd;MAC;%;Right track set point after ramps. Read by ACT Traction.;;;Slopes(TRK Right table, TRK Start slope, TRK Stop slope);;;e Right Filter / T Right Filter
+50 TRK Tracks/TRK Translate;TRK Translate power request;SMC;;Power level requested for translation: Slow, Normal, Fast. Read by ACT (engine speed in thermal).;;Fast;CMD Speed level >= 3;;Default state name=Slow;e Speed Pump / T Speed Pump

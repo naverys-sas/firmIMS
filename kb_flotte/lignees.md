@@ -33,5 +33,6 @@ Les deux lignées envoient donc **des consignes opposées sur la même broche**.
 ## Bateaux dont la version exacte n'est pas en notre possession
 
 - #026 et #043 (anciennes branches V35 Kreisel et Novum) : refités depuis, plus à couvrir (Nicolas, 23/10/2026).
+- Novum à écran MD3 (#065, #071, #072, #074) en **V65** : projet à récupérer (lignée B).
 - #024 (V16.34) et #023 (V23.x) : versions antérieures à la V25.
 - #010 (V10.8.12, refit Aentron) : version unique.

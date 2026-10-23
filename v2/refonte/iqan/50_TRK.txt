@@ -1,0 +1,640 @@
+// Generated from 50_TRK.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900692
+Function group
+Name=50 TRK Tracks
+Description=
+Enabled=Yes
+
+  BEGIN 900693
+  Function group
+  Name=TRK Parameters
+  Description=
+  Enabled=Yes
+
+    BEGIN 900694
+    Math channel (MAC)
+    Name=TRK Start slope
+    Description=Start ramp of the track set points for the current speed mode. Reads the E or T parameter so that the stored values of both propulsions are kept (D27).  [origin: e Start Slope / T Start Slope]
+    Unit=%/s
+    Function selector=Drive Type mc
+
+      BEGIN 900695
+      Function
+      Name=Electric
+      Description=
+
+        BEGIN 900696
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=e Start Slope
+        END 900696
+      END 900695
+
+      BEGIN 900697
+      Function
+      Name=Fossil
+      Description=
+
+        BEGIN 900698
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=T Start Slope
+        END 900698
+      END 900697
+    END 900694
+
+    BEGIN 900699
+    Math channel (MAC)
+    Name=TRK Stop slope
+    Description=Stop ramp of the track set points for the current speed mode (E or T parameter, D27).  [origin: e Stop Slope / T Stop Slope]
+    Unit=%/s
+    Function selector=Drive Type mc
+
+      BEGIN 900700
+      Function
+      Name=Electric
+      Description=
+
+        BEGIN 900701
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=e Stop Slope
+        END 900701
+      END 900700
+
+      BEGIN 900702
+      Function
+      Name=Fossil
+      Description=
+
+        BEGIN 900703
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=T Stop Slope
+        END 900703
+      END 900702
+    END 900699
+
+    BEGIN 900704
+    Math channel (MAC)
+    Name=TRK Max differential
+    Description=Maximum speed difference between tracks in UnFree mode (E or T parameter, D27).  [origin: e Max_differential / T Max_diffrential]
+    Unit=%
+    Function selector=Drive Type mc
+
+      BEGIN 900705
+      Function
+      Name=Electric
+      Description=
+
+        BEGIN 900706
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=e Max_differential
+        END 900706
+      END 900705
+
+      BEGIN 900707
+      Function
+      Name=Fossil
+      Description=
+
+        BEGIN 900708
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=T Max_diffrential
+        END 900708
+      END 900707
+    END 900704
+
+    BEGIN 900709
+    Math channel (MAC)
+    Name=TRK Need pressure delay
+    Description=Delay before a tension pressure demand is accepted: fixed 500 ms in electric (108.3.1), adjustable in thermal.  [origin: E Need Pressure delay / T Need Pressure Tempo]
+    Unit=ms
+    Function selector=Drive Type mc
+
+      BEGIN 900710
+      Function
+      Name=Electric
+      Description=
+
+        BEGIN 900711
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=500
+        END 900711
+      END 900710
+
+      BEGIN 900712
+      Function
+      Name=Fossil
+      Description=
+
+        BEGIN 900713
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=T Need Pressure Tempo
+        END 900713
+      END 900712
+    END 900709
+
+    BEGIN 900714
+    Math channel (MAC)
+    Name=TRK Lock time
+    Description=Time the arm locks are driven: landing blocks (electric) or lockers (thermal), as in 108.3.1.  [origin: e Landing time bloking / T Locking Time]
+    Unit=ms
+    Function selector=Drive Type mc
+
+      BEGIN 900715
+      Function
+      Name=Electric
+      Description=
+
+        BEGIN 900716
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=e Landing time bloking
+        END 900716
+      END 900715
+
+      BEGIN 900717
+      Function
+      Name=Fossil
+      Description=
+
+        BEGIN 900718
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=T Locking Time
+        END 900718
+      END 900717
+    END 900714
+  END 900693
+END 900692
+
+BEGIN 900719
+Function group
+Name=50 TRK Tracks
+Description=
+Enabled=Yes
+
+  BEGIN 900720
+  Function group
+  Name=TRK Translate
+  Description=
+  Enabled=Yes
+
+    BEGIN 900721
+    Internal digital channel (IDC)
+    Name=TRK Enabled
+    Description=Tracks may move: propulsion started and no crash request.  [origin: e System Started / Engine Stopped / System Crash Signal]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900722
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900723
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR System started
+        END 900723
+
+        BEGIN 900724
+        Object group
+        Name=Blocking
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=PWR Crash
+        END 900724
+      END 900722
+    END 900721
+
+    BEGIN 900725
+    Math channel (MAC)
+    Name=TRK Joystick left
+    Description=Left joystick after enable.  [origin: DMAC_EV_2_Left]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900726
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900727
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CMD Joystick left * TRK Enabled
+        END 900727
+      END 900726
+    END 900725
+
+    BEGIN 900728
+    Math channel (MAC)
+    Name=TRK Joystick right
+    Description=Right joystick after enable.  [origin: DMAC_EV_1_Right]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900729
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900730
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CMD Joystick right * TRK Enabled
+        END 900730
+      END 900729
+    END 900728
+
+    BEGIN 900731
+    State machine channel (SMC)
+    Name=TRK Speed mode
+    Description=Idle, Free (each track follows its joystick), UnFree (differential limited by TRK Max differential).  [origin: e Speed Mode / T Speed Mode]
+    Default state name=Off
+    Function selector=Not used
+
+      BEGIN 900732
+      Function
+      Name=Idle
+      Description=
+
+        BEGIN 900733
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CMD Speed level = 0
+        END 900733
+
+        BEGIN 900734
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900734
+      END 900732
+
+      BEGIN 900735
+      Function
+      Name=Free
+      Description=
+
+        BEGIN 900736
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=(CMD Speed level >= 1) AND (CMD Speed level <= 3)
+        END 900736
+
+        BEGIN 900737
+        Object group
+        Name=Blocking
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=not(CMD Free)
+        END 900737
+      END 900735
+
+      BEGIN 900738
+      Function
+      Name=UnFree
+      Description=
+
+        BEGIN 900739
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=(CMD Speed level >= 1) AND (CMD Speed level <= 3)
+        END 900739
+
+        BEGIN 900740
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900740
+      END 900738
+    END 900731
+
+    BEGIN 900741
+    Math channel (MAC)
+    Name=TRK Left unfree
+    Description=Left set point with differential limit (Qcode copied from Left unfree, 108.3.1).  [origin: Left unfree]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900742
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900743
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Qcode Left unfree (108.3.1) with TRK Joystick left/right and TRK Max differential
+        END 900743
+      END 900742
+    END 900741
+
+    BEGIN 900744
+    Math channel (MAC)
+    Name=TRK Right unfree
+    Description=Right set point with differential limit (Qcode copied from Right unfree, 108.3.1).  [origin: Right unfree]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900745
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900746
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Qcode Right unfree (108.3.1) with TRK Joystick left/right and TRK Max differential
+        END 900746
+      END 900745
+    END 900744
+
+    BEGIN 900747
+    Math channel (MAC)
+    Name=TRK Left table
+    Description=Left set point for the current speed mode.  [origin: DMAC Table Left]
+    Unit=%
+    Function selector=TRK Speed mode
+
+      BEGIN 900748
+      Function
+      Name=Off
+      Description=
+
+        BEGIN 900749
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900749
+      END 900748
+
+      BEGIN 900750
+      Function
+      Name=Idle
+      Description=
+
+        BEGIN 900751
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900751
+      END 900750
+
+      BEGIN 900752
+      Function
+      Name=Free
+      Description=
+
+        BEGIN 900753
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=TRK Joystick left
+        END 900753
+      END 900752
+
+      BEGIN 900754
+      Function
+      Name=UnFree
+      Description=
+
+        BEGIN 900755
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=TRK Left unfree
+        END 900755
+      END 900754
+    END 900747
+
+    BEGIN 900756
+    Math channel (MAC)
+    Name=TRK Right table
+    Description=Right set point for the current speed mode.  [origin: DMAC Table Right]
+    Unit=%
+    Function selector=TRK Speed mode
+
+      BEGIN 900757
+      Function
+      Name=Off
+      Description=
+
+        BEGIN 900758
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900758
+      END 900757
+
+      BEGIN 900759
+      Function
+      Name=Idle
+      Description=
+
+        BEGIN 900760
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=0
+        END 900760
+      END 900759
+
+      BEGIN 900761
+      Function
+      Name=Free
+      Description=
+
+        BEGIN 900762
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=TRK Joystick right
+        END 900762
+      END 900761
+
+      BEGIN 900763
+      Function
+      Name=UnFree
+      Description=
+
+        BEGIN 900764
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=TRK Right unfree
+        END 900764
+      END 900763
+    END 900756
+
+    BEGIN 900765
+    Math channel (MAC)
+    Name=TRK Left cmd
+    Description=Left track set point after ramps (Slope/Filter channel in the IDE, slopes TRK Start slope / TRK Stop slope). Read by ACT Traction.  [origin: e Left Filter / T Left Filter]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900766
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900767
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Slopes(TRK Left table, TRK Start slope, TRK Stop slope)
+        END 900767
+      END 900766
+    END 900765
+
+    BEGIN 900768
+    Math channel (MAC)
+    Name=TRK Right cmd
+    Description=Right track set point after ramps. Read by ACT Traction.  [origin: e Right Filter / T Right Filter]
+    Unit=%
+    Function selector=Not used
+
+      BEGIN 900769
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900770
+        Object group
+        Name=Controlling
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Slopes(TRK Right table, TRK Start slope, TRK Stop slope)
+        END 900770
+      END 900769
+    END 900768
+
+    BEGIN 900771
+    State machine channel (SMC)
+    Name=TRK Translate power request
+    Description=Power level requested for translation: Slow, Normal, Fast. Read by ACT (engine speed in thermal).  [origin: e Speed Pump / T Speed Pump]
+    Default state name=Slow
+    Function selector=Not used
+
+      BEGIN 900772
+      Function
+      Name=Fast
+      Description=
+
+        BEGIN 900773
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CMD Speed level >= 3
+        END 900773
+
+        BEGIN 900774
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900774
+      END 900772
+    END 900771
+  END 900720
+END 900719

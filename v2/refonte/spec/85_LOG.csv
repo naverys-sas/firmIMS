@@ -1,0 +1,27 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+85 LOG Logs/LOG SYS;LOG SYS start;IDC;;System started (rising edge), logged in SYS Events with BAT SOC or ENG Coolant temp.;;;PositiveFlank(PWR System started);;;new
+85 LOG Logs/LOG SYS;LOG SYS stop;IDC;;System stopped (falling edge), logged in SYS Events with PWR Stop cause.;;;NegativeFlank(PWR System started);;;new
+85 LOG Logs/LOG SYS;LOG SYS screen lost;IDC;;A configured display stopped answering while the system runs.;;;PWR System started AND ((Joystick plugged md45 AND not(CFG Has_MD45)) OR (CFG Is_Cab AND not(CFG Has_MD410)) OR (Joystick plugged md3 AND not(CFG Has_MD3)));;Delay on=5000 & Delay off=0;new
+85 LOG Logs/LOG BAT;LOG BAT error;IDC;;Battery error (rising edge), logged with BAT Error raw code.;;;PositiveFlank(BAT Error);;;new
+85 LOG Logs/LOG BAT;LOG BAT warning;IDC;;Battery warning (rising edge), logged with BAT Error raw code.;;;PositiveFlank(BAT Warning);;;new
+85 LOG Logs/LOG BAT;LOG BAT isolation low;IDC;;Isolation below threshold (rising edge), logged with BAT Isolation.;;;PositiveFlank(BAT Isolation low);;;Battery Isolation log
+85 LOG Logs/LOG BAT;LOG BAT ground fault;IDC;;Ground fault (rising edge).;;;PositiveFlank(BAT Ground fault);;;new
+85 LOG Logs/LOG BAT;LOG BAT CAN lost;IDC;;Battery communication lost while the system runs.;;;PWR System started AND not(BAT CAN ok);;Delay on=500 & Delay off=0;new
+85 LOG Logs/LOG BAT;LOG BAT cell imbalance;IDC;;Cell imbalance above threshold for 60 s, logged with BAT Cell V delta.;;;BAT Cell V delta > LOG Cell delta threshold;;Delay on=60000 & Delay off=0;Balancing TYVA log, generalised
+85 LOG Logs/LOG BAT;LOG Cell delta threshold;IP;mV;Cell imbalance threshold for the Cell imbalance event.;;;100;;;new
+85 LOG Logs/LOG BAT;LOG BAT charged;IDC;;Battery full (rising edge), logged with BAT SOC.;;;PositiveFlank(BAT Charged);;;Battery Charged item
+85 LOG Logs/LOG CHG;LOG CHG start;IDC;;Charge started, logged with CHG Mains voltage.;;;PWR Charging state = Charging;;;new
+85 LOG Logs/LOG CHG;LOG CHG end;IDC;;Charge finished normally, logged with the energy of the charge.;;;PWR Charging state = Finish Charge;;;new
+85 LOG Logs/LOG CHG;LOG CHG aborted;IDC;;Charge aborted, logged with CHG Error raw code.;;;PWR PMS state = Charge Aborted;;;new
+85 LOG Logs/LOG CHG;LOG CHG error;IDC;;Charger error (rising edge), logged with CHG Error raw code.;;;PositiveFlank(CHG Error);;;new
+85 LOG Logs/LOG DRV;LOG DRV M1 error;IDC;;M1 inverter error, logged with DRV M1 error raw code.;;;PositiveFlank(DRV M1 error);;;Electronic logs
+85 LOG Logs/LOG DRV;LOG DRV M2 error;IDC;;M2 inverter error, logged with DRV M2 error raw code.;;;PositiveFlank(DRV M2 error);;;Electronic logs
+85 LOG Logs/LOG DRV;LOG PMP error;IDC;;M3 pump inverter error, logged with PMP error raw code.;;;PositiveFlank(PMP error);;;Electronic logs
+85 LOG Logs/LOG DRV;LOG DRV CAN lost;IDC;;An inverter (M1, M2 or M3) stopped answering while the system runs.;;;PWR System started AND CFG Is_Electric AND (not(DRV M1 CAN ok) OR not(DRV M2 CAN ok) OR not(PMP CAN ok));;Delay on=500 & Delay off=0;new
+85 LOG Logs/LOG ENG;LOG ENG DM1;IDC;;New DM1 fault, logged with ENG DM1 last SPN and FMI.;;;PositiveFlank(ENG DM1 active);;;new
+85 LOG Logs/LOG ENG;LOG ENG coolant lost;IDC;;Coolant temperature frame lost engine running (D15).;;;PositiveFlank(ENG Coolant temp lost);;;T Engine temp CAN lost
+85 LOG Logs/LOG HYD;LOG HYD up down interrupted;IDC;;Arm movement stopped on fault or cancel.;;;TRK Up/Down aborted;;;new
+85 LOG Logs/LOG HMI;LOG HMI keypad lost;IDC;;Keypad configured but not working.;;;Keypad 8 keys AND not(KPD CAN ok);;Delay on=3000 & Delay off=0;Keypad HS
+85 LOG Logs/LOG HMI;LOG HMI fuse blown;IDC;;A keybox relay fuse blown (rising edge of any), logged with keybox x 100 + relay.;;;PositiveFlank(KBX Any fuse blown);;;new
+85 LOG Logs/LOG MNT;LOG MNT mode;IDC;;Maintenance mode active.;;;MNT Mode;;;new
+85 LOG Logs/LOG MNT;LOG MNT forcing active;IDC;;At least one forcing setting active while maintenance mode is on.;;;MNT Any forcing;;;new

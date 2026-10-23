@@ -1,0 +1,931 @@
+// Generated from 00_CFG.csv by outils_pilotage/conception/gen_iqan.py
+// Not an importable file: IQANdesign has no text import. Enter in the IDE, then
+// compare the export of the project with check_spec.py.
+
+BEGIN 900001
+Function group
+Name=00 CFG Configuration
+Description=
+Enabled=Yes
+
+  BEGIN 900002
+  Function group
+  Name=CFG Variant flags
+  Description=
+  Enabled=Yes
+
+    BEGIN 900003
+    Internal digital channel (IDC)
+    Name=CFG Is_Electric
+    Description=True on electric boats (battery, inverters, HVLP pump).  [origin: Is_Electric mc]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900004
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900005
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Drive Type mc = 0
+        END 900005
+
+        BEGIN 900006
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900006
+      END 900004
+    END 900003
+
+    BEGIN 900007
+    Internal digital channel (IDC)
+    Name=CFG Is_Thermic
+    Description=True on thermal boats (petrol engine driving the pumps).  [origin: Is_Thermic mc]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900008
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900009
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Drive Type mc = 1
+        END 900009
+
+        BEGIN 900010
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900010
+      END 900008
+    END 900007
+
+    BEGIN 900011
+    Internal digital channel (IDC)
+    Name=CFG Is_Cab
+    Description=True on Commuter (cab) boats: MD4-10, cab keyboxes, cab I/O mapping.  [origin: is_cab_mc, is_cab_math, is_cab_1]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900012
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900013
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=is_cab_mc
+        END 900013
+
+        BEGIN 900014
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900014
+      END 900012
+    END 900011
+
+    BEGIN 900015
+    Internal digital channel (IDC)
+    Name=CFG Is_X100
+    Description=True on every boat without cab (X100, Original, Sport, RIB...).  [origin: is_x100_math, is_x100_mc_s]
+    Delay on=0
+    Delay off=0
+    Function selector=Not used
+
+      BEGIN 900016
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900017
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=not(is_cab_mc)
+        END 900017
+
+        BEGIN 900018
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900018
+      END 900016
+    END 900015
+
+    BEGIN 900019
+    Internal digital channel (IDC)
+    Name=CFG Is_BAT_Torqeedo
+    Description=Torqeedo HV battery (state BMW of eb Battery Brand, BMW i3 cells).  [origin: Is_BMW]
+    Function selector=Not used
+
+      BEGIN 900020
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900021
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (eb Battery Brand = 0)
+        END 900021
+
+        BEGIN 900022
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900022
+      END 900020
+    END 900019
+
+    BEGIN 900023
+    Internal digital channel (IDC)
+    Name=CFG Is_BAT_Novum
+    Description=NovumTech HV battery.  [origin: Is_Novum]
+    Function selector=Not used
+
+      BEGIN 900024
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900025
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (eb Battery Brand = 1)
+        END 900025
+
+        BEGIN 900026
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900026
+      END 900024
+    END 900023
+
+    BEGIN 900027
+    Internal digital channel (IDC)
+    Name=CFG Is_BAT_Tyva
+    Description=Tyva HV battery with Bender isometer.  [origin: Is_Tyva]
+    Function selector=Not used
+
+      BEGIN 900028
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900029
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (eb Battery Brand = 2)
+        END 900029
+
+        BEGIN 900030
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900030
+      END 900028
+    END 900027
+
+    BEGIN 900031
+    Internal digital channel (IDC)
+    Name=CFG Is_BAT_Kreisel
+    Description=Kreisel HV battery.  [origin: Is_Kreisel]
+    Function selector=Not used
+
+      BEGIN 900032
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900033
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (eb Battery Brand = 3)
+        END 900033
+
+        BEGIN 900034
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900034
+      END 900032
+    END 900031
+
+    BEGIN 900035
+    Internal digital channel (IDC)
+    Name=CFG Is_Bender_gen1
+    Description=Tyva battery with Bender isometer gen1.  [origin: gen1]
+    Function selector=Not used
+
+      BEGIN 900036
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900037
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_BAT_Tyva AND (Tyva gen bender = 0)
+        END 900037
+
+        BEGIN 900038
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900038
+      END 900036
+    END 900035
+
+    BEGIN 900039
+    Internal digital channel (IDC)
+    Name=CFG Is_Bender_gen2
+    Description=Tyva battery with Bender isometer gen2.  [origin: gen2]
+    Function selector=Not used
+
+      BEGIN 900040
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900041
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_BAT_Tyva AND (Tyva gen bender = 1)
+        END 900041
+
+        BEGIN 900042
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900042
+      END 900040
+    END 900039
+
+    BEGIN 900043
+    Internal digital channel (IDC)
+    Name=CFG Is_CHG_Torqeedo
+    Description=Torqeedo on-board charger (state BMW of ec Charger Brand).  [origin: Is_Charger_BMW]
+    Function selector=Not used
+
+      BEGIN 900044
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900045
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (ec Charger Brand = 0)
+        END 900045
+
+        BEGIN 900046
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900046
+      END 900044
+    END 900043
+
+    BEGIN 900047
+    Internal digital channel (IDC)
+    Name=CFG Is_CHG_Brusa
+    Description=Brusa on-board charger.  [origin: Is_Charger_Brusa]
+    Function selector=Not used
+
+      BEGIN 900048
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900049
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (ec Charger Brand = 1)
+        END 900049
+
+        BEGIN 900050
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900050
+      END 900048
+    END 900047
+
+    BEGIN 900051
+    Internal digital channel (IDC)
+    Name=CFG Is_CHG_Elcon
+    Description=Elcon on-board charger.  [origin: Is_Charger_Elcon]
+    Function selector=Not used
+
+      BEGIN 900052
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900053
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (ec Charger Brand = 2)
+        END 900053
+
+        BEGIN 900054
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900054
+      END 900052
+    END 900051
+
+    BEGIN 900055
+    Internal digital channel (IDC)
+    Name=CFG Is_DRV_Sevcon
+    Description=Sevcon gen4 track inverters M1 (right) and M2 (left).  [origin: Is_MT_Sevcon]
+    Function selector=Not used
+
+      BEGIN 900056
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900057
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (em1 M-Track - Brand = 0)
+        END 900057
+
+        BEGIN 900058
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900058
+      END 900056
+    END 900055
+
+    BEGIN 900059
+    Internal digital channel (IDC)
+    Name=CFG Is_DRV_Zapi
+    Description=Zapi track inverters M1 (right) and M2 (left).  [origin: Is_MT_Zapi]
+    Function selector=Not used
+
+      BEGIN 900060
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900061
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (em1 M-Track - Brand = 1)
+        END 900061
+
+        BEGIN 900062
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900062
+      END 900060
+    END 900059
+
+    BEGIN 900063
+    Internal digital channel (IDC)
+    Name=CFG Is_PMP_HVLP_CANopen
+    Description=Sevcon HVLP hydraulic pump inverter on CANopen (cab boats, historical name gen / broeknE.Sevcon.M3.gen.soon, in service, D4).  [origin: Is_M3_Sevcon_gen]
+    Function selector=Not used
+
+      BEGIN 900064
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900065
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (em M-Pump - Brand = 0)
+        END 900065
+
+        BEGIN 900066
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900066
+      END 900064
+    END 900063
+
+    BEGIN 900067
+    Internal digital channel (IDC)
+    Name=CFG Is_PMP_HVLP_J1939
+    Description=Sevcon HVLP hydraulic pump inverter on J1939 (non-cab boats).  [origin: Is_M3_Sevcon_j19]
+    Function selector=Not used
+
+      BEGIN 900068
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900069
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Electric AND (em M-Pump - Brand = 1)
+        END 900069
+
+        BEGIN 900070
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900070
+      END 900068
+    END 900067
+
+    BEGIN 900071
+    Internal digital channel (IDC)
+    Name=CFG Is_ENG_J1939
+    Description=Thermal engine on J1939 (EB2, Ford, Kubota share one driver, D28).  [origin: Is_EB2 mc, Is_FORD mc, Is_Kubo mc]
+    Function selector=Not used
+
+      BEGIN 900072
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900073
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Thermic
+        END 900073
+
+        BEGIN 900074
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900074
+      END 900072
+    END 900071
+
+    BEGIN 900075
+    Internal digital channel (IDC)
+    Name=CFG Is_KBX_X100
+    Description=Keybox X100 present (all non-cab boats).  [origin: Is_Electric_x100 mc, T.KeyBox enable]
+    Function selector=Not used
+
+      BEGIN 900076
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900077
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_X100
+        END 900077
+
+        BEGIN 900078
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900078
+      END 900076
+    END 900075
+
+    BEGIN 900079
+    Internal digital channel (IDC)
+    Name=CFG Is_KBX_Cab
+    Description=Cab keyboxes KTB, KBB, KTC present.  [origin: is_cab_mc]
+    Function selector=Not used
+
+      BEGIN 900080
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900081
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=CFG Is_Cab
+        END 900081
+
+        BEGIN 900082
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900082
+      END 900080
+    END 900079
+
+    BEGIN 900083
+    Internal digital channel (IDC)
+    Name=CFG Has_MD45
+    Description=MD4-5 dashboard display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).  [origin: new]
+    Delay on=2000
+    Delay off=2000
+    Function selector=Not used
+
+      BEGIN 900084
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900085
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=MD4-Status:MD45 = 0
+        END 900085
+
+        BEGIN 900086
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900086
+      END 900084
+    END 900083
+
+    BEGIN 900087
+    Internal digital channel (IDC)
+    Name=CFG Has_MD410
+    Description=MD4-10 cab display answers on the Master bus (status value 0 = running, to confirm in IQANdesign, B8).  [origin: new]
+    Delay on=2000
+    Delay off=2000
+    Function selector=Not used
+
+      BEGIN 900088
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900089
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=MDGN-Status:MD4 C = 0
+        END 900089
+
+        BEGIN 900090
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900090
+      END 900088
+    END 900087
+
+    BEGIN 900091
+    Internal digital channel (IDC)
+    Name=CFG Has_MD3
+    Description=MD3 display answers on the Master bus (lineage B boats) (status value 0 = running, to confirm in IQANdesign, B8).  [origin: new]
+    Delay on=2000
+    Delay off=2000
+    Function selector=Not used
+
+      BEGIN 900092
+      Function
+      Name=Default function
+      Description=
+
+        BEGIN 900093
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=MDGN-Status:MD3 = 0
+        END 900093
+
+        BEGIN 900094
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900094
+      END 900092
+    END 900091
+
+    BEGIN 900095
+    State machine channel (SMC)
+    Name=CFG Joystick source
+    Description=Which module the track joysticks are wired to (one source only).  [origin: joystick plugged mc42/md45/md10 read in many groups]
+    Default state name=None
+    Function selector=Not used
+
+      BEGIN 900096
+      Function
+      Name=MC42
+      Description=
+
+        BEGIN 900097
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=joystick plugged mc42
+        END 900097
+
+        BEGIN 900098
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900098
+      END 900096
+
+      BEGIN 900099
+      Function
+      Name=MD4-5
+      Description=
+
+        BEGIN 900100
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Joystick plugged md45
+        END 900100
+
+        BEGIN 900101
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900101
+      END 900099
+
+      BEGIN 900102
+      Function
+      Name=MD4-10
+      Description=
+
+        BEGIN 900103
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Joystick plugged md10
+        END 900103
+
+        BEGIN 900104
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900104
+      END 900102
+
+      BEGIN 900105
+      Function
+      Name=MD3
+      Description=
+
+        BEGIN 900106
+        Object group
+        Name=Activating
+        Description=
+        Method=Expression
+        Valid=True
+        Expression=Joystick plugged md3
+        END 900106
+
+        BEGIN 900107
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 900107
+      END 900105
+    END 900095
+  END 900002
+END 900001
+
+BEGIN 900108
+Function group
+Name=00 CFG Configuration
+Description=
+Enabled=Yes
+
+  BEGIN 900109
+  Function group
+  Name=CFG Settings (v2)
+  Description=
+  Enabled=Yes
+
+    BEGIN 900110
+    State parameter channel (SP)
+    Name=T Pump wiring
+    Description=Which pump output follows which joystick. Standard = 108.3.1 (lineage A), Swapped = V35/V69 (lineage B). Check at the quay that the right joystick drives the right track (D8, D18, D21).  [origin: already in v2 step A]
+    Input channel=None
+    Default state name=Standard
+    States={Swapped}
+      State 1=Swapped
+    END 900110
+
+    BEGIN 900111
+    Digital parameter channel (DP)
+    Name=Joystick plugged md3
+    Description=Track joysticks wired to the MD3 display (lineage B boats).  [origin: new (D30)]
+    Mode selector=Not used
+    Default mode={False}
+    END 900111
+
+    BEGIN 900112
+    State parameter channel (SP)
+    Name=Cab track tension
+    Description=Cab track tensioner: Valve = on/off valve C1:58 (108.3.1), PWM = pressure set point on COUT-A C1:14 (V25 Commuter).  [origin: new (D32), V25 PWM Pression tendeur]
+    Input channel=None
+    Default state name=Valve
+    States={PWM}
+      State 1=PWM
+    END 900112
+
+    BEGIN 900113
+    Integer parameter channel (IP)
+    Name=Cab PWM tension max current
+    Description=Maximum current of the cab tensioner valve EM21DEG12 on COUT-A when Cab track tension = PWM (V25.74: 0 to 900 mA, slopes 250 ms, set point in % from PWM Selector by Tension State).  [origin: V25 PWM Pression tendeur (COUT, Max current=900)]
+    Unit=mA
+    Mode selector=Not used
+    Default mode={900}
+    END 900113
+
+    BEGIN 900114
+    Digital parameter channel (DP)
+    Name=Accelerometer
+    Description=Accelerometer wired (Commuter C1:26/36/52): shock detection and Acceleration log.  [origin: new (D32), V25 X/Y/Z]
+    Mode selector=Not used
+    Default mode={False}
+    END 900114
+
+    BEGIN 900115
+    Digital parameter channel (DP)
+    Name=Proemion gateway
+    Description=Proemion telemetry gateway fitted (V25, V35, V69 boats).  [origin: new (D32), V69 Proemion group]
+    Mode selector=Not used
+    Default mode={False}
+    END 900115
+
+    BEGIN 900116
+    Digital parameter channel (DP)
+    Name=Radio remote
+    Description=Radio remote control fitted on the MD3 (lineage B boats).  [origin: new, V35/V69 Remote Control]
+    Mode selector=Not used
+    Default mode={False}
+    END 900116
+
+    BEGIN 900117
+    Digital parameter channel (DP)
+    Name=MNT Mode
+    Description=Maintenance mode: forcing, test and simulation settings have no effect unless this is True. Shown as a banner on every screen (D36).  [origin: new]
+    Mode selector=Not used
+    Default mode={False}
+    END 900117
+  END 900109
+END 900108
