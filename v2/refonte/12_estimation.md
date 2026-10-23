@@ -50,7 +50,16 @@ Le pilotage de l'écran est ce qui coûte : chaque action envoie une capture d'�
 | Cloud, conception et vérification | quelques dizaines de millions de jetons au total |
 | PC, pilotage d'IQANdesign | **plusieurs centaines de millions de jetons**, majoritairement relus depuis le cache |
 
-Sur un abonnement, cela veut dire : le travail cloud tient dans l'usage normal ; le pilotage PC consommera l'essentiel des limites hebdomadaires pendant les semaines de saisie, et on retombera sur la limite comme hier soir si on enchaîne de longues séances. Je ne donne pas de montant en euros sans savoir quel abonnement tu as (Pro, Max, ou API facturée à l'usage) : dis-le-moi et je fais le calcul précis.
+**Avec l'abonnement Pro (précisé par Nicolas le 23/10/2026)** : Pro a les limites les plus basses (fenêtres de 5 heures et plafond hebdomadaire). Le travail cloud y tient en l'étalant. Le pilotage PC, non : une séance de saisie avec captures d'écran épuise la fenêtre en une heure environ, comme hier soir. À ce rythme, 120 à 250 heures de pilotage prendraient plus d'un an.
+
+| Option | Coût indicatif (prix publics connus, à vérifier sur la page des offres) | Effet |
+|---|---|---|
+| Rester en Pro | ~20 $ / mois | conception cloud et vérifications oui ; saisie PC surtout faite par toi avec les fiches `iqan/*.txt`, Claude ne pilotant que les glisser-déposer et les lots longs |
+| **Max 5x pendant la saisie** | ~100 $ / mois, 2 à 4 mois → **200 à 400 $** | calendrier de 3 à 5 mois, saisie pilotée en séances régulières |
+| Max 20x pendant la saisie | ~200 $ / mois, 2 à 3 mois → **400 à 600 $** | calendrier le plus court (bas de la fourchette de 2 à 4 mois) |
+| API à l'usage | variable, plusieurs centaines à quelques milliers de $ selon le cache et la part d'Opus | pas de limite de fenêtre, mais coût non plafonné ; déconseillé |
+
+Recommandation : passer en **Max 5x** le temps des étapes de saisie (étapes 2 à 12), revenir en Pro ensuite. L'abonnement se change d'un mois à l'autre.
 
 Trois leviers pour réduire nettement temps et consommation :
 1. **Copier plutôt que saisir** : si les essais B5 et B13 montrent que la copie de groupes garde les références, le report vers les projets MD3 et MC2 est divisé par deux à trois.
