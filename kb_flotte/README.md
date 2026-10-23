@@ -6,6 +6,7 @@ Synthèse faite le 23/10/2026 à partir de `docs/` : `variantes/differentes_conf
 |---|---|
 | [flotte_technique.csv](flotte_technique.csv) | Une ligne par coque : modèle, finition, propulsion, batterie, chargeur, variateurs, moteur, contrôleur et écran (déduits), famille logicielle relevée, état. **Sans données clients.** |
 | [index_documents.csv](index_documents.csv) | Les 164 documents techniques classés par équipement, avec leur indice de révision et s'ils contiennent du texte ou seulement un dessin. |
+| [lignees.md](lignees.md) | Les trois lignées de projets, ce que chacune a perdu, et l'inversion de la pompe C1:14. |
 | [faisceaux_vs_logiciel.md](faisceaux_vs_logiciel.md) | Confrontation broche par broche des plans de faisceaux MC42 avec le brochage de la 108.3.1. |
 
 ## La flotte en chiffres (registre)
@@ -33,13 +34,13 @@ Le registre relève des versions pour 42 bateaux. Le premier nombre de la versio
 | Famille | Bateaux concernés | Ce qu'on en sait |
 |---|---|---|
 | **V5.x** (5.06 à 5.55) | Original thermiques VW / Ford, #007 à #027 | Projet MC2 + MD3 ; nous avons la **V5.37** |
-| **V16 / V23 / V25.x** (25.23 à 25.73) | Commuter (cabine) électriques, #023 à #058 | MC42 + MD4-10 ; **projet non fourni** |
-| **V35.x** (35.13 à 35.41) | RIB X100 électriques et thermiques, Original électriques, #016 à #062 | **projet non fourni** |
+| **V16 / V23 / V25.x** (25.23 à 25.73) | Commuter (cabine) électriques, #023 à #058 | MC42 + MD4-10 ; nous avons la **V25.74** ([kb_v25](../kb_v25/README.md)), ancêtre de la 108 |
+| **V35.x** (35.13 à 35.41) | RIB X100 électriques et thermiques, Original électriques, #016 à #062 | MC42 + MD3 ; nous avons la **V35.42** ([kb_v35](../kb_v35/README.md)), ancêtre de la V69 |
 | **V65 / V66 / V69** | 2022 : Novum, Ford, EB2, #066 à #072 | MC42 + MD3 ; nous avons la **V69.03.1** |
 | **V76 → V108** | depuis #076 (MD4-5) et Commuter récents | lignée v117 / 108.3.1 |
 | V10.8.12 | #010, premier bateau électrique, refit « Aentron » | one-off |
 
-**Conséquence directe** : pour garantir qu'une v2 se charge sur tous les anciens bateaux, il faut aussi les projets **V25 (Commuter)** et **V35 (X100)**, qui couvrent environ 40 bateaux. Ils sont sans doute dans le dossier des versions du firmware que tu proposais de m'envoyer.
+Ces familles forment en fait **trois lignées** de projets : voir [lignees.md](lignees.md).
 
 ## Ce que disent les dossiers SAV (104 cas)
 
@@ -63,9 +64,9 @@ Le registre relève des versions pour 42 bateaux. Le premier nombre de la versio
 
 - Fiche ou notice **MD3** (écran des anciens bateaux) et **MD5** (futur écran).
 - Chargeurs **Brusa** et **Elcon** (protocoles CAN).
-- **Keyboxes** (X100 et Commuter) et **keypad Blink PKP2400SI** (le projet cite la notice « PKP_2400_SI_CANopen_UM »).
+- **Keyboxes** (X100 et Commuter). Le keypad Blink PKP2400SI est fourni ; la 108.3.1 est conforme à sa notice (nœud 15h, heartbeat 1000 ms surveillé à 2000 ms, touches en événementiel).
 - Moteur **Ford 1.5**.
-- Projets IQAN des familles **V25** et **V35**.
+- Branches V35 avec Kreisel (#026) et NovumTech (#043), versions V16 et V23.
 
 ## Questions pour Nicolas
 

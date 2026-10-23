@@ -1,0 +1,14 @@
+; C:\Users\CAO Local\Iguana Yachts Dropbox\design\IQAN\4- 10_Configurations\Config_keypad_blink_#117\Configuration du keypad du #117.xmt
+;   CAN messages saved by PCAN-View v5.3.3.958
+;
+; Columns descriptions:
+; ~~~~~~~~~~~~~~~~~~~~~
+; +Message ID
+; |            +Cycle time in ms (0=manual)
+; |            |  +Data length
+; |            |  |  +Frame type
+; |            |  |  |  +Message data
+; |            |  |  |  |
+615h           0  5  D 2Fh 10h 20h 00h 02h ; Baud rate à 500k; se mettre à 125k sur PCAN et envoyer cette trame puis se mettre à 500k sur PCAN; réponse: ID:595 & Data: 60 10 20
+615h           0  6  D 2Bh 17h 10h 00h E8h 03h ; set heartbeat time = 1000ms; réponse: ID595 Data 60 17 10
+615h           0  8  D 2Fh 12h 20h 00h 01h 00h 00h 00h ; Device active on startup; réponse: ID595 Data 60 12 20

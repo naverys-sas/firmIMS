@@ -1,0 +1,1903 @@
+# Contrôle de compatibilité
+
+- Référence : `../testia_sandbox/v25/v25_utf8.txt`
+- Candidat : `exports/TESTIA_108.3.1.txt`
+
+**545 éléments supprimés, 96 modifiés, 1055 ajoutés.** Un élément supprimé ou modifié casse potentiellement un bateau déjà livré ; il doit être justifié.
+
+## Supprimés (545)
+
+- Broche ·  · `G1x#0` — était : MDGN Status:G1x
+- Broche ·  · `G1x#1` — était : MDGN Network state:G1x
+- Broche ·  · `MC42[1]#0` — était : COUT PWM Pression tendeur
+- Broche ·  · `MC42[1]#1` — était : MDGN MDGN-S/N:MC2[1]
+- Broche ·  · `MC42[1]#10` — était : DOUT EV DOWN
+- Broche ·  · `MC42[1]#11` — était : DOUT EV Tendeur Chenille
+- Broche ·  · `MC42[1]#12` — était : DIN REMOTE DOWN
+- Broche ·  · `MC42[1]#13` — était : DIN REMOTE UP
+- Broche ·  · `MC42[1]#14` — était : DOUT Var Power
+- Broche ·  · `MC42[1]#15` — était : DOUT Batt Reset
+- Broche ·  · `MC42[1]#2` — était : MDGN MDGN-Temp:MC2[1]
+- Broche ·  · `MC42[1]#3` — était : VIN Water Level
+- Broche ·  · `MC42[1]#4` — était : VIN VIN-E:MC42[1]
+- Broche ·  · `MC42[1]#5` — était : VIN X
+- Broche ·  · `MC42[1]#6` — était : MDGN MDGN-VREF:MC2[1]
+- Broche ·  · `MC42[1]#7` — était : VIN Z
+- Broche ·  · `MC42[1]#8` — était : DOUT EV BY PASS
+- Broche ·  · `MC42[1]#9` — était : PWM FRONT BACK
+- Broche ·  · `MD4-10[0]#0` — était : DOUT Buzzer
+- Broche ·  · `MD4-10[0]#1` — était : MDGN S/N:MD4-10[0]
+- Broche ·  · `MD4-10[0]#2` — était : MDGN Temp:MD4-10[0]
+- Broche ·  · `MD4-10[0]#3` — était : MDGN Address:MD4-10[0]
+- Broche ·  · `MD4-10[0]#4` — était : MDGN +BAT:MD4-10[0]
+- Broche ·  · `MD4-10[0]#5` — était : MDGN VREF:MD4-10[0]
+- Journal ·  · `Event log: A/C Bat Pack` — était : 
+- Journal ·  · `Event log: Acceleration` — était : 
+- Journal ·  · `Event log: Electronic Logs` — était : 
+- Journal ·  · `Event log: WattAlps Battery` — était : 
+- Journal ·  · `Statistics log: Battery Use` — était : 
+- Journal ·  · `Statistics log: Engine Use` — était : 
+- Journal ·  · `Statistics log: Logs` — était : 
+- Journal ·  · `Statistics log: Stat Log` — était : 
+- Liaison appli ·  · `Battery DRIVE` — était : APPOUT ← Battery DRIVE MODE
+- Liaison appli ·  · `Battery Drive Mode` — était : APPIN ← Battery DRIVE
+- Liaison appli ·  · `CAN Engine Ready` — était : APPIN ← Engines Ready output
+- Liaison appli ·  · `CAN Free` — était : APPIN ← F4 Free output
+- Liaison appli ·  · `CAN IN State Up/Down` — était : APPIN ← State Up/Down output [%]
+- Liaison appli ·  · `CAN Speed Input` — était : APPIN ← Speed output
+- Liaison appli ·  · `Charger Charging State` — était : APPIN ← Charger State Finite
+- Liaison appli ·  · `Charger State Finite` — était : APPOUT ← Charger State Finite
+- Liaison appli ·  · `Engines Ready output` — était : APPOUT ← Engines Ready
+- Liaison appli ·  · `F4 Free output` — était : APPOUT ← F4 Free
+- Liaison appli ·  · `FAN OUT output` — était : APPOUT ← FAN OUT
+- Liaison appli ·  · `FAN OUT` — était : APPIN ← FAN OUT output
+- Liaison appli ·  · `Flag NoAUX Mode MD4` — était : APPIN ← Flag NoAUX Mode
+- Liaison appli ·  · `Flag NoAUX Mode` — était : APPOUT ← Battery NoAUX Mode
+- Liaison appli ·  · `Joystick to zero output` — était : APPOUT ← Joystick to zero
+- Liaison appli ·  · `Joystick to zero` — était : APPIN ← Joystick to zero output
+- Liaison appli ·  · `Ladder Sensor` — était : APPIN ← Ladder_Sensor output
+- Liaison appli ·  · `Ladder_Sensor output` — était : APPOUT ← Ladder_Sensor
+- Liaison appli ·  · `Left Joystick` — était : APPIN ← Left Joystick [%]
+- Liaison appli ·  · `MD4-10 Status CAN In` — était : APPIN ← MDGN-Status:MD3[0]
+- Liaison appli ·  · `MDGN-Status:MD3[0]` — était : APPOUT ← MDGN-Status:MD3[0]
+- Liaison appli ·  · `Need Charge Input` — était : APPIN ← Need Charge output
+- Liaison appli ·  · `Need Charge output` — était : APPOUT ← Need Charge
+- Liaison appli ·  · `OK UP/DOWN output` — était : APPOUT ← OK UP/DOWN
+- Liaison appli ·  · `OK UP/DOWN` — était : APPIN ← OK UP/DOWN output
+- Liaison appli ·  · `PUMP OUT` — était : APPIN ← PUMP VAR output
+- Liaison appli ·  · `PUMP VAR output` — était : APPOUT ← PUMP VAR
+- Liaison appli ·  · `Power Down Input` — était : APPIN ← Power Down State output
+- Liaison appli ·  · `Power Down State output` — était : APPOUT ← Power Down State
+- Liaison appli ·  · `Remote Status` — était : APPIN ← Remote output
+- Liaison appli ·  · `Remote output` — était : APPOUT ← Remote
+- Liaison appli ·  · `Right Joystick` — était : APPIN ← Right Joystick [%]
+- Liaison appli ·  · `Seat Front Back Input` — était : APPIN ← Seat Front/Back MAC output
+- Liaison appli ·  · `Seat Front/Back MAC output` — était : APPOUT ← Seat Front/Back MAC
+- Liaison appli ·  · `Seat UP/DOWN Input` — était : APPIN ← Seat UP/DOWN MAC output
+- Liaison appli ·  · `Seat UP/DOWN MAC output` — était : APPOUT ← Seat UP/DOWN MAC
+- Liaison appli ·  · `Send Message` — était : APPIN ← Send message
+- Liaison appli ·  · `Send message` — était : APPOUT ← Send message
+- Liaison appli ·  · `Speed output` — était : APPOUT ← Speed
+- Liaison appli ·  · `Start Button MD4` — était : APPIN ← Start Button
+- Liaison appli ·  · `Start Button` — était : APPOUT ← Start Button
+- Liaison appli ·  · `State Up/Down output` — était : APPOUT ← State Up/Down [%]
+- Liaison appli ·  · `UP/DOWN Button Input` — était : APPIN ← UP/DOWN Button output
+- Liaison appli ·  · `UP/DOWN Button output` — était : APPOUT ← UP/DOWN Button
+- Liaison appli ·  · `Water Level output` — était : APPOUT ← Water Level [%]
+- Liaison appli ·  · `Water Level` — était : APPIN ← Water Level output [%]
+- Message ·  · `10 hours check-up` — était : check-up | Information
+- Message ·  · `A/C Error Several Reboot` — était : Air Conditionning | Error
+- Message ·  · `A/C Info: End Floating` — était : Air Conditionning | Information
+- Message ·  · `A/C Info: Floating` — était : Air Conditionning | Information
+- Message ·  · `A/C Info: Low Voltage` — était : Air Conditionning | Information
+- Message ·  · `A/C Info: Start Disabled` — était : Air Conditionning | Information
+- Message ·  · `A/C Warning: Reboot` — était : Air Conditionning | Warning
+- Message ·  · `Battery Low` — était : 12V battery is low | Warning
+- Message ·  · `Battery Protection` — était : High Tension Battery | Critical
+- Message ·  · `Bilge Pump Run` — était : Bilge Pump Run | Information
+- Message ·  · `CanBus Error BB` — était : Keybox | Error
+- Message ·  · `CanBus Error TB` — était : Keybox | Error
+- Message ·  · `CanBus Error TC` — était : Keybox | Error
+- Message ·  · `Fail Starting` — était : High Tension Battery | Error
+- Message ·  · `Ground Fault message` — était : High Tension Battery | Critical
+- Message ·  · `Joystick to zero CMSG` — était : Tracks | Error
+- Message ·  · `Left Error` — était : Track Engine | Error
+- Message ·  · `Left Warning` — était : Track Engine | Warning
+- Message ·  · `Low Bat error warning` — était : High Tension Battery | Warning
+- Message ·  · `M1 - Right Engine CMSG` — était : Track Motor | Error
+- Message ·  · `M2 - Left Engine CMSG` — était : Left Engine | Error
+- Message ·  · `M3 - Pump Engine CMSG` — était : Hydraulics | Error
+- Message ·  · `Message` — était : Do you want send this message ? | Confirmation
+- Message ·  · `Right Error` — était : Track Engine | Error
+- Message ·  · `Right Warning` — était : Track Engine | Warning
+- Message ·  · `Track Tension Error` — était : Tracks | Warning
+- Paramètre ·  · `A/C Batt Pack?` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `A/C ClimRelay KB Port` — était : SP unité= défaut=KTC_K12 états=KTB_K09 modes=
+- Paramètre ·  · `A/C MaxSOCforEndCharging` — était : IP unité=% défaut={99} états= modes=Not used
+- Paramètre ·  · `A/C MinSOCforStartCharging` — était : IP unité=% défaut={90} états= modes=Not used
+- Paramètre ·  · `A/C Mute Watchdog` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `A/C Override Tracks Up` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `A/C Override Volt Limits` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `A/C SOC Top Limit` — était : IP unité=% défaut={49} états= modes=Not used
+- Paramètre ·  · `A/C Voltage Float Level` — était : IP unité=mV défaut={12500} états= modes=Not used
+- Paramètre ·  · `A/C Voltage High Limit` — était : IP unité=mV défaut={16400} états= modes=Not used
+- Paramètre ·  · `A/C Voltage Low Limit` — était : IP unité=mV défaut={12050} états= modes=Not used
+- Paramètre ·  · `A/CBat 1st Node ID` — était : IP unité=Not used défaut={20} états= modes=Not used
+- Paramètre ·  · `Acceleration Sensor` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Arms locks enable?` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Auto Charge 12V` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Auto Fast After Down` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Auto Global switch Off` — était : IP unité=min défaut={120} états= modes=Not used
+- Paramètre ·  · `Auto Off After Charge?` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Auto Stop Timer` — était : IP unité=s défaut={15} états= modes=Not used
+- Paramètre ·  · `Automatic Joystick Inhibition` — était : IP unité=s défaut={300} états= modes=Not used
+- Paramètre ·  · `Aux 1 - Need HT` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 1 - Show` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 1 - Text` — était : TP unité= défaut={AUX 1} états= modes=Not used
+- Paramètre ·  · `Aux 2 - Need HT` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 2 - Show` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 2 - Text` — était : TP unité= défaut={AUX 2} états= modes=Not used
+- Paramètre ·  · `Aux 3 - Need HT` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 3 - Show` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 3 - Text` — était : TP unité= défaut={AUX 3} états= modes=Not used
+- Paramètre ·  · `Aux 4 - Need HT` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 4 - Show` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 4 - Text` — était : TP unité= défaut={AUX 4} états= modes=Not used
+- Paramètre ·  · `Aux 5 - Need HT` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Aux 5 - Text` — était : TP unité= défaut={AUX 5} états= modes=Not used
+- Paramètre ·  · `Aux 5- Show` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Balancing Frequency` — était : IP unité=Not used défaut={5} états= modes=Not used
+- Paramètre ·  · `Balancing Time` — était : IP unité=ms défaut= états= modes=Balancing State
+- Paramètre ·  · `Battery Brand` — était : SP unité= défaut=Kreisel états=BMW|WattApls modes=
+- Paramètre ·  · `Battery ECO level` — était : IP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `Battery Force` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Battery LOW level` — était : IP unité=% défaut={5} états= modes=Not used
+- Paramètre ·  · `Battery NoAUX Level Mode` — était : IP unité=% défaut={40} états= modes=Not used
+- Paramètre ·  · `Battery Power Force` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Battery Protection Level` — était : IP unité=KOhm défaut={1000} états= modes=Not used
+- Paramètre ·  · `Battery Protection` — était : SP unité= défaut=True états=False modes=
+- Paramètre ·  · `Battery hight temp` — était : IP unité=Â°C défaut={50} états= modes=Not used
+- Paramètre ·  · `Battery max temp` — était : IP unité=Â°C défaut={55} états= modes=Not used
+- Paramètre ·  · `Charge to 220 V` — était : IP unité=% défaut={100} états= modes=Not used
+- Paramètre ·  · `Charger Brand` — était : SP unité= défaut=Brusa états=Elcon|BMW|Valeo modes=
+- Paramètre ·  · `Charger STATE` — était : SP unité= défaut=OFF états=ERROR|READY|RUN 220V modes=
+- Paramètre ·  · `Cruise Control` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Current Limiting - Decrease` — était : FP unité=%/s défaut={10} états= modes=Not used
+- Paramètre ·  · `Current Limiting - Error` — était : FP unité=A défaut={10} états= modes=Not used
+- Paramètre ·  · `Current Limiting - Increase` — était : FP unité=%/s défaut={100} états= modes=Not used
+- Paramètre ·  · `Desired Voltage` — était : IP unité=V défaut= états= modes=Battery Brand
+- Paramètre ·  · `Enable Power Zapi` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Enable Tracks with Arms Up?` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `End Of Tension delay` — était : IP unité=ms défaut={500} états= modes=Not used
+- Paramètre ·  · `Engine - Force ON` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Engine Brand` — était : SP unité= défaut=Mercury états=Yamaha|COX modes=
+- Paramètre ·  · `Engine Eco Temp` — était : IP unité=Â°C défaut={90} états= modes=Not used
+- Paramètre ·  · `Engine Max Temp` — était : IP unité=Â°C défaut={110} états= modes=Not used
+- Paramètre ·  · `Engine OutPut Text` — était : TP unité= défaut= états= modes=VIEW ENGINE STATE
+- Paramètre ·  · `Engine State` — était : SP unité= défaut=OFF états=STARTING|READY|ERROR modes=
+- Paramètre ·  · `Engine Time Starting` — était : IP unité=ms défaut={500} états= modes=Not used
+- Paramètre ·  · `Error clear` — était : DP unité= défaut= états= modes=Charge start state
+- Paramètre ·  · `FAN MODE` — était : SP unité= défaut=AUTO états=OFF|FORCE ON modes=
+- Paramètre ·  · `Force BMW Charge` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force Charging` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force unbrake` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Fridge - Show` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Fuel Capacity (One Tank)` — était : IP unité=L défaut={190} états= modes=Not used
+- Paramètre ·  · `Fuel Tanks Selection` — était : SP unité= défaut=Tank 1 états=Tank 2|Tank 1 and 2 modes=
+- Paramètre ·  · `Fuseau` — était : IP unité=h défaut={0} états= modes=Not used
+- Paramètre ·  · `GPS Speed factor` — était : SP unité= défaut=m/s états=kts modes=
+- Paramètre ·  · `HIGH SPEED` — était : IP unité=rpm défaut={-2500} états= modes=Not used
+- Paramètre ·  · `HVLP Pump Test` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Hydraulic speed slope` — était : IP unité=/s défaut={1000} états= modes=Not used
+- Paramètre ·  · `Input Voltage Value` — était : IP unité=V défaut= états= modes=Input Voltage
+- Paramètre ·  · `Input Voltage` — était : SP unité= défaut=220 V états=110 V modes=
+- Paramètre ·  · `IsoMonState` — était : SP unité= défaut=Reset états=SelfCheck|RunningValueInvalid|RunningValueValid|Device Error modes=
+- Paramètre ·  · `KBB Keybox Type?` — était : SP unité= défaut=1st generation états=2d generation modes=
+- Paramètre ·  · `KTB Keybox Type?` — était : SP unité= défaut=1st generation états=2d generation modes=
+- Paramètre ·  · `KTC Keybox Type?` — était : SP unité= défaut=1st generation états=2d generation modes=
+- Paramètre ·  · `LOCK SPEED` — était : IP unité=rpm défaut={-1000} états= modes=Not used
+- Paramètre ·  · `LOW SPEED` — était : IP unité=rpm défaut={-2000} états= modes=Not used
+- Paramètre ·  · `Ladder Protection` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Ladder Stop Sensor` — était : IP unité=Pulse/s défaut={100} états= modes=Not used
+- Paramètre ·  · `M-Hydrau Controller Fan Temp` — était : IP unité=Â°C défaut={30} états= modes=Not used
+- Paramètre ·  · `M-Hydrau Controller Pump Temp` — était : IP unité=Â°C défaut={40} états= modes=Not used
+- Paramètre ·  · `M-Pump - Brand` — était : SP unité= défaut=Sevcon états= modes=
+- Paramètre ·  · `M-Track - Brand` — était : SP unité= défaut=Sevcon états=Zapi modes=
+- Paramètre ·  · `M-Tracks Controller Fan Temp` — était : IP unité=Â°C défaut={60} états= modes=Not used
+- Paramètre ·  · `M-Tracks Controller Pump Temp` — était : IP unité=Â°C défaut={50} états= modes=Not used
+- Paramètre ·  · `MODE` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Max Current Line` — était : IP unité=A défaut={10} états= modes=Not used
+- Paramètre ·  · `Max Speed` — était : IP unité=% défaut= états= modes=State SPEED
+- Paramètre ·  · `Max Tension Pressure` — était : IP unité=bar défaut={170} états= modes=Not used
+- Paramètre ·  · `Max_diffrential` — était : IP unité=% défaut={70} états= modes=Not used
+- Paramètre ·  · `Messages` — était : SP unité= défaut=None états=Notify boat used tomorrow|Report an issue has arised modes=
+- Paramètre ·  · `Min Speed for tensionning` — était : IP unité=RPM défaut={1800} états= modes=Not used
+- Paramètre ·  · `Min Tension Pressure` — était : IP unité=bar défaut={150} états= modes=Not used
+- Paramètre ·  · `Min back light` — était : IP unité=% défaut={20} états= modes=Not used
+- Paramètre ·  · `Neutral Joystick` — était : FP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `Number of Engines` — était : SP unité= défaut=1 Engines états=2 Engines modes=
+- Paramètre ·  · `Oil security` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `PIN CODE` — était : IP unité=Not used défaut={1000} états= modes=Not used
+- Paramètre ·  · `PMax derating` — était : IP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `PUMP VAR MODE` — était : SP unité= défaut=AUTO états=OFF|FORCE ON modes=
+- Paramètre ·  · `Parking` — était : IP unité=% défaut={50} états= modes=Not used
+- Paramètre ·  · `Passive Tension Pressure Limiter` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Person 1` — était : TP unité= défaut={John} états= modes=Not used
+- Paramètre ·  · `Person 2` — était : TP unité= défaut={Steve} états= modes=Not used
+- Paramètre ·  · `Person 3` — était : TP unité= défaut={Florent} états= modes=Not used
+- Paramètre ·  · `Person` — était : SP unité= défaut=Person 1 états=Person 2|Person 3 modes=
+- Paramètre ·  · `Power Controler Force` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Proemion Gateway` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Remote Control` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Request Parameter` — était : IP unité=Not used défaut= états= modes=Request Parameter State
+- Paramètre ·  · `Reset Ladder Sensor when UP` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Reset` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Screen backlight default value` — était : IP unité=% défaut={100} états= modes=Not used
+- Paramètre ·  · `Seat Front Back` — était : IP unité=% défaut= états= modes=Person
+- Paramètre ·  · `Seat Up Down` — était : IP unité=% défaut= états= modes=Person
+- Paramètre ·  · `Select Node` — était : SP unité= défaut=None états=KeyBox TB (GPS)|KeyBox BB (Equip)|KeyBox TC (Equip) modes=
+- Paramètre ·  · `Single Button Equipement?` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Start By Pass` — était : IP unité=ms défaut={0} états= modes=Not used
+- Paramètre ·  · `Start Speed` — était : IP unité=%/s défaut= états= modes=State SPEED
+- Paramètre ·  · `Stop By Pass` — était : IP unité=ms défaut={0} états= modes=Not used
+- Paramètre ·  · `Stop Speed` — était : IP unité=%/s défaut= états= modes=State SPEED
+- Paramètre ·  · `Tension Error Parameter` — était : FP unité=% défaut={100} états= modes=Not used
+- Paramètre ·  · `Tension to charge` — était : FP unité=Not used défaut={11,9} états= modes=Not used
+- Paramètre ·  · `Test Mode Locking State` — était : SP unité= défaut=OFF états=RUN modes=
+- Paramètre ·  · `Time to tension` — était : IP unité=ms défaut={150} états= modes=Not used
+- Paramètre ·  · `Timer UP/DOWN` — était : IP unité=s défaut={15} états= modes=Not used
+- Paramètre ·  · `Tracks pressure Mode` — était : SP unité= défaut=AUTO états=UNTIGHTEN modes=
+- Paramètre ·  · `VHF - Show` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Value UP/DOWN` — était : IP unité=ms défaut= états= modes=UP/DOWN Choice
+- Paramètre ·  · `Variator Force` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Water Level Protection` — était : DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `WattAlps Debug` — était : DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Wiper delay` — était : IP unité=s défaut={5} états= modes=Not used
+- Réglage ·  · `A/C Batt Pack?` — était : A/C Batt Pack? 
+- Réglage ·  · `A/C ClimRelay KB Port` — était : A/C ClimRelay KB Port 
+- Réglage ·  · `A/C MaxSOCforEndCharging` — était : A/C MaxSOCforEndCharging [%] 
+- Réglage ·  · `A/C MinSOCforStartCharging` — était : A/C MinSOCforStartCharging [%] 
+- Réglage ·  · `A/C Mute Watchdog` — était : A/C Mute Watchdog 
+- Réglage ·  · `A/C Override Tracks Up` — était : A/C Override Tracks Up 
+- Réglage ·  · `A/C Override Volt Limits` — était : A/C Override Volt Limits 
+- Réglage ·  · `A/C SOC Top Limit` — était : A/C SOC Top Limit [%] 
+- Réglage ·  · `A/C Voltage Float Level` — était : A/C Voltage Float Level [mV] 
+- Réglage ·  · `A/C Voltage High Limit` — était : A/C Voltage High Limit [mV] 
+- Réglage ·  · `A/C Voltage Low Limit` — était : A/C Voltage Low Limit [mV] 
+- Réglage ·  · `A/CBat 1st Node ID` — était : A/CBat 1st Node ID 
+- Réglage ·  · `Acceleration Sensor` — était : Acceleration Sensor 
+- Réglage ·  · `Arms locks enable?` — était : Arms locks enable? 
+- Réglage ·  · `Auto Charge 12V` — était : Auto Charge 12V 
+- Réglage ·  · `Auto Off After Charge?` — était : Auto Off After Charge? 
+- Réglage ·  · `Aux 1 - Need HT` — était : Aux 1 - Need HT 
+- Réglage ·  · `Aux 1 - Show` — était : Aux 1 - Show 
+- Réglage ·  · `Aux 1 - Text` — était : Aux 1 - Text 
+- Réglage ·  · `Aux 2 - Need HT` — était : Aux 2 - Need HT 
+- Réglage ·  · `Aux 2 - Show` — était : Aux 2 - Show 
+- Réglage ·  · `Aux 2 - Text` — était : Aux 2 - Text 
+- Réglage ·  · `Aux 3 - Need HT` — était : Aux 3 - Need HT 
+- Réglage ·  · `Aux 3 - Show` — était : Aux 3 - Show 
+- Réglage ·  · `Aux 3 - Text` — était : Aux 3 - Text 
+- Réglage ·  · `Aux 4 - Need HT` — était : Aux 4 - Need HT 
+- Réglage ·  · `Aux 4 - Show` — était : Aux 4 - Show 
+- Réglage ·  · `Aux 4 - Text` — était : Aux 4 - Text 
+- Réglage ·  · `Aux 5 - Need HT` — était : Aux 5 - Need HT 
+- Réglage ·  · `Aux 5 - Text` — était : Aux 5 - Text 
+- Réglage ·  · `Aux 5- Show` — était : Aux 5- Show 
+- Réglage ·  · `Balancing Frequency` — était : Balancing Frequency 
+- Réglage ·  · `Battery ECO level` — était : Battery ECO level [%] 
+- Réglage ·  · `Battery Force` — était : Battery Force 
+- Réglage ·  · `Battery LOW level` — était : Battery LOW level [%] 
+- Réglage ·  · `Battery NoAUX Level Mode` — était : Battery NoAUX Level Mode [%] 
+- Réglage ·  · `Battery Power Force` — était : Battery Power Force 
+- Réglage ·  · `Battery Protection Level` — était : Battery Protection Level [KOhm] 
+- Réglage ·  · `Battery Protection` — était : Battery Protection 
+- Réglage ·  · `Charging Current` — était : Max Current Line [A] 
+- Réglage ·  · `Cruise Control` — était : Cruise Control 
+- Réglage ·  · `Dead Man Timer Cruise Control` — était : Auto Stop Timer [s] 
+- Réglage ·  · `Desired Voltage` — était : Desired Voltage [V] 
+- Réglage ·  · `End Of Tension delay` — était : End Of Tension delay [ms] 
+- Réglage ·  · `Engine - Force` — était : Engine - Force ON 
+- Réglage ·  · `Engine Brand` — était : Engine Brand 
+- Réglage ·  · `Engines Time Starting` — était : Engine Time Starting [ms] 
+- Réglage ·  · `FAN MODE` — était : FAN MODE 
+- Réglage ·  · `Force unbrake` — était : Force unbrake 
+- Réglage ·  · `Fridge - Show` — était : Fridge - Show 
+- Réglage ·  · `Fuel Capacity (One Tank)` — était : Fuel Capacity (One Tank) [L] 
+- Réglage ·  · `Fuel Tanks Selection` — était : Fuel Tanks Selection 
+- Réglage ·  · `GPS Speed factor` — était : GPS Speed factor 
+- Réglage ·  · `Hight Speed Pump` — était : HIGH SPEED [rpm] 
+- Réglage ·  · `Hydraulic speed slope` — était : Hydraulic speed slope [/s] 
+- Réglage ·  · `Input Voltage` — était : Input Voltage 
+- Réglage ·  · `KBB Keybox Type?` — était : KBB Keybox Type? 
+- Réglage ·  · `KTB Keybox Type?` — était : KTB Keybox Type? 
+- Réglage ·  · `KTC Keybox Type?` — était : KTC Keybox Type? 
+- Réglage ·  · `LOCK SPEED` — était : LOCK SPEED [rpm] 
+- Réglage ·  · `Ladder Protection` — était : Ladder Protection 
+- Réglage ·  · `Ladder Stop Sensor` — était : Ladder Stop Sensor [Pulse/s] 
+- Réglage ·  · `Low Speed Pump` — était : LOW SPEED [rpm] 
+- Réglage ·  · `M-Pump - Brand` — était : M-Pump - Brand 
+- Réglage ·  · `M-Tracks Controller Fan Temp` — était : M-Tracks Controller Fan Temp [Â°C] 
+- Réglage ·  · `M-Tracks Controller Pump Temp` — était : M-Tracks Controller Pump Temp [Â°C] 
+- Réglage ·  · `MODE` — était : MODE 
+- Réglage ·  · `Max Tension Pressure` — était : Max Tension Pressure [bar] 
+- Réglage ·  · `Messages` — était : Messages 
+- Réglage ·  · `Min Speed for tensionning` — était : Min Speed for tensionning [RPM] 
+- Réglage ·  · `Min Tension Pressure` — était : Min Tension Pressure [bar] 
+- Réglage ·  · `Min back light` — était : Min back light [%] 
+- Réglage ·  · `Neutral Joystick` — était : Neutral Joystick [%] 
+- Réglage ·  · `Number of Engines` — était : Number of Engines 
+- Réglage ·  · `Oil level Analog` — était : Oil level Analog [%] 
+- Réglage ·  · `PIN CODE` — était : PIN CODE 
+- Réglage ·  · `PMax derating` — était : PMax derating [%] 
+- Réglage ·  · `PUMP VAR MODE` — était : PUMP VAR MODE 
+- Réglage ·  · `Parking` — était : Parking [%] 
+- Réglage ·  · `Passive Tension Pressure Limiter` — était : Passive Tension Pressure Limiter 
+- Réglage ·  · `Proemion Gateway` — était : Proemion Gateway 
+- Réglage ·  · `Screen backlight default value` — était : Screen backlight default value [%] 
+- Réglage ·  · `Select Node` — était : Select Node 
+- Réglage ·  · `Single Button Equipement?` — était : Single Button Equipement? 
+- Réglage ·  · `Start By Pass` — était : Start By Pass [ms] 
+- Réglage ·  · `Start Speed` — était : Start Speed [%/s] 
+- Réglage ·  · `Stop By Pass` — était : Stop By Pass [ms] 
+- Réglage ·  · `Stop Speed` — était : Stop Speed [%/s] 
+- Réglage ·  · `Test Mode Locking` — était : Test Mode Locking 
+- Réglage ·  · `VHF - Show` — était : VHF - Show 
+- Réglage ·  · `Water Level Protection` — était : Water Level Protection 
+- Réglage ·  · `Water Level` — était : Water Level [%] 
+- Réglage ·  · `WattAlps Debug` — était : WattAlps Debug 
+- Réglage ·  · `Wifi Remote Control` — était : Remote Control 
+- Réglage ·  · `Wiper delay` — était : Wiper delay [s] 
+- Signal CAN ·  · `AUX1Contactor` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `AUX2Contactor` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Actual Current - 1` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=A
+- Signal CAN ·  · `Actual Current - 2` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=A
+- Signal CAN ·  · `AlarmCriticalDischarge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `AlarmOverCurrentCharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `AlarmOverCurrentDisharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `AlarmOverVolt` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `AuxiliaryOutputState` — était : GPIN longueur=1 type=Signed integer unité=
+- Signal CAN ·  · `BMS State` — était : GPIN longueur=8 type=Unsigned integer unité=State
+- Signal CAN ·  · `Balancing Finished` — était : GPIN longueur=1 type=Signed integer unité=
+- Signal CAN ·  · `BatBusVoltage` — était : GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatMaxCellTemp` — était : GPIN longueur=8 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatPackVoltage` — était : GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatStateOfCharge` — était : GPIN longueur=8 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Battery Instant Voltage` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Signed integer unité=
+- Signal CAN ·  · `Battery SOC` — était : GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Battery U Track` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Signed integer unité=
+- Signal CAN ·  · `BatteryAverageTemperature` — était : GPIN longueur=8 type=Unsigned integer unité=Degrees
+- Signal CAN ·  · `BatteryMaxTemperature` — était : GPIN longueur=8 type=Unsigned integer unité=
+- Signal CAN ·  · `BatteryMinTemperature` — était : GPIN longueur=8 type=Unsigned integer unité=Degrees Celsius
+- Signal CAN ·  · `BatteryVoltageAfterContactors` — était : GPIN longueur=16 type=Unsigned integer unité=V
+- Signal CAN ·  · `BatteryVoltageBeforeContactors` — était : GPIN longueur=16 type=Unsigned integer unité=V
+- Signal CAN ·  · `CanCurrentSensorFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `CellMaxVoltage` — était : GPIN longueur=16 type=Unsigned integer unité=
+- Signal CAN ·  · `CellMinVoltage` — était : GPIN longueur=16 type=Unsigned integer unité=
+- Signal CAN ·  · `ChargeCurrentSetpoint` — était : GPIN longueur=16 type=Unsigned integer unité=A
+- Signal CAN ·  · `ChargeVoltageSetpoint` — était : GPIN longueur=16 type=Unsigned integer unité=V
+- Signal CAN ·  · `Charger Charging` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Coin Low voltage` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ContactorDamaged` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Control` — était : GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `CoolingSystem Command` — était : GPIN longueur=8 type=Unsigned integer unité=%
+- Signal CAN ·  · `CoolingSystemFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Current Bat` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Signed integer unité=
+- Signal CAN ·  · `Current Date J` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `CurrentModule Number` — était : GPIN longueur=6 type=Unsigned integer unité=
+- Signal CAN ·  · `DCContactorMinus` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `DCContactorPlus` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `DaisyChain Number` — était : GPIN longueur=2 type=Unsigned integer unité=
+- Signal CAN ·  · `DiffCellVoltage` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Signed integer unité=
+- Signal CAN ·  · `Drive Mode` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `End Of Charge` — était : GPIN longueur=1 type=Signed integer unité=
+- Signal CAN ·  · `Error 1` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Error 2` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Error 3` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `FS1 Switch` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Fan Command` — était : GPIN longueur=8 type=Unsigned integer unité=%
+- Signal CAN ·  · `Fan Failure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Fordward Switch` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Hardware revision` — était : GPIN longueur=8 type=Unsigned integer unité=Raw
+- Signal CAN ·  · `Heater Command` — était : GPIN longueur=8 type=Unsigned integer unité=%
+- Signal CAN ·  · `HeatingSystemFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ImminentOpening` — était : GPIN longueur=1 type=Signed integer unité=
+- Signal CAN ·  · `Inch reverse switch` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `InsulationControlerFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `InsulationMeasurementState` — était : GPOUT longueur=2 type=Digital unité=
+- Signal CAN ·  · `InterlockOpened` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `InternalCurrentSensorFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Iso Resist` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `IsoMonResistance` — était : GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K1` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K10` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K11` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K12` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K2` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K3` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K4` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K5` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K6` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K7` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K8` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `K9` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Latitude G` — était : GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Left Warning` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Longitude G` — était : GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `M1 (Right) - Error` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `M2 (Left) - Error` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `MDGN-+BAT:MC2[1]` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `MainContactorMinus` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `MainContactorPlus` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `MainContactorPrecharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `MainPrechargeSequenceFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Major revision` — était : GPIN longueur=8 type=Unsigned integer unité=Raw
+- Signal CAN ·  · `MaxRegenerativeCurrent` — était : GPIN longueur=16 type=Unsigned integer unité=A
+- Signal CAN ·  · `Message` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Minor revision` — était : GPIN longueur=8 type=Unsigned integer unité=Raw
+- Signal CAN ·  · `ModuleLost` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Motor Speed - 1` — était : GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `Motor Speed - 2` — était : GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `Motor Speed` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `N1 MMS Current` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=*0.03125 A
+- Signal CAN ·  · `N1 MMS Errors` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `N1 MMS Module SOC` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `N1 MMS Module State` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `N1 MMS SOH` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `N1 MMS Voltage` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=mV
+- Signal CAN ·  · `N1 Maximum Module Temperature` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `N1 Maximum String Cells Voltage` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=*0.02 Volt
+- Signal CAN ·  · `N1 Minimum String Cells Voltage` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=*0.02 Volt
+- Signal CAN ·  · `N1 Module Relay Status` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `N2 MMS Current` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=*0.03125 A
+- Signal CAN ·  · `N2 MMS Errors` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `N2 MMS Module SOC` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `N2 MMS Module State` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `N2 MMS SOH` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `N2 MMS Voltage` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=mV
+- Signal CAN ·  · `N2 Maximum Module Temperature` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `N2 Maximum String Cells Voltage` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=*0.02 Volt
+- Signal CAN ·  · `N2 Minimum String Cells Voltage` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=*0.02 Volt
+- Signal CAN ·  · `N2 Module Relay Status` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Network State` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `OilLevel` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `OilPump Failure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `OpenCircuit` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Pump Command` — était : GPIN longueur=8 type=Unsigned integer unité=%
+- Signal CAN ·  · `RadioDroit` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `RadioGauche` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `RadioSpeed` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `RadioStart` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `RadioStop` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Right Warning` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Run Engine Statut` — était : GPOUT longueur=1 Byte (= 8 bits) type=Signed integer unité=
+- Signal CAN ·  · `SEV - M1 - Heatsink` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `SEV - M1 - KTY` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `SEV - M2 - Heatsink` — était : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `SEV - M2 - KTY` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `SOC` — était : GPIN longueur=8 type=Unsigned integer unité=%
+- Signal CAN ·  · `ShutCriticalDischarge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ShutLowTemp` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ShutOverCurrentCharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ShutOverCurrentDisharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ShutOverTemp` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ShutOverVolt` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Signal Quality` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Statut - 1` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=State
+- Signal CAN ·  · `Statut - 2` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Status
+- Signal CAN ·  · `SyncSignal` — était : GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TempSensorFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Throttle Input Voltage` — était : GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TimeLapsOut` — était : GPOUT longueur=4 Bytes (= 32 bits) type=Signed integer unité=
+- Signal CAN ·  · `Time_Byte_1_2_J` — était : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Time_Byte_3` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Time_Byte_4` — était : GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `TimelapsIn` — était : GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=ms
+- Signal CAN ·  · `Torque - 1` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `Torque Mesured` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Torque actual- 2` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `UBMSModeRequestBMS` — était : GPOUT longueur=3 type=Unsigned integer unité=
+- Signal CAN ·  · `VMU Timeout` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `ValueOfInsulationResistance` — était : GPIN longueur=32 type=Unsigned integer unité=kohm
+- Signal CAN ·  · `VoltSensorFailure` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `Voltage -1` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `Voltage -2` — était : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `WarnCriticalDischarge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarnLowTemp` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarnOverCurrentCharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarnOverCurrentDisharge` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarnOverTemp` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarnOverVolt` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `WattAlps Debug` — était : GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `WrongConfiguration` — était : GPOUT longueur=1 type=Digital unité=
+- Signal CAN ·  · `wrong configuration slave number` — était : GPIN longueur=8 type=Unsigned integer unité=Raw
+- Trame CAN ·  · `0x331` — était : GFIN module=Motor Sevcon Right - 1 (Generic) id=0x331 dlc=DonÂt care contenu={{M1 (Right) - Error; 16}; {Statut - 1 [State]; 0}}
+- Trame CAN ·  · `0x332` — était : GFIN module=Motor Sevcon Left - 2 (Generic) id=0x332 dlc=DonÂt care contenu={{M2 (Left) - Error; 16}; {Statut - 2 [Status]; 0}}
+- Trame CAN ·  · `0x341` — était : GFIN module=Motor Sevcon Right - 1 (Generic) id=0x341 dlc=DonÂt care contenu={{Motor Speed - 1 [rpm]; 0}; {Actual Current - 1 [A]; 32}; {Torque - 1 [Raw]; 48}}
+- Trame CAN ·  · `0x342` — était : GFIN module=Motor Sevcon Left - 2 (Generic) id=0x342 dlc=DonÂt care contenu={{Motor Speed - 2 [rpm]; 0}; {Actual Current - 2 [A]; 32}; {Torque actual- 2 [Raw]; 48}}
+- Trame CAN ·  · `0x351` — était : GFIN module=Motor Sevcon Right - 1 (Generic) id=0x351 dlc=DonÂt care contenu={{SEV - M1 - KTY [Â°C]; 0}; {SEV - M1 - Heatsink [Â°C]; 16}; {Voltage -1 [Raw]; 24}}
+- Trame CAN ·  · `0x352` — était : GFIN module=Motor Sevcon Left - 2 (Generic) id=0x352 dlc=DonÂt care contenu={{SEV - M2 - KTY [Â°C]; 0}; {SEV - M2 - Heatsink [Â°C]; 16}; {Voltage -2 [Raw]; 24}}
+- Trame CAN ·  · `129025-0` — était : GFIN module=Garmin (Generic) id=PGN-129025 dlc=DonÂt care contenu={{Latitude G; 0}; {Longitude G; 32}}
+- Trame CAN ·  · `129029-0` — était : GFIN module=Garmin (Generic) id=PGN-129029 dlc=DonÂt care contenu={{Current Date J; 24}; {Time_Byte_1_2_J; 40}; {Time_Byte_3; 56}}
+- Trame CAN ·  · `129029-1` — était : GFIN module=Garmin (Generic) id=PGN-129029 dlc=DonÂt care contenu={{Time_Byte_4; 8}}
+- Trame CAN ·  · `BMS_VMU_CHARGE` — était : GFIN module=Battery WattAlps (Generic) id=418382878 dlc=DonÂt care contenu={{MaxRegenerativeCurrent [A]; 16}; {MaxDischargeCurrent [A]; 0}; {ChargeVoltageSetpoint [V]; 48}; {ChargeCurrentSetpoint [A]; 32}}
+- Trame CAN ·  · `BMS_VMU_FAULTS` — était : GFOUT module=Battery WattAlps (Generic) id=418382367 dlc=8 contenu={{Coin Low voltage; 58}; {OilLevel; 57}; {OpenCircuit; 53}; {WrongConfiguration; 56}; {CanCurrentSensorFailure; 55}; {InsulationControlerFailure; 54}; {MainPrechargeSequenceFailure; 52}; {HeatingSystemFailure; 51}; {CoolingSystemFailure; 50}; {Fan Failure; 49}; {OilPump Failure; 48}; {VMU Timeout; 47}; {InsulationMeasurementState; 45}; {InternalCurrentSensorFailure; 44}; {VoltSensorFailure; 43}; {TempSensorFailure; 42}; {ModuleLost; 41}; {InterlockOpened; 40}; {ContactorDamaged; 39}; {AUX2Contactor; 38}; {AUX1Contactor; 37}; {DCContactorMinus; 36}; {DCContactorPlus; 35}; {MainContactorPrecharge; 34}; {MainContactorMinus; 33}; {MainContactorPlus; 32}; {ShutOverVolt; 21}; {AlarmOverVolt; 20}; {WarnOverVolt; 19}; {ShutCriticalDischarge; 18}; {AlarmCriticalDischarge; 17}; {WarnCriticalDischarge; 16}; {ShutOverCurrentDisharge; 29}; {AlarmOverCurrentDisharge; 28}; {WarnOverCurrentDisharge; 27}; {ShutOverCurrentCharge; 26}; {AlarmOverCurrentCharge; 25}; {WarnOverCurrentCharge; 24}; {ShutOverTemp; 13}; {AlarmOverTemp; 12}; {WarnOverTemp; 11}; {ShutLowTemp; 10}; {AlarmLowTemp; 9}; {WarnLowTemp; 8}}
+- Trame CAN ·  · `BMS_VMU_INFO` — était : GFIN module=Battery WattAlps (Generic) id=418382622 dlc=DonÂt care contenu={{SOH [%]; 40}; {SOC [%]; 32}; {BatteryCurrent; 16}; {BatteryVoltageBeforeContactors [V]; 0}; {BatteryVoltageAfterContactors [V]; 48}}
+- Trame CAN ·  · `BMS_VMU_STATUS` — était : GFIN module=Battery WattAlps (Generic) id=418382110 dlc=DonÂt care contenu={{Heater Command [%]; 40}; {CoolingSystem Command [%]; 32}; {Fan Command [%]; 24}; {Pump Command [%]; 16}; {Balancing Finished; 12}; {AuxiliaryOutputState; 11}; {ImminentOpening; 10}; {End Of Charge; 9}; {BalancingRunning; 8}; {BMS State [State]; 0}}
+- Trame CAN ·  · `BMS_VMU_TRACE` — était : GFIN module=Battery WattAlps (Generic) id=418383134 dlc=DonÂt care contenu={{DaisyChain Number; 0}; {BatteryAverageTemperature [Degrees]; 56}; {CurrentModule Number; 2}; {CellMinVoltage; 8}; {CellMaxVoltage; 24}; {BatteryMinTemperature [Degrees Celsius]; 40}; {BatteryMaxTemperature; 48}}
+- Trame CAN ·  · `BMW Error` — était : GFOUT module=Promeion (Generic) id=0x7451240 dlc=8 contenu={{BatErrorCode Out; 0}; {DcuErrorCode Out; 16}; {IsoMonErrorCode Out; 32}}
+- Trame CAN ·  · `CAN IN 100` — était : GFIN module=IPhone Remote (Generic) id=0x100 dlc=8 contenu={{RadioGauche; 16}; {RadioDroit; 0}; {RadioStop; 32}; {RadioStart; 40}; {RadioSpeed; 48}}
+- Trame CAN ·  · `CAN IN 101` — était : GFIN module=IPhone Remote (Generic) id=0x101 dlc=8 contenu={{TimelapsIn [ms]; 32}}
+- Trame CAN ·  · `CANOUT 102` — était : GFOUT module=IPhone Remote (Generic) id=0x102 dlc=8 contenu={{TimeLapsOut [ms]; 32}; {Run Engine Statut; 0}}
+- Trame CAN ·  · `GEN - 4 - Left` — était : GFOUT module=Motor Sevcon Left - 2 (Generic) id=0x412 dlc=8 contenu={{Throttle Input Voltage; 0}; {Fordward Switch; 16}; {Inch reverse switch; 17}; {FS1 Switch; 18}}
+- Trame CAN ·  · `GEN - 4 - Right` — était : GFOUT module=Motor Sevcon Right - 1 (Generic) id=0x411 dlc=8 contenu={{Throttle Input Voltage; 0}; {Fordward Switch; 16}; {Inch reverse switch; 17}; {FS1 Switch; 18}}
+- Trame CAN ·  · `GFIN-A:N1_Tx_Status` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Status_N1 dlc=DonÂt care contenu={{N1 MMS Module State; 0}; {N1 MMS Module SOC [%]; 8}; {N1 MMS Errors; 16}; {N1 MMS Voltage [mV]; 48}}
+- Trame CAN ·  · `GFIN-B:N2_Tx_Status` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Status_N2 dlc=DonÂt care contenu={{N2 MMS Module State; 0}; {N2 MMS Module SOC [%]; 8}; {N2 MMS Errors; 16}; {N2 MMS Voltage [mV]; 48}}
+- Trame CAN ·  · `GFIN-C:N1_Tx_Info` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Info_N1 dlc=DonÂt care contenu={{N1 Maximum String Cells Voltage [*0.02 Volt]; 0}; {N1 Minimum String Cells Voltage [*0.02 Volt]; 8}; {N1 MMS SOH [%]; 24}; {N1 Maximum Module Temperature [Â°C]; 32}; {N1 Module Relay Status; 56}}
+- Trame CAN ·  · `GFIN-D:N2_Tx_Info` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Info_N2 dlc=DonÂt care contenu={{N2 Maximum String Cells Voltage [*0.02 Volt]; 0}; {N2 Minimum String Cells Voltage [*0.02 Volt]; 8}; {N2 MMS SOH [%]; 24}; {N2 Maximum Module Temperature [Â°C]; 32}; {N2 Module Relay Status; 56}}
+- Trame CAN ·  · `GFIN-E:N1_Tx_Amp` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Amp_N1 dlc=DonÂt care contenu={{N1 MMS Current [*0.03125 A]; 40}}
+- Trame CAN ·  · `GFIN-F:N2_Tx_Amp` — était : GFIN module=A/C Aentron BatPack (Generic) id=ID_Tx_Amp_N2 dlc=DonÂt care contenu={{N2 MMS Current [*0.03125 A]; 40}}
+- Trame CAN ·  · `GFOUT-H:Generic` — était : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=ID dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}; {BYTE 5 - HB; 40}}
+- Trame CAN ·  · `GFOUT-I:Generic` — était : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+- Trame CAN ·  · `GFOUT-J:Generic` — était : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=ID dlc=8 contenu={{BYTE 0 - New ID; 0}; {BYTE 1 - New ID; 8}; {BYTE 2 - New ID; 16}; {BYTE 4 - New ID; 32}}
+- Trame CAN ·  · `INSULATION_RESISTANCE` — était : GFIN module=Battery WattAlps (Generic) id=418383646 dlc=DonÂt care contenu={{ValueOfInsulationResistance [kohm]; 0}}
+- Trame CAN ·  · `Iqan Message` — était : GFOUT module=Promeion (Generic) id=0x7451226 dlc=8 contenu={{Message; 0}}
+- Trame CAN ·  · `Proemion Battery Value 1` — était : GFOUT module=Promeion (Generic) id=0x7451223 dlc=8 contenu={{Drive Mode; 0}; {Charger Charging; 1}; {Battery SOC [%]; 8}; {Battery Instant Voltage [V]; 16}; {Battery U Track [V]; 32}; {Iso Resist [kOhm]; 48}}
+- Trame CAN ·  · `Proemion Battery Value 2` — était : GFOUT module=Promeion (Generic) id=0x7451224 dlc=8 contenu={{Current Bat [A]; 0}; {DiffCellVoltage [mV]; 16}}
+- Trame CAN ·  · `Proemion Device` — était : GFOUT module=Promeion (Generic) id=0x7451230 dlc=8 contenu={{MDGN-+BAT:MC2[1] [cV]; 0}}
+- Trame CAN ·  · `Proemion Secon Value` — était : GFOUT module=Promeion (Generic) id=0x7451225 dlc=8 contenu={{Error 1; 0}; {Error 2; 16}; {Error 3; 32}}
+- Trame CAN ·  · `Promeion ZAPI` — était : GFOUT module=Promeion (Generic) id=0x7451250 dlc=8 contenu={{Right Warning; 0}; {Left Warning; 16}}
+- Trame CAN ·  · `REVISION` — était : GFIN module=Battery WattAlps (Generic) id=418383390 dlc=DonÂt care contenu={{wrong configuration slave number [Raw]; 24}; {Hardware revision [Raw]; 16}; {Minor revision [Raw]; 8}; {Major revision [Raw]; 0}}
+- Trame CAN ·  · `SYNC` — était : GFOUT module=SYNC (Generic) id=0x80 dlc=0 contenu={}
+- Trame CAN ·  · `SyncBatFrame` — était : GFOUT module=A/C Aentron BatPack (Generic) id=0x80 dlc=1 contenu={{SyncSignal; 0}}
+- Trame CAN ·  · `VMU_BMS_Diag` — était : GFOUT module=Battery WattAlps (Generic) id=0x18021E00 dlc=8 contenu={{WattAlps Debug; 0}}
+- Trame CAN ·  · `VMU_BMS_INFO` — était : GFOUT module=Battery WattAlps (Generic) id=402726400 dlc=8 contenu={{UBMSModeRequestBMS; 0}}
+
+## Modifiés (96)
+
+- Message ·  · `Oil level`
+  - avant : Hydraulics | Warning
+  - après : e1087 Low Oil Tracks Level | Warning
+- Paramètre ·  · `Battery State`
+  - avant : SP unité= défaut=OFF états=ERROR|READY|RUN|RUN ECO modes=
+  - après : IP unité=Not used défaut= états= modes=Battery State Request
+- Paramètre ·  · `Command Value`
+  - avant : IP unité=Not used défaut= états= modes=Bat CMD
+  - après : IP unité=Not used défaut= états= modes=BMW Battery CMD
+- Paramètre ·  · `GPS Factor`
+  - avant : IP unité=Not used défaut= états= modes=GPS Speed factor
+  - après : IP unité=Not used défaut= états= modes=md4 GPS Speed factor
+- Paramètre ·  · `New ID`
+  - avant : IP unité=Not used défaut= états= modes=Select Node
+  - après : IP unité=Not used défaut= états= modes=md4 Select Node
+- Paramètre ·  · `Node_ID`
+  - avant : IP unité= défaut={8} états= modes=Not used
+  - après : IP unité= défaut= états= modes=em ZAPI Node
+- Paramètre ·  · `Trim Value`
+  - avant : IP unité=Not used défaut= états= modes=Engine Brand
+  - après : IP unité=Not used défaut= états= modes=md4 Engine Brand
+- Réglage ·  · `Auto Fast After Down`
+  - avant : Auto Fast After Down 
+  - après : 4ET Auto Fast After Down 
+- Réglage ·  · `Auto Global switch Off`
+  - avant : Auto Global switch Off [min] 
+  - après : 4ET Auto Global switch Off [min] 
+- Réglage ·  · `Automatic Joystick Inhibition`
+  - avant : Automatic Joystick Inhibition [s] 
+  - après : 4ET Automatic Joystick Inhibition [s] 
+- Réglage ·  · `Battery Brand`
+  - avant : Battery Brand 
+  - après : eb Battery Brand 
+- Réglage ·  · `Battery hight temp`
+  - avant : Battery hight temp [Â°C] 
+  - après : eb Battery hight temp [Â°C] 
+- Réglage ·  · `Battery max temp`
+  - avant : Battery max temp [Â°C] 
+  - après : eb Battery max temp [Â°C] 
+- Réglage ·  · `Charger Brand`
+  - avant : Charger Brand 
+  - après : ec Charger Brand 
+- Réglage ·  · `Charging Force`
+  - avant : Force Charging 
+  - après : eb Charging Force 
+- Réglage ·  · `Current Limiting - Decrease`
+  - avant : Current Limiting - Decrease [%/s] 
+  - après : eb Current Limiting - Decrease [%/s] 
+- Réglage ·  · `Current Limiting - Error`
+  - avant : Current Limiting - Error [A] 
+  - après : eb Current Limiting - Error [A] 
+- Réglage ·  · `Current Limiting - Increase`
+  - avant : Current Limiting - Increase [%/s] 
+  - après : eb Current Limiting - Increase [%/s] 
+- Réglage ·  · `Enable Power Zapi`
+  - avant : Enable Power Zapi 
+  - après : em Enable Power Zapi 
+- Réglage ·  · `Engine Eco Temp`
+  - avant : Engine Eco Temp [Â°C] 
+  - après : em Engine Eco Temp [Â°C] 
+- Réglage ·  · `Engine Max Temp`
+  - avant : Engine Max Temp [Â°C] 
+  - après : em Engine Max Temp [Â°C] 
+- Réglage ·  · `Force BMW Charge`
+  - avant : Force BMW Charge 
+  - après : eb Force BMW Charge 
+- Réglage ·  · `HVLP Pump Test`
+  - avant : HVLP Pump Test 
+  - après : E HVLP Pump Test 
+- Réglage ·  · `Left Joystick`
+  - avant : Left Joystick [%] 
+  - après : Left Joy ET45 ou water level C2:1 [%] 
+- Réglage ·  · `M-Track - Brand`
+  - avant : M-Track - Brand 
+  - après : em1 M-Track - Brand 
+- Réglage ·  · `Max Speed`
+  - avant : Max Speed [%] 
+  - après : e Max Speed [%] 
+- Réglage ·  · `Oil security`
+  - avant : Oil security 
+  - après : OIL security 
+- Réglage ·  · `Person 1`
+  - avant : Person 1 
+  - après : md4 Person 1 
+- Réglage ·  · `Person 2`
+  - avant : Person 2 
+  - après : md4 Person 2 
+- Réglage ·  · `Person 3`
+  - avant : Person 3 
+  - après : md4 Person 3 
+- Réglage ·  · `Person`
+  - avant : Person 
+  - après : md4 Person 
+- Réglage ·  · `Power Controler Force`
+  - avant : Power Controler Force 
+  - après : E Power Controler Force 
+- Réglage ·  · `Re-Track mode in water`
+  - avant : Re-Track mode in water 
+  - après : 4ET Re-Track mode in water 
+- Réglage ·  · `Reset Ladder Sensor when UP`
+  - avant : Reset Ladder Sensor when UP 
+  - après : mc Reset Ladder Sensor when UP 
+- Réglage ·  · `Right Joystick`
+  - avant : Right Joystick [%] 
+  - après : Low water level RJoy [%] 
+- Réglage ·  · `Seat Front Back`
+  - avant : Seat Front Back [%] 
+  - après : md4 Seat Front Back [%] 
+- Réglage ·  · `Seat Up Down`
+  - avant : Seat Up Down [%] 
+  - après : md4 Seat Up Down [%] 
+- Réglage ·  · `Tension Error Parameter`
+  - avant : Tension Error Parameter [%] 
+  - après : e Tension Error Parameter [%] 
+- Réglage ·  · `Tension to charge`
+  - avant : Tension to charge 
+  - après : E Tension to charge 12V 
+- Réglage ·  · `Time to tension`
+  - avant : Time to tension [ms] 
+  - après : T Time to tension [ms] 
+- Réglage ·  · `Timer UP/DOWN`
+  - avant : Timer UP/DOWN [s] 
+  - après : 4ET Timer UP/DOWN [s] 
+- Réglage ·  · `Tracks pressure Mode`
+  - avant : Tracks pressure Mode 
+  - après : T Tracks pressure Mode 
+- Réglage ·  · `Variator Force`
+  - avant : Variator Force 
+  - après : E Variator Force 
+- Signal CAN ·  · `AlarmLowTemp`
+  - avant : GPOUT longueur=1 type=Digital unité=
+  - après : GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `AlarmOverTemp`
+  - avant : GPOUT longueur=1 type=Digital unité=
+  - après : GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `BalancingRunning`
+  - avant : GPIN longueur=1 type=Signed integer unité=
+  - après : GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Batterie Current`
+  - avant : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=
+  - après : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=A
+- Signal CAN ·  · `BatteryCurrent`
+  - avant : GPIN longueur=16 type=Signed integer unité=
+  - après : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=A
+- Signal CAN ·  · `Heatsink`
+  - avant : GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Byte
+  - après : GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `MaxDischargeCurrent`
+  - avant : GPIN longueur=16 type=Unsigned integer unité=A
+  - après : GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=A
+- Signal CAN ·  · `SOH`
+  - avant : GPIN longueur=8 type=Unsigned integer unité=%
+  - après : GPIN longueur=16 type=Unsigned integer unité=%
+- Trame CAN ·  · `0x191071FA`
+  - avant : GFOUT module=Motor Sevcon hydrolic - 3 (Generic) id=0x191071FA dlc=8 contenu={{Status Word; 16}; {Torque Demande; 0}; {Torque Limit; 32}}
+  - après : GFOUT module=Sev_M3_HVLP_soon (Generic) id=0x191071FA dlc=8 contenu={{Status Word; 16}; {Torque Demande; 0}; {Torque Limit; 32}}
+- Trame CAN ·  · `0x191171FA`
+  - avant : GFOUT module=Motor Sevcon hydrolic - 3 (Generic) id=0x191171FA dlc=8 contenu={{Fw Speed Limit; 16}; {Rw Speed Limit; 32}}
+  - après : GFOUT module=Sev_M3_HVLP_soon (Generic) id=0x191171FA dlc=8 contenu={{Fw Speed Limit; 16}; {Rw Speed Limit; 32}}
+- Trame CAN ·  · `0x191271FA`
+  - avant : GFOUT module=Motor Sevcon hydrolic - 3 (Generic) id=0x191271FA dlc=8 contenu={{I Batt Discharge Limit; 0}; {I Batt recharge limit; 16}}
+  - après : GFOUT module=Sev_M3_HVLP_soon (Generic) id=0x191271FA dlc=8 contenu={{I Batt Discharge Limit; 0}; {I Batt recharge limit; 16}}
+- Trame CAN ·  · `0x1918FF71`
+  - avant : GFIN module=Motor Sevcon hydrolic - 3 (Generic) id=0x1918FF71 dlc=DonÂt care contenu={{Motor Speed [rpm]; 16}; {Torque Mesured; 0}}
+  - après : GFIN module=Sev_M3_HVLP_soon (Generic) id=0x1918FF71 dlc=DonÂt care contenu={{Motor_Speed_Raw [rpm]; 16}; {Torque_Mesured_Raw; 0}}
+- Trame CAN ·  · `0x1919FF71`
+  - avant : GFIN module=Motor Sevcon hydrolic - 3 (Generic) id=0x1919FF71 dlc=DonÂt care contenu={{Status Word; 32}; {Limit Word; 40}}
+  - après : GFIN module=Sev_M3_HVLP_soon (Generic) id=0x1919FF71 dlc=DonÂt care contenu={{Status Word; 32}; {Limit Word; 40}}
+- Trame CAN ·  · `0x191AFF71`
+  - avant : GFIN module=Motor Sevcon hydrolic - 3 (Generic) id=0x191AFF71 dlc=DonÂt care contenu={{Input Voltage; 32}; {Heatsink [Byte]; 0}; {Sevcon - Engine Temp [Â°C]; 16}}
+  - après : GFIN module=Sev_M3_HVLP_soon (Generic) id=0x191AFF71 dlc=DonÂt care contenu={{Input Voltage; 32}; {genHeatsink [Â°C]; 0}; {genSevcon - Engine Temp [Â°C]; 16}}
+- Trame CAN ·  · `0x191BFF71`
+  - avant : GFIN module=Motor Sevcon hydrolic - 3 (Generic) id=0x191BFF71 dlc=DonÂt care contenu={{M3 (Pump) - Error; 0}}
+  - après : GFIN module=Sev_M3_HVLP_soon (Generic) id=0x191BFF71 dlc=DonÂt care contenu={{M3 (Pump) - Error; 0}}
+- Trame CAN ·  · `0x717`
+  - avant : GFIN module=KEYBOX EQUIPEMENT (Generic) id=0x717 dlc=DonÂt care contenu={}
+  - après : GFIN module=Keyboxs CAB (Generic) id=0x717 dlc=DonÂt care contenu={}
+- Trame CAN ·  · `0x718`
+  - avant : GFIN module=KEYBOX EQUIPEMENT (Generic) id=0x718 dlc=DonÂt care contenu={}
+  - après : GFIN module=Keyboxs CAB (Generic) id=0x718 dlc=DonÂt care contenu={}
+- Trame CAN ·  · `0x719`
+  - avant : GFIN module=KEYBOX EQUIPEMENT (Generic) id=0x719 dlc=DonÂt care contenu={}
+  - après : GFIN module=Keyboxs CAB (Generic) id=0x719 dlc=DonÂt care contenu={}
+- Trame CAN ·  · `127488-Eng 1`
+  - avant : GFIN module=OutBoard (Generic) id=PGN-127488 dlc=DonÂt care contenu={{Engine 1 - Speed - Raw; 8}; {Engine 1 - Trim; 40}}
+  - après : GFIN module=Outboards (Generic) id=PGN-127488 dlc=DonÂt care contenu={{Engine 1 - Speed - Raw; 8}; {Engine 1 - Trim; 40}}
+- Trame CAN ·  · `127488-Eng 2`
+  - avant : GFIN module=OutBoard (Generic) id=PGN-127488 dlc=DonÂt care contenu={{Engine 2 - Speed - Raw; 8}; {Engine 2 - Trim; 40}}
+  - après : GFIN module=Outboards (Generic) id=PGN-127488 dlc=DonÂt care contenu={{Engine 2 - Speed - Raw; 8}; {Engine 2 - Trim; 40}}
+- Trame CAN ·  · `127489-0`
+  - avant : GFIN module=OutBoard (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Sequence; 4}; {Page; 0}; {Engine Intance; 16}; {Engine oil pressure; 24}; {Engine oil temp.; 40}; {Engine temp. Byte 0; 56}}
+  - après : GFIN module=Outboards (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Sequence; 4}; {Page; 0}; {Engine Intance; 16}; {Engine oil pressure; 24}; {Engine oil temp.; 40}; {Engine temp. Byte 0; 56}}
+- Trame CAN ·  · `127489-1`
+  - avant : GFIN module=OutBoard (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Sequence; 4}; {Page; 0}; {Engine temp. Byte 1; 8}; {Alternator potential; 16}; {Fuel rate; 32}; {Total engine hours - Byte 0; 48}}
+  - après : GFIN module=Outboards (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Sequence; 4}; {Page; 0}; {Engine temp. Byte 1; 8}; {Alternator potential; 16}; {Fuel rate; 32}; {Total engine hours - Byte 0; 48}}
+- Trame CAN ·  · `127489-2`
+  - avant : GFIN module=OutBoard (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Total engine hours - Byte 1; 8}}
+  - après : GFIN module=Outboards (Generic) id=PGN-127489 dlc=DonÂt care contenu={{Total engine hours - Byte 1; 8}}
+- Trame CAN ·  · `127505-Eng 1 - Can`
+  - avant : GFIN module=OutBoard (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 1 - Tank - RAW; 8}}
+  - après : GFIN module=Outboards (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 1 - Tank - RAW; 8}}
+- Trame CAN ·  · `127505-Eng 2 Page 1- Can`
+  - avant : GFIN module=OutBoard (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 2 Page 1 - Tank - Raw; 8}}
+  - après : GFIN module=Outboards (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 2 Page 1 - Tank - Raw; 8}}
+- Trame CAN ·  · `127505-Eng 2 Page 2- Can`
+  - avant : GFIN module=OutBoard (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 2 Page 2 - Tank - Raw; 8}}
+  - après : GFIN module=Outboards (Generic) id=PNG-127505 dlc=DonÂt care contenu={{Engine 2 Page 2 - Tank - Raw; 8}}
+- Trame CAN ·  · `129026-0`
+  - avant : GFIN module=Garmin (Generic) id=PGN-129026 dlc=DonÂt care contenu={{Speed Over Ground Raw; 32}}
+  - après : GFIN module=Garmin CAB (Generic) id=PGN-129026 dlc=DonÂt care contenu={{Speed Over Ground Raw; 32}}
+- Trame CAN ·  · `Bat51Error`
+  - avant : GFIN module=Battery BMW (Generic) id=0xD1 dlc=DonÂt care contenu={{BatErrorCode; 24}; {BatError; 8}}
+  - après : GFIN module=Batt BMW (Generic) id=0xD1 dlc=DonÂt care contenu={{BatErrorCode; 24}; {BatError; 8}}
+- Trame CAN ·  · `Bat51Hartbeat`
+  - avant : GFIN module=Battery BMW (Generic) id=0x751 dlc=DonÂt care contenu={{BatNodeState; 0}}
+  - après : GFIN module=Batt BMW (Generic) id=0x751 dlc=DonÂt care contenu={{BatNodeState; 0}}
+- Trame CAN ·  · `Bat51RPdo1`
+  - avant : GFOUT module=Battery BMW (Generic) id=593 dlc=8 contenu={{BatCommand; 0}; {BatCoolingPolicy; 8}}
+  - après : GFOUT module=Batt BMW (Generic) id=593 dlc=8 contenu={{BatCommand; 0}; {BatCoolingPolicy; 8}}
+- Trame CAN ·  · `Bat51TPdo1`
+  - avant : GFIN module=Battery BMW (Generic) id=0x1D1 dlc=DonÂt care contenu={{BatState; 0}; {BatStateOfCharge; 8}; {BatCurrent; 16}; {BatPackVoltage; 32}; {BatBusVoltage; 48}}
+  - après : GFIN module=Batt BMW (Generic) id=0x1D1 dlc=DonÂt care contenu={{BatState; 0}; {BatStateOfCharge bmw; 8}; {BatCurrent; 16}; {BatPackVoltage bmw; 32}; {BatBusVoltage utrac bmw; 48}}
+- Trame CAN ·  · `Bat51TPdo2`
+  - avant : GFIN module=Battery BMW (Generic) id=0x2D1 dlc=DonÂt care contenu={{BatAvgTemp; 0}; {BatMinCellTemp; 8}; {BatMaxCellTemp; 16}; {BatBalancingState; 24}; {BatTimeToFullMinute; 32}}
+  - après : GFIN module=Batt BMW (Generic) id=0x2D1 dlc=DonÂt care contenu={{BatAvgTemp; 0}; {BatMinCellTemp; 8}; {BatMaxCellTemp bmw; 16}; {BatBalancingState; 24}; {BatTimeToFullMinute; 32}}
+- Trame CAN ·  · `Bat51TPdo3`
+  - avant : GFIN module=Battery BMW (Generic) id=0x3D1 dlc=DonÂt care contenu={{BatPowerLimitChargeRaw; 0}; {BatPowerLimitDischargeRaw; 16}; {BatEnergyRemainingRaw; 32}}
+  - après : GFIN module=Batt BMW (Generic) id=0x3D1 dlc=DonÂt care contenu={{BatPowerLimitChargeRaw; 0}; {BatPowerLimitDischargeRaw; 16}; {BatEnergyRemainingRaw; 32}}
+- Trame CAN ·  · `Call Default`
+  - avant : GFIN module=KEYBOX EQUIPEMENT (Generic) id=Default Read ID dlc=DonÂt care contenu={}
+  - après : GFIN module=Keyboxs CAB (Generic) id=Default Read ID dlc=DonÂt care contenu={}
+- Trame CAN ·  · `Dcu50Error`
+  - avant : GFIN module=Battery BMW (Generic) id=208 dlc=DonÂt care contenu={{DcuErrorCode; 24}; {DcuError; 8}}
+  - après : GFIN module=Batt BMW (Generic) id=208 dlc=DonÂt care contenu={{DcuErrorCode; 24}; {DcuError; 8}}
+- Trame CAN ·  · `Dcu50Heartbeat`
+  - avant : GFIN module=Battery BMW (Generic) id=0x750 dlc=DonÂt care contenu={{DcuNodeState; 0}}
+  - après : GFIN module=Batt BMW (Generic) id=0x750 dlc=DonÂt care contenu={{DcuNodeState; 0}}
+- Trame CAN ·  · `ELCON-OUT`
+  - avant : GFOUT module=Charger Elcon (Generic) id=0x1806E5F4 dlc=8 contenu={{Max Voltage; 0}; {Max Curent; 16}; {Control; 32}}
+  - après : GFOUT module=Charger Elcon (Generic) id=0x1806E5F4 dlc=8 contenu={{Max Voltage; 0}; {Max Curent [A]; 16}; {Char; 32}}
+- Trame CAN ·  · `GFIN HeartBeat`
+  - avant : GFIN module=Motor Zapi - Left - 2 (Generic) id=HeartBeat dlc=1 contenu={{HeartBeat State; 0}}
+  - après : GFIN module=Zapi_M_Track (Generic) id=HeartBeat dlc=1 contenu={{HeartBeat State; 0}}
+- Trame CAN ·  · `GFIN PDO1_TX`
+  - avant : GFIN module=Motor Zapi - Left - 2 (Generic) id=PDO1_TX dlc=8 contenu={{Actual_Speed [Hz/10]; 0}; {Out MNC; 16}; {Stuffing; 31}; {Actual Current [A*5]; 56}; {Status Byte; 32}}
+  - après : GFIN module=Zapi_M_Track (Generic) id=PDO1_TX dlc=8 contenu={{Actual_Speed [Hz/10]; 0}; {Out MNC; 16}; {Stuffing; 31}; {Actual Current [A*5]; 56}; {Status Byte; 32}}
+- Trame CAN ·  · `GFIN PDO2_TX`
+  - avant : GFIN module=Motor Zapi - Left - 2 (Generic) id=PDO2_TX dlc=8 contenu={{Left Zapi Warning; 0}; {Motor Temp; 16}; {Heatsink; 24}; {BDI Percentage; 32}; {Batterie Current; 40}; {Batterie Voltage; 48}}
+  - après : GFIN module=Zapi_M_Track (Generic) id=PDO2_TX dlc=8 contenu={{Left Zapi Warning; 0}; {Motor Temp; 16}; {Heatsink; 24}; {BDI Percentage; 32}; {Batterie Current [A]; 40}; {Batterie Voltage; 48}}
+- Trame CAN ·  · `GFIN-A:Generic`
+  - avant : GFIN module=Promeion (Generic) id=0x7451220 dlc=DonÂt care contenu={{Network State; 0}; {Signal Quality; 8}}
+  - après : GFIN module=Keybox X100 T (Generic) id=ID Fault dlc=DonÂt care contenu={{K1 Fault; 1}; {K2 Fault; 2}; {K3 Fault; 3}; {K4 Fault; 4}; {K5 Fault; 5}; {K6 Fault; 6}; {K7 Fault; 7}; {K8 Fault; 8}; {K9 Fault; 9}; {K10 Fault; 10}; {K11 Fault; 11}; {K12 Fault; 12}; {K13 Fault; 13}}
+- Trame CAN ·  · `GFOUT - PDO1_RX`
+  - avant : GFOUT module=Motor Zapi - Left - 2 (Generic) id=PDO1_RX dlc=8 contenu={{Target SPeed [Hz/10]; 0}; {Enable Power; 16}; {Forward Req; 19}; {Reverse Req; 20}; {Stuffing; 31}; {Power Line; 17}; {Brake; 27}}
+  - après : GFOUT module=Zapi_M_Track (Generic) id=PDO1_RX dlc=8 contenu={{Target SPeed [Hz/10]; 0}; {Enable Power; 16}; {Forward Req; 19}; {Reverse Req; 20}; {Stuffing; 31}; {Power Line; 17}; {Brake; 27}}
+- Trame CAN ·  · `GFOUT-A:Generic`
+  - avant : GFOUT module=Charger BMW (Generic) id=0x400 dlc=8 contenu={{ENABLE; 0}; {POWER_REFERENCE; 8}; {MAXDCVOLTLIMIT; 24}; {MAXDCCURRLIMIT; 40}}
+  - après : GFOUT module=Keybox X100 E (Generic) id=ID Prog dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}; {BYTE 5 - HB; 40}}
+- Trame CAN ·  · `GFOUT-C:Generic`
+  - avant : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=Default Write ID dlc=8 contenu={{BYTE 0 - New ID; 0}; {BYTE 1 - New ID; 8}; {BYTE 2 - New ID; 16}; {BYTE 4 - New ID; 32}}
+  - après : GFOUT module=Keybox X100 T (Generic) id=ID Prog dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}; {BYTE 5 - HB; 40}}
+- Trame CAN ·  · `GFOUT-D:Generic`
+  - avant : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+  - après : GFOUT module=Keyboxs CAB (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+- Trame CAN ·  · `GFOUT-E:Generic`
+  - avant : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=0x219 dlc=8 contenu={{OFF_Bits_GOUT; 0}; {ON_Bits_GOUT; 16}}
+  - après : GFOUT module=Keyboxs CAB (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+- Trame CAN ·  · `GFOUT-F:Generic`
+  - avant : GFOUT module=KEYBOX EQUIPEMENT (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+  - après : GFOUT module=Keyboxs CAB (Generic) id=0 dlc=2 contenu={{Byte 0; 0}; {Byte 1; 8}}
+- Trame CAN ·  · `Iso52MonError`
+  - avant : GFIN module=Battery BMW (Generic) id=210 dlc=DonÂt care contenu={{IsoMonErrorCode; 24}; {IsoMonError; 8}}
+  - après : GFIN module=Batt BMW (Generic) id=210 dlc=DonÂt care contenu={{IsoMonErrorCode; 24}; {IsoMonError; 8}}
+- Trame CAN ·  · `Iso52MonHeartbeat`
+  - avant : GFIN module=Battery BMW (Generic) id=1874 dlc=DonÂt care contenu={{IsoMonNodeState; 0}}
+  - après : GFIN module=Batt BMW (Generic) id=1874 dlc=DonÂt care contenu={{IsoMonNodeState; 0}}
+- Trame CAN ·  · `Iso52MonRPdo1`
+  - avant : GFOUT module=Battery BMW (Generic) id=0x252 dlc=8 contenu={{IsoMonCommand; 0}; {IsoMonWarningLevel; 8}; {IsoMonErrorLevel; 24}}
+  - après : GFOUT module=Batt BMW (Generic) id=0x252 dlc=8 contenu={{IsoMonCommand; 0}; {IsoMonWarningLevel; 8}; {IsoMonErrorLevel; 24}}
+- Trame CAN ·  · `Iso52MonTPdo1`
+  - avant : GFIN module=Battery BMW (Generic) id=466 dlc=DonÂt care contenu={{IsoMonResistance; 0}; {IsoMonVoltage; 16}; {IsoMonState; 32}}
+  - après : GFIN module=Batt BMW (Generic) id=466 dlc=DonÂt care contenu={{IsoMonResistance BMW; 0}; {IsoMonVoltage; 16}; {IsoMonState; 32}}
+- Trame CAN ·  · `NMT`
+  - avant : GFOUT module=Motor Zapi - Left - 2 (Generic) id=0 dlc=8 contenu={{Func ID; 0}; {Node ID; 8}}
+  - après : GFOUT module=Zapi_M_Track (Generic) id=0 dlc=8 contenu={{Func ID; 0}; {Node ID; 8}}
+- Trame CAN ·  · `Sync`
+  - avant : GFOUT module=Battery BMW (Generic) id=0x80 dlc=1 contenu={{SyncCounter; 0}}
+  - après : GFOUT module=Batt BMW (Generic) id=0x80 dlc=1 contenu={{SyncCounter; 0}}
+
+## Ajoutés (1055)
+
+- Broche ·  · `EB2 T45 (J1939[0])#1` — MDGN Malfunction lamp EB2 T45
+- Broche ·  · `EB2 T45 (J1939[0])#2` — MDGN Red stop lamp EB2 T45
+- Broche ·  · `EB2 T45 (J1939[0])#3` — MDGN Amber warning lamp EB2 T45
+- Broche ·  · `EB2 T45 (J1939[0])#4` — MDGN Protect lamp EB2 T45
+- Broche ·  · `Ford T45 (J1939[0])#1` — MDGN Malfunction lamp Ford T
+- Broche ·  · `Ford T45 (J1939[0])#2` — MDGN Red stop lamp Ford T
+- Broche ·  · `Ford T45 (J1939[0])#3` — MDGN Amber warning lamp Ford T
+- Broche ·  · `Ford T45 (J1939[0])#4` — MDGN Protect lamp Ford T
+- Broche ·  · `Kubota WG16 (J1939[0])#1` — MDGN Malfunction lamp Kubo T45
+- Broche ·  · `Kubota WG16 (J1939[0])#2` — MDGN Red stop lamp Kubo T45
+- Broche ·  · `Kubota WG16 (J1939[0])#3` — MDGN Amber warning lamp Kubo T45
+- Broche ·  · `Kubota WG16 (J1939[0])#4` — MDGN Protect lamp Kubo T45
+- Broche ·  · `MC42-33 (MC42[0])#0` — VIN32 T V sensor inflate 24v
+- Broche ·  · `MC42-33 (MC42[0])#1` — MDGN S/N:MC
+- Broche ·  · `MC42-33 (MC42[0])#10` — DOUT EV Down mc 42
+- Broche ·  · `MC42-33 (MC42[0])#11` — DOUT EV Tension mc 58
+- Broche ·  · `MC42-33 (MC42[0])#12` — DIN C REMOTE LD DOWN mc 28
+- Broche ·  · `MC42-33 (MC42[0])#13` — DIN C REMOTE LD UP mc 29
+- Broche ·  · `MC42-33 (MC42[0])#14` — DOUT Brake T/ Batt HT reset OR tyva on mc 44 / Var Power C
+- Broche ·  · `MC42-33 (MC42[0])#15` — DOUT Power Vars E mc 60/ Batt reset C
+- Broche ·  · `MC42-33 (MC42[0])#2` — MDGN Temp:MC
+- Broche ·  · `MC42-33 (MC42[0])#3` — MDGN Address:MC
+- Broche ·  · `MC42-33 (MC42[0])#4` — MDGN Supply v mc42
+- Broche ·  · `MC42-33 (MC42[0])#5` — MDGN VREF A:MC
+- Broche ·  · `MC42-33 (MC42[0])#6` — PWM C UP/DOWN mc 45
+- Broche ·  · `MC42-33 (MC42[0])#7` — VIN T Exhaust coolant temp mc 52
+- Broche ·  · `MC42-33 (MC42[0])#8` — DOUT EV By pass mc 41
+- Broche ·  · `MC42-33 (MC42[0])#9` — PWM C FRONT BACK mc 48
+- Broche ·  · `MD4-CAB-40 (MD4-10[2])#0` — VIN Left Joystick C41 C2:1
+- Broche ·  · `MD4-CAB-40 (MD4-10[2])#1` — VIN Right Joystick C41 C2:2
+- Broche ·  · `MD4-CAB-40 (MD4-10[2])#3` — DIN C Button Cabine C41 C2:6
+- Broche ·  · `MD4-CAB-40 (MD4-10[2])#4` — DIN C Button Door C41 C2:7
+- Broche ·  · `MD45-ET-39 (MD4-5[1])#0` — VIN Left Joy ET45 ou water level C2:1
+- Broche ·  · `MD45-ET-39 (MD4-5[1])#1` — VIN Right Joystick ET45 C2:2
+- Broche ·  · `MD45-ET-39 (MD4-5[1])#4` — MDGN +BAT:MD45
+- Journal ·  · `Event log: Balancing TYVA` — 
+- Journal ·  · `Event log: Electronic logs` — 
+- Journal ·  · `Event log: Hydraulic Event` — 
+- Journal ·  · `Event log: Inspections` — 
+- Journal ·  · `Event log: New event log` — 
+- Journal ·  · `Event log: Novum battery` — 
+- Journal ·  · `Event log: Thermic Events` — 
+- Journal ·  · `Event log: Tyva Battery` — 
+- Journal ·  · `Statistics log: Electronic Stats logs` — 
+- Journal ·  · `Statistics log: System Stats` — 
+- Journal ·  · `Statistics log: Thermic Stats` — 
+- Liaison appli ·  · `Battery DRIVE mc` — APPOUT ← Battery DRIVE MODE
+- Liaison appli ·  · `Charger State Finite out mc` — APPOUT ← E.Charging State Machine
+- Liaison appli ·  · `Joystick to zero APPIN` — APPIN ← Joystick to zero APPOUT
+- Liaison appli ·  · `Joystick to zero APPOUT` — APPOUT ← Joystick to zero
+- Liaison appli ·  · `Left Joy ET45 ou water level C2:1 APPIN` — APPIN ← Left Joystick ET45 CanOut [%]
+- Liaison appli ·  · `Left Joystick C10 CanOut` — APPOUT ← Left Joystick C41 C2:1 [%]
+- Liaison appli ·  · `Left Joystick C41 C2:1 APPIN` — APPIN ← Left Joystick C10 CanOut [%]
+- Liaison appli ·  · `Left Joystick ET45 CanOut` — APPOUT ← Left Joy ET45 ou water level C2:1 [%]
+- Liaison appli ·  · `Right Joystick C10 CanOut` — APPOUT ← Right Joystick C41 C2:2 [%]
+- Liaison appli ·  · `Right Joystick C41 C2:2 APPIN` — APPIN ← Right Joystick C10 CanOut [%]
+- Liaison appli ·  · `Right Joystick ET45 C2:2 APPIN` — APPIN ← Right Joystick ET45 CanOut [%]
+- Liaison appli ·  · `Right Joystick ET45 CanOut` — APPOUT ← Right Joystick ET45 C2:2 [%]
+- Liaison appli ·  · `TRACK DOWN 4ET APPOUT` — APPOUT ← TRACK DOWN 4ET
+- Liaison appli ·  · `a/c option tyva APPIN` — APPIN ← a/c option tyva APPOUT
+- Liaison appli ·  · `a/c option tyva APPOUT` — APPOUT ← a/c option tyva
+- Liaison appli ·  · `auto off tyva 24v APPIN` — APPIN ← auto off tyva 24v APPOUT
+- Liaison appli ·  · `auto off tyva 24v APPOUT` — APPOUT ← auto off tyva 24v
+- Liaison appli ·  · `auto up/down 4ET output` — APPOUT ← auto up/down 4ET
+- Liaison appli ·  · `batt ok to start APPIN` — APPIN ← batt ok to start APPOUT
+- Liaison appli ·  · `batt ok to start APPOUT` — APPOUT ← batt ok to start
+- Liaison appli ·  · `buttons 45 dtobin APPOUT` — APPOUT ← buttons 45 dtobin
+- Liaison appli ·  · `dtob APPIN 45` — APPIN ← buttons 45 dtobin APPOUT
+- Liaison appli ·  · `dtob APPIN_1 c10` — APPIN ← dtobin APPOUT C10
+- Liaison appli ·  · `dtobin 2 APPIN c10` — APPIN ← infos for 45/10 dtobin 2 APPOUT
+- Liaison appli ·  · `dtobin 3 APPIN` — APPIN ← dtobin 3 APPOUT
+- Liaison appli ·  · `dtobin 3 APPOUT` — APPOUT ← dtobin 3
+- Liaison appli ·  · `dtobin APPOUT C10 B` — APPOUT ← dtobin c10 B
+- Liaison appli ·  · `dtobin APPOUT C10 B_1` — APPOUT ← dtobin c10 B_1
+- Liaison appli ·  · `dtobin APPOUT C10` — APPOUT ← dtobin c10
+- Liaison appli ·  · `dtobin c10 B APPIN` — APPIN ← dtobin APPOUT C10 B
+- Liaison appli ·  · `dtobin c10 B_1 APPIN` — APPIN ← dtobin APPOUT C10 B_1
+- Liaison appli ·  · `dtobin c10_1 APPIN` — APPIN ← dtoni APPOUT C10_1
+- Liaison appli ·  · `dtoni APPOUT C10_1` — APPOUT ← dtobin c10_1
+- Liaison appli ·  · `info from mc dtobin 2 APPIN` — APPIN ← infos for 45/10 dtobin 2 APPOUT
+- Liaison appli ·  · `infos for 45/10 dtobin 2 APPOUT` — APPOUT ← dtobin 2
+- Message ·  · `message d'alerte pour non entretien depuis 4 ans au moins` — Warning! | Critical
+- Message ·  · `Auto Off Message 4ET` — Automatic Shutdown | Confirmation
+- Message ·  · `C Bilge Pump Run` — e1158 Bilge Pump Run | Information
+- Message ·  · `CanBus Error KBB` — Keybox | Error
+- Message ·  · `CanBus Error KTB` — Keybox | Error
+- Message ·  · `CanBus Error KTC` — Keybox | Error
+- Message ·  · `Complete delivery date` — Complete the delivery date! | Warning
+- Message ·  · `Elec/md4 10 hours check-up 45` — 10h Check not performed | Message
+- Message ·  · `K10 fuse is blown mc T` — Keybox error: FH10 fuse is blown | Alarm
+- Message ·  · `K11 fuse is blown mc T` — Keybox error: FH11 fuse is blown | Alarm
+- Message ·  · `K12 fuse is blown mc T` — Keybox error: FH12 fuse is blown | Alarm
+- Message ·  · `K13 fuse is blown mc T` — Keybox error: FH13 fuse is blown | Alarm
+- Message ·  · `K4 fuse is blown mc T` — Keybox error: FH5 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `K5 fuse is blown mc T` — Keybox error: FH4 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `K6 fuse is blown mc T` — Keybox error: FH6 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `K7 fuse is blown mc T` — Keybox error: FH7 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `K8 fuse is blown mc T` — Keybox error: FH8 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `K9 fuse is blown mc T` — Keybox error: FH9 fuse is blown | Alarm
+- Message ·  · `KBB K1 fuse is blown mc` — KBB K1 fuse is blown | Alarm
+- Message ·  · `KBB K10 fuse is blown mc` — KBB K10 fuse is blown | Alarm
+- Message ·  · `KBB K11 fuse is blown mc` — KBB K11 fuse is blown | Alarm
+- Message ·  · `KBB K12 fuse is blown mc` — KBB K12 fuse is blown | Alarm
+- Message ·  · `KBB K13 fuse is blown mc` — KBB K13 fuse is blown | Alarm
+- Message ·  · `KBB K2 fuse is blown  mc` — KBB K2 fuse is blown | Alarm
+- Message ·  · `KBB K3 fuse is blown  mc` — KBB K3 fuse is blown | Alarm
+- Message ·  · `KBB K4 fuse is blown mc` — KBB K4 fuse is blown | Alarm
+- Message ·  · `KBB K5 fuse is blown mc` — KBB K5 fuse is blown | Alarm
+- Message ·  · `KBB K6 fuse is blown mc` — KBB K6 fuse is blown | Alarm
+- Message ·  · `KBB K7 fuse is blown mc` — KBB K7 fuse is blown | Alarm
+- Message ·  · `KBB K8 fuse is blown mc` — KBB K8 fuse is blown | Alarm
+- Message ·  · `KBB K9 fuse is blown mc` — KBB K9 fuse is blown | Alarm
+- Message ·  · `KTB K1 fuse is blown mc` — KTB K1 fuse is blown | Alarm
+- Message ·  · `KTB K10 fuse is blown mc` — KTB K10 fuse is blown | Alarm
+- Message ·  · `KTB K11 fuse is blown mc` — KTB K11 fuse is blown | Alarm
+- Message ·  · `KTB K12 fuse is blown mc` — KTB K12 fuse is blown | Alarm
+- Message ·  · `KTB K13 fuse is blown mc` — KTB K13 fuse is blown | Alarm
+- Message ·  · `KTB K2 fuse is blown  mc` — KTB K2 fuse is blown | Alarm
+- Message ·  · `KTB K3 fuse is blown  mc` — KTB K3 fuse is blown | Alarm
+- Message ·  · `KTB K4 fuse is blown mc` — KTB K4 fuse is blown | Alarm
+- Message ·  · `KTB K5 fuse is blown mc` — KTB K5 fuse is blown | Alarm
+- Message ·  · `KTB K6 fuse is blown mc` — KTB K6 fuse is blown | Alarm
+- Message ·  · `KTB K7 fuse is blown mc` — KTB K7 fuse is blown | Alarm
+- Message ·  · `KTB K8 fuse is blown mc` — KTB K8 fuse is blown | Alarm
+- Message ·  · `KTB K9 fuse is blown mc` — KTB K9 fuse is blown | Alarm
+- Message ·  · `KTC K1 fuse is blown mc` — KTC K1 fuse is blown | Alarm
+- Message ·  · `KTC K10 fuse is blown mc` — KTC K10 fuse is blown | Alarm
+- Message ·  · `KTC K11 fuse is blown mc` — KTC K11 fuse is blown | Alarm
+- Message ·  · `KTC K12 fuse is blown mc` — KTC K12 fuse is blown | Alarm
+- Message ·  · `KTC K13 fuse is blown mc` — KTC K13 fuse is blown | Alarm
+- Message ·  · `KTC K2 fuse is blown  mc` — KTC K2 fuse is blown | Alarm
+- Message ·  · `KTC K3 fuse is blown  mc` — KTC K3 fuse is blown | Alarm
+- Message ·  · `KTC K4 fuse is blown mc` — KTC K4 fuse is blown | Alarm
+- Message ·  · `KTC K5 fuse is blown mc` — KTC K5 fuse is blown | Alarm
+- Message ·  · `KTC K6 fuse is blown mc` — KTC K6 fuse is blown | Alarm
+- Message ·  · `KTC K7 fuse is blown mc` — KTC K7 fuse is blown | Alarm
+- Message ·  · `KTC K8 fuse is blown mc` — KTC K8 fuse is blown | Alarm
+- Message ·  · `KTC K9 fuse is blown mc` — KTC K9 fuse is blown | Alarm
+- Message ·  · `Keypad HS` — Keypad is not working | Warning
+- Message ·  · `Low A/C battery` — Low A/C battery | Message
+- Message ·  · `MsgInterlockCut` — Battery Error | Critical
+- Message ·  · `Oil level mc` — e1045 Low Oil Tracks Level | Critical
+- Message ·  · `Remise sur False de RESET Maintenance Counter` — Set "RESET Maintenance" to False!! | Warning
+- Message ·  · `ShuntDown Turn Off` — Turn Off | Confirmation
+- Message ·  · `System Shutdown` — System Shutdown | Confirmation
+- Message ·  · `T Alert critical engine mc` — e1100 Stop | Critical
+- Message ·  · `T Alert critical exhaust mc` — e1107 Stop | Critical
+- Message ·  · `T Alert critical hydraulic mc` — e1101 Stop | Critical
+- Message ·  · `T Bad pressure mc` — e1141 Hydraulic pump lubrification failure | Critical
+- Message ·  · `T CanBus Error mc` — e1191 KeyBox | Error
+- Message ·  · `T Fuel line ignition mc` — e1015 Fuel line ignition | Message
+- Message ·  · `T Hot Oil mc` — e1185 Hydraulic Oil is to hot. | Critical
+- Message ·  · `T Joystick is not in neutral position` — e1093 Neutral position | Information
+- Message ·  · `T K1 fuse is blown mc` — Keybox error: FH1 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `T K2 fuse is blown mc` — Keybox error: FH2 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `T K3 fuse is blown mc` — Keybox error: FH3 fuse is blown -> Call AfterSales | Alarm
+- Message ·  · `T Oil pressure mc T` — e1145 Inboard engine low oil | Critical
+- Message ·  · `T Port winter switch is off` — Port engine battery switch is off | Information
+- Message ·  · `T Starter Protection CMSG` — Starter Temperature Protection | Warning
+- Message ·  · `T Track Tension Error mc` — e1043 Track Tension Error | Warning
+- Message ·  · `Therm/md4 10 hours check-up 45` —  | Message
+- Message ·  · `e Abort Charging mc` — e1169 Abort Charging | Confirmation
+- Message ·  · `e Battery Protection mc` — e1170 Battery Isolation | Critical
+- Message ·  · `e CanBus Error mc` — e1166 KeyBox E | Error
+- Message ·  · `e Critical Battery Error mc` — e1113 Battery Error | Critical
+- Message ·  · `e Ground Fault message` — e1155 High Tension Battery | Critical
+- Message ·  · `e Joystick to zero CMSG mc` — e1152 Neutral position | Message
+- Message ·  · `e K1 fuse is blown mc` — e1016 K1 fuse is blown | Alarm
+- Message ·  · `e K10 fuse is blown mc` — e1196 K10 fuse is blown | Alarm
+- Message ·  · `e K11 fuse is blown mc` — e1196 K11 fuse is blown | Alarm
+- Message ·  · `e K12 fuse is blown mc` — e1067 K12 fuse is blown | Alarm
+- Message ·  · `e K13 fuse is blown mc` — e1200 K13 fuse is blown | Alarm
+- Message ·  · `e K2 fuse is blown  mc` — e1181 K2 fuse is blown | Alarm
+- Message ·  · `e K3 fuse is blown  mc` — e1049 K3 fuse is blown | Alarm
+- Message ·  · `e K4 fuse is blown mc` — e1149 K4 fuse is blown | Alarm
+- Message ·  · `e K5 fuse is blown mc` — e1008 K5 fuse is blown | Alarm
+- Message ·  · `e K6 fuse is blown mc` — e1177 K6 fuse is blown | Alarm
+- Message ·  · `e K7 fuse is blown mc` — e1065 K7 fuse is blown | Alarm
+- Message ·  · `e K8 fuse is blown mc` — e1174 K8 fuse is blown | Alarm
+- Message ·  · `e K9 fuse is blown mc` — e1084 K9 fuse is blown | Alarm
+- Message ·  · `e Left Engine 2 CMSG - S.M2.Left mc` — e1078 Left Engine | Error
+- Message ·  · `e Left Error mc` — e1194 Engine Left | Error
+- Message ·  · `e Left Warning mc` — e1194 Engine Left | Warning
+- Message ·  · `e Low voltage 24v` — Low voltage 24v | Warning
+- Message ·  · `e M3 - Pump Engine CMSG mc` — e1168 Pump Engine | Error
+- Message ·  · `e Right Engine 1 CMSG - S.M1.Right mc` — e1029 Right Engine | Error
+- Message ·  · `e Right Error - Z.M1.Right mc` — e1171 Engine Right | Error
+- Message ·  · `e Right Warning - Z.M1.Right mc` — e1159 Engine Right | Warning
+- Message ·  · `e ShuntDown Message mc` — e1035 Shunt Down | Message
+- Message ·  · `e Track Tension Error mc` — e1038 Track Tension Error | Warning
+- Message ·  · `e gen M3 - Pump Engine CMSG mc` — e1028 Hydraulics | Error
+- Message ·  · `message pour faire la maintenance` —  | Message
+- Message ·  · `r u sure 10 hours check` — RESET Maintenance? | Confirmation
+- Message ·  · `r u sure Maintenance` — RESET Maintenance? | Confirmation
+- Message ·  · `r u sure check 10 hours` —  | Confirmation
+- Message ·  · `recording 10 hours check` —  | Information
+- Paramètre ·  · `4E Time Sleep engine` — FP unité=s défaut= états= modes=Drive Type mc
+- Paramètre ·  · `4ET Auto Fast After Down` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `4ET Auto Global switch Off` — IP unité=min défaut={120} états= modes=Not used
+- Paramètre ·  · `4ET Auto Off After Charge?` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `4ET Automatic Joystick Inhibition` — IP unité=s défaut={300} états= modes=Not used
+- Paramètre ·  · `4ET Enable Tracks with Arms Up?` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `4ET Neutral Deadband Joystick` — FP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `4ET PIN CODE` — IP unité=Not used défaut={1000} états= modes=Not used
+- Paramètre ·  · `4ET Time ask Power Down` — IP unité=ms défaut={3000} états= modes=Not used
+- Paramètre ·  · `4ET Time ask remote` — IP unité=ms défaut={5000} états= modes=Not used
+- Paramètre ·  · `4ET Timer UP/DOWN` — IP unité=s défaut={20} états= modes=Not used
+- Paramètre ·  · `4ET UP/DOWN Mode` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `4ET Value UP/DOWN` — IP unité=ms défaut= états= modes=UP/DOWN Choice
+- Paramètre ·  · `AC Voltage Value` — IP unité=V défaut= états= modes=ec AC Voltage Range
+- Paramètre ·  · `AC` — TP unité= défaut={AUX 5} états= modes=Not used
+- Paramètre ·  · `Adjustable parameter` — FP unité=% défaut={42} états= modes=Not used
+- Paramètre ·  · `Allow remote connection` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `CAN Speed B mc` — SP unité= défaut=500 elec états=125 cab keybox|250 thermal engine modes=
+- Paramètre ·  · `CAN Speed C mc` — SP unité= défaut=500 états=125 Prog Keybox x100 modes=
+- Paramètre ·  · `Can Speed B` — IP unité=kbps défaut= états= modes=CAN Speed B mc
+- Paramètre ·  · `Can Speed C` — IP unité=kbps défaut= états= modes=CAN Speed C mc
+- Paramètre ·  · `DEBUG Start soft 4ET` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Decalage degrÃ©s` — IP unité=Not used défaut={2} états= modes=Not used
+- Paramètre ·  · `Delivery Year` — IP unité=Not used défaut={2025} états= modes=Not used
+- Paramètre ·  · `Delivery day` — IP unité=Not used défaut={0} états= modes=Not used
+- Paramètre ·  · `Delivery month` — IP unité=Not used défaut={0} états= modes=Not used
+- Paramètre ·  · `Demisting option` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Drive Type mc` — SP unité= défaut=Electric états=Fossil modes=
+- Paramètre ·  · `DÃ©marrage 0->100` — IP unité=Not used défaut= états= modes=DÃ©marrage
+- Paramètre ·  · `E Auto Charge 12V` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `E Battery Force Discharge` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Battery Management` — SP unité= défaut=Automatic états=Keep On modes=
+- Paramètre ·  · `E Debug: Trig Low LTBat Voltage 12V` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Disable Crash Signal (NOVUM V1)` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Engine OutPut Text` — TP unité= défaut= états= modes=brokenVIEW ENGINE STATE
+- Paramètre ·  · `E Force K3 Auto-off` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Full Fan Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Global Auto Off` — IP unité=h défaut={8} états= modes=Not used
+- Paramètre ·  · `E HVLP Pump Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Power Controler Force` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E Tension to charge 12V` — FP unité=Not used défaut={11,9} états= modes=Not used
+- Paramètre ·  · `E Track OutPut Text CAB` — TP unité= défaut= états= modes=brokenVIEW TRACK STATE
+- Paramètre ·  · `E Track OutPut Text` — TP unité= défaut= états= modes=brokenVIEW TRACK STATE
+- Paramètre ·  · `E Variator Force` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `E With Auto Off Relay` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Error clear brusa` — DP unité= défaut= états= modes=Charge start state
+- Paramètre ·  · `Exhaust temp sensor mc` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `FXs Display` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Force Safety off up/down 45` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `HVLP Fan Temp` — IP unité=Not used défaut={40} états= modes=Not used
+- Paramètre ·  · `HVLP Pump Temp` — IP unité=Not used défaut={50} états= modes=Not used
+- Paramètre ·  · `Iguana Master menus PIN` — PCC unité= défaut= états= modes=
+- Paramètre ·  · `IsoMonState bmw` — SP unité= défaut=Reset états=SelfCheck|RunningValueInvalid|RunningValueValid|Device Error modes=
+- Paramètre ·  · `IsoMonTriggerRecord tempo` — FP unité=ms défaut= états= modes=eb Battery Brand
+- Paramètre ·  · `Joystick plugged md10` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `Joystick plugged md45` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Keypad 8 keys` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Keypad LED brightness level` — SP unité= défaut=100% états=90%|80%|70%|60%|50%|40%|30% modes=
+- Paramètre ·  · `Keypad backlight color` — SP unité= défaut=white états=yellow|Cyan|violet|amber|yellow/green modes=
+- Paramètre ·  · `Keypad backlight?` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `OIL security` — SP unité= défaut=ACTIVE états=Unactive modes=
+- Paramètre ·  · `RESET Maintenance` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `RESET pin code` — PCC unité= défaut= états= modes=
+- Paramètre ·  · `Reset ZAPI state` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `Speed Hydro Force` — IP unité=Not used défaut={0} états= modes=Not used
+- Paramètre ·  · `T Ambiante Temperature` — SP unité= défaut=Normal états=High modes=
+- Paramètre ·  · `T Backward - direct corrector` — FP unité=% défaut= états= modes=T Speed Pump
+- Paramètre ·  · `T Brake Slope` — IP unité=ms défaut= états= modes=T Speed Pump
+- Paramètre ·  · `T Check Pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T ECU Engine on` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T ECU Engine prime` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Engine Button OutPut` — TP unité= défaut= états= modes=T Engine State 45
+- Paramètre ·  · `T Engine OutPut Text` — TP unité= défaut= états= modes=T VIEW ENGINE STATE
+- Paramètre ·  · `T Engine type` — SP unité= défaut=EB2 1.2L états=FORD 1.5L|Kubo modes=
+- Paramètre ·  · `T FO - Decres Speed` — FP unité=%/s défaut={1} états= modes=Not used
+- Paramètre ·  · `T FO - Incres Speed` — FP unité=%/s défaut={50} états= modes=Not used
+- Paramètre ·  · `T FO - Max Error` — FP unité=Â°C défaut={10} états= modes=Not used
+- Paramètre ·  · `T FP - Decres Speed` — FP unité=%/s défaut={80} états= modes=Not used
+- Paramètre ·  · `T FP - Incres Speed` — FP unité=%/s défaut={20} états= modes=Not used
+- Paramètre ·  · `T FP - Max Error` — FP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `T FP - Start rÃ©duction` — FP unité=% défaut={85} états= modes=Not used
+- Paramètre ·  · `T FS - Decres Speed` — FP unité=%/s défaut={80} états= modes=Not used
+- Paramètre ·  · `T FS - Incres Speed` — FP unité=%/s défaut={20} états= modes=Not used
+- Paramètre ·  · `T FS - Max Error` — FP unité=% défaut={10} états= modes=Not used
+- Paramètre ·  · `T FS - Start rÃ©duction` — FP unité=% défaut= états= modes=T Engine type
+- Paramètre ·  · `T FT - Decres Speed` — FP unité=%/s défaut={0,6} états= modes=Not used
+- Paramètre ·  · `T FT - Incres Speed` — FP unité=%/s défaut={50} états= modes=Not used
+- Paramètre ·  · `T FT - Max Error` — FP unité=Â°C défaut={5} états= modes=Not used
+- Paramètre ·  · `T Force 12v port sensor on` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Force EV By Pass` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Force at 2200 rpm` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Force tension` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Forward - direct corrector` — FP unité=% défaut= états= modes=T Speed Pump
+- Paramètre ·  · `T Fuel line ignition State` — SP unité= défaut=OFF états=RUN modes=
+- Paramètre ·  · `T General speed filtering` — FP unité=%/s défaut= états= modes=T Engine type
+- Paramètre ·  · `T Hight Speed` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T IDLE Speed` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T Idle decel filter` — FP unité=Not used défaut= états= modes=T Engine type
+- Paramètre ·  · `T Locking Time` — IP unité=ms défaut= états= modes=T Number of lockers
+- Paramètre ·  · `T Locking UP Track` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `T Manual Start Engine` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Max Speed Gap` — IP unité=% défaut={20} états= modes=Not used
+- Paramètre ·  · `T Max_diffrential` — IP unité=% défaut={70} états= modes=Not used
+- Paramètre ·  · `T Min Speed acc1` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T Min Speed mode` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T Min current Left Backward` — FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `T Min current Left Fordward` — FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `T Min current Right Backward` — FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `T Min current Right Fordward` — FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `T Need Pressure Tempo` — IP unité=ms défaut={5000} états= modes=Not used
+- Paramètre ·  · `T Number of lockers` — SP unité= défaut=One états=Two|Custom modes=
+- Paramètre ·  · `T Oil Temp Critical` — FP unité=Â°C défaut={90} états= modes=Not used
+- Paramètre ·  · `T Oil Temp Hysteresis` — FP unité=% défaut={0,9} états= modes=Not used
+- Paramètre ·  · `T Oil Temp Low/Mid` — FP unité=Â°C défaut={50} états= modes=Not used
+- Paramètre ·  · `T Oil Temp Mid/High` — FP unité=Â°C défaut={75} états= modes=Not used
+- Paramètre ·  · `T Para enclench voyant pression huile` — FP unité=kPa défaut= états= modes=T Engine type
+- Paramètre ·  · `T Pump Curent  - Hight Speed` — FP unité=mA défaut= états= modes=T Engine type
+- Paramètre ·  · `T Pump Curent - Low Speed` — FP unité=mA défaut= états= modes=T Engine type
+- Paramètre ·  · `T Pump Curent - Super Low Speed` — FP unité=mA défaut= états= modes=T Engine type
+- Paramètre ·  · `T Pump Max curent` — FP unité=mA défaut= états= modes=T Engine type
+- Paramètre ·  · `T Slow Max  Speed` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T Stall speed eng off` — IP unité=Not used défaut={600} états= modes=Not used
+- Paramètre ·  · `T Stall speed eng on` — IP unité=Not used défaut={700} états= modes=Not used
+- Paramètre ·  · `T Start Slope` — FP unité=%/s défaut= états= modes=T Speed Pump
+- Paramètre ·  · `T Step change` — FP unité=mA défaut={300} états= modes=Not used
+- Paramètre ·  · `T Stop Slope` — FP unité=%/s défaut= états= modes=T Speed Pump
+- Paramètre ·  · `T Tempo Need Min Speed` — IP unité=ms défaut={300} états= modes=Not used
+- Paramètre ·  · `T Tension Error Parameter` — FP unité=% défaut={100} états= modes=Not used
+- Paramètre ·  · `T Tension Pressure` — IP unité=bar défaut={160} états= modes=Not used
+- Paramètre ·  · `T Tension/UpDown Speed` — FP unité=rpm défaut= états= modes=T Engine type
+- Paramètre ·  · `T Test Locker` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `T Throttle pulse at Start up` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `T Time to tension` — IP unité=ms défaut={150} états= modes=Not used
+- Paramètre ·  · `T Timer Fan Critical` — FP unité=s défaut= états= modes=T Ambiante Temperature
+- Paramètre ·  · `T Timer Fan Hot` — FP unité=s défaut= états= modes=T Ambiante Temperature
+- Paramètre ·  · `T Timer Fan Low` — FP unité=s défaut= états= modes=T Ambiante Temperature
+- Paramètre ·  · `T Timer Fan Mild` — FP unité=s défaut= états= modes=T Ambiante Temperature
+- Paramètre ·  · `T Track OutPut Text` — TP unité= défaut= états= modes=T VIEW TRACK STATE
+- Paramètre ·  · `T Tracks pressure Mode` — SP unité= défaut=AUTO états=UNTIGHTEN modes=
+- Paramètre ·  · `T Water Temp Hysteresis Gap` — FP unité=Â°C défaut={5} états= modes=Not used
+- Paramètre ·  · `T Water Â°C Critical Critical` — FP unité=Â°C défaut= états= modes=T Engine type
+- Paramètre ·  · `T Water Â°C Critical` — FP unité=Â°C défaut= états= modes=T Engine type
+- Paramètre ·  · `T Water Â°C High` — FP unité=Â°C défaut= états= modes=T Engine type
+- Paramètre ·  · `T Water Â°C Low` — FP unité=Â°C défaut= états= modes=T Engine type
+- Paramètre ·  · `T With tension` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `T coeff pente ?` — FP unité=mA/s défaut={200} états= modes=Not used
+- Paramètre ·  · `T unLocking Time` — IP unité=ms défaut= états= modes=T Number of lockers
+- Paramètre ·  · `Tyva gen bender` — SP unité= défaut=gen1 états=gen2 modes=
+- Paramètre ·  · `V10 motor` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `VIEW Power State d3` — SP unité= défaut=Off états=Starting|Run modes=
+- Paramètre ·  · `a/c option tyva` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `a/c option` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `balancing state` — SP unité= défaut=Charging états=Balancing modes=
+- Paramètre ·  · `bypsass brake T` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `debug screen` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `e Debug: Inhibit System Crash Signal` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `e EV Bloc delay` — IP unité=ms défaut={0} états= modes=Not used
+- Paramètre ·  · `e Force EV By Pass` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `e Force tension` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `e HIGH SPEED` — IP unité=rpm défaut={-3000} états= modes=Not used
+- Paramètre ·  · `e LOW SPEED` — IP unité=rpm défaut={-2000} états= modes=Not used
+- Paramètre ·  · `e Landing Block Number` — SP unité= défaut=One états=Two modes=
+- Paramètre ·  · `e Landing time bloking` — IP unité=ms défaut= états= modes=e Landing Block Number
+- Paramètre ·  · `e Locking UP Track` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `e Max Speed` — IP unité=% défaut= états= modes=e Speed Pump
+- Paramètre ·  · `e Max_differential` — IP unité=% défaut={70} états= modes=Not used
+- Paramètre ·  · `e Start Slope` — FP unité=%/s défaut= états= modes=e Speed Pump
+- Paramètre ·  · `e Stop Slope` — FP unité=%/s défaut= états= modes=e Speed Pump
+- Paramètre ·  · `e Tension Error Parameter` — FP unité=% défaut={100} états= modes=Not used
+- Paramètre ·  · `e Tension Pressure` — IP unité=bar défaut={160} états= modes=Not used
+- Paramètre ·  · `e Time to tension` — IP unité=ms défaut={150} états= modes=Not used
+- Paramètre ·  · `e Tracks pressure Mode` — SP unité= défaut=AUTO états=UNTIGHTEN modes=
+- Paramètre ·  · `e With tension` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `eb Battery Brand` — SP unité= défaut=BMW états=NovumTech|Tyva|Kreisel modes=
+- Paramètre ·  · `eb Battery Error Clearance Delay` — IP unité=s défaut={120} états= modes=Not used
+- Paramètre ·  · `eb Battery Precharge Delay` — IP unité=s défaut={10} états= modes=Not used
+- Paramètre ·  · `eb Battery Wake Up Delay Value` — IP unité=ms défaut={3000} états= modes=Not used
+- Paramètre ·  · `eb Battery Watchdog Delay` — IP unité=ms défaut={10000} états= modes=Not used
+- Paramètre ·  · `eb Battery hight temp` — IP unité=Â°C défaut={50} états= modes=Not used
+- Paramètre ·  · `eb Battery max temp` — IP unité=Â°C défaut={55} états= modes=Not used
+- Paramètre ·  · `eb Charge Max` — IP unité=% défaut= états= modes=eb Battery Brand
+- Paramètre ·  · `eb Charging Force` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Current Limiting - Decrease` — FP unité=%/s défaut={100} états= modes=Not used
+- Paramètre ·  · `eb Current Limiting - Error` — FP unité=A défaut={10} états= modes=Not used
+- Paramètre ·  · `eb Current Limiting - Increase` — FP unité=%/s défaut={10} états= modes=Not used
+- Paramètre ·  · `eb Debug: Mute Battery Error` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Debug: Mute Watchdog` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Debug: Test End Of Charge` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Debug: Trig Battery Error` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Debug: Trig Battery Low Voltage Error` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Force BMW Charge` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `eb Isolation Protection Level` — IP unité=kOhm défaut= états= modes=eb Battery Brand
+- Paramètre ·  · `eb Trig Debug Cell Voltage` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `ec AC Max Current Line` — IP unité=A défaut= états= modes=balancing state
+- Paramètre ·  · `ec AC Voltage Range` — SP unité= défaut=230 V états=110 V modes=
+- Paramètre ·  · `ec Charger Brand` — SP unité= défaut=BMW états=Brusa|Elcon modes=
+- Paramètre ·  · `ec Debug: Trig Battery Charged` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `ec Debug: Trig Charger Ready` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `ec Max Full Charge Voltage` — IP unité=V défaut= états= modes=eb Battery Brand
+- Paramètre ·  · `electronic seat` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `em Controller Fan Temp` — IP unité=Â°C défaut={70} états= modes=Not used
+- Paramètre ·  · `em Controller Pump Temp` — IP unité=Â°C défaut={65} états= modes=Not used
+- Paramètre ·  · `em Enable Power Zapi` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `em Engine - Force Ready` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `em Engine Eco Temp` — IP unité=Â°C défaut={90} états= modes=Not used
+- Paramètre ·  · `em Engine Max Temp` — IP unité=Â°C défaut={110} états= modes=Not used
+- Paramètre ·  · `em FAN MODE` — SP unité= défaut=AUTO états=OFF|FORCE ON modes=
+- Paramètre ·  · `em M-Pump - Brand` — SP unité= défaut=Sevcon gen états=Sevcon j19 modes=
+- Paramètre ·  · `em PUMP VAR MODE` — SP unité= défaut=AUTO états=OFF|FORCE ON modes=
+- Paramètre ·  · `em ZAPI Node` — SP unité= défaut=8-10 états=1-4|4-8 modes=
+- Paramètre ·  · `em1 M-Track - Brand` — SP unité= défaut=Sevcon états=Zapi modes=
+- Paramètre ·  · `feature inflate 24v` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `is_a_sim` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `is_cab_1` — SP unité= défaut=x100 états=cab modes=
+- Paramètre ·  · `is_cab_mc` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `isomon tyva off on state` — SP unité= défaut=off états=on modes=
+- Paramètre ·  · `joystick plugged mc42` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `max soc customer` — FP unité=% défaut={89} états= modes=Not used
+- Paramètre ·  · `mc Reset Ladder Sensor when UP` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Auto Global switch Off` — IP unité=min défaut={120} états= modes=Not used
+- Paramètre ·  · `md4 Auto Off After Charge?` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `md4 Aux 1 - Need HT` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 1 - Show` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 1 - Text` — TP unité= défaut={AUX 1} états= modes=Not used
+- Paramètre ·  · `md4 Aux 2 - Need HT` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 2 - Show` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 2 - Text` — TP unité= défaut={AUX 2} états= modes=Not used
+- Paramètre ·  · `md4 Aux 3 - Need HT` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 3 - Show` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 3 - Text` — TP unité= défaut={AUX 3} états= modes=Not used
+- Paramètre ·  · `md4 Aux 4 - Need HT` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 4 - Show` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 4 - Text` — TP unité= défaut={AUX 4} états= modes=Not used
+- Paramètre ·  · `md4 Aux 5 - Need HT` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Aux 5- Show` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 Engine Brand` — SP unité= défaut=Mercury états=Yamaha|COX modes=
+- Paramètre ·  · `md4 Engine Time Starting` — IP unité=ms défaut={500} états= modes=Not used
+- Paramètre ·  · `md4 Fridge - Show` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `md4 Fuel Capacity (One Tank)` — IP unité=L défaut={190} états= modes=Not used
+- Paramètre ·  · `md4 Fuel Tanks Selection` — SP unité= défaut=Tank 1 états=Tank 2|Tank 1 and 2 modes=
+- Paramètre ·  · `md4 GPS Speed factor` — SP unité= défaut=m/s états=kts modes=
+- Paramètre ·  · `md4 Ladder Protection` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `md4 Ladder Stop Sensor` — IP unité=Pulse/s défaut={100} états= modes=Not used
+- Paramètre ·  · `md4 Number of Engines` — SP unité= défaut=1 Engines états=2 Engines modes=
+- Paramètre ·  · `md4 Person 1` — TP unité= défaut={John} états= modes=Not used
+- Paramètre ·  · `md4 Person 2` — TP unité= défaut={Steve} états= modes=Not used
+- Paramètre ·  · `md4 Person 3` — TP unité= défaut={Florent} états= modes=Not used
+- Paramètre ·  · `md4 Person` — SP unité= défaut=md4 Person 1 états=md4 Person 2|md4 Person 3 modes=
+- Paramètre ·  · `md4 Seat Front Back` — IP unité=% défaut= états= modes=md4 Person
+- Paramètre ·  · `md4 Seat Up Down` — IP unité=% défaut= états= modes=md4 Person
+- Paramètre ·  · `md4 Select Node` — SP unité= défaut=None états=KeyBox TB (GPS)|KeyBox BB (Equip)|KeyBox TC (Equip) modes=
+- Paramètre ·  · `md4 Single Button Equipement?` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `md4 VHF - Show` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `md4 Water Level Protection` — DP unité= défaut={True} états= modes=Not used
+- Paramètre ·  · `md4 Wiper delay` — IP unité=s défaut={5} états= modes=Not used
+- Paramètre ·  · `mk E Program KeyBox x100` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Aft Fan Low Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Aft Fan Max Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Exhaust Fan Test` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Force Engine pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Force Exhaust pump` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `mk T Program KeyBox` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `reset/brake or tyva on qcode` — SP unité= défaut=Electric 1 novum old états=Fossil 1|Electric 2 Tyva modes=
+- Paramètre ·  · `sim state moteur` — SP unité= défaut=not_sim états=sim modes=
+- Paramètre ·  · `sim state` — SP unité= défaut=not_sim états=sim modes=
+- Paramètre ·  · `sim thermal engine speed` — IP unité=Not used défaut= états= modes=sim state moteur
+- Paramètre ·  · `test batt main on/off` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `test buzzer 45` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `test reset novum` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `trig balancing` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `tyva off on state` — SP unité= défaut=off états=on modes=
+- Paramètre ·  · `tyva1 off on state` — SP unité= défaut=off états=on modes=
+- Paramètre ·  · `up/down 20 times` — DP unité= défaut={False} états= modes=Not used
+- Paramètre ·  · `water level state` — SP unité= défaut=Default state états=error modes=
+- Réglage ·  · `4E Time Sleep engine` — 4E Time Sleep engine [s] 
+- Réglage ·  · `?Throttle pulse at Start up` — T Throttle pulse at Start up 
+- Réglage ·  · `AC Max Current Line` — ec AC Max Current Line [A] 
+- Réglage ·  · `AC Voltage Range` — ec AC Voltage Range 
+- Réglage ·  · `AC Voltage Value` — AC Voltage Value [V] 
+- Réglage ·  · `AC` — AC 
+- Réglage ·  · `Adjustable parameter` — Adjustable parameter [%] 
+- Réglage ·  · `Aft Fan Low Test` — mk T Aft Fan Low Test 
+- Réglage ·  · `Aft Fan Max Test` — mk T Aft Fan Max Test 
+- Réglage ·  · `Allow remote connection` — Allow remote connection 
+- Réglage ·  · `Ambiante Temperature` — T Ambiante Temperature 
+- Réglage ·  · `Backward - direct corrector` — T Backward - direct corrector [%] 
+- Réglage ·  · `Battery Error Clearance Delay` — eb Battery Error Clearance Delay [s] 
+- Réglage ·  · `Battery Force Discharge` — E Battery Force Discharge 
+- Réglage ·  · `Battery Management` — E Battery Management 
+- Réglage ·  · `Battery Precharge Delay` — eb Battery Precharge Delay [s] 
+- Réglage ·  · `Battery Watchdog Delay` — eb Battery Watchdog Delay [ms] 
+- Réglage ·  · `CAN B Speed` — CAN Speed B mc 
+- Réglage ·  · `CAN C Speed` — CAN Speed C mc 
+- Réglage ·  · `Charge Max` — eb Charge Max [%] 
+- Réglage ·  · `Check Pump` — T Check Pump 
+- Réglage ·  · `Controller Fan Temp` — em Controller Fan Temp [Â°C] 
+- Réglage ·  · `Controller Pump Temp` — em Controller Pump Temp [Â°C] 
+- Réglage ·  · `Debug: Inhibit System Crash Signal` — e Debug: Inhibit System Crash Signal 
+- Réglage ·  · `Debug: Mute Battery Error` — eb Debug: Mute Battery Error 
+- Réglage ·  · `Debug: Mute Watchdog` — eb Debug: Mute Watchdog 
+- Réglage ·  · `Debug: Test End Of Charge` — eb Debug: Test End Of Charge 
+- Réglage ·  · `Debug: Trig Battery Charged` — ec Debug: Trig Battery Charged 
+- Réglage ·  · `Debug: Trig Battery Error` — eb Debug: Trig Battery Error 
+- Réglage ·  · `Debug: Trig Battery Low Voltage Error` — eb Debug: Trig Battery Low Voltage Error 
+- Réglage ·  · `Debug: Trig Charger Ready` — ec Debug: Trig Charger Ready 
+- Réglage ·  · `Debug: Trig Low LTBat Voltage` — E Debug: Trig Low LTBat Voltage 12V 
+- Réglage ·  · `Delivery Year` — Delivery Year 
+- Réglage ·  · `Delivery day` — Delivery day 
+- Réglage ·  · `Delivery month` — Delivery month 
+- Réglage ·  · `Demisting option` — Demisting option 
+- Réglage ·  · `Disable Crash Signal (V1)` — E Disable Crash Signal (NOVUM V1) 
+- Réglage ·  · `Drive Type` — Drive Type mc 
+- Réglage ·  · `E Auto Charge 12V` — E Auto Charge 12V 
+- Réglage ·  · `ECU Engine on` — T ECU Engine on 
+- Réglage ·  · `ECU Engine priming` — T ECU Engine prime 
+- Réglage ·  · `EV Bloc delay` — e EV Bloc delay [ms] 
+- Réglage ·  · `Engine - Force Ready` — em Engine - Force Ready 
+- Réglage ·  · `Engine type` — T Engine type 
+- Réglage ·  · `Error clear brusa` — Error clear brusa 
+- Réglage ·  · `Exhaust Fan Test` — mk T Exhaust Fan Test 
+- Réglage ·  · `Exhaust temp sensor MC42` — Exhaust temp sensor mc 
+- Réglage ·  · `FXs Display` — FXs Display 
+- Réglage ·  · `Fan mode` — em FAN MODE 
+- Réglage ·  · `Force EV By Pass` — T Force EV By Pass 
+- Réglage ·  · `Force Engine pump` — mk T Force Engine pump 
+- Réglage ·  · `Force Exhaust pump` — mk T Force Exhaust pump 
+- Réglage ·  · `Force K3 Auto-off` — E Force K3 Auto-off 
+- Réglage ·  · `Force Safety off up/down 45` — Force Safety off up/down 45 
+- Réglage ·  · `Force at 2200 rpm` — T Force at 2200 rpm 
+- Réglage ·  · `Forward - direct corrector` — T Forward - direct corrector [%] 
+- Réglage ·  · `Fuel line ignition State` — T Fuel line ignition State 
+- Réglage ·  · `General speed filtering` — T General speed filtering [%/s] 
+- Réglage ·  · `Global Auto Off` — E Global Auto Off [h] 
+- Réglage ·  · `High speed` — e HIGH SPEED [rpm] 
+- Réglage ·  · `Hight Speed` — T Hight Speed [rpm] 
+- Réglage ·  · `IDLE Speed` — T IDLE Speed [rpm] 
+- Réglage ·  · `Idle decel filter` — T Idle decel filter 
+- Réglage ·  · `Is_Cab_mc` — is_cab_mc 
+- Réglage ·  · `Is_a_Sim` — is_a_sim 
+- Réglage ·  · `Isolation Protection Level` — eb Isolation Protection Level [kOhm] 
+- Réglage ·  · `Joystick plugged md10` — Joystick plugged md10 
+- Réglage ·  · `Joystick plugged md45` — Joystick plugged md45 
+- Réglage ·  · `Keypad 8 keys` — Keypad 8 keys 
+- Réglage ·  · `Keypad LED brightness level` — Keypad LED brightness level 
+- Réglage ·  · `Keypad backlight color` — Keypad backlight color 
+- Réglage ·  · `Keypad backlight?` — Keypad backlight? 
+- Réglage ·  · `Landing Block Number` — e Landing Block Number 
+- Réglage ·  · `Left Joystick C41 C2:1` — Left Joystick C41 C2:1 [%] 
+- Réglage ·  · `Left Joystick mc 36` — Left Joystick mc 36 [%] 
+- Réglage ·  · `Locking UP Track` — T Locking UP Track 
+- Réglage ·  · `Low speed` — e LOW SPEED [rpm] 
+- Réglage ·  · `Maintenance Counter` — Maintenance Counter 
+- Réglage ·  · `Manual Start Engine` — T Manual Start Engine 
+- Réglage ·  · `Max Full Charge Voltage` — ec Max Full Charge Voltage [V] 
+- Réglage ·  · `Max Speed Gap` — T Max Speed Gap [%] 
+- Réglage ·  · `Max_differential` — e Max_differential [%] 
+- Réglage ·  · `Max_diffrential` — T Max_diffrential [%] 
+- Réglage ·  · `Min Speed acc1` — T Min Speed acc1 [rpm] 
+- Réglage ·  · `Min Speed mode` — T Min Speed mode [rpm] 
+- Réglage ·  · `Min current Left Backward` — T Min current Left Backward [mA] 
+- Réglage ·  · `Min current Left Fordward` — T Min current Left Fordward [mA] 
+- Réglage ·  · `Min current Right Backward` — T Min current Right Backward [mA] 
+- Réglage ·  · `Min current Right Fordward` — T Min current Right Fordward [mA] 
+- Réglage ·  · `Need Pressure Tempo` — T Need Pressure Tempo [ms] 
+- Réglage ·  · `Neutral Deadband Joystick` — 4ET Neutral Deadband Joystick [%] 
+- Réglage ·  · `Number of lockers` — T Number of lockers 
+- Réglage ·  · `Oil Temp Critical` — T Oil Temp Critical [Â°C] 
+- Réglage ·  · `Oil Temp Low/Mid` — T Oil Temp Low/Mid [Â°C] 
+- Réglage ·  · `Oil Temp Mid/High` — T Oil Temp Mid/High [Â°C] 
+- Réglage ·  · `Program KeyBox` — mk T Program KeyBox 
+- Réglage ·  · `Pump Curent  - Hight Speed` — T Pump Curent  - Hight Speed [mA] 
+- Réglage ·  · `Pump Curent - Low Speed` — T Pump Curent - Low Speed [mA] 
+- Réglage ·  · `Pump Curent - Super Low Speed` — T Pump Curent - Super Low Speed [mA] 
+- Réglage ·  · `Pump Max curent` — T Pump Max curent [mA] 
+- Réglage ·  · `Pump var mode` — em PUMP VAR MODE 
+- Réglage ·  · `RESET Maintenance` — RESET Maintenance 
+- Réglage ·  · `Reset ZAPI state` — Reset ZAPI state 
+- Réglage ·  · `Right Joystick C41 C2:2` — Right Joystick C41 C2:2 [%] 
+- Réglage ·  · `Slow Max  Speed` — T Slow Max  Speed [rpm] 
+- Réglage ·  · `Speed Hydro Force` — Speed Hydro Force 
+- Réglage ·  · `Start Slope` — T Start Slope [%/s] 
+- Réglage ·  · `Stop Slope` — T Stop Slope [%/s] 
+- Réglage ·  · `T FO - Decres Speed` — T FO - Decres Speed [%/s] 
+- Réglage ·  · `T FO - Incres Speed` — T FO - Incres Speed [%/s] 
+- Réglage ·  · `T FO - Max Error` — T FO - Max Error [Â°C] 
+- Réglage ·  · `T FP - Decres Speed` — T FP - Decres Speed [%/s] 
+- Réglage ·  · `T FP - Incres Speed` — T FP - Incres Speed [%/s] 
+- Réglage ·  · `T FP - Max Error` — T FP - Max Error [%] 
+- Réglage ·  · `T FP - Start rÃ©duction` — T FP - Start rÃ©duction [%] 
+- Réglage ·  · `T FS - Decres Speed` — T FS - Decres Speed [%/s] 
+- Réglage ·  · `T FS - Incres Speed` — T FS - Incres Speed [%/s] 
+- Réglage ·  · `T FS - Max Error` — T FS - Max Error [%] 
+- Réglage ·  · `T FS - Start rÃ©duction` — T FS - Start rÃ©duction [%] 
+- Réglage ·  · `T FT - Decres Speed` — T FT - Decres Speed [%/s] 
+- Réglage ·  · `T FT - Incres Speed` — T FT - Incres Speed [%/s] 
+- Réglage ·  · `T FT - Max Error` — T FT - Max Error [Â°C] 
+- Réglage ·  · `T Force 12v port sensor on` — T Force 12v port sensor on 
+- Réglage ·  · `T Locking Time` — T Locking Time [ms] 
+- Réglage ·  · `Tempo Need Min Speed` — T Tempo Need Min Speed [ms] 
+- Réglage ·  · `Tension Pressure` — T Tension Pressure [bar] 
+- Réglage ·  · `Tension/UpDown Speed` — T Tension/UpDown Speed [rpm] 
+- Réglage ·  · `Test Locker` — T Test Locker 
+- Réglage ·  · `Test buzzer MD4` — test buzzer 45 
+- Réglage ·  · `Timer Fan Critical` — T Timer Fan Critical [s] 
+- Réglage ·  · `Timer Fan Hot` — T Timer Fan Hot [s] 
+- Réglage ·  · `Timer Fan Low` — T Timer Fan Low [s] 
+- Réglage ·  · `Timer Fan Mild` — T Timer Fan Mild [s] 
+- Réglage ·  · `Trig Debug Cell Voltage` — eb Trig Debug Cell Voltage 
+- Réglage ·  · `Tyva gen bender` — Tyva gen bender 
+- Réglage ·  · `UP/DOWN Mode` — 4ET UP/DOWN Mode 
+- Réglage ·  · `V10 motor` — V10 motor 
+- Réglage ·  · `Water Â°C Critical Critical` — T Water Â°C Critical Critical [Â°C] 
+- Réglage ·  · `Water Â°C Critical` — T Water Â°C Critical [Â°C] 
+- Réglage ·  · `Water Â°C High` — T Water Â°C High [Â°C] 
+- Réglage ·  · `Water Â°C Low` — T Water Â°C Low [Â°C] 
+- Réglage ·  · `With Auto Off Relay` — E With Auto Off Relay 
+- Réglage ·  · `With tension` — T With tension 
+- Réglage ·  · `ZAPI Node` — em ZAPI Node 
+- Réglage ·  · `a/c option tyva` — a/c option tyva 
+- Réglage ·  · `a/c option` — a/c option 
+- Réglage ·  · `bypsass brake T` — bypsass brake T 
+- Réglage ·  · `debug screen` — debug screen 
+- Réglage ·  · `electronic seat` — electronic seat 
+- Réglage ·  · `feature inflate 24v` — feature inflate 24v 
+- Réglage ·  · `joystick plugged mc42` — joystick plugged mc42 
+- Réglage ·  · `max soc customer` — max soc customer [%] 
+- Réglage ·  · `md4 Aux 1 - Need HT` — md4 Aux 1 - Need HT 
+- Réglage ·  · `md4 Aux 1 - Show` — md4 Aux 1 - Show 
+- Réglage ·  · `md4 Aux 1 - Text` — md4 Aux 1 - Text 
+- Réglage ·  · `md4 Aux 2 - Need HT` — md4 Aux 2 - Need HT 
+- Réglage ·  · `md4 Aux 2 - Show` — md4 Aux 2 - Show 
+- Réglage ·  · `md4 Aux 2 - Text` — md4 Aux 2 - Text 
+- Réglage ·  · `md4 Aux 3 - Need HT` — md4 Aux 3 - Need HT 
+- Réglage ·  · `md4 Aux 3 - Show` — md4 Aux 3 - Show 
+- Réglage ·  · `md4 Aux 3 - Text` — md4 Aux 3 - Text 
+- Réglage ·  · `md4 Aux 4 - Show` — md4 Aux 4 - Show 
+- Réglage ·  · `md4 Aux 4 - Text` — md4 Aux 4 - Text 
+- Réglage ·  · `md4 Aux 5- Show` — md4 Aux 5- Show 
+- Réglage ·  · `md4 Engine Brand` — md4 Engine Brand 
+- Réglage ·  · `md4 Fridge - Show` — md4 Fridge - Show 
+- Réglage ·  · `md4 Fuel Capacity (One Tank)` — md4 Fuel Capacity (One Tank) [L] 
+- Réglage ·  · `md4 Fuel Tanks Selection` — md4 Fuel Tanks Selection 
+- Réglage ·  · `md4 Ladder Protection` — md4 Ladder Protection 
+- Réglage ·  · `md4 Number of Engines` — md4 Number of Engines 
+- Réglage ·  · `md4 Select Node` — md4 Select Node 
+- Réglage ·  · `md4 VHF - Show` — md4 VHF - Show 
+- Réglage ·  · `md4 Water Level Protection` — md4 Water Level Protection 
+- Réglage ·  · `sim thermal engine speed` — sim thermal engine speed 
+- Réglage ·  · `test batt main on/off` — test batt main on/off 
+- Réglage ·  · `trig balancing` — trig balancing 
+- Réglage ·  · `up/down 20 times` — up/down 20 times 
+- Signal CAN ·  · `12` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `13` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `A BYTE 0 - 36` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 0 - 3A` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 0 - 40` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 0 - 4C` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 0 - 4E` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 0 - 5E` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 1 - 00` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 1 - FF` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 2 - 00` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 2 - FF` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `A BYTE 3 - FF` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Actual Current - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=A
+- Signal CAN ·  · `Actual Current - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=A
+- Signal CAN ·  · `AlarmOverChargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `AlarmOverDischargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `AlarmOverVoltage` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `AlarmUnderVoltage` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `AverageTemp` — GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `BMSModeRequest` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 0 - D2` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 1 - 00` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 1 - 01` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 2 - 00` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 3 - 01` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BYTE 4 - 00` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `BatBusVoltage utrac bmw` — GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatMaxCellTemp bmw` — GPIN longueur=8 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatPackVoltage bmw` — GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatStateOfCharge bmw` — GPIN longueur=8 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `BatteryVoltage novum` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=V
+- Signal CAN ·  · `BatteryVoltage tyva` — GPIN longueur=32 type=Unsigned integer unité=V
+- Signal CAN ·  · `Blue led part 1` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `Blue led part 2` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `BmsMode` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Brightness level` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `CAN object 2003h byte 1` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `CAN object 2003h byte 2` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `CANFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Calibration running` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `Char` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ChargeCurrentCmd` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=A
+- Signal CAN ·  · `ChargeDone` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ChargeVoltageCmd` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=V
+- Signal CAN ·  · `Chassis fault tyva` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `Color` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ConfigFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ConfigurationFileVersion` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Contactor1Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor2Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor3Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor4Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor5Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor6Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Contactor7Fail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `CoolingActivated` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `CurrentSensorFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `CycleCount` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `DCPowerDisconnection` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Error - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `Error - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `ErrorAFEIssues` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorBluetooth` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorBmsOverTemperature` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorCellIssues` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorChargerIssue` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorCurrentCalibration` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorDataLogger` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorHighVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorLowVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorNTC` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorOverCurrent` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorOverTemperatureCharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorOverTemperatureDischarge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorOverVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorPDULock` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorPduFailure` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorPduOverTemperature` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorShortCircuit` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorShortCircuitOnPrecharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorSlaveSilent` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorUnderTemperatureCharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorUnderTemperatureDischarge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `ErrorUnderVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `FS1 Switch - S.M1.Right` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `FS1 Switch - S.M2.Left` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `FirmwareBuildMode` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `FirmwareMajor` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `FirmwareMinor` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `FirmwareRevision` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Fordward Switch - S.M1.Right` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Fordward Switch - S.M2.Left` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Green led part 1` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `Green led part 2` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `HV_System` — GPIN longueur=16 type=Unsigned integer unité=Volt
+- Signal CAN ·  · `Heartbeat/statut` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `HeatingActivated` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Heatsink - S.M1.Right` — GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `Heatsink - S.M2.Left` — GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `IG IMC HV 1` — GPIN longueur=16 type=Unsigned integer unité=Volt
+- Signal CAN ·  · `IG IMC HV 2` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Volt
+- Signal CAN ·  · `IMD G Alarm Device Error 00` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Eart Conn 03` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Earthlift 10` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm HV neg Conn 02` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm HV pos Conn 01` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Iso Error 04` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Iso Outdated 06` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Iso Warning 05` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Unbalance 07` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm Undervoltage 08` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Alarm UnsafeToStart 09` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Device Activity` — GPIN longueur=8 type=Unsigned integer unité=
+- Signal CAN ·  · `IMD G Isolation Counter` — GPIN longueur=8 type=Unsigned integer unité=
+- Signal CAN ·  · `IMD G Isolation R iso Corrected` — GPIN longueur=16 type=Unsigned integer unité=kOhm
+- Signal CAN ·  · `IMD G Isolation R iso Status` — GPIN longueur=2 type=Unsigned integer unité=
+- Signal CAN ·  · `IMD G Warning Alarm Status Bit11` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Warning Alarm Status Bit12` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Warning Alarm Status Bit13` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Warning Alarm Status Bit14` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD G Warning Alarm Status Bit15` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IMD` — GPIN longueur=32 type=Unsigned integer unité=A
+- Signal CAN ·  · `IMR` — GPIN longueur=32 type=Unsigned integer unité=A
+- Signal CAN ·  · `Inch reverse switch - S.M1.Right` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Inch reverse switch - S.M2.Left` — GPOUT longueur=1 bit type=Unsigned integer unité=
+- Signal CAN ·  · `Insulation warning tyva` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `InsulationState` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `InterlockCut` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Iso Measurement tyva` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=kOhm
+- Signal CAN ·  · `IsoMonResistance BMW` — GPIN longueur=16 type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Isolation fault tyva` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `Isolation not measuring` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `IsometerFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `IsometerWarning` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `K1 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K10 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K11 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K12 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K13 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K2 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K3 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K4 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K5 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K6 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K7 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K8 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `K9 Fault` — GPIN longueur=1 bit type=Unsigned integer unité=Not used
+- Signal CAN ·  · `KTY - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `KTY - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `Left Warning - Z.M2.Left` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `LowBMSSupply` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `MaxBatteryVoltage` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=V
+- Signal CAN ·  · `MaxCellVolt` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=mV
+- Signal CAN ·  · `MaxChargeCurrent` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=A
+- Signal CAN ·  · `MaxTemp novum` — GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `MinCellVolt` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=mV
+- Signal CAN ·  · `MinTemp` — GPIN longueur=1 Byte (= 8 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `ModuleComLost` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ModulesCom` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `Motor Speed - S.M1.Right` — GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `Motor Speed - S.M2.Left` — GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `Motor_Speed_Raw` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=rpm
+- Signal CAN ·  · `OFF_Bits_GOUT 1` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `OFF_Bits_GOUT 2` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `OFF_Bits_GOUT 3` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ON_Bits_GOUT 1` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ON_Bits_GOUT 2` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ON_Bits_GOUT 3` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `PDURelayStatusCharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `PDURelayStatusDecharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `PDURelayStatusPrecharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `PrechargeFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `R_iso` — GPIN longueur=16 type=Unsigned integer unité=kOhm
+- Signal CAN ·  · `R_iso_corrected` — GPIN longueur=16 type=Unsigned integer unité=kOhm
+- Signal CAN ·  · `R_iso_neg` — GPIN longueur=16 type=Unsigned integer unité=kOhm
+- Signal CAN ·  · `Red led part 1` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `Red led part 2` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `Right Warning - Z.M1.Right` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `SOC novum` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `SOC tyva` — GPIN longueur=16 type=Unsigned integer unité=%
+- Signal CAN ·  · `SOCRecalibration` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `SOE` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=%
+- Signal CAN ·  · `Selftest running` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `Set device register` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `ShutdownLowTemp` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ShutdownOverChargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ShutdownOverDischargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ShutdownOverTemp` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ShutdownOverVoltage` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `ShutdownUnderVoltage` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `SignalCrash` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `SoftConsistencyError` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `SoftFailure` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `StateBMS` — GPIN longueur=8 type=Unsigned integer unité=
+- Signal CAN ·  · `Statut - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=State
+- Signal CAN ·  · `Statut - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=Status
+- Signal CAN ·  · `Sub index 04` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Sub index 05` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `T OFF_Bits_GOUT` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `T ON_Bits_GOUT` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TempSensorFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `TemperatureCellMax` — GPIN longueur=16 type=Unsigned integer unité=Â°C
+- Signal CAN ·  · `TemperatureCellMean` — GPIN longueur=16 type=Unsigned integer unité=Â°C
+- Signal CAN ·  · `TemperatureCellMin` — GPIN longueur=16 type=Unsigned integer unité=Â°C
+- Signal CAN ·  · `TemperaturePDU` — GPIN longueur=16 type=Unsigned integer unité=Â°C
+- Signal CAN ·  · `Throttle Input Voltage - S.M1.Right` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Throttle Input Voltage - S.M2.Left` — GPOUT longueur=2 Bytes (= 16 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `Torque - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `Torque actual - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `Torque_Mesured_Raw` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Not used
+- Signal CAN ·  · `TrigCellVoltageFrame1` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TrigCellVoltageFrame2` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TrigCellVoltageFrame3` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `TrigCellVoltageFrame4` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `VoltSensorFail` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `Voltage - S.M1.Right` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `Voltage - S.M2.Left` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Raw
+- Signal CAN ·  · `VoltageCellMax` — GPIN longueur=16 type=Unsigned integer unité=mV
+- Signal CAN ·  · `VoltageCellMin` — GPIN longueur=16 type=Unsigned integer unité=mV
+- Signal CAN ·  · `WRONG BatteryCurrent` — GPIN longueur=4 Bytes (= 32 bits) type=Signed integer unité=A
+- Signal CAN ·  · `WarningAFEIssues` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningBluetooth` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningBmsOverTemperature` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningCellIssues` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningChargerIssue` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningCurrentCalibration` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningDataLogger` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningHighVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningLowTemp` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `WarningLowVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningNTC` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningOverChargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `WarningOverCurrent` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningOverDischargeCurrent` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `WarningOverTemp` — GPIN longueur=1 bit type=Digital unité=Not used
+- Signal CAN ·  · `WarningOverTemperatureCharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningOverTemperatureDischarge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningOverVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningPDULock` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningPduFailure` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningPduOverTemperature` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningShortCircuit` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningShortCircuitOnPrecharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningSlaveSilent` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningUnderTemperatureCharge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningUnderTemperatureDischarge` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `WarningUnderVoltage` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `backlight level 20%` — GPOUT longueur=1 Byte (= 8 bits) type=Unsigned integer unité=
+- Signal CAN ·  · `blue led blink part1` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `blue led blink part2` — GPOUT longueur=4 bits type=Unsigned integer unité=
+- Signal CAN ·  · `genHeatsink` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `genSevcon - Engine Temp` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `imc not alive tyva` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `insideHeatsink` — GPIN longueur=2 Bytes (= 16 bits) type=Signed integer unité=Â°C
+- Signal CAN ·  · `insulation outdated` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isBalancing` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isChargePossible` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isChargeRelayClosingAuth` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isDischargePossible` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isDischargeRelayClosingAuth` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `isReadyToStart` — GPIN longueur=1 type=Digital unité=
+- Signal CAN ·  · `keys number` — GPIN longueur=1 Byte (= 8 bits) type=Unsigned integer unité=Not used
+- Signal CAN ·  · `system failure tyva isomon` — GPIN longueur=1 type=Digital unité=
+- Trame CAN ·  · `Driver's demand, engine % EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Driver's demand, engine % Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Driver's demand, engine %, Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `% load at current speed Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `0x331 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x331 dlc=DonÂt care contenu={{Error - S.M1.Right; 16}; {Statut - S.M1.Right [State]; 0}}
+- Trame CAN ·  · `0x332 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x332 dlc=DonÂt care contenu={{Error - S.M2.Left; 16}; {Statut - S.M2.Left [Status]; 0}}
+- Trame CAN ·  · `0x341 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x341 dlc=DonÂt care contenu={{Motor Speed - S.M1.Right [rpm]; 0}; {Actual Current - S.M1.Right [A]; 32}; {Torque - S.M1.Right [Raw]; 48}}
+- Trame CAN ·  · `0x342 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x342 dlc=DonÂt care contenu={{Motor Speed - S.M2.Left [rpm]; 0}; {Actual Current - S.M2.Left [A]; 32}; {Torque actual - S.M2.Left [Raw]; 48}}
+- Trame CAN ·  · `0x351 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x351 dlc=DonÂt care contenu={{KTY - S.M1.Right [Â°C]; 0}; {Heatsink - S.M1.Right [Â°C]; 16}; {Voltage - S.M1.Right [Raw]; 24}}
+- Trame CAN ·  · `0x352 GEN4` — GFIN module=Sev_M_Track (Generic) id=0x352 dlc=DonÂt care contenu={{KTY - S.M2.Left [Â°C]; 0}; {Heatsink - S.M2.Left [Â°C]; 16}; {Voltage - S.M2.Left [Raw]; 24}}
+- Trame CAN ·  · `0x70C` — GFIN module=Keybox X100 T (Generic) id=0x70C dlc=DonÂt care contenu={}
+- Trame CAN ·  · `Accelerator pedal position EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Accelerator pedal position Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Accelerator pedal position Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Actual engine, % torque, Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `BMS_Debug_CellVotage` — GFOUT module=Batt_Novum (Generic) id=0x220B16B dlc=8 contenu={{TrigCellVoltageFrame1; 24}; {TrigCellVoltageFrame2; 32}; {TrigCellVoltageFrame3; 40}; {TrigCellVoltageFrame4; 48}}
+- Trame CAN ·  · `BMS_NTHT_Errors novum` — GFIN module=Batt_Novum (Generic) id=35697008 dlc=DonÂt care contenu={{ConfigFail; 0}; {SoftFailure; 1}; {SoftConsistencyError; 2}; {InterlockCut; 3}; {DCPowerDisconnection; 4}; {WarningOverChargeCurrent; 8}; {WarningOverDischargeCurrent; 9}; {WarningOverVoltage; 10}; {WarningUnderVoltage; 11}; {WarningOverTemp; 12}; {WarningLowTemp; 13}; {AlarmOverChargeCurrent; 16}; {AlarmOverDischargeCurrent; 17}; {AlarmOverVoltage; 18}; {AlarmUnderVoltage; 19}; {AlarmOverTemp; 20}; {AlarmLowTemp; 21}; {ShutdownOverChargeCurrent; 24}; {ShutdownOverDischargeCurrent; 25}; {ShutdownOverVoltage; 26}; {ShutdownUnderVoltage; 27}; {ShutdownOverTemp; 28}; {ShutdownLowTemp; 29}; {Contactor1Fail; 32}; {Contactor2Fail; 33}; {Contactor3Fail; 34}; {Contactor4Fail; 35}; {Contactor5Fail; 36}; {Contactor6Fail; 37}; {Contactor7Fail; 38}; {TempSensorFail; 40}; {VoltSensorFail; 41}; {CurrentSensorFail; 42}; {CANFail; 43}; {IsometerFail; 44}; {ModuleComLost; 45}; {BalancingRunning; 48}; {ChargeDone; 49}; {HeatingActivated; 50}; {CoolingActivated; 51}; {SOCRecalibration; 52}; {LowBMSSupply; 54}; {PrechargeFail; 55}; {SignalCrash; 46}; {IsometerWarning; 47}}
+- Trame CAN ·  · `BMS_NTHT_G1_Info` — GFIN module=Batt_Novum (Generic) id=35697009 dlc=DonÂt care contenu={{BmsMode; 0}; {SOC novum [%]; 8}; {SOH [%]; 16}; {SOE [%]; 24}; {ModulesCom; 32}; {InsulationState; 40}}
+- Trame CAN ·  · `BMS_NTHT_G2_Voltage` — GFIN module=Batt_Novum (Generic) id=35697010 dlc=DonÂt care contenu={{BatteryVoltage novum [V]; 0}; {MinCellVolt [mV]; 16}; {MaxCellVolt [mV]; 32}; {MaxBatteryVoltage [V]; 48}}
+- Trame CAN ·  · `BMS_NTHT_G3_Current` — GFIN module=Batt_Novum (Generic) id=35697011 dlc=DonÂt care contenu={{BatteryCurrent [A]; 0}; {MaxDischargeCurrent [A]; 16}; {MaxChargeCurrent [A]; 32}}
+- Trame CAN ·  · `BMS_NTHT_G4_Temperature` — GFIN module=Batt_Novum (Generic) id=35697012 dlc=DonÂt care contenu={{MinTemp [Â°C]; 0}; {MaxTemp novum [Â°C]; 8}; {AverageTemp [Â°C]; 16}}
+- Trame CAN ·  · `BMS_NTHT_G5_Charger` — GFIN module=Batt_Novum (Generic) id=35697013 dlc=8 contenu={{ChargeCurrentCmd [A]; 0}; {ChargeVoltageCmd [V]; 16}}
+- Trame CAN ·  · `BMS_NTHT_Req` — GFOUT module=Batt_Novum (Generic) id=35697002 dlc=1 contenu={{BMSModeRequest; 0}}
+- Trame CAN ·  · `Backlight default color` — GFOUT module=Keypad Blink marine 8 keys (Generic) id=0x615 dlc=5 contenu={{Set device register; 0}; {CAN object 2003h byte 1; 8}; {CAN object 2003h byte 2; 16}; {Sub index 04; 24}; {Color; 32}}
+- Trame CAN ·  · `BatteryState_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF0980 dlc=DonÂt care contenu={{SOC tyva [%]; 0}; {SOH [%]; 16}; {CycleCount; 32}}
+- Trame CAN ·  · `Brightness default level` — GFOUT module=Keypad Blink marine 8 keys (Generic) id=0x615 dlc=5 contenu={{Set device register; 0}; {CAN object 2003h byte 1; 8}; {CAN object 2003h byte 2; 16}; {Sub index 05; 24}; {Brightness level; 32}}
+- Trame CAN ·  · `ConfigurationInformation_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1680 dlc=DonÂt care contenu={{ConfigurationFileVersion; 7}}
+- Trame CAN ·  · `Cout ON bits KBB Gen` — GFOUT module=Keyboxs CAB (Generic) id=0x218 dlc=8 contenu={{OFF_Bits_GOUT 2; 0}; {ON_Bits_GOUT 2; 16}}
+- Trame CAN ·  · `Cout ON bits KTB Gen` — GFOUT module=Keyboxs CAB (Generic) id=0x217 dlc=8 contenu={{OFF_Bits_GOUT 1; 0}; {ON_Bits_GOUT 1; 16}}
+- Trame CAN ·  · `Cout ON bits KTC Gen` — GFOUT module=Keyboxs CAB (Generic) id=0x219 dlc=8 contenu={{OFF_Bits_GOUT 3; 0}; {ON_Bits_GOUT 3; 16}}
+- Trame CAN ·  · `CurrentBattery_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF0880 dlc=DonÂt care contenu={{WRONG BatteryCurrent [A]; 7}}
+- Trame CAN ·  · `DM1 EB2 T45` — DM1IN module=EB2 T45 (J1939[0]) id= dlc= contenu={SPN 98; SPN 100; SPN 102; SPN 105; SPN 106; SPN 110; SPN 175; SPN 626; SPN 629; SPN 636; SPN 637; SPN 639; SPN 651; SPN 652; SPN 653; SPN 654; SPN 655; SPN 656; SPN 677; SPN 1485}
+- Trame CAN ·  · `DM1 Ford T45` — DM1IN module=Ford T45 (J1939[0]) id= dlc= contenu={SPN 98; SPN 100; SPN 102; SPN 105; SPN 106; SPN 110; SPN 175; SPN 626; SPN 629; SPN 636; SPN 637; SPN 639; SPN 651; SPN 652; SPN 653; SPN 654; SPN 655; SPN 656; SPN 677; SPN 1485}
+- Trame CAN ·  · `DM1 Kubo T45` — DM1IN module=Kubota WG16 (J1939[0]) id= dlc= contenu={SPN 98; SPN 100; SPN 102; SPN 105; SPN 106; SPN 110; SPN 175; SPN 626; SPN 629; SPN 636; SPN 637; SPN 639; SPN 651; SPN 652; SPN 653; SPN 654; SPN 655; SPN 656; SPN 677; SPN 1485}
+- Trame CAN ·  · `EEC1 EB2 T45` — JFIN module=EB2 T45 (J1939[0]) id=61444 dlc= contenu={{Driver's demand, engine % EB2 T45 [%]; 9}; {Actual engine, % torque EB2 T45 [%]; 17}; {Engine speed EB2 T45 [rpm]; 25}}
+- Trame CAN ·  · `EEC1 Ford T45` — JFIN module=Ford T45 (J1939[0]) id=61444 dlc= contenu={{Driver's demand, engine %, Ford T45 [%]; 9}; {Actual engine, % torque, Ford T45 [%]; 17}; {Engine speed Ford T45 [rpm]; 25}}
+- Trame CAN ·  · `EEC1 Kubo` — JFIN module=Kubota WG16 (J1939[0]) id=61444 dlc= contenu={{Driver's demand, engine % Kubo T45 [%]; 9}; {Actual engine, % torque Kubo T45 [%]; 17}; {Engine speed Kubo T45 [rpm]; 25}}
+- Trame CAN ·  · `EEC2 EB2 T45` — JFIN module=EB2 T45 (J1939[0]) id=61443 dlc= contenu={{Accelerator pedal position EB2 T45 [%]; 9}; {% load at current speed EB2 T45 [%]; 17}}
+- Trame CAN ·  · `EEC2 Ford T45` — JFIN module=Ford T45 (J1939[0]) id=61443 dlc= contenu={{Accelerator pedal position Ford T45 [%]; 9}; {% load at current speed Ford T45 [%]; 17}}
+- Trame CAN ·  · `EEC2 Kubo` — JFIN module=Kubota WG16 (J1939[0]) id=61443 dlc= contenu={{Accelerator pedal position Kubo T45 [%]; 9}; {% load at current speed Kubo T45 [%]; 17}}
+- Trame CAN ·  · `Engine Temperature EB 2` — JFIN module=EB2 T45 (J1939[0]) id=65262 dlc= contenu={{Engine coolant temperature EB2 T45 [Â°C]; 1}}
+- Trame CAN ·  · `Engine Temperature Ford T45` — JFIN module=Ford T45 (J1939[0]) id=65262 dlc= contenu={{Engine coolant temperature Ford T45 [Â°C]; 1}}
+- Trame CAN ·  · `Engine Temperature Kubo` — JFIN module=Kubota WG16 (J1939[0]) id=65262 dlc= contenu={{Engine coolant temperature Kubo T45 [Â°C]; 1}}
+- Trame CAN ·  · `Engine coolant temperature EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine coolant temperature Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine coolant temperature Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine fluid level/pressure 1 EB2` — JFIN module=EB2 T45 (J1939[0]) id=65263 dlc= contenu={{Engine oil pressure EB2 T45 [kPa]; 25}}
+- Trame CAN ·  · `Engine fluid level/pressure 1 Ford T45` — JFIN module=Ford T45 (J1939[0]) id=65263 dlc= contenu={{Engine oil pressure Ford T45 [kPa]; 25}}
+- Trame CAN ·  · `Engine fluid level/pressure 1 Kubo` — JFIN module=Kubota WG16 (J1939[0]) id=65263 dlc= contenu={{Engine oil pressure Kubo T45 [kPa]; 25}}
+- Trame CAN ·  · `Engine oil pressure EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine oil pressure Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine oil pressure Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine speed EB2 T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine speed Ford T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Engine speed Kubo T45` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `Error_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1180 dlc=DonÂt care contenu={{ErrorAFEIssues; 23}; {ErrorBluetooth; 13}; {ErrorBmsOverTemperature; 18}; {ErrorCellIssues; 20}; {ErrorChargerIssue; 19}; {ErrorCurrentCalibration; 9}; {ErrorDataLogger; 14}; {ErrorHighVoltage; 11}; {ErrorLowVoltage; 10}; {ErrorNTC; 12}; {ErrorOverCurrent; 30}; {ErrorOverTemperatureCharge; 25}; {ErrorOverTemperatureDischarge; 27}; {ErrorOverVoltage; 29}; {ErrorPDULock; 31}; {ErrorPduFailure; 16}; {ErrorPduOverTemperature; 17}; {ErrorShortCircuit; 21}; {ErrorShortCircuitOnPrecharge; 8}; {ErrorSlaveSilent; 22}; {ErrorUnderTemperatureCharge; 24}; {ErrorUnderTemperatureDischarge; 26}; {ErrorUnderVoltage; 28}}
+- Trame CAN ·  · `FirmwareInformation_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1080 dlc=DonÂt care contenu={{FirmwareMajor; 7}; {FirmwareMinor; 15}; {FirmwareRevision; 23}; {FirmwareBuildMode; 31}}
+- Trame CAN ·  · `Fw Speed Limit` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `GEN - 4 - S.M2.Left` — GFOUT module=Sev_M_Track (Generic) id=0x412 dlc=8 contenu={{Throttle Input Voltage - S.M2.Left; 0}; {Fordward Switch - S.M2.Left; 16}; {Inch reverse switch - S.M2.Left; 17}; {FS1 Switch - S.M2.Left; 18}}
+- Trame CAN ·  · `GFIN-E:Generic` — GFIN module=Keyboxs CAB (Generic) id=ID Fault 0x17 KTB dlc=DonÂt care contenu={{K1 Fault; 1}; {K2 Fault; 2}; {K3 Fault; 3}; {K4 Fault; 4}; {K5 Fault; 5}; {K6 Fault; 6}; {K7 Fault; 7}; {K8 Fault; 8}; {K9 Fault; 9}; {K10 Fault; 10}; {K11 Fault; 11}; {K12 Fault; 12}; {K13 Fault; 13}}
+- Trame CAN ·  · `GFIN-F:Generic` — GFIN module=Keyboxs CAB (Generic) id=ID Fault 0x18 KBB dlc=DonÂt care contenu={{K1 Fault; 1}; {K2 Fault; 2}; {K3 Fault; 3}; {K4 Fault; 4}; {K5 Fault; 5}; {K6 Fault; 6}; {K7 Fault; 7}; {K8 Fault; 8}; {K9 Fault; 9}; {K10 Fault; 10}; {K11 Fault; 11}; {K12 Fault; 12}; {K13 Fault; 13}}
+- Trame CAN ·  · `GFIN-G:Generic` — GFIN module=Keyboxs CAB (Generic) id=ID Fault 0x19 KTC dlc=DonÂt care contenu={{K1 Fault; 1}; {K2 Fault; 2}; {K3 Fault; 3}; {K4 Fault; 4}; {K5 Fault; 5}; {K6 Fault; 6}; {K7 Fault; 7}; {K8 Fault; 8}; {K9 Fault; 9}; {K10 Fault; 10}; {K11 Fault; 11}; {K12 Fault; 12}; {K13 Fault; 13}}
+- Trame CAN ·  · `GFOUT-B:Generic` — GFOUT module=Keybox X100 T (Generic) id=ID Prog dlc=8 contenu={{BYTE 0 - HB; 0}; {BYTE 1 - HB; 8}; {BYTE 2 - HB; 16}; {BYTE 4 - HB; 32}}
+- Trame CAN ·  · `I Batt Discharge Limit` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `I Batt recharge limit` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `IMD_Info` — GFIN module=tyva bender (Generic) id=0x37 dlc=DonÂt care contenu={{Iso Measurement tyva [kOhm]; 0}; {Isolation fault tyva; 23}; {Chassis fault tyva; 22}; {system failure tyva isomon; 21}; {Calibration running; 20}; {Selftest running; 19}; {Insulation warning tyva; 18}; {Isolation not measuring; 39}; {imc not alive tyva; 37}; {insulation outdated; 47}; {12; 26}; {13; 27}}
+- Trame CAN ·  · `IMD_InfoGeneral gen2` — GFIN module=tyva bender (Generic) id=0x37 dlc=8 contenu={{IMD G Alarm Device Error 00; 32}; {IMD G Alarm Eart Conn 03; 35}; {IMD G Alarm Earthlift 10; 42}; {IMD G Alarm HV neg Conn 02; 34}; {IMD G Alarm HV pos Conn 01; 33}; {IMD G Alarm Iso Error 04; 36}; {IMD G Alarm Iso Outdated 06; 38}; {IMD G Alarm Iso Warning 05; 37}; {IMD G Alarm Unbalance 07; 39}; {IMD G Alarm Undervoltage 08; 40}; {IMD G Alarm UnsafeToStart 09; 41}; {IMD G Device Activity; 48}; {IMD G Isolation Counter; 24}; {IMD G Isolation R iso Corrected [kOhm]; 0}; {IMD G Isolation R iso Status; 16}; {IMD G Warning Alarm Status Bit11; 43}; {IMD G Warning Alarm Status Bit12; 44}; {IMD G Warning Alarm Status Bit13; 45}; {IMD G Warning Alarm Status Bit14; 46}; {IMD G Warning Alarm Status Bit15; 47}}
+- Trame CAN ·  · `Input Voltage` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `JFIN-A:J1939[113]` — JFIN module=Inverter_HVLP_j19 (J1939[113]) id=71936 dlc= contenu={{Status Word; 33}; {Limit Word; 41}}
+- Trame CAN ·  · `JFIN-B:J1939[113]` — JFIN module=Inverter_HVLP_j19 (J1939[113]) id=71680 dlc= contenu={{Motor_Speed_Raw; 17}; {Torque_Mesured_Raw; 1}}
+- Trame CAN ·  · `JFIN-C:J1939[113]` — JFIN module=Inverter_HVLP_j19 (J1939[113]) id=72192 dlc= contenu={{Input Voltage; 33}; {insideHeatsink [Â°C]; 1}; {Sevcon - Engine Temp [Â°C]; 17}}
+- Trame CAN ·  · `JFIN-D:J1939[113]` — JFIN module=Inverter_HVLP_j19 (J1939[113]) id=72448 dlc= contenu={{M3 (Pump) - Error; 1}}
+- Trame CAN ·  · `JFOUT-A:J1939[113]` — JFOUT module=Inverter_HVLP_j19 (J1939[113]) id=69632 dlc=8 contenu={{Status Word o [bits]; 17}; {Torque Demande o [bits]; 1}; {Torque Limit o [bits]; 33}}
+- Trame CAN ·  · `JFOUT-A:J1939[250]` — JFOUT module=Inverter_HVLP_j19 (J1939[113]) id=69632 dlc=8 contenu={{Status Word o250 [bits]; 17}; {Torque Demande o250 [bits]; 1}; {Torque Limit o250 [bits]; 33}}
+- Trame CAN ·  · `JFOUT-B:J1939[113]` — JFOUT module=Inverter_HVLP_j19 (J1939[113]) id=69888 dlc=8 contenu={{Fw Speed Limit [bits]; 17}; {Rw Speed Limit [bits]; 33}}
+- Trame CAN ·  · `JFOUT-C:J1939[250]` — JFOUT module=Inverter_HVLP_j19 (J1939[113]) id=70144 dlc=8 contenu={{I Batt Discharge Limit [bits]; 1}; {I Batt recharge limit [bits]; 17}}
+- Trame CAN ·  · `Limit Word` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `M3 (Pump) - Error` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `MaxAdmissibleCurrent_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1580 dlc=DonÂt care contenu={{IMD [A]; 0}; {IMR [A]; 32}}
+- Trame CAN ·  · `Motor_Speed_Raw` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `New Generic frame out` — GFOUT module=Keyboxs CAB (Generic) id=ID dlc=8 contenu={{BYTE 0 - New ID; 0}; {BYTE 1 - New ID; 8}; {BYTE 2 - New ID; 16}; {BYTE 4 - New ID; 32}}
+- Trame CAN ·  · `PDUStatus_M0b` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1380 dlc=DonÂt care contenu={{PDURelayStatusCharge; 2}; {PDURelayStatusDecharge; 1}; {PDURelayStatusPrecharge; 0}}
+- Trame CAN ·  · `Response_HV_System 5E` — GFIN module=tyva bender (Generic) id=0x23 dlc=DonÂt care contenu={{HV_System [Volt]; 8}}
+- Trame CAN ·  · `Response_R_iso 4E` — GFIN module=tyva bender (Generic) id=0x23 dlc=DonÂt care contenu={{R_iso [kOhm]; 8}}
+- Trame CAN ·  · `Response_R_iso_corrected 4C` — GFIN module=tyva bender (Generic) id=0x23 dlc=DonÂt care contenu={{R_iso_corrected [kOhm]; 8}}
+- Trame CAN ·  · `Response_R_iso_neg 40` — GFIN module=tyva bender (Generic) id=0x23 dlc=DonÂt care contenu={{R_iso_neg [kOhm]; 8}}
+- Trame CAN ·  · `Response_hv_1 54` — GFIN module=tyva bender (Generic) id=35 dlc=5 contenu={{IG IMC HV 1 [Volt]; 8}}
+- Trame CAN ·  · `Response_hv_2 58` — GFIN module=tyva bender (Generic) id=35 dlc=5 contenu={{IG IMC HV 2 [Volt]; 8}}
+- Trame CAN ·  · `Rw Speed Limit` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 100` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 102` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 105` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 106` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 110` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 1485` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 175` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 626` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 629` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 636` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 637` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 639` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 651` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 652` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 653` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 654` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 655` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 656` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 677` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SPN 98` — SPN module= id= dlc= contenu=
+- Trame CAN ·  · `SYNC heartbeat GEN4` — GFOUT module=Sev_M_Track (Generic) id=0x80 dlc=0 contenu={}
+- Trame CAN ·  · `Status Word o` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Status Word o250` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Status Word` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `SynthesisBMS_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1280 dlc=DonÂt care contenu={{isBalancing; 0}; {isChargePossible; 2}; {isChargeRelayClosingAuth; 4}; {isDischargePossible; 3}; {isDischargeRelayClosingAuth; 5}; {isReadyToStart; 1}; {StateBMS; 6}}
+- Trame CAN ·  · `TSC1-A:J1939-0 EB2 T45` — TSC1 module=EB2 T45 (J1939[0]) id= dlc= contenu=
+- Trame CAN ·  · `TSC1-A:J1939-0 Ford T45` — TSC1 module=Ford T45 (J1939[0]) id= dlc= contenu=
+- Trame CAN ·  · `TSC1-A:J1939-0 Kubo T45` — TSC1 module=Kubota WG16 (J1939[0]) id= dlc= contenu=
+- Trame CAN ·  · `TemperatureCell_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF0B80 dlc=DonÂt care contenu={{TemperatureCellMax [Â°C]; 16}; {TemperatureCellMin [Â°C]; 0}; {TemperatureCellMean [Â°C]; 32}}
+- Trame CAN ·  · `TemperaturePDU_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF0F80 dlc=DonÂt care contenu={{TemperaturePDU [Â°C]; 0}}
+- Trame CAN ·  · `Torque Demande o` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Torque Demande o250` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Torque Limit o` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Torque Limit o250` — JPOUT module= id= dlc= contenu=
+- Trame CAN ·  · `Torque_Mesured_Raw` — JPIN module= id= dlc= contenu=
+- Trame CAN ·  · `VoltageBattery_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF0080 dlc=DonÂt care contenu={{VoltageCellMax [mV]; 16}; {VoltageCellMin [mV]; 0}; {BatteryVoltage tyva [V]; 32}}
+- Trame CAN ·  · `Warning_M0` — GFIN module=tyva 24v a/c (Generic) id=0x18FF1480 dlc=DonÂt care contenu={{WarningAFEIssues; 23}; {WarningBluetooth; 13}; {WarningBmsOverTemperature; 18}; {WarningCellIssues; 20}; {WarningChargerIssue; 19}; {WarningCurrentCalibration; 9}; {WarningDataLogger; 14}; {WarningHighVoltage; 11}; {WarningLowVoltage; 10}; {WarningNTC; 12}; {WarningOverCurrent; 30}; {WarningOverTemperatureCharge; 25}; {WarningOverTemperatureDischarge; 27}; {WarningOverVoltage; 29}; {WarningPDULock; 31}; {WarningPduFailure; 16}; {WarningPduOverTemperature; 17}; {WarningShortCircuit; 21}; {WarningShortCircuitOnPrecharge; 8}; {WarningSlaveSilent; 22}; {WarningUnderTemperatureCharge; 24}; {WarningUnderTemperatureDischarge; 26}; {WarningUnderVoltage; 28}}
+- Trame CAN ·  · `backlight 20% activation` — GFOUT module=Keypad Blink marine 8 keys (Generic) id=0x515 dlc=1 contenu={{backlight level 20%; 0}}
+- Trame CAN ·  · `close relay hv1 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=5 contenu={{BYTE 0 - D2; 0}; {BYTE 1 - 01; 8}; {BYTE 2 - 00; 16}; {BYTE 3 - 01; 24}; {BYTE 4 - 00; 32}}
+- Trame CAN ·  · `close relay hv2 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=5 contenu={{BYTE 0 - D2; 0}; {BYTE 1 - 00; 8}; {BYTE 2 - 00; 16}; {BYTE 3 - 01; 24}; {BYTE 4 - 00; 32}}
+- Trame CAN ·  · `get_HV_System 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 5E; 0}; {A BYTE 1 - FF; 8}; {A BYTE 2 - FF; 16}; {A BYTE 3 - FF; 24}}
+- Trame CAN ·  · `get_R_iso 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 4E; 0}; {A BYTE 1 - FF; 8}; {A BYTE 2 - FF; 16}; {A BYTE 3 - FF; 24}}
+- Trame CAN ·  · `get_R_iso_corrected 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 4C; 0}; {A BYTE 1 - FF; 8}; {A BYTE 2 - FF; 16}; {A BYTE 3 - FF; 24}}
+- Trame CAN ·  · `get_R_iso_neg 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 40; 0}; {A BYTE 1 - FF; 8}; {A BYTE 2 - FF; 16}; {A BYTE 3 - FF; 24}}
+- Trame CAN ·  · `get_hv_1 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 36; 0}; {A BYTE 1 - 00; 8}; {A BYTE 2 - 00; 16}}
+- Trame CAN ·  · `get_hv_2 0x22` — GFOUT module=tyva bender (Generic) id=0x22 dlc=8 contenu={{A BYTE 0 - 3A; 0}; {A BYTE 1 - 00; 8}; {A BYTE 2 - 00; 16}}
+- Trame CAN ·  · `heartbeat` — GFIN module=Keypad Blink marine 8 keys (Generic) id=0x715 dlc=DonÂt care contenu={{Heartbeat/statut; 0}}
+- Trame CAN ·  · `keys number frame` — GFIN module=Keypad Blink marine 8 keys (Generic) id=0x195 dlc=DonÂt care contenu={{keys number; 0}}
+- Trame CAN ·  · `outGEN - 4 - S.M1.Right` — GFOUT module=Sev_M_Track (Generic) id=0x411 dlc=8 contenu={{Throttle Input Voltage - S.M1.Right; 0}; {Fordward Switch - S.M1.Right; 16}; {Inch reverse switch - S.M1.Right; 17}; {FS1 Switch - S.M1.Right; 18}}
+- Trame CAN ·  · `set led ON` — GFOUT module=Keypad Blink marine 8 keys (Generic) id=0x215 dlc=8 contenu={{Red led part 1; 0}; {Red led part 2; 4}; {Green led part 1; 8}; {Green led part 2; 12}; {Blue led part 2; 20}; {Blue led part 1; 16}}
+- Trame CAN ·  · `set led blink ON` — GFOUT module=Keypad Blink marine 8 keys (Generic) id=0x315 dlc=8 contenu={{blue led blink part1; 16}; {blue led blink part2; 20}}
