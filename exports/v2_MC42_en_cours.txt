@@ -1,7 +1,7 @@
 IQANdesign version=6.08.32.8219
 Original version=3.19.7.4013
 Project ID={A9A417A5-F800-4D85-80EA-662CC8C71EC3}
-Project Checksum=1F487706
+Project Checksum=1E8EA833
 Full access password=Yes
 Limited access password=Yes
 
@@ -14,10 +14,10 @@ Comment=Ajout du Keypad PKP 2400SI CANOpen (de chez Blink Marine)
 Cet ajout a été fait pour le #117 pro mais il peut être installé sur tous les thermiques
 
 Author=Benoit Beukels
-Last change={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 08:43:06}
+Last change={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 09:07:21}
   Name and company=Nicolas, Iguana Yachts
   License number=4C72-7201-14C1-7A0C-####-####
-  Date and time=23/10/2026 08:43:06
+  Date and time=23/10/2026 09:07:21
 END 1
 
 BEGIN 2
@@ -56308,10 +56308,10 @@ add modif merge therm elec
     Name=mc.Thermic
     Description=
     Enabled=Is_Thermic mc
-    Last edited={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 07:50:42}
+    Last edited={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 08:59:35}
       Name and company=Nicolas, Iguana Yachts
       License number=4C72-7201-14C1-7A0C-####-####
-      Date and time=23/10/2026 07:50:42
+      Date and time=23/10/2026 08:59:35
     Freezed=No
     X=660
     Y=170
@@ -62406,10 +62406,10 @@ add modif merge therm elec
       Name=T.Engine i/o
       Description=
       Enabled=Yes
-      Last edited={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 07:50:42}
+      Last edited={Nicolas, Iguana Yachts; 4C72-7201-14C1-7A0C-####-####; 23/10/2026 08:59:35}
         Name and company=Nicolas, Iguana Yachts
         License number=4C72-7201-14C1-7A0C-####-####
-        Date and time=23/10/2026 07:50:42
+        Date and time=23/10/2026 08:59:35
       In T Engine speed=T Engine speed to send [%]
       Freezed=No
       X=80
@@ -62440,8 +62440,8 @@ add modif merge therm elec
         States={FORD 1.5L; Kubo}
           State 1=FORD 1.5L
           State 2=Kubo
-        X=60
-        Y=820
+        X=30
+        Y=840
         END 193456
         
         BEGIN 193466
@@ -62454,8 +62454,8 @@ add modif merge therm elec
         Min limit=Unlimited
         Max limit=Unlimited
         Default state name=Default state
-        X=80
-        Y=690
+        X=30
+        Y=660
         END 193466
         
         BEGIN 193613
@@ -63988,8 +63988,8 @@ add modif merge therm elec
         Delay on=0
         Delay off=0
         Function selector=Not used
-        X=70
-        Y=80
+        X=80
+        Y=120
           
           BEGIN 203600
           Function
@@ -66400,7 +66400,7 @@ add modif merge therm elec
         Delay on=5000
         Delay off=0
         Function selector=Not used
-        X=0
+        X=20
         Y=0
           
           BEGIN 242248
@@ -66420,8 +66420,8 @@ add modif merge therm elec
         Delay on=30000
         Delay off=0
         Function selector=Not used
-        X=2
-        Y=2
+        X=30
+        Y=40
           
           BEGIN 242254
           Function
@@ -66443,8 +66443,8 @@ add modif merge therm elec
         Channel=Not used
         Help=
         Function selector=Not used
-        X=4
-        Y=4
+        X=230
+        Y=0
           
           BEGIN 242260
           Function
@@ -141635,6 +141635,82 @@ Description=
         END 232833
       END 232831
     END 232830
+    
+    BEGIN 242293
+    Event log item
+    Name=T Engine temp CAN lost
+    Description=
+    Log status=No status
+      
+      BEGIN 242294
+      Function
+      Name=Default function
+      Description=
+        
+        BEGIN 242295
+        Object group
+        Name=Activating
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+          
+          BEGIN 242297
+          Single object
+          Name=A
+          Description=
+          Input=T Engine temp CAN lost
+          END 242297
+        END 242295
+        
+        BEGIN 242296
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 242296
+      END 242294
+    END 242293
+    
+    BEGIN 242298
+    Event log item
+    Name=T Engine temp lost repeat
+    Description=
+    Log status=No status
+      
+      BEGIN 242299
+      Function
+      Name=Default function
+      Description=
+        
+        BEGIN 242300
+        Object group
+        Name=Activating
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+          
+          BEGIN 242302
+          Single object
+          Name=A
+          Description=
+          Input=T Engine temp lost repeat
+          END 242302
+        END 242300
+        
+        BEGIN 242301
+        Object group
+        Name=Blocking
+        Description=
+        Method=Or
+        Valid=True
+        Expression=
+        END 242301
+      END 242299
+    END 242298
   END 232765
   
   BEGIN 236210
