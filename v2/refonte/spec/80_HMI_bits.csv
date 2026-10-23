@@ -1,0 +1,56 @@
+word;bit;signal;source;description
+command;1;CMD Up;B1 UP;display -> MC42, same position for every display
+command;2;CMD Down;B2 DOWN;display -> MC42, same position for every display
+command;3;CMD Cancel;B3 CANCEL;display -> MC42, same position for every display
+command;4;CMD Slow;B4 SLOW;display -> MC42, same position for every display
+command;5;CMD Fast;B5 FAST;display -> MC42, same position for every display
+command;6;CMD Off;B6 OFF;display -> MC42, same position for every display
+command;7;CMD Continue;B7 CONTINUE;display -> MC42, same position for every display
+command;8;CMD Free;B8 FREE;display -> MC42, same position for every display
+command;9;CMD Start stop;B9 START;display -> MC42, same position for every display
+command;10;CMD Safety off;B10 SAFETY OFF;display -> MC42, same position for every display
+command;11;CMD Safety off reset;B11 SAFETY OFF RESET;display -> MC42, same position for every display
+command;13;CMD Info page;B13 Info page;display -> MC42, same position for every display
+command;14;CMD 10h check certified;B14 10 hours;display -> MC42, same position for every display
+command;15;CMD Reset 1y maintenance;B15 1yr;display -> MC42, same position for every display
+command;16;CMD Reset 2y maintenance;B16 2yrs;display -> MC42, same position for every display
+command;17;CMD Reset 4y maintenance;B17 4yrs;display -> MC42, same position for every display
+command;18;CMD Super slow;B18 super slow;display -> MC42, same position for every display
+command;12;Screen state ok;B12 45 State ok;display -> MC42
+status 1;1;PWR System started;;MC42 -> every display
+status 1;2;PWR Engines ready (E) / engine running (T);;MC42 -> every display
+status 1;3;PWR Battery ok to start;;MC42 -> every display
+status 1;4;HMI Shutdown page;;MC42 -> every display
+status 1;5;HMI Startup page;;MC42 -> every display
+status 1;6;HMI Main page electric;;MC42 -> every display
+status 1;7;HMI Main page thermal;;MC42 -> every display
+status 1;8;TRK Safety disabled;;MC42 -> every display
+status 1;9;HMI Buzzer request;;MC42 -> every display
+status 1;10;HMI Joystick to zero;;MC42 -> every display
+status 1;11;MNT Mode;;MC42 -> every display
+status 2;1;TRK Speed mode bit 0;;MC42 -> every display
+status 2;2;TRK Speed mode bit 1;;MC42 -> every display
+status 2;3;CMD Free (state);;MC42 -> every display
+status 2;4;TRK Up/Down state bit 0;;MC42 -> every display
+status 2;5;TRK Up/Down state bit 1;;MC42 -> every display
+status 2;6;TRK Up/Down state bit 2;;MC42 -> every display
+status 2;7;TRK Locked;;MC42 -> every display
+status 2;8;TRK Tension active;;MC42 -> every display
+status 2;9;TRK Tension error;;MC42 -> every display
+status 3;1;PWR PMS state bit 0;;MC42 -> every display
+status 3;2;PWR PMS state bit 1;;MC42 -> every display
+status 3;3;PWR PMS state bit 2;;MC42 -> every display
+status 3;4;PWR Charging state bit 0;;MC42 -> every display
+status 3;5;PWR Charging state bit 1;;MC42 -> every display
+status 3;6;CHG AC connected;;MC42 -> every display
+status 3;7;BAT Warning;;MC42 -> every display
+status 3;8;PWR Battery fault;;MC42 -> every display
+status 3;9;BAT Isolation low;;MC42 -> every display
+status 4;1;PWR Engine state bit 0;;MC42 -> every display
+status 4;2;PWR Engine state bit 1;;MC42 -> every display
+status 4;3;THM Water state bit 0;;MC42 -> every display
+status 4;4;THM Water state bit 1;;MC42 -> every display
+status 4;5;HYD Oil warning;;MC42 -> every display
+status 4;6;THM Aft fan on;;MC42 -> every display
+status 4;7;THM Exhaust fan on;;MC42 -> every display
+status 4;8;PWR Fuel line ignition;;MC42 -> every display

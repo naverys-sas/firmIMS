@@ -1,0 +1,49 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 CAN ok;IDC;;M1 (right track) inverter communication alive.;em1 M-Track - Brand;Sevcon;CAN OK - S.M1.Right;;;M1 - CAN OK
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 CAN ok;IDC;;;em1 M-Track - Brand;Zapi;CAN OK - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 ready;IDC;;M1 inverter ready. Zapi M1 was forced True in 108.3.1 while M2 reads the signal: aligned on M2 (D29, check on a Zapi boat).;em1 M-Track - Brand;Sevcon;Ready - S.M1.Right;;;M1 - Ready
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 ready;IDC;;;em1 M-Track - Brand;Zapi;Zapi M1 ready signal (same frame bit as ZAPI_M2_READY);;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 run;IDC;;M1 inverter running.;em1 M-Track - Brand;Sevcon;RUN - S.M1.Right;;;M1 - RUN
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 run;IDC;;;em1 M-Track - Brand;Zapi;RUN - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 error;IDC;;M1 inverter in error mode.;em1 M-Track - Brand;Sevcon;Error mode - S.M1.Right;;;M1 - Error mode
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 error;IDC;;;em1 M-Track - Brand;Zapi;Error mode - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 error raw code;IMAC;;M1 inverter raw error code, logged.;em1 M-Track - Brand;Sevcon;Sevcon.M1 error code;;;Electronic logs value items
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 error raw code;IMAC;;;em1 M-Track - Brand;Zapi;Zapi.M1 Error Code;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 warning raw code;IMAC;;M1 inverter raw warning code (Zapi only), logged.;em1 M-Track - Brand;Sevcon;0;;;Electronic logs value items
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 warning raw code;IMAC;;;em1 M-Track - Brand;Zapi;Zapi.M1 Warning Code;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 speed;MAC;rpm;M1 motor speed.;em1 M-Track - Brand;Sevcon;Speed - S.M1.Right;;;M1 - Speed
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 speed;MAC;rpm;;em1 M-Track - Brand;Zapi;Actual_speed - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 current;MAC;A;M1 inverter current.;em1 M-Track - Brand;Sevcon;CURRENT - S.M1.Right;;;M1 - CURRENT
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 current;MAC;A;;em1 M-Track - Brand;Zapi;Actual_current - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 torque;IMAC;Nm;M1 motor torque.;em1 M-Track - Brand;Sevcon;Torque actual - S.M1.Right;;;M1 - Torque
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 torque;IMAC;Nm;;em1 M-Track - Brand;Zapi;Torque - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 voltage;IMAC;V;M1 inverter DC voltage.;em1 M-Track - Brand;Sevcon;Voltage - S.M1.Right;;;M1 - Voltage
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 voltage;IMAC;V;;em1 M-Track - Brand;Zapi;Batterie Voltage - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 heatsink temp;MAC;°C;M1 inverter heatsink temperature.;em1 M-Track - Brand;Sevcon;Heatsink - S.M1.Right;;;M1 - Heatsink
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 heatsink temp;MAC;°C;;em1 M-Track - Brand;Zapi;Heatsink - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 motor temp;MAC;°C;M1 SEW motor temperature (KTY sensor).;em1 M-Track - Brand;Sevcon;KTY - S.M1.Right;;;M1 - KTY
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M1 motor temp;MAC;°C;;em1 M-Track - Brand;Zapi;Motor_Temp - Z.M1.Right;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 CAN ok;IDC;;M2 (left track) inverter communication alive.;em1 M-Track - Brand;Sevcon;CAN OK - S.M2.Left;;;M2 - CAN OK
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 CAN ok;IDC;;;em1 M-Track - Brand;Zapi;ZAPI_M2_CAN OK;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 ready;IDC;;M2 inverter ready. Zapi M1 was forced True in 108.3.1 while M2 reads the signal: aligned on M2 (D29, check on a Zapi boat).;em1 M-Track - Brand;Sevcon;Ready - S.M2.Left;;;M2 - Ready
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 ready;IDC;;;em1 M-Track - Brand;Zapi;ZAPI_M2_READY;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 run;IDC;;M2 inverter running.;em1 M-Track - Brand;Sevcon;RUN - S.M2.Left;;;M2 - RUN
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 run;IDC;;;em1 M-Track - Brand;Zapi;ZAPI_M2_RUN;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 error;IDC;;M2 inverter in error mode.;em1 M-Track - Brand;Sevcon;Error mode - S.M2.Left;;;M2 - Error mode
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 error;IDC;;;em1 M-Track - Brand;Zapi;ZAPI_M2_Error mode;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 error raw code;IMAC;;M2 inverter raw error code, logged.;em1 M-Track - Brand;Sevcon;Sevcon.M2 error code;;;Electronic logs value items
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 error raw code;IMAC;;;em1 M-Track - Brand;Zapi;Zapi.M2 Error Code;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 warning raw code;IMAC;;M2 inverter raw warning code (Zapi only), logged.;em1 M-Track - Brand;Sevcon;0;;;Electronic logs value items
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 warning raw code;IMAC;;;em1 M-Track - Brand;Zapi;Zapi.M2 Warning Code;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 speed;MAC;rpm;M2 motor speed.;em1 M-Track - Brand;Sevcon;Speed - S.M2.Left;;;M2 - Speed
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 speed;MAC;rpm;;em1 M-Track - Brand;Zapi;ZAPI_M2_Actual_speed;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 current;MAC;A;M2 inverter current.;em1 M-Track - Brand;Sevcon;CURRENT - S.M2.Left;;;M2 - CURRENT
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 current;MAC;A;;em1 M-Track - Brand;Zapi;ZAPI_M2_Actual_current;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 torque;IMAC;Nm;M2 motor torque.;em1 M-Track - Brand;Sevcon;Torque actual - S.M2.Left;;;M2 - Torque
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 torque;IMAC;Nm;;em1 M-Track - Brand;Zapi;ZAPI_M2_Torque;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 voltage;IMAC;V;M2 inverter DC voltage.;em1 M-Track - Brand;Sevcon;Voltage - S.M2.Left;;;M2 - Voltage
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 voltage;IMAC;V;;em1 M-Track - Brand;Zapi;ZAPI_M2_Batterie Voltage;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 heatsink temp;MAC;°C;M2 inverter heatsink temperature.;em1 M-Track - Brand;Sevcon;Heatsink - S.M2.Left;;;M2 - Heatsink
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 heatsink temp;MAC;°C;;em1 M-Track - Brand;Zapi;ZAPI_M2_Heatsink;;;
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 motor temp;MAC;°C;M2 SEW motor temperature (KTY sensor).;em1 M-Track - Brand;Sevcon;KTY - S.M2.Left;;;M2 - KTY
+20 EQP Equipment drivers/23 DRV Traction inverters;DRV M2 motor temp;MAC;°C;;em1 M-Track - Brand;Zapi;ZAPI_M2_Motor_Temp;;;

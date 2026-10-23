@@ -1,0 +1,16 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG CAN ok;IDC;;Engine ECU alive: EEC1 received in time (timeout to set on EEC1, value to validate on bench).;;;EEC1 frame status = OK;;"Delay on=0 & Delay off=0";new
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Speed;MAC;rpm;Engine speed (EEC1, SPN 190).;;;Engine speed;;;T Speed CAN 42 / Speed CAN T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Coolant temp;MAC;°C;Engine coolant temperature (ET1, SPN 110, timeout 3 s, D15).;;;Engine coolant temperature;;;T Engine coolant temp / Engine coolant temp T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Coolant temp lost;IDC;;Engine running and coolant temperature frame lost for 5 s (D15, message e1201).;;;ENG Running AND (Engine Temperature frame status = Timeout);;"Delay on=5000 & Delay off=0";T Engine temp CAN lost
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Oil pressure;MAC;kPa;Engine oil pressure (EFL/P1, SPN 100).;;;Engine oil pressure;;;Engine oil pressure EB2 T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Load;MAC;%;Engine load at current speed (EEC2, SPN 92).;;;% load at current speed;;;T % load at current speed
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Torque;MAC;%;Actual engine torque (EEC1, SPN 513).;;;Actual engine, % torque;;;Actual engine, % torque T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG MIL lamp;IDC;;DM1 malfunction lamp.;;;Malfunction lamp (MDGN of the J1939 engine module) <> 0;;;Malfunction lamp T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Red stop lamp;IDC;;DM1 red stop lamp.;;;Red stop lamp (MDGN of the J1939 engine module) <> 0;;;Red stop lamp T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Amber lamp;IDC;;DM1 amber warning lamp.;;;Amber warning lamp (MDGN of the J1939 engine module) <> 0;;;Amber warning lamp T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Protect lamp;IDC;;DM1 protect lamp.;;;Protect lamp (MDGN of the J1939 engine module) <> 0;;;Protect lamp T45
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG DM1 active;IDC;;At least one active DM1 fault code.;;;DM1 active code count > 0;;;new
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG DM1 last SPN;IMAC;;SPN of the last DM1 fault received, logged.;;;DM1 SPN;;;new
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG DM1 last FMI;IMAC;;FMI of the last DM1 fault received, logged.;;;DM1 FMI;;;new
+20 EQP Equipment drivers/25 ENG Thermal engine;ENG Speed request;FGI;rpm;Engine speed set point sent in TSC1, written by ACT.;;;ACT Engine speed request;;;In T Engine speed / In Engine speed to send

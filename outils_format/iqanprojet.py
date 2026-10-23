@@ -237,12 +237,14 @@ class Projet:
                 o.obj.tail = (t[:12] + bytes([2 if keep else 0]) + struct.pack("<H", len(keep)) +
                               b"".join(keep) + t[15 + 12 * k:])
 
-    def insert(self, sec, parent, n, before=None):
-        """Insère n (et ses enfants) sous parent, avant l'enfant before (à la fin sinon)."""
-        used = {o.oid for _, o in self.walk()}
-        clash = [x.oid for x in n.walk() if x.oid in used]
-        if clash:
-            raise EditError("identifiants déjà utilisés : %s" % clash[:10])
+    def insert(self, sec, parent, n, before=None, check=True):
+        """Insère n (et ses enfants) sous parent, avant l'enfant before (à la fin sinon).
+        check=False : l'appelant garantit des identifiants neufs (évite de parcourir le projet)."""
+        if check:
+            used = {o.oid for _, o in self.walk()}
+            clash = [x.oid for x in n.walk() if x.oid in used]
+            if clash:
+                raise EditError("identifiants déjà utilisés : %s" % clash[:10])
         pos = len(parent.children) if before is None else parent.children.index(before)
         parent.children.insert(pos, n)
         n.parent = parent
@@ -254,15 +256,15 @@ class Projet:
         n.parent.children.remove(n)
         self.insert(sec if to_sec is None else to_sec, parent, n, before)
 
-    def clone(self, src, src_sec, n, dst_sec, keep_links=False):
+    def clone(self, src, src_sec, n, dst_sec, keep_links=False, first_oid=None):
         """Copie l'objet n du projet src (qui peut être self) pour l'insérer dans dst_sec.
 
         Nouveaux identifiants ; textes recopiés dans la table du maître cible ; références vers
         des canaux copiés avec l'objet -> leurs copies ; autres références -> canal de même nom
-        dans le projet cible."""
-        new = copy.deepcopy(n)
+        dans le projet cible. first_oid : premier identifiant à donner (copies pas encore insérées)."""
+        new = copy.deepcopy(n, {id(n.parent): None})  # sans remonter au parent (tout l'arbre)
         new.parent = None
-        nxt = self.max_oid() + 1
+        nxt = self.max_oid() + 1 if first_oid is None else first_oid
         oidmap = {}
         for x in new.walk():
             oidmap[x.oid] = nxt

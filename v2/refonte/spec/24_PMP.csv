@@ -1,0 +1,17 @@
+group;channel;type;unit;description;selector;function;activating;blocking;properties;origin
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP CAN ok;IDC;;Hydraulic pump inverter (M3) communication alive.;em M-Pump - Brand;Sevcon gen;gen - CAN OK;;;M3 - CAN OK
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP CAN ok;IDC;;;em M-Pump - Brand;Sevcon j19;j19 M3 CAN OK;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP ready;IDC;;M3 inverter ready.;em M-Pump - Brand;Sevcon gen;gen - Ready;;;M3 - Ready
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP ready;IDC;;;em M-Pump - Brand;Sevcon j19;j19 M3 Ready;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP run;IDC;;M3 inverter running.;em M-Pump - Brand;Sevcon gen;gen - M3 - RUN;;;M3 - Run
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP run;IDC;;;em M-Pump - Brand;Sevcon j19;j19 M3 - RUN;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP error;IDC;;M3 inverter in error mode.;em M-Pump - Brand;Sevcon gen;gen M3 - Error mode;;;M3 - Error mode
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP error;IDC;;;em M-Pump - Brand;Sevcon j19;Sevcon - Error mode;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP error raw code;IMAC;;M3 raw error code, logged.;em M-Pump - Brand;Sevcon gen;gen M3 error code;;;new
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP error raw code;IMAC;;;em M-Pump - Brand;Sevcon j19;M3 - New Error Code;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP heatsink temp;MAC;°C;M3 inverter heatsink temperature.;em M-Pump - Brand;Sevcon gen;genHeatsink;;;M3 - Heatsink
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP heatsink temp;MAC;°C;;em M-Pump - Brand;Sevcon j19;insideHeatsink;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP motor temp;MAC;°C;Hydraulic pump motor temperature.;em M-Pump - Brand;Sevcon gen;genSevcon - Engine Temp;;;M3 - Engine Temps
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP motor temp;MAC;°C;;em M-Pump - Brand;Sevcon j19;Sevcon - Engine Temp;;;
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP voltage;MAC;V;M3 inverter DC voltage.;em M-Pump - Brand;Sevcon gen;gen M3 Voltage;;;M3 - Voltage
+20 EQP Equipment drivers/24 PMP Pump inverter;PMP voltage;MAC;V;;em M-Pump - Brand;Sevcon j19;j19 M3 Voltage;;;
