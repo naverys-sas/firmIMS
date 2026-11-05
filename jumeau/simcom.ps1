@@ -44,7 +44,9 @@ namespace IqanSim {
         [return: MarshalAs(UnmanagedType.BStr)] string GetComponentTypeName(int componentType, byte subType);
     }
     public static class Natif {
-        public static IIQANProject2 Projet(object rcw) { return (IIQANProject2)rcw; }
+        // Appels compiles : PowerShell passerait par IDispatch, qui ne sait pas renvoyer la structure.
+        public static ComponentRecord Composant(object prj, int type, int index) { return ((IIQANProject2)prj).GetComponent(type, index); }
+        public static int Nombre(object prj, int type) { return ((IIQANProject2)prj).GetComponentCount(type); }
     }
 }
 '@
@@ -69,7 +71,7 @@ class SimCom {
         $this.Sim = New-Object -ComObject IQANsimulate.IQANsimulateControl2
         if (-not $this.Sim.OpenFile($projet)) { throw "IQANsimulate refuse d'ouvrir $projet" }
         $this.Prj = New-Object -ComObject IQANsimulate.IQANProject2
-        $this.Nat = ('IqanSim.Natif' -as [type])::Projet($this.Prj)   # type charge par Add-Type, inconnu a l'analyse de la classe
+        $this.Nat = 'IqanSim.Natif' -as [type]   # type charge par Add-Type, inconnu a l'analyse de la classe
         # La liste des canaux n'est remplie qu'une fois la simulation lancee.
         $this.Sim.StartSimulation(); $this.Sim.PauseSimulation()
         $this.Indexer()
@@ -80,10 +82,10 @@ class SimCom {
     [void] Indexer() {
         $modules = @{}
         $n = $this.Prj.GetComponentCount($script:ACMODULE)
-        for ($i = 0; $i -lt $n; $i++) { $m = $this.Nat.GetComponent($script:ACMODULE, $i); $modules[[int]$m.Id] = $m.Name }
+        for ($i = 0; $i -lt $n; $i++) { $m = $this.Nat::Composant($this.Prj, $script:ACMODULE, $i); $modules[[int]$m.Id] = $m.Name }
         $n = $this.Prj.GetComponentCount($script:ACCHANNEL)
         for ($i = 0; $i -lt $n; $i++) {
-            $c = $this.Nat.GetComponent($script:ACCHANNEL, $i)
+            $c = $this.Nat::Composant($this.Prj, $script:ACCHANNEL, $i)
             $mod = $modules[[int]$c.ModuleId]
             $this.Info[[int]$c.Id] = [pscustomobject]@{ Id = [int]$c.Id; Nom = $c.Name; Module = $mod; Unite = $c.Unit; Pilotable = [bool]$c.Controllable; SousType = [int]$c.ComponentSubType }
             if (-not $this.ParNom.ContainsKey($c.Name)) { $this.ParNom[$c.Name] = New-Object System.Collections.ArrayList }
@@ -131,7 +133,8 @@ class SimCom {
         return $this.Prj.GetComponentStatusText($this.Id($nom))
     }
 
-    [void] Demarrer() { }
+    # Remet la simulation a zero (scenario suivant) sans rouvrir le projet ni redemander le mot de passe.
+    [void] Relancer() { if ($this.Fake) { $this.TempsFake = 0; $this.Valeurs = @{}; return }; $this.Sim.StopSimulation(); $this.Sim.StartSimulation(); $this.Sim.PauseSimulation() }
     [void] Arreter() { if (-not $this.Fake) { $this.Sim.StopSimulation() } }
 
     # Avance de n cycles applicatifs, simulation en pause entre deux appels (deroulement reproductible).
