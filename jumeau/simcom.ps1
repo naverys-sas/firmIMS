@@ -69,7 +69,7 @@ class SimCom {
         $this.Sim = New-Object -ComObject IQANsimulate.IQANsimulateControl2
         if (-not $this.Sim.OpenFile($projet)) { throw "IQANsimulate refuse d'ouvrir $projet" }
         $this.Prj = New-Object -ComObject IQANsimulate.IQANProject2
-        $this.Nat = [IqanSim.Natif]::Projet($this.Prj)
+        $this.Nat = ('IqanSim.Natif' -as [type])::Projet($this.Prj)   # type charge par Add-Type, inconnu a l'analyse de la classe
         # La liste des canaux n'est remplie qu'une fois la simulation lancee.
         $this.Sim.StartSimulation(); $this.Sim.PauseSimulation()
         $this.Indexer()
