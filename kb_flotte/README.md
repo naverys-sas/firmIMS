@@ -66,7 +66,7 @@ Ces familles forment en fait **trois lignées** de projets : voir [lignees.md](l
 - Chargeurs **Brusa** et **Elcon** (protocoles CAN).
 - **Keyboxes** (X100 et Commuter). Le keypad Blink PKP2400SI est fourni ; la 108.3.1 est conforme à sa notice (nœud 15h, heartbeat 1000 ms surveillé à 2000 ms, touches en événementiel).
 - Moteur **Ford 1.5**.
-- Versions V16 et V23.
+- Versions V16, V23, V65 (Novum + MD3) et V76. Les branches V35 Kreisel (#026) et NovumTech (#043) ne sont plus nécessaires : bateaux refités (D22).
 
 ## Questions pour Nicolas
 
