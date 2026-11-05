@@ -1,9 +1,10 @@
-{
+﻿{
   "nom": "Thermique X100 : moteur EB2 en J1939, pompes hydrauliques entrainees par le moteur",
   "bateaux_type": "#054 a #117, 29 bateaux EB2 (kb_flotte)",
   "parametres": {
     "Drive Type mc": 1,
     "T Engine type": 0,
+    "Keypad 8 keys": 1,
     "is_a_sim": 0
   },
   "a_verifier": [
