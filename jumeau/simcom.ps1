@@ -1,4 +1,4 @@
-# Pont vers IQANsimulate 7 par son interface COM (IQANsimulate.IQANsimulateControl2 / IQANProject2).
+﻿# Pont vers IQANsimulate 7 par son interface COM (IQANsimulate.IQANsimulateControl2 / IQANProject2).
 # Les canaux sont designes par leur nom IQANdesign. Un nom porte par plusieurs canaux se qualifie
 # par son module : "Motor_Speed_Raw@Inverter_HVLP_j19". Un nom ambigu non qualifie est refuse.
 # Mode -Fake : pas de simulateur, les valeurs ecrites sont relues telles quelles (essai des scripts).
@@ -6,9 +6,54 @@
 $script:ACMODULE = 2
 $script:ACCHANNEL = 4
 
+# GetComponent renvoie une structure (ComponentRecord) que PowerShell ne sait pas lire par IDispatch :
+# la bibliotheque de types n'est pas enregistree. On appelle donc l'interface double par sa table
+# virtuelle, declaree d'apres API\IQANsimulate.h.
+if (-not ('IqanSim.Natif' -as [type])) {
+    Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+namespace IqanSim {
+    [StructLayout(LayoutKind.Sequential)]
+    public struct ComponentRecord {
+        [MarshalAs(UnmanagedType.BStr)] public string Name;
+        public int Id;
+        public int ComponentType;
+        public byte ComponentSubType;
+        [MarshalAs(UnmanagedType.BStr)] public string Unit;
+        public short Controllable;
+        public int ModuleId;
+    }
+    [ComImport, Guid("7888F8D8-D244-440E-AE18-287A4A4DEA98"), InterfaceType(ComInterfaceType.InterfaceIsDual)]
+    public interface IIQANProject2 {
+        ComponentRecord GetComponent(int componentType, int index);
+        int GetComponentCount(int componentType);
+        object GetComponentValue(int id);
+        void SetComponentRawValue(int id, int value);
+        int GetComponentRawValue(int id);
+        int GetComponentStatus(int id);
+        void SetComponentStatus(int id, int status);
+        void SetComponentValue(int id, object value);
+        [return: MarshalAs(UnmanagedType.BStr)] string GetComponentStatusText(int id);
+        int GetCycletime();
+        int GetInputCount();
+        ComponentRecord GetInput(int index);
+        int GetOutputCount();
+        ComponentRecord GetOutput(int index);
+        object GetProperty(int key, int id);
+        [return: MarshalAs(UnmanagedType.BStr)] string GetComponentTypeName(int componentType, byte subType);
+    }
+    public static class Natif {
+        public static IIQANProject2 Projet(object rcw) { return (IIQANProject2)rcw; }
+    }
+}
+'@
+}
+
 class SimCom {
     [object]$Sim
     [object]$Prj
+    [object]$Nat
     [bool]$Fake
     [hashtable]$ParNom = @{}      # nom -> liste d'ids
     [hashtable]$ParQualif = @{}   # nom@module -> id
@@ -24,6 +69,9 @@ class SimCom {
         $this.Sim = New-Object -ComObject IQANsimulate.IQANsimulateControl2
         if (-not $this.Sim.OpenFile($projet)) { throw "IQANsimulate refuse d'ouvrir $projet" }
         $this.Prj = New-Object -ComObject IQANsimulate.IQANProject2
+        $this.Nat = [IqanSim.Natif]::Projet($this.Prj)
+        # La liste des canaux n'est remplie qu'une fois la simulation lancee.
+        $this.Sim.StartSimulation(); $this.Sim.PauseSimulation()
         $this.Indexer()
         $c = $this.Prj.GetCycletime()
         if ($c -gt 0) { $this.Cycle = $c }
@@ -32,10 +80,10 @@ class SimCom {
     [void] Indexer() {
         $modules = @{}
         $n = $this.Prj.GetComponentCount($script:ACMODULE)
-        for ($i = 0; $i -lt $n; $i++) { $m = $this.Prj.GetComponent($script:ACMODULE, $i); $modules[[int]$m.Id] = $m.Name }
+        for ($i = 0; $i -lt $n; $i++) { $m = $this.Nat.GetComponent($script:ACMODULE, $i); $modules[[int]$m.Id] = $m.Name }
         $n = $this.Prj.GetComponentCount($script:ACCHANNEL)
         for ($i = 0; $i -lt $n; $i++) {
-            $c = $this.Prj.GetComponent($script:ACCHANNEL, $i)
+            $c = $this.Nat.GetComponent($script:ACCHANNEL, $i)
             $mod = $modules[[int]$c.ModuleId]
             $this.Info[[int]$c.Id] = [pscustomobject]@{ Id = [int]$c.Id; Nom = $c.Name; Module = $mod; Unite = $c.Unit; Pilotable = [bool]$c.Controllable; SousType = [int]$c.ComponentSubType }
             if (-not $this.ParNom.ContainsKey($c.Name)) { $this.ParNom[$c.Name] = New-Object System.Collections.ArrayList }
@@ -83,7 +131,7 @@ class SimCom {
         return $this.Prj.GetComponentStatusText($this.Id($nom))
     }
 
-    [void] Demarrer() { if (-not $this.Fake) { $this.Sim.StartSimulation(); $this.Sim.PauseSimulation() } }
+    [void] Demarrer() { }
     [void] Arreter() { if (-not $this.Fake) { $this.Sim.StopSimulation() } }
 
     # Avance de n cycles applicatifs, simulation en pause entre deux appels (deroulement reproductible).
