@@ -1,0 +1,19 @@
+﻿{
+  "nom": "Demarrage electrique au clavier, puis arret",
+  "profil": "E_tyva_sevcon",
+  "duree_s": 20,
+  "etat_initial": { "soc": 80, "temperature": 20 },
+  "parametres": { "joystick plugged mc42": 1 },
+  "evenements": [
+    { "t": 2, "action": "touche", "touche": "start_stop", "duree": 0.5 },
+    { "t": 14, "action": "touche", "touche": "start_stop", "duree": 0.5 }
+  ],
+  "observer": ["Batt or engine started mc", "tyva batt can ok idc", "Start/Stop keypad", "No heartbeat", "E.Power Management System", "E.Charging State Machine", "SOC tyva", "BatteryVoltage tyva"],
+  "attendus": [
+    { "t": 1, "canal": "No heartbeat", "egal": 0 },
+    { "t": 1, "canal": "tyva batt can ok idc", "egal": 1 },
+    { "t": 1, "canal": "Batt or engine started mc", "egal": 0 },
+    { "t": 8, "canal": "Batt or engine started mc", "egal": 1 },
+    { "t": 19, "canal": "Batt or engine started mc", "egal": 0 }
+  ]
+}

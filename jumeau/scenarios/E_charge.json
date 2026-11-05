@@ -1,0 +1,16 @@
+﻿{
+  "nom": "Charge a quai : prise secteur branchee a 60 % jusqu'a l'arret de la charge",
+  "profil": "E_tyva_sevcon",
+  "duree_s": 60,
+  "etat_initial": { "soc": 60 },
+  "evenements": [
+    { "t": 2, "action": "secteur", "valeur": true },
+    { "t": 45, "action": "secteur", "valeur": false }
+  ],
+  "observer": ["E.Charging State Machine", "Char", "Max Curent", "Max Voltage", "Output Current", "SOC tyva", "Batt or engine started mc"],
+  "attendus": [
+    { "t": 1, "canal": "Output Current", "max": 0.5 },
+    { "t": 30, "canal": "Output Current", "min": 5 },
+    { "t": 58, "canal": "Output Current", "max": 0.5 }
+  ]
+}

@@ -1,0 +1,15 @@
+﻿{
+  "nom": "Demarrage du moteur thermique EB2 et montee en temperature",
+  "profil": "T_eb2",
+  "duree_s": 60,
+  "etat_initial": { "t_eau": 20 },
+  "evenements": [
+    { "t": 2, "action": "touche", "touche": "start_stop", "duree": 1.5 }
+  ],
+  "observer": ["Batt or engine started mc", "T Engine_Started mc", "Engine speed EB2 T45", "Engine coolant temperature EB2 T45", "Speed CAN T45"],
+  "attendus": [
+    { "t": 1, "canal": "Engine speed EB2 T45", "max": 1 },
+    { "t": 10, "canal": "Engine speed EB2 T45", "min": 800 },
+    { "t": 10, "canal": "T Engine_Started mc", "egal": 1 }
+  ]
+}

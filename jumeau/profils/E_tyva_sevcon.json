@@ -1,0 +1,133 @@
+{
+  "nom": "Electrique X100 : batterie Tyva, variateurs de chenilles Sevcon gen4, pompe HVLP J1939",
+  "bateaux_type": "#010 (refit) a #105, 12 bateaux Tyva + Sevcon (kb_flotte)",
+  "parametres": {
+    "Drive Type mc": 0,
+    "eb Battery Brand": 2,
+    "em1 M-Track - Brand": 0,
+    "em M-Pump - Brand": 1,
+    "is_a_sim": 0
+  },
+  "a_verifier": [
+    "Unites et echelles des GPIN (SetComponentValue ecrit la valeur a l'echelle du canal : V, rpm, degC).",
+    "Codes de StateBMS : bit 3 = decharge, bit 4 = charge d'apres 'bms decode bin' (Tyva discharge b3 / charge b4).",
+    "Code 'Statut' Sevcon en marche ; Ready vient de 'not Error mode', RUN de 'Motor Speed <> 0'.",
+    "Status Word HVLP : 7 et 8 testes dans la 108.3.1 (pret / marche ?).",
+    "Codes d'etat a passer a SetComponentStatus pour simuler une trame perdue (timeout).",
+    "Canal de demande de marche de la batterie (sortie CAN vers Tyva) : non branche, contacteurs fermes d'office."
+  ],
+  "batterie": {
+    "cellules": 96, "v_cell_vide": 3.3, "v_cell_plein": 4.15, "resistance_ohm": 0.08,
+    "capacite_ah": 120, "courant_aux_a": 3, "precharge_s": 0.5,
+    "t_ambiante": 20, "k_chauffe": 0.002, "tau_thermique_s": 1800, "t_alarme": 55,
+    "echelle_v_cell": 1000, "desequilibre_mv": 120,
+    "isolement_ok_kohm": 2000, "isolement_defaut_kohm": 50,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "etat_attente": 0, "etat_decharge": 8, "etat_charge": 16, "etat_defaut": 1 },
+    "trames": ["BatteryState_M0", "SynthesisBMS_M0", "VoltageBattery_M0", "CurrentBattery_M0", "TemperatureCell_M0", "PDUStatus_M0b", "Error_M0", "Warning_M0", "TemperaturePDU_M0", "MaxAdmissibleCurrent_M0"],
+    "canaux": {
+      "soc": "SOC tyva",
+      "soh": "SOH",
+      "tension": "BatteryVoltage tyva",
+      "v_cell_min": "VoltageCellMin",
+      "v_cell_max": "VoltageCellMax",
+      "t_cell_max": "TemperatureCellMax",
+      "t_cell_min": "TemperatureCellMin",
+      "t_cell_moy": "TemperatureCellMean",
+      "t_pdu": "TemperaturePDU",
+      "etat_bms": "StateBMS",
+      "pret": "isReadyToStart",
+      "decharge_possible": "isDischargePossible",
+      "charge_possible": "isChargePossible",
+      "relais_decharge": "PDURelayStatusDecharge",
+      "relais_charge": "PDURelayStatusCharge",
+      "relais_precharge": "PDURelayStatusPrecharge",
+      "erreur_surtemperature": "ErrorOverTemperatureDischarge",
+      "erreur_sous_tension": "ErrorUnderVoltage@tyva battery"
+    }
+  },
+  "chargeur": {
+    "courant_nominal_a": 30, "tau_s": 2, "valeur_autorisation": 0,
+    "t_ambiante": 20, "k_chauffe": 0.02, "tau_thermique_s": 900,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "etat_attente": 0, "etat_charge": 1, "com_ok": 0 },
+    "trames": ["ELCON-IN"],
+    "canaux": {
+      "autorisation": "Char",
+      "courant_max": "Max Curent",
+      "tension_secteur": "Input Voltage@Charger Elcon",
+      "courant_sortie": "Output Current",
+      "tension_sortie": "Output Voltage",
+      "temperature": "Temperature od charger",
+      "defaut_materiel": "Hardware Failure",
+      "etat": "Stating State",
+      "etat_com": "Communication State"
+    }
+  },
+  "clavier": {
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "operationnel": 5 },
+    "touches": { "start_stop": 1, "libre": 2, "haut": 8, "lent": 16, "normal": 32, "rapide": 64, "bas": 128 },
+    "trames": ["heartbeat", "keys number frame"],
+    "canaux": { "etat": "Heartbeat/statut", "touches": "keys number" }
+  },
+  "variateur_droit": {
+    "vitesse_max_rpm": 3000, "consigne_pleine": 5.0, "tau_s": 0.6, "tension_min": 200,
+    "couple_frottement_nm": 20, "inertie": 0.05,
+    "t_ambiante": 20, "k_chauffe": 0.02, "tau_thermique_s": 600,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "statut_marche": 0, "statut_arret": 0, "erreur_defaut": 19073 },
+    "trames": ["0x341 GEN4", "0x331 GEN4", "0x351 GEN4"],
+    "canaux": {
+      "consigne": "Throttle Input Voltage - S.M1.Right",
+      "avant": "Fordward Switch - S.M1.Right",
+      "arriere": "Inch reverse switch - S.M1.Right",
+      "vitesse": "Motor Speed - S.M1.Right",
+      "courant": "Actual Current - S.M1.Right",
+      "couple": "Torque - S.M1.Right",
+      "tension": "Voltage - S.M1.Right@Sev_M_Track",
+      "t_radiateur": "Heatsink - S.M1.Right@Sev_M_Track",
+      "t_moteur": "KTY - S.M1.Right",
+      "statut": "Statut - S.M1.Right",
+      "erreur": "Error - S.M1.Right"
+    }
+  },
+  "variateur_gauche": {
+    "vitesse_max_rpm": 3000, "consigne_pleine": 5.0, "tau_s": 0.6, "tension_min": 200,
+    "couple_frottement_nm": 20, "inertie": 0.05,
+    "t_ambiante": 20, "k_chauffe": 0.02, "tau_thermique_s": 600,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "statut_marche": 0, "statut_arret": 0, "erreur_defaut": 19073 },
+    "trames": ["0x342 GEN4", "0x332 GEN4", "0x352 GEN4"],
+    "canaux": {
+      "consigne": "Throttle Input Voltage - S.M2.Left",
+      "avant": "Fordward Switch - S.M2.Left",
+      "arriere": "Inch reverse switch - S.M2.Left",
+      "vitesse": "Motor Speed - S.M2.Left",
+      "courant": "Actual Current - S.M2.Left",
+      "couple": "Torque actual - S.M2.Left@Sev_M_Track",
+      "tension": "Voltage - S.M2.Left@Sev_M_Track",
+      "t_radiateur": "Heatsink - S.M2.Left@Sev_M_Track",
+      "t_moteur": "KTY - S.M2.Left",
+      "erreur": "Error - S.M2.Left"
+    }
+  },
+  "pompe": {
+    "vitesse_max_rpm": 3000, "rpm_par_unite_couple": 30, "tau_s": 0.4, "tension_min": 200,
+    "courant_marche_a": 60, "t_ambiante": 20, "k_chauffe": 0.01, "tau_thermique_s": 600,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "etat_pret": 7, "etat_marche": 8, "etat_defaut": 0, "erreur_defaut": 1 },
+    "trames": ["JFIN-A:J1939[113]", "JFIN-B:J1939[113]", "JFIN-C:J1939[113]", "JFIN-D:J1939[113]"],
+    "canaux": {
+      "couple_demande": "Torque Demande o250",
+      "mot_etat_demande": "Status Word o250",
+      "mot_etat": "Status Word@Inverter_HVLP_j19",
+      "vitesse": "Motor_Speed_Raw@Inverter_HVLP_j19",
+      "tension": "Input Voltage@Inverter_HVLP_j19",
+      "couple": "Torque_Mesured_Raw@Inverter_HVLP_j19",
+      "t_radiateur": "insideHeatsink",
+      "t_moteur": "Sevcon - Engine Temp",
+      "erreur": "M3 (Pump) - Error@Inverter_HVLP_j19"
+    }
+  }
+}

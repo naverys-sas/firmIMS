@@ -1,0 +1,36 @@
+{
+  "nom": "Thermique X100 : moteur EB2 en J1939, pompes hydrauliques entrainees par le moteur",
+  "bateaux_type": "#054 a #117, 29 bateaux EB2 (kb_flotte)",
+  "parametres": {
+    "Drive Type mc": 1,
+    "T Engine type": 0,
+    "is_a_sim": 0
+  },
+  "a_verifier": [
+    "Sortie de la MC42 qui actionne le demarreur et canal de contact (cle) : a confirmer dans la 108.3.1.",
+    "Consigne de regime : sortie TSC1 'TSC1-A:J1939-0 EB2 T45' (composant de trame) ou canal 'ENG Speed request' de la v2.",
+    "Codes d'etat SetComponentStatus pour une trame J1939 perdue."
+  ],
+  "clavier": {
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "codes": { "operationnel": 5 },
+    "touches": { "start_stop": 1, "libre": 2, "haut": 8, "lent": 16, "normal": 32, "rapide": 64, "bas": 128 },
+    "trames": ["heartbeat", "keys number frame"],
+    "canaux": { "etat": "Heartbeat/statut", "touches": "keys number" }
+  },
+  "moteur": {
+    "ralenti_rpm": 900, "regime_max_rpm": 3600, "regime_lancement_rpm": 250, "duree_lancement_s": 1.2,
+    "tau_s": 0.8, "t_ambiante": 20, "t_eau_regulee": 85, "tau_thermique_s": 240, "pression_huile_kpa": 350,
+    "statut_trame_ok": 0, "statut_trame_perdue": 2,
+    "trames": ["EEC1 EB2 T45", "EEC2 EB2 T45", "Engine Temperature EB 2", "Engine fluid level/pressure 1 EB2"],
+    "canaux": {
+      "demarreur": "",
+      "consigne_regime": "",
+      "regime": "Engine speed EB2 T45",
+      "charge": "% load at current speed EB2 T45",
+      "couple": "Actual engine, % torque EB2 T45",
+      "t_eau": "Engine coolant temperature EB2 T45",
+      "pression_huile": "Engine oil pressure EB2 T45"
+    }
+  }
+}

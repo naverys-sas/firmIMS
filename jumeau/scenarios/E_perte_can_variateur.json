@@ -1,0 +1,23 @@
+﻿{
+  "nom": "Perte CAN du variateur de chenille droit pendant une translation",
+  "profil": "E_tyva_sevcon",
+  "duree_s": 30,
+  "etat_initial": { "soc": 80 },
+  "parametres": { "joystick plugged mc42": 1 },
+  "evenements": [
+    { "t": 0, "action": "ecrire", "canal": "Left Joystick mc 36", "valeur": 2500 },
+    { "t": 0, "action": "ecrire", "canal": "Low water level RJoy", "valeur": 2500 },
+    { "t": 2, "action": "touche", "touche": "start_stop", "duree": 0.5 },
+    { "t": 10, "action": "ecrire", "canal": "Left Joystick mc 36", "valeur": 4000 },
+    { "t": 10, "action": "ecrire", "canal": "Low water level RJoy", "valeur": 4000 },
+    { "t": 15, "action": "panne", "equipement": "variateur_droit", "type": "can" },
+    { "t": 22, "action": "retablir", "equipement": "variateur_droit", "type": "can" }
+  ],
+  "observer": ["Batt or engine started mc", "CAN OK - S.M1.Right", "CAN OK - S.M2.Left", "DRV M1 CAN ok", "Throttle Input Voltage - S.M1.Right", "Throttle Input Voltage - S.M2.Left", "TRK Left cmd", "TRK Right cmd"],
+  "attendus": [
+    { "t": 14, "canal": "CAN OK - S.M1.Right", "egal": 1 },
+    { "t": 17, "canal": "CAN OK - S.M1.Right", "egal": 0 },
+    { "t": 17, "canal": "DRV M1 CAN ok", "egal": 0 },
+    { "t": 25, "canal": "CAN OK - S.M1.Right", "egal": 1 }
+  ]
+}

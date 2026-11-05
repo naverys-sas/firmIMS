@@ -1,0 +1,25 @@
+﻿{
+  "nom": "Translation sur chenilles : demarrage, joysticks en avant 10 s, retour au neutre",
+  "profil": "E_tyva_sevcon",
+  "duree_s": 30,
+  "etat_initial": { "soc": 80 },
+  "parametres": { "joystick plugged mc42": 1 },
+  "notes": "Tension des joysticks MC42 (VIN, mV) : neutre et pleine course a verifier dans les reglages du bateau.",
+  "evenements": [
+    { "t": 0, "action": "ecrire", "canal": "Left Joystick mc 36", "valeur": 2500 },
+    { "t": 0, "action": "ecrire", "canal": "Low water level RJoy", "valeur": 2500 },
+    { "t": 2, "action": "touche", "touche": "start_stop", "duree": 0.5 },
+    { "t": 8, "action": "touche", "touche": "normal", "duree": 0.5 },
+    { "t": 10, "action": "ecrire", "canal": "Left Joystick mc 36", "valeur": 4000 },
+    { "t": 10, "action": "ecrire", "canal": "Low water level RJoy", "valeur": 4000 },
+    { "t": 20, "action": "ecrire", "canal": "Left Joystick mc 36", "valeur": 2500 },
+    { "t": 20, "action": "ecrire", "canal": "Low water level RJoy", "valeur": 2500 }
+  ],
+  "observer": ["Batt or engine started mc", "Left Joystick mc 36", "Low water level RJoy", "Throttle Input Voltage - S.M1.Right", "Throttle Input Voltage - S.M2.Left", "Fordward Switch - S.M1.Right", "Fordward Switch - S.M2.Left", "Motor Speed - S.M1.Right", "Motor Speed - S.M2.Left", "TRK Left cmd", "TRK Right cmd", "TRK Speed mode"],
+  "attendus": [
+    { "t": 9, "canal": "Motor Speed - S.M1.Right", "max": 10 },
+    { "t": 18, "canal": "Motor Speed - S.M1.Right", "min": 100 },
+    { "t": 18, "canal": "Motor Speed - S.M2.Left", "min": 100 },
+    { "t": 29, "canal": "Motor Speed - S.M1.Right", "max": 10 }
+  ]
+}

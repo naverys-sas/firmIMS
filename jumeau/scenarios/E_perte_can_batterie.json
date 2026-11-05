@@ -1,0 +1,19 @@
+﻿{
+  "nom": "Perte CAN de la batterie en marche, puis retour de la communication",
+  "profil": "E_tyva_sevcon",
+  "duree_s": 40,
+  "etat_initial": { "soc": 80 },
+  "parametres": { "joystick plugged mc42": 1 },
+  "evenements": [
+    { "t": 2, "action": "touche", "touche": "start_stop", "duree": 0.5 },
+    { "t": 12, "action": "panne", "equipement": "batterie", "type": "can" },
+    { "t": 25, "action": "retablir", "equipement": "batterie", "type": "can" }
+  ],
+  "observer": ["Batt or engine started mc", "tyva batt can ok idc", "BatteryState_M0", "SynthesisBMS_M0", "E.Power Management System", "BAT CAN ok", "BAT Error"],
+  "attendus": [
+    { "t": 10, "canal": "tyva batt can ok idc", "egal": 1 },
+    { "t": 15, "canal": "tyva batt can ok idc", "egal": 0 },
+    { "t": 15, "canal": "BAT CAN ok", "egal": 0 },
+    { "t": 30, "canal": "tyva batt can ok idc", "egal": 1 }
+  ]
+}

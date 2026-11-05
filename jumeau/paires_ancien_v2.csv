@@ -1,0 +1,115 @@
+module;v2;ancien;variante;nature
+00_CFG;CFG Is_Electric;Is_Electric mc;*;digital
+00_CFG;CFG Is_Thermic;Is_Thermic mc;*;digital
+00_CFG;CFG Is_BAT_Torqeedo;Is_BMW;*;digital
+00_CFG;CFG Is_BAT_Novum;Is_Novum;*;digital
+00_CFG;CFG Is_BAT_Tyva;Is_Tyva;*;digital
+00_CFG;CFG Is_BAT_Kreisel;Is_Kreisel;*;digital
+00_CFG;CFG Is_Bender_gen1;gen1;*;digital
+00_CFG;CFG Is_Bender_gen2;gen2;*;digital
+00_CFG;CFG Is_CHG_Torqeedo;Is_Charger_BMW;*;digital
+00_CFG;CFG Is_CHG_Brusa;Is_Charger_Brusa;*;digital
+00_CFG;CFG Is_CHG_Elcon;Is_Charger_Elcon;*;digital
+00_CFG;CFG Is_DRV_Sevcon;Is_MT_Sevcon;*;digital
+00_CFG;CFG Is_DRV_Zapi;Is_MT_Zapi;*;digital
+00_CFG;CFG Is_PMP_HVLP_CANopen;Is_M3_Sevcon_gen;*;digital
+00_CFG;CFG Is_PMP_HVLP_J1939;Is_M3_Sevcon_j19;*;digital
+00_CFG;CFG Is_KBX_Cab;is_cab_mc;*;digital
+21_BAT;BAT CAN ok;Battery CAN OK;*;digital
+21_BAT;BAT Standby;Battery STANDBY;*;digital
+21_BAT;BAT Charge mode;Battery CHARGE;*;digital
+21_BAT;BAT Discharge mode;Battery DRIVE MODE;*;digital
+21_BAT;BAT SOC;Battery SOC;*;analog
+21_BAT;BAT Voltage;Battery InstantVoltage;*;analog
+21_BAT;BAT Voltage precharge ref;CPI_BMS_U_Trac;*;analog
+21_BAT;BAT Current;Current Bat;*;analog
+21_BAT;BAT Max discharge current;Max Discharge;*;analog
+21_BAT;BAT Cell V min;LowCellVoltage check bmw;*;analog
+21_BAT;BAT Cell V max;HighCellVoltage check bmw;*;analog
+21_BAT;BAT Isolation;Batt - Iso_Resist;*;analog
+21_BAT;BAT Isolation low;BMW tyva - Isolation Error;*;digital
+21_BAT;BAT Isolation error;Error Iso_Resist;*;digital
+21_BAT;BAT Ground fault;Flag Ground Fault Detection;*;digital
+21_BAT;BAT Charged;Battery CHARGED;*;digital
+22_CHG;CHG CAN ok;Charger CAN BUS OK;*;digital
+22_CHG;CHG AC connected;Charger CONNECT to 220V;*;digital
+22_CHG;CHG Ready;Charger READY;*;digital
+22_CHG;CHG Charging;Charger CHARGING;*;digital
+22_CHG;CHG Error;Charger ERROR;*;digital
+22_CHG;CHG Output voltage;Charger Output Voltage;*;analog
+22_CHG;CHG Output current;Charger Output Current;*;analog
+23_DRV;DRV M1 CAN ok;M1 - CAN OK;*;digital
+23_DRV;DRV M1 ready;M1 - Ready;*;digital
+23_DRV;DRV M1 run;M1 - RUN;*;digital
+23_DRV;DRV M1 error;M1 - Error mode;*;digital
+23_DRV;DRV M1 speed;M1 - Speed;*;analog
+23_DRV;DRV M1 current;M1 - CURRENT;*;analog
+23_DRV;DRV M1 torque;M1 - Torque;*;analog
+23_DRV;DRV M1 voltage;M1 - Voltage;*;analog
+23_DRV;DRV M1 heatsink temp;M1 - Heatsink;*;analog
+23_DRV;DRV M1 motor temp;M1 - KTY;*;analog
+23_DRV;DRV M2 CAN ok;M2 - CAN OK;*;digital
+23_DRV;DRV M2 ready;M2 - Ready;*;digital
+23_DRV;DRV M2 run;M2 - RUN;*;digital
+23_DRV;DRV M2 error;M2 - Error mode;*;digital
+23_DRV;DRV M2 speed;M2 - Speed;*;analog
+23_DRV;DRV M2 current;M2 - CURRENT;*;analog
+23_DRV;DRV M2 torque;M2 - Torque;*;analog
+23_DRV;DRV M2 voltage;M2 - Voltage;*;analog
+23_DRV;DRV M2 heatsink temp;M2 - Heatsink;*;analog
+23_DRV;DRV M2 motor temp;M2 - KTY;*;analog
+24_PMP;PMP CAN ok;M3 - CAN OK;*;digital
+24_PMP;PMP ready;M3 - Ready;*;digital
+24_PMP;PMP run;M3 - Run;*;digital
+24_PMP;PMP error;M3 - Error mode;*;digital
+24_PMP;PMP heatsink temp;M3 - Heatsink;*;analog
+24_PMP;PMP motor temp;M3 - Engine Temps;*;analog
+24_PMP;PMP voltage;M3 - Voltage;*;analog
+25_ENG;ENG Speed;T Speed CAN 42;E;analog
+25_ENG;ENG Speed;Speed CAN T45;T;analog
+25_ENG;ENG Coolant temp;T Engine coolant temp;E;analog
+25_ENG;ENG Coolant temp;Engine coolant temp T45;T;analog
+25_ENG;ENG Load;T % load at current speed;*;analog
+25_ENG;ENG Torque;Actual engine, % torque T45;*;analog
+25_ENG;ENG MIL lamp;Malfunction lamp T45;*;digital
+25_ENG;ENG Red stop lamp;Red stop lamp T45;*;digital
+25_ENG;ENG Amber lamp;Amber warning lamp T45;*;digital
+25_ENG;ENG Protect lamp;Protect lamp T45;*;digital
+25_ENG;ENG Speed request;In T Engine speed;*;analog
+50_TRK;TRK Start slope;e Start Slope;E;analog
+50_TRK;TRK Start slope;T Start Slope;T;analog
+50_TRK;TRK Stop slope;e Stop Slope;E;analog
+50_TRK;TRK Stop slope;T Stop Slope;T;analog
+50_TRK;TRK Max differential;e Max_differential;E;analog
+50_TRK;TRK Max differential;T Max_diffrential;T;analog
+50_TRK;TRK Need pressure delay;T Need Pressure Tempo;*;analog
+50_TRK;TRK Lock time;e Landing time bloking;E;analog
+50_TRK;TRK Lock time;T Locking Time;T;analog
+50_TRK;TRK Enabled;e System Started;*;digital
+50_TRK;TRK Enabled;Engine Stopped;*;digital
+50_TRK;TRK Enabled;System Crash Signal;*;digital
+50_TRK;TRK Speed mode;e Speed Mode;E;analog
+50_TRK;TRK Speed mode;T Speed Mode;T;analog
+50_TRK;TRK Left cmd;e Left Filter;E;analog
+50_TRK;TRK Left cmd;T Left Filter;T;analog
+50_TRK;TRK Right cmd;e Right Filter;E;analog
+50_TRK;TRK Right cmd;T Right Filter;T;analog
+50_TRK;TRK Translate power request;e Speed Pump;E;analog
+50_TRK;TRK Translate power request;T Speed Pump;T;analog
+80_HMI;HMI Status word 1;dtobin 2;*;analog
+80_HMI;HMI Status word 1;dtobin 3;*;analog
+80_HMI;HMI Status word 1;Joystick to zero;*;digital
+80_HMI;HMI Status word 1;batt ok to start;*;digital
+80_HMI;HMI Status word 2;dtobin 2;*;analog
+80_HMI;HMI Status word 2;dtobin 3;*;analog
+80_HMI;HMI Status word 2;Joystick to zero;*;digital
+80_HMI;HMI Status word 2;batt ok to start;*;digital
+80_HMI;HMI Status word 3;dtobin 2;*;analog
+80_HMI;HMI Status word 3;dtobin 3;*;analog
+80_HMI;HMI Status word 3;Joystick to zero;*;digital
+80_HMI;HMI Status word 3;batt ok to start;*;digital
+80_HMI;HMI Status word 4;dtobin 2;*;analog
+80_HMI;HMI Status word 4;dtobin 3;*;analog
+80_HMI;HMI Status word 4;Joystick to zero;*;digital
+80_HMI;HMI Status word 4;batt ok to start;*;digital
+85_LOG;LOG HMI keypad lost;Keypad HS;*;digital
