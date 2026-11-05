@@ -25,14 +25,13 @@ $Scenario = @($Scenario | ForEach-Object { $_ -split ',' } | Where-Object { $_ }
 
 function Write-Inventaire([SimCom]$s) {
     $f = Join-Path $Sortie 'inventaire.csv'
-    $s.Inventaire() | Select-Object Id, Nom, Module, Pilotable, Unite, SousType | Export-Csv $f -Delimiter ';' -NoTypeInformation -Encoding UTF8
-    "$($s.Info.Count) canaux ($(@($s.Info.Values | Where-Object Pilotable).Count) pilotables), cycle $($s.Cycle) ms -> $f"
+    $s.Inventaire() | Select-Object Id, Nom, Type, Appli, Chemin | Export-Csv $f -Delimiter ';' -NoTypeInformation -Encoding UTF8
+    "$($s.Info.Count) canaux, cycle $($s.Cycle) ms -> $f"
     foreach ($pf in Get-ChildItem "$PSScriptRoot\profils\*.json") {
         $p = Get-Content $pf.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
         foreach ($sec in $p.PSObject.Properties | Where-Object { $_.Value.canaux }) {
             foreach ($n in @($sec.Value.canaux.PSObject.Properties.Value) + @($sec.Value.trames) | Where-Object { $_ }) {
-                $etat = if (-not $s.Existe($n)) { 'ABSENT OU AMBIGU' } elseif (-not $s.Info[$s.Id($n)].Pilotable) { 'lecture seule' } else { 'ok' }
-                if ($etat -ne 'ok') { "  $($pf.BaseName) / $($sec.Name) : $n -> $etat" }
+                try { [void]$s.Id($n) } catch { "  $($pf.BaseName) / $($sec.Name) : $($_.Exception.Message)" }
             }
         }
     }

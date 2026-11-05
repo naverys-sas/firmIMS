@@ -5,6 +5,7 @@
 
 $script:ACMODULE = 2
 $script:ACCHANNEL = 4
+$script:ENTREES = 'GPIN', 'GFIN', 'JPIN', 'JFIN', 'SPN', 'DM1IN', 'VIN', 'VIN32', 'DIN', 'DPCNT', 'APPIN', 'VDIN'
 
 # GetComponent renvoie une structure (ComponentRecord) que PowerShell ne sait pas lire par IDispatch :
 # la bibliotheque de types n'est pas enregistree. On appelle donc l'interface double par sa table
@@ -58,7 +59,7 @@ class SimCom {
     [object]$Nat
     [bool]$Fake
     [hashtable]$ParNom = @{}      # nom -> liste d'ids
-    [hashtable]$ParQualif = @{}   # nom@module -> id
+    [hashtable]$ParQualif = @{}   # nom ou nom@qualifiant deja resolu -> id
     [hashtable]$Info = @{}        # id -> enregistrement
     [hashtable]$Valeurs = @{}     # mode Fake
     [int]$Cycle = 10              # ms
@@ -67,49 +68,62 @@ class SimCom {
     SimCom([bool]$fake) { $this.Fake = $fake }
 
     [void] Ouvrir([string]$projet) {
+        $this.Indexer($projet)
         if ($this.Fake) { return }
         $this.Sim = New-Object -ComObject IQANsimulate.IQANsimulateControl2
         if (-not $this.Sim.OpenFile($projet)) { throw "IQANsimulate refuse d'ouvrir $projet" }
         $this.Prj = New-Object -ComObject IQANsimulate.IQANProject2
         $this.Nat = 'IqanSim.Natif' -as [type]   # type charge par Add-Type, inconnu a l'analyse de la classe
-        # La liste des canaux n'est remplie qu'une fois la simulation lancee.
         $this.Sim.StartSimulation(); $this.Sim.PauseSimulation()
-        $this.Indexer()
         $c = $this.Prj.GetCycletime()
         if ($c -gt 0) { $this.Cycle = $c }
     }
 
-    [void] Indexer() {
-        $modules = @{}
-        $n = $this.Prj.GetComponentCount($script:ACMODULE)
-        for ($i = 0; $i -lt $n; $i++) { $m = $this.Nat::Composant($this.Prj, $script:ACMODULE, $i); $modules[[int]$m.Id] = $m.Name }
-        $n = $this.Prj.GetComponentCount($script:ACCHANNEL)
-        for ($i = 0; $i -lt $n; $i++) {
-            $c = $this.Nat::Composant($this.Prj, $script:ACCHANNEL, $i)
-            $mod = $modules[[int]$c.ModuleId]
-            $this.Info[[int]$c.Id] = [pscustomobject]@{ Id = [int]$c.Id; Nom = $c.Name; Module = $mod; Unite = $c.Unit; Pilotable = [bool]$c.Controllable; SousType = [int]$c.ComponentSubType }
-            if (-not $this.ParNom.ContainsKey($c.Name)) { $this.ParNom[$c.Name] = New-Object System.Collections.ArrayList }
-            [void]$this.ParNom[$c.Name].Add([int]$c.Id)
-            if ($mod) { $this.ParQualif["$($c.Name)@$mod"] = [int]$c.Id }
+    # IQANsimulate designe un canal par l'identifiant d'objet de l'export texte (BEGIN n) mais ne
+    # liste pas les canaux par son API (GetComponentCount = 0). On lit donc les noms dans l'export
+    # du projet simule (<projet>.canaux.csv, produit par index_export.py ; cree s'il manque).
+    [void] Indexer([string]$projet) {
+        $idx = "$projet.canaux.csv"
+        if (-not (Test-Path $idx)) {
+            $txt = [IO.Path]::ChangeExtension($projet, '.txt')
+            if (-not (Test-Path $txt)) {
+                $exe = 'C:\Program Files (x86)\IQANdesign 6.08\IQANdesign.exe'
+                Start-Process $exe -ArgumentList "`"$projet`"", '-saveas', "`"$txt`"" -Wait
+            }
+            python -I (Join-Path $PSScriptRoot 'index_export.py') $txt $idx | Out-Null
+        }
+        foreach ($r in Import-Csv $idx -Delimiter ';' -Encoding UTF8) {
+            $id = [int]$r.id
+            $this.Info[$id] = [pscustomobject]@{ Id = $id; Nom = $r.nom; Type = $r.type; Appli = $r.appli; Chemin = $r.chemin }
+            if (-not $this.ParNom.ContainsKey($r.nom)) { $this.ParNom[$r.nom] = New-Object System.Collections.ArrayList }
+            [void]$this.ParNom[$r.nom].Add($id)
         }
     }
 
+    # Entre homonymes : un qualifiant, sinon la MC42, sinon l'entree. "Nom" ou "Nom@qualifiant" : le qualifiant est un type (GPIN), une appli (MC42 app) ou un morceau
+    # du chemin de groupes (E.Sevcon.M3.j19). A defaut, un nom unique dans la MC42 l'emporte.
     [int] Id([string]$nom) {
         if ($this.ParQualif.ContainsKey($nom)) { return $this.ParQualif[$nom] }
-        $ids = $this.ParNom[$nom]
-        if (-not $ids) { throw "Canal inconnu dans le simulateur : $nom" }
-        if ($ids.Count -gt 1) {
-            $mods = ($ids | ForEach-Object { $this.Info[$_].Module }) -join ', '
-            throw "Nom ambigu : $nom (modules $mods). Qualifier avec @module."
+        $n = $nom; $q = $null
+        $at = $nom.LastIndexOf('@')
+        if ($at -gt 0) { $n = $nom.Substring(0, $at); $q = $nom.Substring($at + 1) }
+        $ids = @($this.ParNom[$n])
+        if (-not $this.ParNom.ContainsKey($n)) { throw "Canal inconnu : $n" }
+        if ($q) { $ids = @($ids | Where-Object { $i = $this.Info[$_]; $i.Type -eq $q -or $i.Appli -eq $q -or $i.Chemin.Contains($q) }) }
+        if ($ids.Count -gt 1) { $mc = @($ids | Where-Object { $this.Info[$_].Appli -eq 'MC42 app' }); if ($mc.Count -ge 1) { $ids = $mc } }
+        # Puis l'entree (ce que les modeles ecrivent) plutot que le canal de calcul du meme nom.
+        if ($ids.Count -gt 1) { $e = @($ids | Where-Object { $this.Info[$_].Type -in $script:ENTREES }); if ($e.Count -eq 1) { $ids = $e } }
+        if ($ids.Count -ne 1) {
+            $ou = ($this.ParNom[$n] | ForEach-Object { "$($this.Info[$_].Type) $($this.Info[$_].Chemin)" }) -join ' | '
+            throw "Nom ambigu ou qualifiant sans effet : $nom ($ou)"
         }
+        $this.ParQualif[$nom] = $ids[0]
         return $ids[0]
     }
 
     [bool] Existe([string]$nom) {
-        if ($this.Fake) { return $true }
-        return $this.ParQualif.ContainsKey($nom) -or ($this.ParNom.ContainsKey($nom) -and $this.ParNom[$nom].Count -eq 1)
+        try { [void]$this.Id($nom); return $true } catch { return $false }
     }
-
     [double] Lire([string]$nom) {
         if ($this.Fake) { if ($this.Valeurs.ContainsKey($nom)) { return $this.Valeurs[$nom] } return 0 }
         $v = $this.Prj.GetComponentValue($this.Id($nom))
@@ -148,6 +162,5 @@ class SimCom {
         return $this.Sim.GetCurrentTimestamp()
     }
 
-    # Liste des canaux pour verifier les noms et ce qui est pilotable.
-    [object[]] Inventaire() { return @($this.Info.Values | Sort-Object Module, Nom) }
+    [object[]] Inventaire() { return @($this.Info.Values | Sort-Object Chemin, Nom) }
 }

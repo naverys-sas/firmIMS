@@ -1,4 +1,4 @@
-{
+﻿{
   "nom": "Electrique X100 : batterie Tyva, variateurs de chenilles Sevcon gen4, pompe HVLP J1939",
   "bateaux_type": "#010 (refit) a #105, 12 bateaux Tyva + Sevcon (kb_flotte)",
   "parametres": {
@@ -27,7 +27,7 @@
     "trames": ["BatteryState_M0", "SynthesisBMS_M0", "VoltageBattery_M0", "CurrentBattery_M0", "TemperatureCell_M0", "PDUStatus_M0b", "Error_M0", "Warning_M0", "TemperaturePDU_M0", "MaxAdmissibleCurrent_M0"],
     "canaux": {
       "soc": "SOC tyva",
-      "soh": "SOH",
+      "soh": "SOH@E. Tyva",
       "tension": "BatteryVoltage tyva",
       "v_cell_min": "VoltageCellMin",
       "v_cell_max": "VoltageCellMax",
@@ -43,7 +43,7 @@
       "relais_charge": "PDURelayStatusCharge",
       "relais_precharge": "PDURelayStatusPrecharge",
       "erreur_surtemperature": "ErrorOverTemperatureDischarge",
-      "erreur_sous_tension": "ErrorUnderVoltage@tyva battery"
+      "erreur_sous_tension": "ErrorUnderVoltage@E. Tyva"
     }
   },
   "chargeur": {
@@ -55,7 +55,7 @@
     "canaux": {
       "autorisation": "Char",
       "courant_max": "Max Curent",
-      "tension_secteur": "Input Voltage@Charger Elcon",
+      "tension_secteur": "Input Voltage@E.Charger_Elcon",
       "courant_sortie": "Output Current",
       "tension_sortie": "Output Voltage",
       "temperature": "Temperature od charger",
@@ -85,8 +85,8 @@
       "vitesse": "Motor Speed - S.M1.Right",
       "courant": "Actual Current - S.M1.Right",
       "couple": "Torque - S.M1.Right",
-      "tension": "Voltage - S.M1.Right@Sev_M_Track",
-      "t_radiateur": "Heatsink - S.M1.Right@Sev_M_Track",
+      "tension": "Voltage - S.M1.Right@E.Sevcon.M1.M2.gen4",
+      "t_radiateur": "Heatsink - S.M1.Right@E.Sevcon.M1.M2.gen4",
       "t_moteur": "KTY - S.M1.Right",
       "statut": "Statut - S.M1.Right",
       "erreur": "Error - S.M1.Right"
@@ -105,9 +105,9 @@
       "arriere": "Inch reverse switch - S.M2.Left",
       "vitesse": "Motor Speed - S.M2.Left",
       "courant": "Actual Current - S.M2.Left",
-      "couple": "Torque actual - S.M2.Left@Sev_M_Track",
-      "tension": "Voltage - S.M2.Left@Sev_M_Track",
-      "t_radiateur": "Heatsink - S.M2.Left@Sev_M_Track",
+      "couple": "Torque actual - S.M2.Left@E.Sevcon.M1.M2.gen4",
+      "tension": "Voltage - S.M2.Left@E.Sevcon.M1.M2.gen4",
+      "t_radiateur": "Heatsink - S.M2.Left@E.Sevcon.M1.M2.gen4",
       "t_moteur": "KTY - S.M2.Left",
       "erreur": "Error - S.M2.Left"
     }
@@ -121,13 +121,13 @@
     "canaux": {
       "couple_demande": "Torque Demande o250",
       "mot_etat_demande": "Status Word o250",
-      "mot_etat": "Status Word@Inverter_HVLP_j19",
-      "vitesse": "Motor_Speed_Raw@Inverter_HVLP_j19",
-      "tension": "Input Voltage@Inverter_HVLP_j19",
-      "couple": "Torque_Mesured_Raw@Inverter_HVLP_j19",
+      "mot_etat": "Status Word@E.Sevcon.M3.j19",
+      "vitesse": "Motor_Speed_Raw@E.Sevcon.M3.j19",
+      "tension": "Input Voltage@E.Sevcon.M3.j19",
+      "couple": "Torque_Mesured_Raw@E.Sevcon.M3.j19",
       "t_radiateur": "insideHeatsink",
       "t_moteur": "Sevcon - Engine Temp",
-      "erreur": "M3 (Pump) - Error@Inverter_HVLP_j19"
+      "erreur": "M3 (Pump) - Error@E.Sevcon.M3.j19"
     }
   }
 }
