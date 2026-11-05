@@ -44,3 +44,10 @@ La v2 (groupe « v2 », 316 formules) tourne à côté de l'ancienne logique dan
 - Modèles volontairement simples (premier ordre) : ils servent à exercer la logique, pas à prédire les performances.
 - Codes d'état (StateBMS, Statut Sevcon, Status Word HVLP, état « trame perdue ») et échelles : hypothèses tirées de la 108.3.1, listées dans chaque profil sous `a_verifier`, à confirmer au premier essai réel.
 - Les écrans MD4 sont simulés par IQANsimulate ; on observe leurs canaux, on ne clique pas dessus.
+
+## État au 05/11/2026 (soir)
+
+- IQANsimulate 6.08 installé (la 7 est désinstallée), mot de passe du projet enregistré dans son Password Manager : `rejouer.ps1` tourne sans intervention (PowerShell 32 bits conseillé : `C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`).
+- L'API ne liste pas les canaux, mais un canal se désigne par l'identifiant d'objet de l'export texte : `index_export.py` fait la table nom → identifiant (`<projet>.canaux.csv`). Lecture et écriture des entrées fonctionnent.
+- **Réglages du bateau** (marque de batterie, variateurs…) : l'API ne les change pas, et un paramètre d'état démarre toujours sur son état par défaut. `profil_copie.py` (entrée forcée par un canal SIM) donne des erreurs IQANdesign (« Invalid context », « Not adjustable ») et retirer les éléments de menu de réglage corrompt le fichier : **ne pas utiliser en l'état**. Piste retenue : régler les paramètres dans IQANsimulate et les enregistrer dans un fichier de simulation `.isax` par profil, que `rejouer.ps1` ouvrira.
+- **Copie v2** : refusée par IQANsimulate, 484 erreurs IQANdesign sur 143 canaux v2 (formules mal traduites par l'assembleur : noms non reconnus ou coupés, sélecteurs et rampes). `verifier_projet.ps1` lit la liste d'erreurs d'IQANdesign sans souris.

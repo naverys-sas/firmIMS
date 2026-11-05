@@ -1,10 +1,12 @@
-"""Make a simulation copy of a project set up as one boat configuration (a profile).
+﻿"""Make a simulation copy of a project set up as one boat configuration (a profile).
 
 IQANsimulate does not let a script change parameters (SetComponentValue on SP/DP is ignored),
 and a State parameter always starts on its default state. So, in a COPY only:
-- a State parameter (SP) gets as input channel a new Integer parameter "SIM <name>" whose
-  default value is the wanted state number (an SP with an input channel follows it, like
-  em M-Pump - Brand follows is_x100_math in the 108.3.1);
+- a State parameter (SP) gets as input channel a new Math channel "SIM <name>" equal to the
+  wanted state number (an SP with an input channel follows it, like em M-Pump - Brand follows
+  is_x100_math in the 108.3.1). IQANdesign refuses a parameter as input ("Invalid context") and
+  an SP with an input in a settings menu ("Not adjustable"), so the adjust items of that SP
+  (and the group items that list them) are removed from the copy;
 - a Digital parameter (DP) gets the wanted default value.
 The new channels go in a function group "SIM jumeau" at the end of the MC42 application.
 Never run on an original project: the copy is only for IQANsimulate, never for a boat.
@@ -22,6 +24,24 @@ import assembler_v2  # noqa: E402
 import iqanprojet  # noqa: E402
 
 SP, DP = 0x28, 0x31
+REGLAGES = (0x13, 0x2C)  # Single adjust item, Adjust group item
+
+
+def refs(n):
+    return {struct.unpack_from('<I', v, 2)[0] for v in n.obj.values if len(v) >= 6 and v[0] == 0xCF and v[1] == iqanprojet.REF}
+
+
+def retirer_reglages(pr, oid):
+    """Remove the adjust items that point to oid, then the adjust group items that list them."""
+    cibles, total = {oid}, 0
+    while True:
+        gone = [(sec, n) for sec, n in pr.walk() if n.cls in REGLAGES and n.oid not in cibles and refs(n) & cibles]
+        if not gone:
+            return total
+        for sec, n in gone:
+            cibles.add(n.oid)
+            pr.remove(sec, n)
+            total += 1
 
 
 def main(base, profil_path, out):
@@ -43,14 +63,15 @@ def main(base, profil_path, out):
             ch.obj.values[5] = b'\xd2\x01\x00\xcd' + struct.pack('<H', 3 if valeur else 2)
             faits.append('%s (DP) : defaut %s' % (nom, bool(valeur)))
             continue
-        ligne = {'group': '', 'channel': 'SIM ' + nom, 'type': 'IP', 'unit': '',
+        ligne = {'group': '', 'channel': 'SIM ' + nom, 'type': 'MAC', 'unit': '',
                  'description': 'Jumeau : etat force de %s (copie de simulation)' % nom,
                  'selector': '', 'function': '', 'activating': str(int(valeur)), 'blocking': '',
                  'properties': '', 'origin': ''}
         a.canal(groupe, [ligne], sum(1 for x in groupe.children if x.cls == 0x04))
         cree = a.noms['SIM ' + nom]
         pr.set_ref(ch, 2, cree)
-        faits.append('%s (SP) : suit SIM %s = %d' % (nom, nom, int(valeur)))
+        retires = retirer_reglages(pr, ch.oid)
+        faits.append('%s (SP) : suit SIM %s = %d, %d element(s) de menu de reglage retires' % (nom, nom, int(valeur), retires))
     for f in a.differe:
         f()
     pr.save(out)
